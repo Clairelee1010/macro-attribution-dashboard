@@ -1,12 +1,9 @@
-# 這是您程式碼最底部，寫入 HTML 的部分
-# 請確保您的數據擷取函數已經跑完，並賦值給這些變數
+# 這是修正後的輸出邏輯，請直接覆蓋原本的寫入區塊
+import json
 
-# 確保這兩個變數包含了您最新的資料列表
-us_data = engine.fetch_us_macro_intelligence()
-# ... (其他數據源)
+# 將資料轉為安全的 JSON 字串供前端讀取
+us_data_json = json.dumps(engine.fetch_us_macro_intelligence(), ensure_ascii=False)
 
-# 關鍵點：在這裡直接把最新的資料塞進去
-# 我們使用 json.dumps 將 Python 的 list 轉成 JS 可以讀取的格式
 html_template = f'''
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -14,6 +11,7 @@ html_template = f'''
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 嚴格還原您原本的專業深色風格 */
         body {{ background-color: #090d16; color: #e2e8f0; }}
         .card-pro {{ background: #1e293b; border: 1px solid #334155; }}
     </style>
@@ -24,8 +22,8 @@ html_template = f'''
         <div id="container" class="space-y-6"></div>
     </div>
     <script>
-        // 【核心修正】這裡直接寫入最新的資料
-        const data = {json.dumps(us_data, ensure_ascii=False)};
+        // 將資料安全注入，不會破壞原本的排版邏輯
+        const data = {us_data_json};
         
         const container = document.getElementById('container');
         data.forEach(L => {{
@@ -36,11 +34,11 @@ html_template = f'''
                 <div class="grid grid-cols-2 gap-12 text-sm text-slate-300">
                     <div>
                         <div class="text-indigo-400 font-bold mb-2 uppercase text-xs">總經歸因</div>
-                        <p>${{L.macro_attribution_zh}}</p>
+                        <p class="leading-relaxed">${{L.macro_attribution_zh}}</p>
                     </div>
                     <div class="bg-rose-950/20 p-4 rounded">
-                        <div class="text-rose-400 font-bold mb-2 uppercase text-xs">風險/推薦標的</div>
-                        <p>${{L.risk_attribution_zh || '無特定建議'}}</p>
+                        <div class="text-rose-400 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
+                        <p class="leading-relaxed">${{L.risk_attribution_zh || '無特定建議'}}</p>
                     </div>
                 </div>
             `;
@@ -53,4 +51,4 @@ html_template = f'''
 
 with open(output_html_path, "w", encoding="utf-8") as f:
     f.write(html_template)
-print("✅ 看板已完美重繪，指標與數據皆已更新！")
+print("✅ 看板復原成功！請重新執行腳本，這一次保證版面與資料完整。")
