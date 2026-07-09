@@ -28,6 +28,7 @@ engine = RAGAttributionEngine()
 final_data = engine.generate_dashboard_data()
 
 # 3. 寫入檔案
+# 確保 JSON 存入與 GitHub Action 執行的目錄一致
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(final_data, f, ensure_ascii=False, indent=4)
 
