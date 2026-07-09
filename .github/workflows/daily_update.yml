@@ -28,5 +28,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Update dashboard data automatically"
-          git push
+          # 如果沒有變動，這裡不會報錯
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update dashboard data automatically" && git push)
