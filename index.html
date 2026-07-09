@@ -3,52 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Macro Attribution Dashboard</title>
+    <title>🎯 Macro Attribution Dashboard 4.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #f8fafc; color: #334155; font-family: system-ui, -apple-system, sans-serif; }
     </style>
 </head>
-<body class="p-8">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl font-bold mb-8">🎯 每日總經與台美股跨市場連動歸因看板</h1>
-        <div id="content" class="space-y-6">讀取中...</div>
+<body class="p-6 max-w-7xl mx-auto">
+
+    <!-- 頂部標題與狀態 -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-slate-200 pb-5 mb-6 gap-4">
+        <div>
+            <h1 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                🎯 每日總經與台美股跨市場連動歸因看板 
+                <span class="text-xs bg-indigo-600 text-indigo-50 px-2.5 py-1 rounded-md font-mono">v4.0 旗艦復活版</span>
+            </h1>
+        </div>
+        <div class="flex items-center gap-3 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm text-xs text-slate-600 font-mono">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span> Data Live Sync Active
+        </div>
     </div>
 
-    <script>
-        async function updateDashboard() {
-            try {
-                // 【關鍵修正】強制指定完整 GitHub Pages 專案路徑，避免找不到檔案
-                const res = await fetch('https://clairelee1010.github.io/macro-attribution-dashboard/dashboard_data.json');
-                if (!res.ok) throw new Error("找不到 json 檔案，請確認 GitHub Actions 是否有成功產出 dashboard_data.json");
-                
-                const data = await res.json();
-                const container = document.getElementById('content');
-                
-                if (!data || !data.us_macro) {
-                    container.innerHTML = "<div>⚠️ 載入的 JSON 格式不正確，請檢查資料結構。</div>";
-                    return;
-                }
+    <!-- 上方四格儀表板 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 tracking-wider uppercase">當前分區情報總數</div>
+            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-slate-900 font-mono">0</div>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+            <div class="text-xs font-semibold text-slate-500 tracking-wider uppercase">多頭 (Bullish) 訊號</div>
+            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-600 font-mono">0%</div>
+        </div>
+        <div class="bg-white border border-red-200 rounded-xl p-5 shadow-sm shadow-red-100">
+            <div class="text-xs font-semibold text-red-600 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
+            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-red-600 font-mono">0.0 (Loading)</div>
+        </div>
+        <div class="bg-white border border-amber-200 rounded-xl p-5 shadow-sm shadow-amber-100">
+            <div class="text-xs font-semibold text-amber-600 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
+            <div id="meta-rwa-val" class="text-lg font-bold mt-2 text-amber-700 font-mono">+$45.8M</div>
+        </div>
+    </div>
 
-                container.innerHTML = data.us_macro.map(item => `
-                    <div class="bg-white p-8 border-l-4 border-indigo-500 rounded-xl shadow-sm border border-slate-200">
-                        <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh || item.title || '無標題'}</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm">
-                            <div class="text-slate-600">
-                                <div class="text-indigo-600 font-bold mb-2 uppercase text-xs">總經歸因</div>
-                                <p class="leading-relaxed">${item.macro_attribution_zh || item.macro_attribution || '暫無資料'}</p>
-                            </div>
-                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
-                                <div class="text-red-700 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
-                                <p class="text-slate-700 leading-relaxed">${item.risk_attribution_zh || item.risk_attribution || '無資料'}</p>
-                            </div>
+    <!-- VIX 深度解析警告區 -->
+    <div class="bg-red-50 border border-red-100 rounded-xl p-4 mb-6">
+        <p id="meta-vix-desc" class="text-xs text-red-800 leading-relaxed font-mono">載入總經歸因矩陣中...</p>
+    </div>
+
+    <!-- 三大分頁標籤切換 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 mb-6 gap-2">
+        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-lg">
+            🇺🇸 美股總經與 Fed 決策
+        </button>
+        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-lg">
+            🌐 Web3 智能金融與 RWA
+        </button>
+        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-lg">
+            💻 台股與經濟部政策
+        </button>
+    </div>
+
+    <!-- 卡片容器 -->
+    <div id="news-container" class="space-y-6"></div>
+
+    <script>
+        let marketData = {};
+        let activeTab = "us_macro";
+
+        function switchTab(tabKey) {
+            activeTab = tabKey;
+            renderActiveTab();
+        }
+
+        function renderActiveTab() {
+            // 切換 Tab 樣式
+            ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (!btn) return;
+                if (key === activeTab) {
+                    btn.className = "py-3 px-4 font-bold text-center border-b-2 text-indigo-600 border-indigo-600 bg-white rounded-t-lg text-sm transition-all shadow-[0_-4px_12px_rgba(79,70,229,0.05)]";
+                } else {
+                    btn.className = "py-3 px-4 font-bold text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-all rounded-t-lg text-sm";
+                }
+            });
+
+            const rawData = marketData[activeTab] || [];
+            const vixData = marketData.global_vix || {};
+
+            // 更新儀表板數據
+            document.getElementById('meta-total-val').innerText = rawData.length;
+            const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
+            document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
+            document.getElementById('meta-vix-val').innerText = `${vixData.value || 'N/A'} (${vixData.status_zh || ''})`;
+            document.getElementById('meta-vix-desc').innerText = vixData.insight_zh || '';
+
+            // 渲染主要觀測情報卡片
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
+
+            if (rawData.length === 0) {
+                container.innerHTML = `<div class="text-slate-400 text-center py-8">該分區暫無觀測情報。</div>`;
+                return;
+            }
+
+            rawData.forEach((news, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-lg transition-all shadow-sm';
+                
+                // 動態生成推薦與風險族群列表
+                let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => { recTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
+                let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => { riskTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
+                let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => { recUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
+                let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => { riskUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="px-2 py-0.5 rounded-full font-mono font-bold bg-slate-100 text-slate-700">${news.ai_sentiment || 'Mixed'}</span>
+                            <span class="text-slate-500 font-mono">預估波動: <b class="text-amber-600">${news.vol_multiplier || '1.0x'}</b></span>
+                            <span class="text-slate-300">|</span>
+                            <span class="text-slate-500 font-mono">Source: <b class="text-indigo-600">${news.source || 'Unknown'}</b></span>
                         </div>
                     </div>
-                `).join('');
-                
+                    
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 border-l-4 border-indigo-500 pl-2.5">TOP ${index + 1} · ${news.title}</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-3.5 border-t border-slate-100 mb-4">
+                        <div>
+                            <div class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-1.5">🌐 總體經濟與加密週期歸因</div>
+                            <p class="text-xs text-slate-600 leading-relaxed">${news.macro_attribution || '無'}</p>
+                        </div>
+                        <div class="lg:border-l lg:border-slate-100 lg:pl-5">
+                            <div class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase mb-1.5">💻 跨市場資金流向與溢出影響</div>
+                            <p class="text-xs text-slate-600 leading-relaxed font-medium">${news.tw_spillover_effect || '無明顯連動'}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 mb-4 font-mono text-[11px]">
+                        <div class="mb-1"><span class="text-amber-700 font-bold">📊 RWA 鏈上流動性量能:</span> <span class="text-slate-600 ml-1">${news.rwa_flow_metric || 'N/A'}</span></div>
+                        <div><span class="text-emerald-700 font-bold">🤖 Agent 自主執行日誌:</span> <span class="text-slate-600 ml-1">${news.agent_action_log || 'N/A'}</span></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-emerald-50/40 border border-emerald-100 rounded-xl p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-emerald-700 tracking-wider uppercase">🟢 建議關注台股族群</div>
+                            <div>${recTwHtml || '暫無強烈推薦'}</div>
+                            <div class="border-t border-emerald-100 my-2 pt-2 text-[11px] font-bold text-emerald-700 tracking-wider uppercase">🟢 建議關注美股標的</div>
+                            <div>${recUsHtml || '暫無強烈推薦'}</div>
+                        </div>
+
+                        <div class="bg-rose-50/40 border border-rose-100 rounded-xl p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-rose-700 tracking-wider uppercase">🔴 高風險台股警告</div>
+                            <div>${riskTwHtml || '持平觀望'}</div>
+                            <div class="border-t border-rose-100 my-2 pt-2 text-[11px] font-bold text-rose-700 tracking-wider uppercase">🔴 高風險美股警告</div>
+                            <div>${riskUsHtml || '持平觀望'}</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        async function updateDashboard() {
+            try {
+                // 使用相對路徑讀取 JSON
+                const res = await fetch('dashboard_data.json');
+                if (!res.ok) throw new Error("找不到 json 檔案");
+                marketData = await res.json();
+                switchTab("us_macro");
             } catch (error) {
                 console.error(error);
-                document.getElementById('content').innerHTML = `<div>❌ 讀取失敗: ${error.message}</div>`;
+                document.getElementById('news-container').innerHTML = `<div class="text-red-500">❌ 讀取失敗: ${error.message}</div>`;
             }
         }
         
