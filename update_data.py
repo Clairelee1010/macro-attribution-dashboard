@@ -61,7 +61,7 @@ class RAGAttributionEngine:
     def fetch_tw_stocks_intelligence(self):
         return [
             {
-                "title": "經濟部積極研議爭取美方 AI 資料中心大廠來台落腳，推動亞洲算力與綠電樞紐計畫",
+                "title": "經濟部積極研議爭取美方 AI 資料中心大廠來台落腳，推動亞洲算力與綠電樞樞紐計畫",
                 "source": "台灣經濟部 (MOEA) / 焦點新聞",
                 "ai_sentiment": "Bullish",
                 "vol_multiplier": "3.8x",
@@ -114,14 +114,14 @@ class RAGAttributionEngine:
         return data
 
 # ==============================================================================
-# SECTION C: 寫入前端極致優化之 HTML 核心邏輯 (清新明亮商務風、VIX 儀表板)
+# SECTION C: 寫入前端極致優化之 HTML 核心邏輯
 # ==============================================================================
 engine = RAGAttributionEngine()
 final_data = engine.generate_dashboard_data()
 json_data_str = json.dumps(final_data, ensure_ascii=False)
 output_html_path = "Macro_Attribution_Dashboard.html"
 
-# 優化重點：全面改為亮色系 (Slate-50 背景, 純白高質感卡片, 精緻灰/藍文字邊框)
+# 完全復原 4.0 完整架構：修正大括號與文字隱形問題
 html_template = f'''<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -211,6 +211,7 @@ html_template = f'''<!DOCTYPE html>
     <div id="news-container" class="space-y-6"></div>
 
     <script>
+        // 【關鍵修正點】雙大括號包裹，確保 Python 寫入時 JS 引擎不會卡死
         const marketData = {json_data_str};
         let activeTab = "us_macro";
 
@@ -281,7 +282,6 @@ html_template = f'''<!DOCTYPE html>
             const rawData = marketData[activeTab] || [];
             const vixData = marketData.global_vix || {{}};
 
-            // 更新上層 Dashboard 與 VIX 數據
             document.getElementById('meta-total-label').innerText = L.total_label;
             document.getElementById('meta-bullish-label').innerText = L.bullish_label;
             document.getElementById('meta-vix-label').innerText = L.vix_label;
@@ -292,7 +292,6 @@ html_template = f'''<!DOCTYPE html>
             const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
             
-            // 動態渲染 VIX 數值與解讀
             document.getElementById('meta-vix-val').innerText = `${{vixData.value}} (${{lang === 'zh' ? vixData.status_zh : vixData.status_en}})`;
             document.getElementById('meta-vix-desc').innerText = lang === 'zh' ? vixData.insight_zh : vixData.insight_en;
 
@@ -303,10 +302,11 @@ html_template = f'''<!DOCTYPE html>
                 const card = document.createElement('div');
                 card.className = 'bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-lg transition-all shadow-sm';
                 
-                let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => {{ recTwHtml += `<div class="mb-1.5 text-xs text-slate-700"><b>· ${{g.name}}</b> <span class="text-slate-500">(${{g.reason}})</span></div>`; }});
-                let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => {{ riskTwHtml += `<div class="mb-1.5 text-xs text-slate-700"><b>· ${{g.name}}</b> <span class="text-slate-500">(${{g.reason}})</span></div>`; }});
-                let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => {{ recUsHtml += `<div class="mb-1.5 text-xs text-slate-700"><b>· ${{g.name}}</b> <span class="text-slate-500">(${{g.reason}})</span></div>`; }});
-                let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => {{ riskUsHtml += `<div class="mb-1.5 text-xs text-slate-700"><b>· ${{g.name}}</b> <span class="text-slate-500">(${{g.reason}})</span></div>`; }});
+                // 【關鍵修正點】將原本的 text-slate-200 改為 text-slate-800，防止白底白色文字隱形
+                let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => {{ recTwHtml += `<div class="mb-1.5 text-xs text-slate-800"><b>· ${{g.name}}</b> <span class="text-slate-600">(${{g.reason}})</span></div>`; }});
+                let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => {{ riskTwHtml += `<div class="mb-1.5 text-xs text-slate-800"><b>· ${{g.name}}</b> <span class="text-slate-600">(${{g.reason}})</span></div>`; }});
+                let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => {{ recUsHtml += `<div class="mb-1.5 text-xs text-slate-800"><b>· ${{g.name}}</b> <span class="text-slate-600">(${{g.reason}})</span></div>`; }});
+                let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => {{ riskUsHtml += `<div class="mb-1.5 text-xs text-slate-800"><b>· ${{g.name}}</b> <span class="text-slate-600">(${{g.reason}})</span></div>`; }});
 
                 card.innerHTML = `
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5">
@@ -383,7 +383,7 @@ html_template = f'''<!DOCTYPE html>
 with open(output_html_path, "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("🎯 4.0 [A+B+C 全能整合旗艦版 + VIX 清新明亮版] 看板生成成功！")
+print("🎯 4.0 [A+B+C 全能整合旗艦版 + VIX 清新明亮修正版] 看板生成成功！")
 try:
     from google.colab import files
     files.download(output_html_path)
