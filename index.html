@@ -4,40 +4,40 @@
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #090d16; color: #e2e8f0; font-family: sans-serif; }
-        .card-pro { background: #1e293b; border: 1px solid #334155; border-radius: 8px; }
+        body { background-color: #f8fafc; color: #1e293b; font-family: sans-serif; }
+        .card-bright { background: white; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
     </style>
 </head>
 <body class="p-8">
     <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl font-bold mb-8">🎯 每日總經與台美股跨市場連動歸因看板 v4.0 旗艦版</h1>
-        
-        <div id="content" class="space-y-6"></div>
+        <h1 class="text-3xl font-bold mb-8">🎯 每日總經與台美股跨市場連動歸因看板</h1>
+        <div id="content" class="space-y-6">讀取中...</div>
     </div>
 
     <script>
-        async function updateUI() {
-            const response = await fetch('dashboard_data.json');
-            const data = await response.json();
+        async function updateDashboard() {
+            const res = await fetch('dashboard_data.json');
+            const data = await res.json();
             const container = document.getElementById('content');
             
-            container.innerHTML = data.news_items.map(item => `
-                <div class="card-pro p-8 border-l-4 border-indigo-600">
-                    <h2 class="text-2xl font-bold mb-4">${item.title_zh}</h2>
-                    <div class="grid grid-cols-2 gap-12 text-sm text-slate-300">
-                        <div>
-                            <div class="text-indigo-400 font-bold mb-2 uppercase text-xs">總經歸因</div>
+            // 渲染邏輯，直接對接您 Python 引擎的結構
+            container.innerHTML = data.us_macro.map(item => `
+                <div class="card-bright p-8 border-l-4 border-indigo-500">
+                    <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh}</h2>
+                    <div class="grid grid-cols-2 gap-10 text-sm">
+                        <div class="text-slate-600">
+                            <div class="text-indigo-600 font-bold mb-2 uppercase text-xs">總經歸因</div>
                             <p>${item.macro_attribution_zh}</p>
                         </div>
-                        <div class="bg-rose-950/20 p-4 rounded">
-                            <div class="text-rose-400 font-bold mb-2 uppercase text-xs">高風險警告</div>
-                            <p>${item.risk_attribution_zh || '無特定風險建議'}</p>
+                        <div class="bg-red-50 p-4 rounded">
+                            <div class="text-red-700 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
+                            <p class="text-slate-700">${item.risk_attribution_zh || '無資料'}</p>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
-        updateUI();
+        updateDashboard();
     </script>
 </body>
 </html>
