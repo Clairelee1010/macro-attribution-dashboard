@@ -1,8 +1,16 @@
+name: Daily Data Update
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # 關鍵：這行能讓 Action 有權限寫入檔案到你的 Repository
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
