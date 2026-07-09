@@ -2,91 +2,60 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日總經與台美股跨市場連動歸因看板</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .dashboard-card { background: #1e293b; border-radius: 8px; padding: 1.5rem; color: white; }
+        body { background-color: #f8fafc; color: #1e293b; }
+        .nav-tab { cursor: pointer; padding: 0.5rem 1rem; border-bottom: 2px solid transparent; }
+        .nav-tab.active { border-bottom: 2px solid #4f46e5; color: #4f46e5; font-weight: bold; }
+        .card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
     </style>
 </head>
-<body class="bg-slate-900 text-white p-8">
+<body class="p-8">
 
-    <header class="mb-8">
-        <h1 class="text-3xl font-bold">每日總經與台美股跨市場連動歸因看板 <span class="text-sm text-slate-400">v4.0 旗艦版</span></h1>
-    </header>
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-8">
+            <h1 class="text-3xl font-extrabold text-slate-900">每日總經與台美股跨市場連動歸因看板 <span class="text-sm text-slate-400 font-normal">v4.0 清新旗艦版</span></h1>
+            <p class="text-slate-600 mt-2">整合 Agentic Finance 智能體金融與 RWA 真實世界資產流動數據</p>
+        </header>
 
-    <div class="flex space-x-4 mb-6">
-        <button id="tab-us" onclick="switchTab('us')" class="px-4 py-2 border-b-2 text-indigo-400 border-indigo-400">美股總經</button>
-        <button id="tab-web3" onclick="switchTab('web3')" class="px-4 py-2 border-b-2 text-slate-400 hover:text-white">Web3 RWA</button>
-        <button id="tab-tw" onclick="switchTab('tw')" class="px-4 py-2 border-b-2 text-slate-400 hover:text-white">台股動態</button>
+        <div class="flex space-x-6 mb-6 border-b border-slate-200">
+            <div id="tab-us" class="nav-tab active" onclick="switchTab('us')">美股總經</div>
+            <div id="tab-web3" class="nav-tab" onclick="switchTab('web3')">Web3 RWA</div>
+            <div id="tab-tw" class="nav-tab" onclick="switchTab('tw')">台股動態</div>
+        </div>
+
+        <div id="display-card" class="card">
+            <h2 id="title" class="text-2xl font-bold mb-4 text-indigo-700">載入中...</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold text-slate-500 uppercase text-xs mb-1">總經歸因</h3>
+                    <p id="desc" class="text-lg leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="news-container"></div>
-
     <script>
-        // 1. 資料庫
-        const marketData = {
-            us: [
-                {
-                    title_zh: "Fed 紀要釋放 'Higher for Longer' 訊號，黏性通膨扭曲殖利率曲線",
-                    source: "Reuters / FOMC Minutes",
-                    macro_attribution_zh: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升。",
-                    tw_spillover_effect_zh: "台美利差維持高位，引發對台股權值股的階段性提款壓力。"
-                }
-            ],
-            web3: [
-                {
-                    title_zh: "Web3 資金流動正常",
-                    source: "Agentic Finance",
-                    macro_attribution_zh: "鏈上流動性指標穩定，RWA 資產流入健康。",
-                    tw_spillover_effect_zh: "無顯著溢出效應。"
-                }
-            ],
-            tw: [
-                {
-                    title_zh: "台股經濟部快訊",
-                    source: "Market Watch",
-                    macro_attribution_zh: "台股技術面支撐強勁。",
-                    tw_spillover_effect_zh: "供應鏈效應擴散中。"
-                }
-            ]
+        const data = {
+            us: { title: "Fed 紀要釋放 'Higher for Longer' 訊號", desc: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升，引發權值股階段性提款。" },
+            web3: { title: "Web3 資金流動正常", desc: "鏈上流動性指標穩定，RWA 資產流入健康，市場情緒保持中性。" },
+            tw: { title: "台股經濟部快訊", desc: "台股技術面支撐強勁，供應鏈效應在電子零組件領域持續擴散中。" }
         };
 
-        let activeTab = 'us';
+        function switchTab(key) {
+            // 更新 UI 樣式
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('tab-' + key).classList.add('active');
 
-        // 2. 渲染邏輯
-        function renderActiveTab() {
-            const container = document.getElementById('news-container');
-            container.innerHTML = ""; 
-
-            const data = marketData[activeTab];
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "dashboard-card mb-6";
-                card.innerHTML = `
-                    <h3 class="text-xl font-bold mb-2">${item.title_zh}</h3>
-                    <p class="text-sm text-slate-400 mb-4">${item.source}</p>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div><h4 class="font-bold text-indigo-400">總經歸因</h4><p>${item.macro_attribution_zh}</p></div>
-                        <div><h4 class="font-bold text-indigo-400">台股溢出影響</h4><p>${item.tw_spillover_effect_zh}</p></div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-
-            // 更新按鈕狀態
-            document.querySelectorAll('button').forEach(btn => btn.classList.remove('text-indigo-400', 'border-indigo-400'));
-            document.getElementById('tab-' + activeTab).classList.add('text-indigo-400', 'border-indigo-400');
-        }
-
-        // 3. 切換邏輯
-        function switchTab(tab) {
-            activeTab = tab;
-            renderActiveTab();
+            // 更新文字
+            const item = data[key];
+            document.getElementById('title').innerText = item.title;
+            document.getElementById('desc').innerText = item.desc;
         }
 
         // 初始化
-        renderActiveTab();
+        switchTab('us');
     </script>
 </body>
 </html>
