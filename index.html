@@ -2,64 +2,43 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>Macro Attribution Dashboard v4.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #090d16; color: #e2e8f0; }
-        .card-bg { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; }
-        .log-box { font-family: 'Courier New', monospace; background: #000; border: 1px solid #1e293b; }
-    </style>
 </head>
-<body class="p-8 max-w-7xl mx-auto">
-
-    <!-- 標題區 -->
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold flex items-center gap-3">🎯 每日總經與台美股跨市場連動歸因看板 <span class="text-sm bg-indigo-900 text-indigo-200 px-3 py-1 rounded">v4.0 旗艦版</span></h1>
-        <p class="text-slate-400 mt-2">整合 Agentic Finance 智能體金融、RWA 真實世界資產鏈上資金流及跨境軟硬體整合政策之跨市場深度決策矩陣。</p>
+<body class="bg-slate-50 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">🎯 每日總經與台美股跨市場連動歸因看板</h1>
+        <div id="stats" class="grid grid-cols-4 gap-4 mb-8"></div>
+        <div id="news-container" class="space-y-6"></div>
     </div>
-
-    <!-- 頁籤與即時日誌 -->
-    <div class="flex gap-6 border-b border-slate-800 mb-6">
-        <button class="pb-3 border-b-2 border-indigo-500 font-bold">美股總經與 Fed 決策情報</button>
-        <button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300">Web3 智能金融與 RWA</button>
-        <button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300">台股與政策動態</button>
-    </div>
-
-    <div class="log-box p-4 rounded text-xs text-emerald-500 mb-8">
-        [2026-07-06 22:02:44] [SUCCESS] Bilingual data pipeline 100% synchronized and verified.
-    </div>
-
-    <!-- 指標矩陣 -->
-    <div class="grid grid-cols-4 gap-4 mb-8">
-        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">情報總數 (RAG)</div><div class="text-3xl font-bold mt-1">3</div></div>
-        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">多頭佔比</div><div class="text-3xl font-bold mt-1 text-emerald-400">0%</div></div>
-        <div class="card-bg p-6 rounded-xl border-l-4 border-rose-500"><div class="text-xs text-rose-400">VIX 恐慌避險</div><div class="text-2xl font-bold mt-1">22.4</div></div>
-        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">Agentic RWA 流向</div><div class="text-2xl font-bold mt-1 text-indigo-400">+$45.8M</div></div>
-    </div>
-
-    <!-- 核心矩陣區 (使用自動渲染邏輯) -->
-    <div id="matrix-container" class="space-y-6"></div>
 
     <script>
-        // 直接對接您的 Python 數據結構
-        const data = [
-            { id: 1, title: "Fed 紀要釋放 'Higher for Longer' 訊號", macro: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升。", spill: "台美利差維持高位，引發外資對台股權值股的階段性提款壓力。" },
-            { id: 2, title: "美債殖利率曲線持續倒掛", macro: "長短債利差持續收斂，反映市場對經濟衰退的擔憂。", spill: "對高股息、高負債比之科技股估值產生重大修正壓力。" },
-            { id: 3, title: "勞動力市場數據轉弱", macro: "就業報告顯示成長力道放緩，隱含景氣循環頂部風險。", spill: "電子零組件供應鏈觀望氛圍轉濃，庫存調整期恐延長。" }
-        ];
-
-        const container = document.getElementById('matrix-container');
-        data.forEach(item => {
-            container.innerHTML += `
-                <div class="card-bg p-8 rounded-xl border-l-4 border-indigo-600">
-                    <h3 class="text-2xl font-bold mb-6">TOP ${item.id} · ${item.title}</h3>
-                    <div class="grid grid-cols-2 gap-12 text-sm text-slate-300">
-                        <div><div class="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-wider">總經歸因</div><p>${item.macro}</p></div>
-                        <div><div class="text-slate-400 font-bold mb-2 uppercase text-xs tracking-wider">台股溢出影響 (SPILLOVER)</div><p>${item.spill}</p></div>
+        async function loadDashboard() {
+            const res = await fetch('market_data.json');
+            const data = await res.json();
+            
+            // 渲染指標
+            document.getElementById('stats').innerHTML = `
+                <div class="bg-white p-4 shadow rounded">VIX: ${data.vix}</div>
+                <div class="bg-white p-4 shadow rounded">RWA: ${data.rwa_flow}</div>
+            `;
+            
+            // 渲染新聞 (包含推薦與風險)
+            const container = document.getElementById('news-container');
+            container.innerHTML = data.news.map(item => `
+                <div class="bg-white p-8 border-l-4 border-indigo-600 shadow-sm rounded-xl">
+                    <h2 class="text-2xl font-bold mb-4">${item.title}</h2>
+                    <div class="grid grid-cols-2 gap-8 text-sm">
+                        <div><p class="font-bold text-indigo-600 uppercase text-xs">總經歸因</p>${item.macro}</div>
+                        <div><p class="font-bold text-slate-500 uppercase text-xs">台股溢出影響</p>${item.spill}</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="bg-green-50 p-3 rounded text-xs"><strong>推薦：</strong> ${item.recommend.map(g => g.name).join(', ')}</div>
+                        <div class="bg-red-50 p-3 rounded text-xs"><strong>風險：</strong> ${item.risk.map(g => g.name).join(', ')}</div>
                     </div>
                 </div>
-            `;
-        });
+            `).join('');
+        }
+        loadDashboard();
     </script>
 </body>
 </html>
