@@ -2,36 +2,68 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Attribution Dashboard v4.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Dashboard</title>
+    <style>
+        body { background-color: #f8fafc; color: #1e293b; font-family: sans-serif; }
+        .bg-custom { background-color: #ffffff; border: 1px solid #e2e8f0; }
+        .text-accent { color: #4f46e5; }
+        .tab-btn { cursor: pointer; padding: 0.5rem 1rem; border-bottom: 3px solid transparent; }
+        .tab-btn.active { border-bottom: 3px solid #4f46e5; color: #4f46e5; font-weight: bold; }
+    </style>
 </head>
-<body class="bg-slate-50 p-10">
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6">每日總經與台美股跨市場連動歸因看板</h1>
-        
-        <div class="flex gap-4 mb-6">
-            <button onclick="update('us')" class="bg-white px-4 py-2 rounded shadow">美股總經</button>
-            <button onclick="update('web3')" class="bg-white px-4 py-2 rounded shadow">Web3 RWA</button>
-            <button onclick="update('tw')" class="bg-white px-4 py-2 rounded shadow">台股動態</button>
+<body class="p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- 標頭 -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold flex items-center gap-3">🎯 每日總經與台美股跨市場連動歸因看板 <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">v4.0 明亮旗艦版</span></h1>
+            <p class="text-slate-600 mt-2">整合 Agentic Finance 智能體金融與 RWA 真實世界資產鏈上資金流分析</p>
+        </header>
+
+        <!-- 頁籤：自動化切換入口 -->
+        <div class="flex space-x-8 mb-6 border-b border-slate-200">
+            <div id="tab-us" class="tab-btn active" onclick="updateView('us')">us 美股總經與 Fed 決策情報</div>
+            <div id="tab-web3" class="tab-btn" onclick="updateView('web3')">🌐 Web3 智能金融與 RWA 鏈上流向</div>
+            <div id="tab-tw" class="tab-btn" onclick="updateView('tw')">💻 台股與經濟部政策動態</div>
         </div>
 
-        <div id="card" class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-indigo-500">
-            <h2 id="title" class="text-2xl font-bold mb-4">請點擊上方頁籤</h2>
-            <p id="desc" class="text-slate-600">等待資料載入...</p>
+        <!-- 內容卡片 -->
+        <div id="display-container" class="bg-custom p-8 rounded-2xl shadow-sm">
+            <div id="news-content">
+                <h2 id="news-title" class="text-2xl font-bold text-slate-900 mb-4">載入中...</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div><h4 class="text-indigo-600 font-bold mb-2">總經歸因</h4><p id="news-macro" class="text-slate-700"></p></div>
+                    <div><h4 class="text-slate-500 font-bold mb-2">台股溢出影響</h4><p id="news-spillover" class="text-slate-700"></p></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const content = {
-            us: { t: "Fed 紀要釋放訊號", d: "核心通膨黏性導致殖利率飆升，權值股壓力增大。" },
-            web3: { t: "Web3 資金流動正常", d: "鏈上 RWA 資產流入健康，流動性穩定。" },
-            tw: { t: "台股技術面支撐", d: "供應鏈效應擴散，電子零組件表現穩健。" }
+        // 1. 自動化資料源
+        const marketData = {
+            us: { title: "Fed 紀要釋放 'Higher for Longer' 訊號", macro: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升。", spillover: "台美利差維持高位，引發對台股權值股的階段性提款壓力。" },
+            web3: { title: "Web3 鏈上資金流動分析", macro: "鏈上流動性指標穩定，RWA 資產流入健康，比特幣期權未平倉量維持高檔。", spillover: "Web3 資金淨流入對電子零組件與散熱模組供應鏈產生間接支撐。" },
+            tw: { title: "台股經濟部快訊：供應鏈韌性", macro: "台股技術面支撐強勁，特別在半導體先進製程與 AI 伺服器硬體出貨成長。", spillover: "受惠跨境硬體整合政策，外資資金回流重點科技權值股。" }
         };
 
-        function update(key) {
-            document.getElementById('title').innerText = content[key].t;
-            document.getElementById('desc').innerText = content[key].d;
+        // 2. 自動化更新邏輯
+        function updateView(key) {
+            // 更新頁籤樣式
+            document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+            document.getElementById('tab-' + key).classList.add('active');
+
+            // 更新內容
+            const data = marketData[key];
+            document.getElementById('news-title').innerText = data.title;
+            document.getElementById('news-macro').innerText = data.macro;
+            document.getElementById('news-spillover').innerText = data.spillover;
         }
+
+        // 初始化
+        updateView('us');
     </script>
 </body>
 </html>
