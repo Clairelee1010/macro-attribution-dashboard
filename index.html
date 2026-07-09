@@ -19,7 +19,7 @@
         async function updateDashboard() {
             try {
                 // 【關鍵修正】強制指定完整 GitHub Pages 專案路徑，避免找不到檔案
-                const res = await fetch('/macro-attribution-dashboard/dashboard_data.json');
+                const res = await fetch('https://clairelee1010.github.io/macro-attribution-dashboard/dashboard_data.json');
                 if (!res.ok) throw new Error("找不到 json 檔案，請確認 GitHub Actions 是否有成功產出 dashboard_data.json");
                 
                 const data = await res.json();
