@@ -3,100 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Macro Attribution Dashboard 4.0</title>
+    <title>每日總經與台美股跨市場連動歸因看板</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 明亮清新風格樣式 */
-        body { 
-            background-color: #f8fafc; 
-            color: #1e293b; 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 18px; /* 全域字體放大 */
-            line-height: 1.7;
-            padding: 40px;
-        }
-        
-        .dashboard-card { 
-            background-color: #ffffff; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 16px; 
-            padding: 30px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        h1, h2 { color: #0f172a; font-weight: 700; }
-        
-        .agent-terminal { 
-            font-family: 'Consolas', 'Monaco', monospace; 
-            background-color: #f1f5f9; 
-            color: #475569;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        /* 調整卡片標題字體 */
-        .card-title { font-size: 22px; }
-        .text-3xl { font-size: 32px; font-weight: 800; }
-        
-        /* 調整按鈕樣式 */
-        button { font-size: 18px !important; }
-        .active-tab { border-bottom: 3px solid #6366f1 !important; color: #6366f1 !important; }
+        .dashboard-card { background: #1e293b; border-radius: 8px; padding: 1.5rem; color: white; }
     </style>
 </head>
-<body class="max-w-7xl mx-auto">
+<body class="bg-slate-900 text-white p-8">
 
-    <!-- 頂部高階戰略標頭 -->
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-slate-200 pb-8 mb-8 gap-4">
-        <div>
-            <h1 class="text-3xl flex items-center gap-3">
-                🎯 <span id="ui-main-title">每日總經與台美股跨市場連動歸因看板</span>
-                <span class="text-sm bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-medium">v4.0 亮面旗艦版</span>
-            </h1>
-            <p id="ui-main-subtitle" class="text-lg text-slate-600 mt-3">
-                整合 Agentic Finance 智能體金融、RWA 真實世界資產鏈上資金流及跨境軟硬體整合政策之跨市場深度決策矩陣。
-            </p>
-        </div>
-        <div class="flex items-center gap-3 bg-white border border-slate-200 px-6 py-3 rounded-2xl shadow-sm">
-            <span class="text-sm font-medium flex items-center gap-2">
-                <span class="h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span> RAG Engine: Active
-            </span>
-            <select id="lang-select" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1 text-sm">
-                <option value="zh">繁體中文</option>
-                <option value="en">English</option>
-            </select>
-        </div>
+    <header class="mb-8">
+        <h1 class="text-3xl font-bold">每日總經與台美股跨市場連動歸因看板 <span class="text-sm text-slate-400">v4.0 旗艦版</span></h1>
+    </header>
+
+    <div class="flex space-x-4 mb-6">
+        <button id="tab-us" onclick="switchTab('us')" class="px-4 py-2 border-b-2 text-indigo-400 border-indigo-400">美股總經</button>
+        <button id="tab-web3" onclick="switchTab('web3')" class="px-4 py-2 border-b-2 text-slate-400 hover:text-white">Web3 RWA</button>
+        <button id="tab-tw" onclick="switchTab('tw')" class="px-4 py-2 border-b-2 text-slate-400 hover:text-white">台股動態</button>
     </div>
 
-    <!-- AI Agent 自主執行即時終端日誌 -->
-    <div class="dashboard-card mb-8">
-        <div class="text-sm font-bold uppercase tracking-widest mb-3 text-indigo-600">💻 AI Agent Live Execution Stream</div>
-        <div class="agent-terminal h-24 overflow-y-auto leading-relaxed">
-            <div>[2026-07-06 22:01:02] [AGENT_FINANCE] Multi-chain agent protocol successfully reconciled liquidity.</div>
-            <div>[2026-07-06 22:02:44] [SUCCESS] Bilingual data pipeline 100% synchronized.</div>
-        </div>
-    </div>
-
-    <!-- 市場類別獨立頁籤 -->
-    <div class="grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 mb-8 gap-2">
-        <button id="tab-us_macro" class="py-4 font-bold text-center border-b-4 border-transparent text-slate-500 hover:text-indigo-600">🇺🇸 美股總經</button>
-        <button id="tab-web3_crypto" class="py-4 font-bold text-center border-b-4 border-transparent text-slate-500 hover:text-indigo-600">🌐 Web3 RWA</button>
-        <button id="tab-tw_stocks" class="py-4 font-bold text-center border-b-4 border-transparent text-slate-500 hover:text-indigo-600">💻 台股動態</button>
-    </div>
-
-    <!-- 頂部決策指標 -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="dashboard-card"><div class="text-sm text-slate-500">情報總數</div><div class="text-3xl mt-2">3</div></div>
-        <div class="dashboard-card"><div class="text-sm text-slate-500">多頭佔比</div><div class="text-3xl mt-2 text-emerald-600">0%</div></div>
-        <div class="dashboard-card"><div class="text-sm text-rose-500 font-bold">VIX 避險追蹤</div><div class="text-3xl mt-2 text-rose-600">22.4</div></div>
-        <div class="dashboard-card"><div class="text-sm text-amber-600 font-bold">RWA 淨流向</div><div class="text-3xl mt-2 text-amber-600">+$45.8M</div></div>
-    </div>
-
-    <h2 id="ui-section-title" class="text-2xl mb-6">🔥 RAG 歸因決策矩陣</h2>
-    <div id="news-container" class="space-y-6"></div>
+    <div id="news-container"></div>
 
     <script>
-        // 這裡維持你原本的資料載入邏輯即可
+        // 1. 資料庫
+        const marketData = {
+            us: [
+                {
+                    title_zh: "Fed 紀要釋放 'Higher for Longer' 訊號，黏性通膨扭曲殖利率曲線",
+                    source: "Reuters / FOMC Minutes",
+                    macro_attribution_zh: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升。",
+                    tw_spillover_effect_zh: "台美利差維持高位，引發對台股權值股的階段性提款壓力。"
+                }
+            ],
+            web3: [
+                {
+                    title_zh: "Web3 資金流動正常",
+                    source: "Agentic Finance",
+                    macro_attribution_zh: "鏈上流動性指標穩定，RWA 資產流入健康。",
+                    tw_spillover_effect_zh: "無顯著溢出效應。"
+                }
+            ],
+            tw: [
+                {
+                    title_zh: "台股經濟部快訊",
+                    source: "Market Watch",
+                    macro_attribution_zh: "台股技術面支撐強勁。",
+                    tw_spillover_effect_zh: "供應鏈效應擴散中。"
+                }
+            ]
+        };
+
+        let activeTab = 'us';
+
+        // 2. 渲染邏輯
+        function renderActiveTab() {
+            const container = document.getElementById('news-container');
+            container.innerHTML = ""; 
+
+            const data = marketData[activeTab];
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "dashboard-card mb-6";
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold mb-2">${item.title_zh}</h3>
+                    <p class="text-sm text-slate-400 mb-4">${item.source}</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div><h4 class="font-bold text-indigo-400">總經歸因</h4><p>${item.macro_attribution_zh}</p></div>
+                        <div><h4 class="font-bold text-indigo-400">台股溢出影響</h4><p>${item.tw_spillover_effect_zh}</p></div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            // 更新按鈕狀態
+            document.querySelectorAll('button').forEach(btn => btn.classList.remove('text-indigo-400', 'border-indigo-400'));
+            document.getElementById('tab-' + activeTab).classList.add('text-indigo-400', 'border-indigo-400');
+        }
+
+        // 3. 切換邏輯
+        function switchTab(tab) {
+            activeTab = tab;
+            renderActiveTab();
+        }
+
+        // 初始化
+        renderActiveTab();
     </script>
 </body>
 </html>
