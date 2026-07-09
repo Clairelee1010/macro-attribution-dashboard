@@ -5,85 +5,61 @@
     <title>Macro Attribution Dashboard v4.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f1f5f9; color: #1e293b; }
-        .bg-custom { background: white; border: 1px solid #e2e8f0; border-radius: 12px; }
-        .log-box { background: #0f172a; color: #94a3b8; font-family: monospace; }
-        .tab-active { border-bottom: 3px solid #4f46e5; color: #4f46e5; font-weight: bold; }
+        body { background-color: #090d16; color: #e2e8f0; }
+        .card-bg { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border: 1px solid #334155; }
+        .log-box { font-family: 'Courier New', monospace; background: #000; border: 1px solid #1e293b; }
     </style>
 </head>
-<body class="p-8">
+<body class="p-8 max-w-7xl mx-auto">
 
-<div class="max-w-6xl mx-auto">
-    <!-- Header -->
-    <h1 class="text-3xl font-bold mb-1">🎯 每日總經與台美股跨市場連動歸因看板 <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">v4.0 明亮旗艦版</span></h1>
-    <p class="text-slate-500 mb-6">整合 Agentic Finance 智能體金融與 RWA 真實世界資產鏈上資金流分析</p>
-
-    <!-- Execution Log -->
-    <div class="log-box p-4 rounded-lg text-sm mb-6 shadow-inner">
-        <div class="text-indigo-400">💻 AI AGENT LIVE EXECUTION STREAM</div>
-        <div id="log-content">Initializing data pipeline...</div>
+    <!-- 標題區 -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold flex items-center gap-3">🎯 每日總經與台美股跨市場連動歸因看板 <span class="text-sm bg-indigo-900 text-indigo-200 px-3 py-1 rounded">v4.0 旗艦版</span></h1>
+        <p class="text-slate-400 mt-2">整合 Agentic Finance 智能體金融、RWA 真實世界資產鏈上資金流及跨境軟硬體整合政策之跨市場深度決策矩陣。</p>
     </div>
 
-    <!-- Tabs -->
-    <div class="flex space-x-8 mb-6 border-b border-slate-300">
-        <div class="cursor-pointer pb-2 tab-active" onclick="render('us')">us 美股總經與 Fed 決策情報</div>
-        <div class="cursor-pointer pb-2 text-slate-500" onclick="render('web3')">🌐 Web3 智能金融</div>
-        <div class="cursor-pointer pb-2 text-slate-500" onclick="render('tw')">💻 台股與政策動態</div>
+    <!-- 頁籤與即時日誌 -->
+    <div class="flex gap-6 border-b border-slate-800 mb-6">
+        <button class="pb-3 border-b-2 border-indigo-500 font-bold">美股總經與 Fed 決策情報</button>
+        <button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300">Web3 智能金融與 RWA</button>
+        <button class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-300">台股與政策動態</button>
     </div>
 
-    <!-- Stats Matrix -->
-    <div class="grid grid-cols-4 gap-4 mb-8" id="stats-matrix">
-        <div class="bg-custom p-6 shadow-sm"><div class="text-xs text-slate-400">情報總數</div><div class="text-3xl font-bold">3</div></div>
-        <div class="bg-custom p-6 shadow-sm"><div class="text-xs text-slate-400">多頭佔比</div><div class="text-3xl font-bold text-emerald-600">0%</div></div>
-        <div class="bg-custom p-6 shadow-sm border-l-4 border-red-500"><div class="text-xs text-red-500">VIX 避險</div><div class="text-2xl font-bold">22.4</div></div>
-        <div class="bg-custom p-6 shadow-sm"><div class="text-xs text-slate-400">RWA 流向</div><div class="text-3xl font-bold text-indigo-600">+$45.8M</div></div>
+    <div class="log-box p-4 rounded text-xs text-emerald-500 mb-8">
+        [2026-07-06 22:02:44] [SUCCESS] Bilingual data pipeline 100% synchronized and verified.
     </div>
 
-    <!-- Dynamic News Section -->
-    <div id="news-container" class="space-y-6"></div>
-</div>
+    <!-- 指標矩陣 -->
+    <div class="grid grid-cols-4 gap-4 mb-8">
+        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">情報總數 (RAG)</div><div class="text-3xl font-bold mt-1">3</div></div>
+        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">多頭佔比</div><div class="text-3xl font-bold mt-1 text-emerald-400">0%</div></div>
+        <div class="card-bg p-6 rounded-xl border-l-4 border-rose-500"><div class="text-xs text-rose-400">VIX 恐慌避險</div><div class="text-2xl font-bold mt-1">22.4</div></div>
+        <div class="card-bg p-6 rounded-xl"><div class="text-xs text-slate-400">Agentic RWA 流向</div><div class="text-2xl font-bold mt-1 text-indigo-400">+$45.8M</div></div>
+    </div>
 
-<script>
-    // 資料結構：已擴充為陣列，可自動渲染多筆新聞 (TOP 3)
-    const marketData = {
-        us: [
-            { id: 1, title: "Fed 紀要釋放 'Higher for Longer' 訊號", macro: "強烈鷹派訊號，核心通膨具有黏性。", spillover: "台美利差維持高位，權值股提款壓力。" },
-            { id: 2, title: "美債殖利率曲線持續倒掛", macro: "長短債利差收斂，市場衰退擔憂。", spillover: "高估值科技股估值修正壓力。" },
-            { id: 3, title: "勞動力市場數據降溫", macro: "就業報告顯示成長放緩。", spillover: "電子零組件供應鏈觀望氛圍濃厚。" }
-        ]
-    };
+    <!-- 核心矩陣區 (使用自動渲染邏輯) -->
+    <div id="matrix-container" class="space-y-6"></div>
 
-    // 渲染函數：自動更新與迴圈顯示
-    function render(key) {
-        const container = document.getElementById('news-container');
-        container.innerHTML = `<h2 class="text-xl font-bold mb-4">🔥 RAG 歸因決策矩陣</h2>`;
-        
-        const data = marketData[key] || [];
+    <script>
+        // 直接對接您的 Python 數據結構
+        const data = [
+            { id: 1, title: "Fed 紀要釋放 'Higher for Longer' 訊號", macro: "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性，導致殖利率再度飆升。", spill: "台美利差維持高位，引發外資對台股權值股的階段性提款壓力。" },
+            { id: 2, title: "美債殖利率曲線持續倒掛", macro: "長短債利差持續收斂，反映市場對經濟衰退的擔憂。", spill: "對高股息、高負債比之科技股估值產生重大修正壓力。" },
+            { id: 3, title: "勞動力市場數據轉弱", macro: "就業報告顯示成長力道放緩，隱含景氣循環頂部風險。", spill: "電子零組件供應鏈觀望氛圍轉濃，庫存調整期恐延長。" }
+        ];
+
+        const container = document.getElementById('matrix-container');
         data.forEach(item => {
             container.innerHTML += `
-                <div class="bg-custom p-8 shadow-sm border-l-4 border-indigo-500">
-                    <h3 class="text-xl font-bold mb-4">TOP ${item.id} · ${item.title}</h3>
-                    <div class="grid grid-cols-2 gap-10 text-sm">
-                        <div><div class="text-indigo-600 font-bold mb-1 uppercase text-xs">總經歸因</div><p class="text-slate-700">${item.macro}</p></div>
-                        <div><div class="text-slate-500 font-bold mb-1 uppercase text-xs">台股溢出影響</div><p class="text-slate-700">${item.spillover}</p></div>
+                <div class="card-bg p-8 rounded-xl border-l-4 border-indigo-600">
+                    <h3 class="text-2xl font-bold mb-6">TOP ${item.id} · ${item.title}</h3>
+                    <div class="grid grid-cols-2 gap-12 text-sm text-slate-300">
+                        <div><div class="text-indigo-400 font-bold mb-2 uppercase text-xs tracking-wider">總經歸因</div><p>${item.macro}</p></div>
+                        <div><div class="text-slate-400 font-bold mb-2 uppercase text-xs tracking-wider">台股溢出影響 (SPILLOVER)</div><p>${item.spill}</p></div>
                     </div>
                 </div>
             `;
         });
-    }
-
-    // 自動化日誌更新模擬
-    function updateLiveFeed() {
-        const logs = [
-            "[2026-07-09 09:50] Data pipeline 100% synchronized.",
-            "[2026-07-09 09:51] RAG model status: Active.",
-            "[2026-07-09 09:52] Liquidity indicators updated."
-        ];
-        document.getElementById('log-content').innerText = logs[Math.floor(Math.random() * logs.length)];
-    }
-
-    render('us');
-    setInterval(updateLiveFeed, 5000); // 每 5 秒自動更新一次日誌
-</script>
+    </script>
 </body>
 </html>
