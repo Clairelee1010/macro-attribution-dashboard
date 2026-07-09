@@ -18,31 +18,29 @@
     <script>
         async function updateDashboard() {
             try {
-                // 讀取與 Python 輸出一格式化對齊的 JSON
-                const res = await fetch('dashboard_data.json');
-                if (!res.ok) throw new Error("找不到 json 檔案，請確認 GitHub Pages 部署狀態");
+                // 【關鍵修正】強制指定完整 GitHub Pages 專案路徑，避免找不到檔案
+                const res = await fetch('/macro-attribution-dashboard/dashboard_data.json');
+                if (!res.ok) throw new Error("找不到 json 檔案，請確認 GitHub Actions 是否有成功產出 dashboard_data.json");
                 
                 const data = await res.json();
                 const container = document.getElementById('content');
                 
-                // 安全檢查：確保資料存在
                 if (!data || !data.us_macro) {
                     container.innerHTML = "<div>⚠️ 載入的 JSON 格式不正確，請檢查資料結構。</div>";
                     return;
                 }
 
-                // 渲染邏輯
                 container.innerHTML = data.us_macro.map(item => `
                     <div class="bg-white p-8 border-l-4 border-indigo-500 rounded-xl shadow-sm border border-slate-200">
-                        <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh || '無標題'}</h2>
+                        <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh || item.title || '無標題'}</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm">
                             <div class="text-slate-600">
                                 <div class="text-indigo-600 font-bold mb-2 uppercase text-xs">總經歸因</div>
-                                <p class="leading-relaxed">${item.macro_attribution_zh || '暫無資料'}</p>
+                                <p class="leading-relaxed">${item.macro_attribution_zh || item.macro_attribution || '暫無資料'}</p>
                             </div>
                             <div class="bg-red-50 p-4 rounded-xl border border-red-100">
                                 <div class="text-red-700 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
-                                <p class="text-slate-700 leading-relaxed">${item.risk_attribution_zh || '無資料'}</p>
+                                <p class="text-slate-700 leading-relaxed">${item.risk_attribution_zh || item.risk_attribution || '無資料'}</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +52,6 @@
             }
         }
         
-        // 執行更新
         updateDashboard();
     </script>
 </body>
