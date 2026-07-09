@@ -1,28 +1,14 @@
+# 這是您 Python 腳本的結尾部分，請將其替換為這段：
 import json
-from datetime import datetime
-# 請保持您原本的 RAGAttributionEngine 類別定義在上方
-# engine = RAGAttributionEngine() 
 
-def generate_dashboard_data():
-    # 這裡呼叫您的引擎獲取數據
-    data = {
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "vix": "22.4",
-        "rwa_flow": "+$45.8M",
-        "news": [
-            {
-                "title": "Fed 紀要釋放 'Higher for Longer' 訊號",
-                "macro": "聯準會會議紀要釋放強烈鷹派訊號，核心通膨具有黏性。",
-                "spill": "台美利差維持高位，引發權值股提款壓力。",
-                "recommend": [{"name": "高現金流防禦股"}],
-                "risk": [{"name": "高槓桿科技股"}]
-            }
-            # 這裡您可以放入更多筆新聞
-        ]
-    }
-    with open('market_data.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False)
-    print("✅ 數據已更新至 market_data.json")
+# 假設 engine 是您定義好的類別
+data_to_save = {
+    "us_macro": engine.fetch_us_macro_intelligence(),
+    "web3_rwa": engine.fetch_web3_rwa_intelligence(),
+    "tw_market": engine.fetch_tw_market_intelligence()
+}
 
-if __name__ == "__main__":
-    generate_dashboard_data()
+with open('dashboard_data.json', 'w', encoding='utf-8') as f:
+    json.dump(data_to_save, f, ensure_ascii=False)
+
+print("🎯 數據已更新！請開啟您的 index.html 查看最新看板。")
