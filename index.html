@@ -2,10 +2,11 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Macro Attribution Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; color: #1e293b; font-family: sans-serif; }
-        .card-bright { background: white; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        body { background-color: #f8fafc; color: #334155; font-family: system-ui, -apple-system, sans-serif; }
     </style>
 </head>
 <body class="p-8">
@@ -16,27 +17,44 @@
 
     <script>
         async function updateDashboard() {
-            const res = await fetch('dashboard_data.json');
-            const data = await res.json();
-            const container = document.getElementById('content');
-            
-            // 渲染邏輯，直接對接您 Python 引擎的結構
-            container.innerHTML = data.us_macro.map(item => `
-                <div class="card-bright p-8 border-l-4 border-indigo-500">
-                    <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh}</h2>
-                    <div class="grid grid-cols-2 gap-10 text-sm">
-                        <div class="text-slate-600">
-                            <div class="text-indigo-600 font-bold mb-2 uppercase text-xs">總經歸因</div>
-                            <p>${item.macro_attribution_zh}</p>
-                        </div>
-                        <div class="bg-red-50 p-4 rounded">
-                            <div class="text-red-700 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
-                            <p class="text-slate-700">${item.risk_attribution_zh || '無資料'}</p>
+            try {
+                // 讀取與 Python 輸出一格式化對齊的 JSON
+                const res = await fetch('dashboard_data.json');
+                if (!res.ok) throw new Error("找不到 json 檔案，請確認 GitHub Pages 部署狀態");
+                
+                const data = await res.json();
+                const container = document.getElementById('content');
+                
+                // 安全檢查：確保資料存在
+                if (!data || !data.us_macro) {
+                    container.innerHTML = "<div>⚠️ 載入的 JSON 格式不正確，請檢查資料結構。</div>";
+                    return;
+                }
+
+                // 渲染邏輯
+                container.innerHTML = data.us_macro.map(item => `
+                    <div class="bg-white p-8 border-l-4 border-indigo-500 rounded-xl shadow-sm border border-slate-200">
+                        <h2 class="text-2xl font-bold mb-4 text-slate-900">${item.title_zh || '無標題'}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm">
+                            <div class="text-slate-600">
+                                <div class="text-indigo-600 font-bold mb-2 uppercase text-xs">總經歸因</div>
+                                <p class="leading-relaxed">${item.macro_attribution_zh || '暫無資料'}</p>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <div class="text-red-700 font-bold mb-2 uppercase text-xs">風險與推薦指標</div>
+                                <p class="text-slate-700 leading-relaxed">${item.risk_attribution_zh || '無資料'}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
+                
+            } catch (error) {
+                console.error(error);
+                document.getElementById('content').innerHTML = `<div>❌ 讀取失敗: ${error.message}</div>`;
+            }
         }
+        
+        // 執行更新
         updateDashboard();
     </script>
 </body>
