@@ -1,14 +1,12 @@
-# 這是您 Python 腳本的結尾部分，請將其替換為這段：
-import json
-
-# 假設 engine 是您定義好的類別
-data_to_save = {
-    "us_macro": engine.fetch_us_macro_intelligence(),
-    "web3_rwa": engine.fetch_web3_rwa_intelligence(),
-    "tw_market": engine.fetch_tw_market_intelligence()
-}
-
-with open('dashboard_data.json', 'w', encoding='utf-8') as f:
-    json.dump(data_to_save, f, ensure_ascii=False)
-
-print("🎯 數據已更新！請開啟您的 index.html 查看最新看板。")
+# 這是您目前應該要有的「動態數據源」結構 (請檢查是否為此形式)
+def fetch_us_macro_intelligence(self):
+    # 這裡請確保它是連接到真實 API 或自動抓取程序的，而不是寫死的字串！
+    # 範例：如果新聞是舊的，請把這裡改成 API 請求 (如 requests.get...)
+    return [
+        {
+            "title_zh": "從 API 獲取的新聞標題",
+            "macro_attribution_zh": "從 API 獲取的最即時分析...",
+            "rec_title_us": "...",
+            "risk_title_tw": "..."
+        }
+    ]
