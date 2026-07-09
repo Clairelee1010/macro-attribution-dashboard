@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #090d16; color: #e2e8f0; font-family: sans-serif; }
+        .card-pro { background: #1e293b; border: 1px solid #334155; border-radius: 8px; }
+    </style>
 </head>
-<body class="bg-slate-50 p-8">
-    <div class="max-w-6xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6">🎯 每日總經與台美股跨市場連動歸因看板</h1>
-        <div id="stats" class="grid grid-cols-4 gap-4 mb-8"></div>
-        <div id="news-container" class="space-y-6"></div>
+<body class="p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">🎯 每日總經與台美股跨市場連動歸因看板 v4.0 旗艦版</h1>
+        
+        <div id="content" class="space-y-6"></div>
     </div>
 
     <script>
-        async function loadDashboard() {
-            const res = await fetch('market_data.json');
-            const data = await res.json();
+        async function updateUI() {
+            const response = await fetch('dashboard_data.json');
+            const data = await response.json();
+            const container = document.getElementById('content');
             
-            // 渲染指標
-            document.getElementById('stats').innerHTML = `
-                <div class="bg-white p-4 shadow rounded">VIX: ${data.vix}</div>
-                <div class="bg-white p-4 shadow rounded">RWA: ${data.rwa_flow}</div>
-            `;
-            
-            // 渲染新聞 (包含推薦與風險)
-            const container = document.getElementById('news-container');
-            container.innerHTML = data.news.map(item => `
-                <div class="bg-white p-8 border-l-4 border-indigo-600 shadow-sm rounded-xl">
-                    <h2 class="text-2xl font-bold mb-4">${item.title}</h2>
-                    <div class="grid grid-cols-2 gap-8 text-sm">
-                        <div><p class="font-bold text-indigo-600 uppercase text-xs">總經歸因</p>${item.macro}</div>
-                        <div><p class="font-bold text-slate-500 uppercase text-xs">台股溢出影響</p>${item.spill}</div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 mt-6">
-                        <div class="bg-green-50 p-3 rounded text-xs"><strong>推薦：</strong> ${item.recommend.map(g => g.name).join(', ')}</div>
-                        <div class="bg-red-50 p-3 rounded text-xs"><strong>風險：</strong> ${item.risk.map(g => g.name).join(', ')}</div>
+            container.innerHTML = data.news_items.map(item => `
+                <div class="card-pro p-8 border-l-4 border-indigo-600">
+                    <h2 class="text-2xl font-bold mb-4">${item.title_zh}</h2>
+                    <div class="grid grid-cols-2 gap-12 text-sm text-slate-300">
+                        <div>
+                            <div class="text-indigo-400 font-bold mb-2 uppercase text-xs">總經歸因</div>
+                            <p>${item.macro_attribution_zh}</p>
+                        </div>
+                        <div class="bg-rose-950/20 p-4 rounded">
+                            <div class="text-rose-400 font-bold mb-2 uppercase text-xs">高風險警告</div>
+                            <p>${item.risk_attribution_zh || '無特定風險建議'}</p>
+                        </div>
                     </div>
                 </div>
             `).join('');
         }
-        loadDashboard();
+        updateUI();
     </script>
 </body>
 </html>
