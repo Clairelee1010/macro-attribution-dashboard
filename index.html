@@ -285,7 +285,7 @@
         let chatHistory = [];
 
         // ----------------------------------------------------------------------
-        // 🔒 安全機制：採用 localStorage 動態管理 API Key，避免將 Key 寫死於程式碼中
+        // 🔒 安全機制：採用 localStorage 動態管理 API Key
         // ----------------------------------------------------------------------
         function getApiKey() {
             return localStorage.getItem('GEMINI_API_KEY') || '';
@@ -306,7 +306,6 @@
             }
         }
 
-        // 工具函式：跳脫 HTML 避免 XSS
         function escapeHtml(str) {
             if (!str) return '';
             return String(str)
@@ -329,14 +328,14 @@
         }
 
         // ----------------------------------------------------------------------
-        // 🤖 升級版防呆對話發送機制
+        // 🤖 對話發送機制（已修正為標準模型名稱：gemini-1.5-flash）
         // ----------------------------------------------------------------------
         async function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
             if (!message) return;
 
-            // 1. 動態檢查 API Key，若未設定則自動彈窗提示輸入
+            // 1. 動態檢查 API Key
             let apiKey = getApiKey();
             if (!apiKey) {
                 const userEnteredKey = prompt('🔑 首次對話請先輸入您的 Gemini API Key（將安全儲存於您的瀏覽器中）：');
@@ -349,12 +348,11 @@
                 }
             }
 
-            // 顯示使用者發送的訊息
             appendMessage('user', message);
             input.value = '';
 
-            // 2. 構建 API 請求
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+            // 2. 採用標準 API Endpoint: gemini-1.5-flash
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             
             const systemPrompt = `你是一個專業且親切的總經與 Web3 投資助理「Robi（ロビ）」。
 使用者的當前投資輪廓：風險偏好=${userProfileConfig.risk}、目標=${userProfileConfig.goal}、偏好市場=${userProfileConfig.favMarket}。
@@ -389,7 +387,6 @@
                     chatHistory.push({ role: 'model', text: aiResponse });
                 } else if (data.error) {
                     appendMessage('robi', `❌ API 回傳錯誤：${data.error.message || '請確認 API Key 是否正確'}`);
-                    // 若驗證失敗，自動清除不正確的 Key 方便重新填寫
                     localStorage.removeItem('GEMINI_API_KEY');
                 } else {
                     appendMessage('robi', '⚠️ 暫時無法分析您的問題，請稍後再試。');
