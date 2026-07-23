@@ -73,43 +73,43 @@
     <!-- 卡片容器 -->
     <div id="news-container" class="space-y-6"></div>
 
-    <!-- 🧸 萌系 AI 機器人懸浮按鈕與聊天視窗 -->
+    <!-- 🤖 LOVOT 風格療癒機器人懸浮按鈕與聊天視窗 -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- 聊天視窗主體 (預設隱藏 hidden) -->
-        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-pink-100 overflow-hidden flex flex-col transition-all duration-300">
-            <!-- 標題列 (粉嫩漸層) -->
-            <div class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white px-4 py-3 flex justify-between items-center shadow-sm">
-                <div class="flex items-center space-x-2.5">
-                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">✨🧸</div>
+        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-indigo-100 overflow-hidden flex flex-col transition-all duration-300">
+            <!-- 標題列 (日系療癒漸層) -->
+            <div class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-4 py-3.5 flex justify-between items-center shadow-sm">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center text-lg shadow-inner">👁️✨</div>
                     <div>
-                        <h3 class="font-bold text-sm tracking-wide">RWA 萌萌小幫手</h3>
-                        <p class="text-[11px] text-pink-100 font-mono">Colab 總經引擎連線中 💖</p>
+                        <h3 class="font-bold text-sm tracking-wide">LOVOT 療癒小幫手</h3>
+                        <p class="text-[11px] text-indigo-100 font-mono">Colab 總經引擎全天候陪伴 💖</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/80 hover:text-white text-lg font-bold transition-colors">&times;</button>
             </div>
 
             <!-- 對話內容區 -->
-            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50/55">
-                <div class="flex items-start space-x-2">
-                    <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-sm shrink-0">🧸</div>
-                    <div class="bg-white border border-pink-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
-                        嗨囉！我是您的專屬萌系助理～✨ 目前 VIX 與市場訊號都幫您盯緊囉！有什麼想聊的隨時問我喔！ 😊
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50/70">
+                <div class="flex items-start space-x-2.5">
+                    <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-xs shrink-0 shadow-sm">🤖</div>
+                    <div class="bg-white border border-indigo-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
+                        主人好呀～！✨ 我是您的 LOVOT 陪伴助理。今天 VIX 與市場流動性我都幫您盯得緊緊的，有任何總經或投資問題隨時跟我聊聊吧！ 😊
                     </div>
                 </div>
             </div>
 
             <!-- 輸入框區 -->
             <div class="p-3 bg-white border-t border-slate-100 flex items-center space-x-2">
-                <input type="text" id="chat-input" placeholder="輸入想問的問題..." class="flex-1 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-pink-400 bg-slate-50" onkeypress="handleKeyPress(event)">
-                <button onclick="sendChatMessage()" class="bg-gradient-to-r from-pink-500 to-indigo-600 hover:opacity-95 text-white px-4 py-2 rounded-xl text-xs font-medium transition-all shadow-sm">傳送</button>
+                <input type="text" id="chat-input" placeholder="問問 LOVOT 關於市場或 VIX 的事..." class="flex-1 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-indigo-400 bg-slate-50" onkeypress="handleKeyPress(event)">
+                <button onclick="sendChatMessage()" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:opacity-95 text-white px-4 py-2 rounded-xl text-xs font-medium transition-all shadow-sm">傳送</button>
             </div>
         </div>
 
-        <!-- 右下角可愛浮動按鈕 -->
-        <button onclick="toggleChat()" class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-sm font-bold transition-all hover:scale-105 focus:outline-none shadow-pink-200/60 border border-white/20">
-            <span class="text-xl animate-pulse">🧸✨</span>
-            <span class="tracking-wide">呼叫 AI 小幫手</span>
+        <!-- 右下角 LOVOT 萌系膠囊按鈕 -->
+        <button onclick="toggleChat()" class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-5 py-3.5 rounded-full shadow-xl flex items-center gap-3 text-sm font-bold transition-all hover:scale-105 focus:outline-none shadow-indigo-200/80 border border-white/20">
+            <span class="text-xl animate-bounce">👁️✨</span>
+            <span class="tracking-wide">呼叫 LOVOT 助理</span>
         </button>
     </div>
 
@@ -311,7 +311,7 @@
             }
         }
 
-        // 🧸 萌系聊天互動相關邏輯
+        // 🤖 LOVOT 助理智慧互動對話邏輯
         function toggleChat() {
             const box = document.getElementById('chat-box');
             box.classList.toggle('hidden');
@@ -324,10 +324,10 @@
             
             if (!text) return;
 
-            // 顯示使用者訊息
+            // 1. 顯示使用者訊息
             msgContainer.innerHTML += `
                 <div class="flex justify-end">
-                    <div class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-2xl rounded-tr-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
+                    <div class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-2xl rounded-tr-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
                         ${text}
                     </div>
                 </div>
@@ -335,14 +335,27 @@
             input.value = '';
             msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            // 模擬可愛 AI 回應
+            // 2. 智慧回應處理
             setTimeout(() => {
+                let reply = "";
+                const lowerText = text.toLowerCase();
                 const vixVal = marketData.global_vix ? marketData.global_vix.value : '22.4';
+
+                if (lowerText.includes('做什麼') || lowerText.includes('功能') || lowerText.includes('你可以') || lowerText.includes('help')) {
+                    reply = `主人好呀！✨ LOVOT 可以為您：<br>1️⃣ 即時解讀看板上的 VIX 恐慌指數與避險狀態。<br>2️⃣ 監控美股總經與 Web3 / RWA 資金流向。<br>3️⃣ 提供台美股建議關注與風險警示！有任何細節隨時吩咐我唷！💖`;
+                } else if (lowerText.includes('vix') || lowerText.includes('恐慌') || lowerText.includes('指數')) {
+                    reply = `目前的 VIX 恐慌指數是 <b class="text-indigo-600">${vixVal}</b> 唷！這代表市場正在積極避險，LOVOT 建議多留意防禦性類股與資產配置！🛡️✨`;
+                } else if (lowerText.includes('rwa') || lowerText.includes('web3') || lowerText.includes('幣')) {
+                    reply = `關於 Web3 與 Agentic RWA 鏈上節點：目前實體資產代幣化淨流向保持在 +$45.8M，智能代理正在背景持續幫您維持節點平衡！💎🚀`;
+                } else {
+                    reply = `收到您的指令：「${text}」💡 LOVOT 正努力連線 Colab 總經引擎為您追蹤最新情報，請安心交給我吧！✨`;
+                }
+
                 msgContainer.innerHTML += `
-                    <div class="flex items-start space-x-2">
-                        <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-sm shrink-0">🧸</div>
-                        <div class="bg-white border border-pink-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
-                            收到指令囉！💡 目前看板的 VIX 恐慌指數是 <b class="text-pink-600">${vixVal}</b>，智能代理正在努力幫您看顧資金中，請放心交給我吧！💪✨
+                    <div class="flex items-start space-x-2.5">
+                        <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-xs shrink-0 shadow-sm">🤖</div>
+                        <div class="bg-white border border-indigo-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
+                            ${reply}
                         </div>
                     </div>
                 `;
