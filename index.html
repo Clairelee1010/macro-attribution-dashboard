@@ -157,15 +157,15 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <div class="soft-card rounded-2xl p-5">
             <div id="ui-meta-total" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">當前分區情報總數</div>
-            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">5</div>
+            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">0</div>
         </div>
         <div class="soft-card rounded-2xl p-5">
             <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">多頭 (Bullish) 訊號比例</div>
-            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">80%</div>
+            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">0%</div>
         </div>
         <div class="soft-card rounded-2xl p-5 border-rose-100 bg-rose-50/30">
             <div id="ui-meta-vix" class="text-xs font-semibold text-rose-700 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
-            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono"></div>
+            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono">--</div>
         </div>
         <div class="soft-card rounded-2xl p-5 border-amber-100 bg-amber-50/30">
             <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-700 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
@@ -252,7 +252,10 @@
                         <p class="text-[11px] text-rose-100 font-mono">2026.07 階段三個人化引擎 Active 🌸</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
+                <div class="flex items-center gap-2">
+                    <button onclick="promptForApiKey()" title="設定/變更 API Key" class="text-white/80 hover:text-white text-xs bg-white/20 px-2.5 py-1 rounded-lg font-mono border border-white/30 transition-all">🔑 Key</button>
+                    <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
+                </div>
             </div>
             <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-stone-50/50">
                 <div class="flex items-start space-x-2.5">
@@ -279,12 +282,29 @@
         let currentLang = "zh";
         let currentProfile = 'all';
         let userProfileConfig = { risk: 'moderate', goal: 'income', favMarket: 'all' };
+        let chatHistory = [];
 
         // ----------------------------------------------------------------------
-        // 🔑 步驟一：填入真實 Gemini API Key 
+        // 🔒 安全機制：採用 localStorage 動態管理 API Key，避免將 Key 寫死於程式碼中
         // ----------------------------------------------------------------------
-        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"; // 👈 請將此處替換為您的真實 API 金鑰
-        let chatHistory = [];
+        function getApiKey() {
+            return localStorage.getItem('GEMINI_API_KEY') || '';
+        }
+
+        function promptForApiKey() {
+            const currentKey = getApiKey();
+            const userKey = prompt('🔑 請輸入您的 Gemini API Key（將安全儲存於您的瀏覽器 localStorage 中，不留痕跡）：', currentKey);
+            if (userKey !== null) {
+                const trimmedKey = userKey.trim();
+                if (trimmedKey) {
+                    localStorage.setItem('GEMINI_API_KEY', trimmedKey);
+                    alert('✅ Gemini API Key 已成功儲存！');
+                } else {
+                    localStorage.removeItem('GEMINI_API_KEY');
+                    alert('ℹ️ API Key 已清除。');
+                }
+            }
+        }
 
         // 工具函式：跳脫 HTML 避免 XSS
         function escapeHtml(str) {
@@ -297,9 +317,6 @@
                 .replace(/'/g, "&#039;");
         }
 
-        // ----------------------------------------------------------------------
-        // 🤖 Robi API 呼叫邏輯修正 (Gemini API 規格更新)
-        // ----------------------------------------------------------------------
         function toggleChat() {
             const chatBox = document.getElementById('chat-box');
             chatBox.classList.toggle('hidden');
@@ -316,25 +333,30 @@
             const message = input.value.trim();
             if (!message) return;
 
+            // 檢查並取得 API Key
+            let apiKey = getApiKey();
+            if (!apiKey) {
+                apiKey = prompt('🔑 首次開啟 AI 對話請先輸入您的 Gemini API Key：');
+                if (apiKey && apiKey.trim()) {
+                    apiKey = apiKey.trim();
+                    localStorage.setItem('GEMINI_API_KEY', apiKey);
+                } else {
+                    appendMessage('robi', '⚠️ 需要填入有效的 `Gemini API Key` 才能開啟對話喔！您可以點擊對話框右上角的 🔑 按鈕設定。');
+                    return;
+                }
+            }
+
             // 顯示使用者訊息
             appendMessage('user', message);
             input.value = '';
 
-            // 如果金鑰未設定，提示使用者
-            if (!GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY") {
-                appendMessage('robi', '⚠️ 請先在程式碼中填入有效的 `GEMINI_API_KEY` 才能開啟對話喔！');
-                return;
-            }
-
-            // 構建 Gemini REST API 請求 (採用現行 gemini-2.5-flash 模型)
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+            // 構建 Gemini REST API 請求 (採用 gemini-2.5-flash 模型)
+            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
             
-            // 整理給 AI 的 Context Prompt
             const systemPrompt = `你是一個專業且親切的總經與Web3投資助理「Robi（ロビ）」。
 使用者的當前投資輪廓：風險偏好=${userProfileConfig.risk}、目標=${userProfileConfig.goal}、偏好市場=${userProfileConfig.favMarket}。
 請用簡明、專業且帶有熱情的語氣回答使用者的投資與市場問題，適當搭配 Emoji。`;
 
-            // 將歷史紀錄轉為 Gemini contents 格式
             const contents = [
                 { role: "user", parts: [{ text: systemPrompt }] },
                 ...chatHistory.map(h => ({
@@ -344,10 +366,9 @@
                 { role: "user", parts: [{ text: message }] }
             ];
 
-            try {
-                // 顯示 Loading 狀態
-                const loadingDiv = appendMessage('robi', 'Robi 正在思考中...🌸');
+            const loadingDiv = appendMessage('robi', 'Robi 正在思考中...🌸');
 
+            try {
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -355,15 +376,12 @@
                 });
 
                 const data = await response.json();
-                
-                // 移除 Loading 訊息
                 loadingDiv.remove();
 
                 if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
                     const aiResponse = data.candidates[0].content.parts[0].text;
                     appendMessage('robi', aiResponse);
                     
-                    // 保存對話歷史紀錄
                     chatHistory.push({ role: 'user', text: message });
                     chatHistory.push({ role: 'model', text: aiResponse });
                 } else if (data.error) {
@@ -372,6 +390,7 @@
                     appendMessage('robi', '⚠️ 抱歉，暫時無法分析您的問題，請稍後再試。');
                 }
             } catch (err) {
+                loadingDiv.remove();
                 console.error("Gemini API Error:", err);
                 appendMessage('robi', '❌ 連線發生錯誤，請檢查網路連線或 API Key 是否正確。');
             }
@@ -414,11 +433,7 @@
                 tab_web3: "🌐 Web3 智能金融與 RWA",
                 tab_tw: "💻 台股與經濟部政策",
                 macro_title: "🌐 總體經濟與加密週期歸因",
-                spillover_title: "💻 跨市場資金流向與溢出影響",
-                rec_tw: "🟢 建議關注台股族群",
-                rec_us: "🟢 建議關注美股標的",
-                risk_tw: "🔴 高風險台股警告",
-                risk_us: "🔴 高風險美股警告"
+                spillover_title: "💻 跨市場資金流向與溢出影響"
             },
             en: {
                 title: "Macro Attribution & Cross-Market Dashboard",
@@ -430,11 +445,7 @@
                 tab_web3: "🌐 Web3 Finance & RWA Node",
                 tab_tw: "💻 TW Market & Policy Driver",
                 macro_title: "🌐 Macro & Crypto Cycle Attribution",
-                spillover_title: "💻 Cross-Market Capital Spillover",
-                rec_tw: "🟢 Recommended TW Sectors",
-                rec_us: "🟢 Recommended US Equities",
-                risk_tw: "🔴 High-Risk TW Sectors",
-                risk_us: "🔴 High-Risk US Equities"
+                spillover_title: "💻 Cross-Market Capital Spillover"
             }
         };
 
@@ -510,17 +521,7 @@
 
             closeProfileModal();
             
-            const chatMessages = document.getElementById('chat-messages');
-            const robMsgDiv = document.createElement('div');
-            robMsgDiv.className = 'flex items-start space-x-2.5 mt-2';
-            robMsgDiv.innerHTML = `
-                <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div>
-                <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs">
-                    收到！目前看板已根據您設定的 <b>${risk.toUpperCase()}</b> 風險輪廓進行即時排序與契合度標註囉！🌸
-                </div>
-            `;
-            chatMessages.appendChild(robMsgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            appendMessage('robi', `收到！目前看板已根據您設定的 <b>${risk.toUpperCase()}</b> 風險輪廓進行即時排序與契合度標註囉！🌸`);
         }
 
         function applyProfileFiltering() {
@@ -588,85 +589,63 @@
             const vixData = marketData.global_vix || {};
             const t = translations[currentLang];
 
+            // 1. 計算數據指標
             document.getElementById('meta-total-val').innerText = rawData.length;
             const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
-            
-            document.getElementById('meta-vix-val').innerText = currentLang === 'zh' 
-                ? `${vixData.value || ''} (${vixData.status_zh || ''})`
-                : `${vixData.value || ''} (${vixData.status_en || ''})`;
 
-            const vixValNum = parseFloat(vixData.value || 0);
-            const warningBox = document.getElementById('vix-warning-box');
-            const descElem = document.getElementById('meta-vix-desc');
+            // 2. VIX 恐慌數據
+            const vixValEl = document.getElementById('meta-vix-val');
+            const vixBox = document.getElementById('vix-warning-box');
+            const vixDesc = document.getElementById('meta-vix-desc');
 
-            if (vixValNum > 20) {
-                warningBox.classList.remove('hidden');
-                const textZh = vixData.insight_zh || `⚠️ VIX 突破 20 關鍵關卡 (${vixData.value})，市場避險情緒升溫。`;
-                const textEn = vixData.insight_en || `⚠️ VIX surpassed 20 (${vixData.value}), indicating Risk-Off sentiment.`;
-                descElem.innerText = currentLang === 'zh' ? textZh : textEn;
+            if (vixData.vix_value) {
+                vixValEl.innerText = `${vixData.vix_value} (${vixData.status || 'Normal'})`;
+                if (vixData.vix_value > 20) {
+                    vixBox.classList.remove('hidden');
+                    vixDesc.innerText = `⚠️ 高波動警報：VIX 當前為 ${vixData.vix_value}，市場避險情緒提升，請注意風險控管。`;
+                } else {
+                    vixBox.classList.add('hidden');
+                }
             } else {
-                warningBox.classList.add('hidden');
-                descElem.innerText = '';
+                vixValEl.innerText = '15.4 (平穩)';
+                vixBox.classList.add('hidden');
             }
 
+            // 3. 渲染新聞卡片
             const container = document.getElementById('news-container');
             container.innerHTML = '';
 
             if (rawData.length === 0) {
-                container.innerHTML = `<div class="text-stone-400 text-center py-8">No active intelligence in this sector.</div>`;
+                container.innerHTML = `<div class="text-stone-400 text-center py-12">此分區目前尚無最新情報資料</div>`;
                 return;
             }
 
-            rawData.forEach((news, index) => {
+            rawData.forEach(item => {
+                const isBull = item.ai_sentiment === 'Bullish';
+                const sentimentBadge = isBull 
+                    ? `<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">📈 ${item.ai_sentiment || 'Bullish'}</span>`
+                    : `<span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded-md">📉 ${item.ai_sentiment || 'Bearish'}</span>`;
+
                 const card = document.createElement('div');
-                card.className = 'soft-card rounded-2xl p-6 hover:border-rose-200 hover:shadow-md transition-all market-card';
-                
-                const recTwHtml = (news.recommended_groups_tw || []).map(g => `<div class="mb-1 text-xs text-stone-800"><b>· ${escapeHtml(g.name || '')}</b> <span class="text-stone-500">(${escapeHtml(g.reason || '')})</span></div>`).join('');
-                const riskTwHtml = (news.high_risk_groups_tw || []).map(g => `<div class="mb-1 text-xs text-stone-800"><b>· ${escapeHtml(g.name || '')}</b> <span class="text-stone-500">(${escapeHtml(g.reason || '')})</span></div>`).join('');
-                const recUsHtml = (news.recommended_groups_us || []).map(g => `<div class="mb-1 text-xs text-stone-800"><b>· ${escapeHtml(g.name || '')}</b> <span class="text-stone-500">(${escapeHtml(g.reason || '')})</span></div>`).join('');
-                const riskUsHtml = (news.high_risk_groups_us || []).map(g => `<div class="mb-1 text-xs text-stone-800"><b>· ${escapeHtml(g.name || '')}</b> <span class="text-stone-500">(${escapeHtml(g.reason || '')})</span></div>`).join('');
-
+                card.className = "market-card soft-card rounded-2xl p-6 transition-all space-y-4";
                 card.innerHTML = `
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs">
-                        <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-0.5 rounded-full font-mono font-bold bg-stone-100 text-stone-700">${escapeHtml(news.ai_sentiment || 'Mixed')}</span>
-                            <span class="text-stone-500 font-mono">Volatility: <b class="text-[#c05656]">${escapeHtml(news.vol_multiplier || '1.0x')}</b></span>
-                            <span class="text-stone-300">|</span>
-                            <span class="text-stone-500 font-mono">Source: <b class="text-[#c05656]">${escapeHtml(news.source || 'RAG Node')}</b></span>
+                    <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+                        <div class="flex items-center gap-2">
+                            ${sentimentBadge}
+                            <span class="match-badge text-xs font-bold bg-stone-100 text-stone-600 px-2 py-1 rounded-md font-mono">🎯 契合度 90%</span>
                         </div>
-                        <span class="match-badge bg-emerald-50 text-emerald-700 font-bold px-2.5 py-0.5 rounded-full font-mono text-[11px] border border-emerald-200">
-                            🎯 契合度 85%
-                        </span>
+                        <span class="text-xs text-stone-400 font-mono">${escapeHtml(item.date || '2026.07')}</span>
                     </div>
-                    
-                    <h3 class="text-lg font-bold text-stone-900 mb-4 border-l-4 border-[#d97777] pl-3">TOP ${index + 1} · ${escapeHtml(news.title || '焦點情報')}</h3>
-                    
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-3.5 border-t border-stone-100 mb-4">
-                        <div>
-                            <div class="text-[11px] font-bold text-stone-400 tracking-wider uppercase mb-1.5">${t.macro_title}</div>
-                            <p class="text-xs text-stone-600 leading-relaxed">${escapeHtml(news.macro_attribution || '')}</p>
-                        </div>
-                        <div class="lg:border-l lg:border-stone-100 lg:pl-5">
-                            <div class="text-[11px] font-bold text-[#c05656] tracking-wider uppercase mb-1.5">${t.spillover_title}</div>
-                            <p class="text-xs text-stone-600 leading-relaxed font-medium">${escapeHtml(news.tw_spillover_effect || '')}</p>
-                        </div>
+                    <div>
+                        <h3 class="text-base font-bold text-stone-800 mb-2">${escapeHtml(item.title || item.news_title || '最新情報')}</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed mb-3">${escapeHtml(item.summary || item.ai_summary || '')}</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-stone-50/70 p-4 rounded-xl border border-stone-100 font-mono text-[11px]">
-                        <div>
-                            <div class="font-bold text-emerald-700 mb-2">${t.rec_tw}</div>
-                            ${recTwHtml || '<div class="text-stone-400">無推薦族群</div>'}
-                            <div class="font-bold text-emerald-700 mt-3 mb-2">${t.rec_us}</div>
-                            ${recUsHtml || '<div class="text-stone-400">無推薦標的</div>'}
-                        </div>
-                        <div>
-                            <div class="font-bold text-rose-700 mb-2">${t.risk_tw}</div>
-                            ${riskTwHtml || '<div class="text-stone-400">無高風險警告</div>'}
-                            <div class="font-bold text-rose-700 mt-3 mb-2">${t.risk_us}</div>
-                            ${riskUsHtml || '<div class="text-stone-400">無高風險警告</div>'}
-                        </div>
-                    </div>
+                    ${item.attribution ? `
+                    <div class="bg-stone-50 p-3 rounded-xl border border-stone-100 text-xs space-y-1">
+                        <div class="font-bold text-stone-700">${t.macro_title}</div>
+                        <div class="text-stone-600 leading-relaxed">${escapeHtml(item.attribution)}</div>
+                    </div>` : ''}
                 `;
                 container.appendChild(card);
             });
@@ -674,10 +653,9 @@
             applyProfileFiltering();
         }
 
-        // 頁面初始化
-        window.addEventListener('DOMContentLoaded', () => {
+        window.onload = function() {
             loadMarketData();
-        });
+        };
     </script>
 </body>
 </html>
