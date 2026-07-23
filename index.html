@@ -254,19 +254,22 @@
         marketData = await res.json();
         
         // 🚀 完全獨立的背景同步（拿掉 await，絕對不影響前端渲染）
-        fetch('https://lovely-lights-stand.loca.lt/api/v1/update-macro-context', {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Bypass-Tunnel-Reminder': 'true'
-            },
-            body: JSON.stringify({
-                vix_index: marketData.vix_index || 15.4,
-                fed_rate_cut_prob: marketData.fed_rate_cut_prob || 75.0,
-                sentiment_score: marketData.sentiment_score || 68,
-                market_regime: marketData.market_regime || "軟著陸降息循環"
-            })
-        }).catch(err => console.log("背景同步提示:", err));
+      fetch('https://lovely-lights-stand.loca.lt/api/v1/update-macro-context', {
+    method: 'POST',
+    headers: { 
+        'Content-Type': 'application/json',
+        'Bypass-Tunnel-Reminder': 'true'
+    },
+    body: JSON.stringify({
+        vix_index: marketData.vix_index || 15.4,
+        fed_rate_cut_prob: marketData.fed_rate_cut_prob || 75.0,
+        sentiment_score: marketData.sentiment_score || 68,
+        market_regime: marketData.market_regime || "軟著陸降息循環"
+    })
+})
+.then(response => response.json())
+.then(result => console.log("🔥 【連線成功】後端 AI 回應：", result))
+.catch(error => console.error("❌ 【連線失敗】錯誤原因：", error));
 
         // 立即執行前端渲染，絕不等待後端
         changeLang("zh");
