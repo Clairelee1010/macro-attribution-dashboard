@@ -17,7 +17,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight">Macro Attribution & Cross-Market Dashboard</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.5 TOP 5 Live</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.5 Full Spectrum</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <!-- 📊 四大核心數據面板 -->
+    <!-- 📊 頁首四大統計數據 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="soft-card rounded-2xl p-4 space-y-1">
             <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">ACTIVE INTELLIGENCE COUNT</div>
@@ -56,6 +56,81 @@
         </div>
     </div>
 
+    <!-- 🎯 歸還：3 大維度 9 項核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
+    <div class="space-y-2">
+        <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2">
+            📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- 1. 總經與利率流動性 -->
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-blue-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span>1. 🌐 總經與利率流動性 (Macro)</span>
+                    <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-mono font-bold">Rates & Liquidity</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">美債 10Y</div>
+                        <div id="m-us10y" class="text-xs font-bold text-stone-800 mt-0.5">4.28%</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">美元 DXY</div>
+                        <div id="m-dxy" class="text-xs font-bold text-stone-800 mt-0.5">104.2</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">MOVE 債基</div>
+                        <div id="m-move" class="text-xs font-bold text-emerald-600 mt-0.5">98.5</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 美台股連動與籌碼面 -->
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-emerald-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span>2. 💻 美台股連動與籌碼 (Chips)</span>
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono font-bold">TW & US Equity</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">TSM 溢價</div>
+                        <div id="m-tsm" class="text-xs font-bold text-emerald-600 mt-0.5">+14.2%</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">外資期貨</div>
+                        <div id="m-futures" class="text-xs font-bold text-rose-600 mt-0.5">-12.8K</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">USD/TWD</div>
+                        <div id="m-usdtwd" class="text-xs font-bold text-stone-800 mt-0.5">32.45</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Web3 金融與 RWA 鏈上資金 -->
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-purple-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span>3. 🌐 Web3 金融與 RWA (On-Chain)</span>
+                    <span class="text-[10px] bg-purple-50 text-purple-700 px-2 py-0.5 rounded font-mono font-bold">Crypto Capital</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">Crypto 恐慌</div>
+                        <div id="m-cryptofg" class="text-xs font-bold text-emerald-600 mt-0.5">68 (貪婪)</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">穩定幣市值</div>
+                        <div id="m-stablecoin" class="text-xs font-bold text-stone-800 mt-0.5">$162B</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans">RWA 美債</div>
+                        <div id="m-rwatvl" class="text-xs font-bold text-purple-600 mt-0.5">$2.4B</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 📢 VIX 通報 Banner -->
     <div class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">
         【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。
@@ -74,7 +149,7 @@
         </button>
     </div>
 
-    <!-- 📰 新聞卡片容器 (v4.5 完整版面) -->
+    <!-- 📰 新聞卡片容器 (v4.5 雙欄點評 + 推薦/風險個股矩陣) -->
     <div id="news-container" class="space-y-6"></div>
 
     <!-- 🤖 浮動 AI 助理按鈕 -->
@@ -86,6 +161,17 @@
 
     <script>
         let marketData = {
+            "metrics": {
+                "us10y": "4.28%",
+                "dxy": "104.2",
+                "move": "98.5",
+                "tsm_premium": "+14.2%",
+                "futures_oi": "-12.8K",
+                "usdtwd": "32.45",
+                "crypto_fg": "68 (貪婪)",
+                "stablecoin_cap": "$162B",
+                "rwa_tvl": "$2.4B"
+            },
             "us_macro": [
                 {
                     "top_rank": "TOP 1",
@@ -124,6 +210,19 @@
             return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
+        function updateMetricsDisplay(metrics) {
+            if (!metrics) return;
+            if (metrics.us10y) document.getElementById('m-us10y').innerText = metrics.us10y;
+            if (metrics.dxy) document.getElementById('m-dxy').innerText = metrics.dxy;
+            if (metrics.move) document.getElementById('m-move').innerText = metrics.move;
+            if (metrics.tsm_premium) document.getElementById('m-tsm').innerText = metrics.tsm_premium;
+            if (metrics.futures_oi) document.getElementById('m-futures').innerText = metrics.futures_oi;
+            if (metrics.usdtwd) document.getElementById('m-usdtwd').innerText = metrics.usdtwd;
+            if (metrics.crypto_fg) document.getElementById('m-cryptofg').innerText = metrics.crypto_fg;
+            if (metrics.stablecoin_cap) document.getElementById('m-stablecoin').innerText = metrics.stablecoin_cap;
+            if (metrics.rwa_tvl) document.getElementById('m-rwatvl').innerText = metrics.rwa_tvl;
+        }
+
         function renderActiveTab() {
             const container = document.getElementById('news-container');
             container.innerHTML = '';
@@ -142,7 +241,6 @@
                 const volatility = item.volatility || '1.1x';
                 const source = item.source || 'RAG Intelligence Engine';
 
-                // 預設台股/美股看好與風險清單
                 const twRec = item.recommended_tw || [
                     { name: "台積電 (2330)", reason: "權值穩定與外資回補" },
                     { name: "聯發科 (2454)", reason: "IC 設計估值修復" }
@@ -161,7 +259,6 @@
                 const card = document.createElement('div');
                 card.className = "soft-card rounded-2xl p-6 space-y-5";
                 card.innerHTML = `
-                    <!-- 頂部 Badges -->
                     <div class="flex items-center gap-3 text-xs font-mono">
                         <span class="bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded font-semibold border border-amber-200/50">${escapeHtml(sentiment)}</span>
                         <span class="text-stone-400">Volatility: <strong class="text-stone-700">${escapeHtml(volatility)}</strong></span>
@@ -169,12 +266,10 @@
                         <span class="text-stone-400">Source: <strong class="text-rose-800">${escapeHtml(source)}</strong></span>
                     </div>
 
-                    <!-- 主標題 -->
                     <h2 class="text-lg font-bold text-stone-900 leading-snug border-l-4 border-[#c05656] pl-3">
                         ${escapeHtml(rankText)} · ${escapeHtml(titleText)}
                     </h2>
 
-                    <!-- 雙欄歸因區塊 -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-stone-600 pt-1">
                         <div class="space-y-1.5">
                             <div class="font-bold text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
@@ -194,7 +289,6 @@
                         </div>
                     </div>
 
-                    <!-- 灰色 Console Log 區塊 -->
                     <div class="bg-stone-50 rounded-xl p-3 text-xs font-mono text-stone-600 space-y-1 border border-stone-200/60">
                         <div class="flex items-center gap-2">
                             <span>📊 RWA On-Chain Metric:</span>
@@ -206,9 +300,7 @@
                         </div>
                     </div>
 
-                    <!-- 🟢/🔴 台股與美股推薦/風險矩陣 (分開兩大盒) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
-                        <!-- 台股板塊 -->
                         <div class="bg-emerald-50/40 border border-emerald-100 rounded-2xl p-4 space-y-3">
                             <div>
                                 <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
@@ -228,7 +320,6 @@
                             </div>
                         </div>
 
-                        <!-- 美股板塊 -->
                         <div class="bg-emerald-50/40 border border-emerald-100 rounded-2xl p-4 space-y-3">
                             <div>
                                 <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
@@ -277,12 +368,17 @@
                 const response = await fetch('data.json?t=' + new Date().getTime());
                 if (response.ok) {
                     const data = await response.json();
-                    if (data && (data.us_macro || data.web3_crypto || data.tw_stocks)) {
-                        marketData = data;
+                    if (data) {
+                        if (data.metrics) {
+                            updateMetricsDisplay(data.metrics);
+                        }
+                        if (data.us_macro || data.web3_crypto || data.tw_stocks) {
+                            marketData = data;
+                        }
                     }
                 }
             } catch (e) {
-                console.log("採用內建預設 v4.5 資料");
+                console.log("採用預設完整資料");
             }
             renderActiveTab();
         }
