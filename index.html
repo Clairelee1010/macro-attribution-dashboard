@@ -248,19 +248,37 @@
         }
 
         async function updateDashboard() {
-            try {
-                const res = await fetch('dashboard_data.json');
-                if (!res.ok) throw new Error("Fetch Error");
-                marketData = await res.json();
-                changeLang("zh"); 
-            } catch (error) {
-                console.error(error);
-                // 萬一完全斷訊的極致備援渲染
-                changeLang("zh");
+51         try {
+52             const res = await fetch('dashboard_data.json');
+53             if (!res.ok) throw new Error("Fetch Error");
+54             marketData = await res.json();
+55             
+56             // 🚀 新增：將總經數據自動同步 POST 給 Colab 後端
+57             try {
+58                 await fetch('https://lovely-lights-stand.loca.lt/api/v1/update-macro-context', {
+59                     method: 'POST',
+60                     headers: { 'Content-Type': 'application/json' },
+61                     body: JSON.stringify({
+62                         vix_index: marketData.vix_index || 15.4,
+63                         fed_rate_cut_prob: marketData.fed_rate_cut_prob || 75.0,
+                        sentiment_score: marketData.sentiment_score || 68,
+                        market_regime: marketData.market_regime || "軟著陸降息循環"
+                    })
+                });
+                console.log("✅ 總經數據已成功同步至 AI 後端！");
+            } catch (backendErr) {
+                console.warn("⚠️ 後端同步失敗（不影響前端渲染）:", backendErr);
             }
+
+            changeLang("zh");
+        } catch (error) {
+            console.error(error);
+            // 萬一完全斷訊的極致備援渲染
+            changeLang("zh");
         }
-        
-        updateDashboard();
+    }
+
+    updateDashboard();
     </script>
 </body>
 </html>
