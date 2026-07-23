@@ -80,7 +80,7 @@ class RAGAttributionEngine:
             "web3_crypto": self.fetch_web3_crypto_intelligence(),
             "tw_stocks": self.fetch_tw_stocks_intelligence(),
             "global_vix": {
-                "value": 22.4,
+                "value": "22.4",
                 "status_zh": "突破關鍵20關卡 / 強烈避險情緒 (Risk-Off)",
                 "status_en": "Surged Past 20 / Strong Risk-Off Hedging",
                 "trend": "Upward (+14.2% 24H)",
@@ -93,13 +93,9 @@ if __name__ == "__main__":
     engine = RAGAttributionEngine()
     final_data = engine.generate_dashboard_data()
     
-    # 💡 核心修正：強制輸出至專案根目錄下的檔案，與 index.html 同路徑
-    #output_filename = 'dashboard_data.json'
-    #with open(output_filename, 'w', encoding='utf-8') as f:
-     #   json.dump(final_data, f, ensure_ascii=False, indent=4)
-
-    #0723  # 在 update_data.py 結尾寫入 data.json
-    with open("data.json", "w", encoding="utf-8") as f:
-    f.write(structured_json)
+    # 💡 修正後：直接將物件序列化為 JSON 並寫入前端讀取的 data.json
+    output_filename = "data.json"
+    with open(output_filename, "w", encoding="utf-8") as f:
+        json.dump(final_data, f, ensure_ascii=False, indent=4)
         
-    print(f"✅ 數據已成功完整更新至 {output_filename}！共計 4 條頂級歸因情報已同步。")
+    print(f"✅ 數據已成功完整更新至 {output_filename}！最新跨境歸因情報已同步。")
