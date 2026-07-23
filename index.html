@@ -253,7 +253,7 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="promptForApiKey()" title="設定/變更 API Key" class="text-white/80 hover:text-white text-xs bg-white/20 px-2.5 py-1 rounded-lg font-mono border border-white/30 transition-all">🔑 Key</button>
+                    <button onclick="promptForApiKey()" title="設定/變更 API Key" class="text-white/90 hover:text-white text-xs bg-white/20 px-2.5 py-1 rounded-lg font-mono border border-white/30 hover:bg-white/30 transition-all shadow-sm">🔑 Key</button>
                     <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
                 </div>
             </div>
@@ -293,7 +293,7 @@
 
         function promptForApiKey() {
             const currentKey = getApiKey();
-            const userKey = prompt('🔑 請輸入您的 Gemini API Key（將安全儲存於您的瀏覽器 localStorage 中，不留痕跡）：', currentKey);
+            const userKey = prompt('🔑 請輸入您的 Gemini API Key（將安全儲存於您的瀏覽器 localStorage 中）：', currentKey);
             if (userKey !== null) {
                 const trimmedKey = userKey.trim();
                 if (trimmedKey) {
@@ -328,34 +328,37 @@
             }
         }
 
+        // ----------------------------------------------------------------------
+        // 🤖 升級版防呆對話發送機制
+        // ----------------------------------------------------------------------
         async function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
             if (!message) return;
 
-            // 檢查並取得 API Key
+            // 1. 動態檢查 API Key，若未設定則自動彈窗提示輸入
             let apiKey = getApiKey();
             if (!apiKey) {
-                apiKey = prompt('🔑 首次開啟 AI 對話請先輸入您的 Gemini API Key：');
-                if (apiKey && apiKey.trim()) {
-                    apiKey = apiKey.trim();
+                const userEnteredKey = prompt('🔑 首次對話請先輸入您的 Gemini API Key（將安全儲存於您的瀏覽器中）：');
+                if (userEnteredKey && userEnteredKey.trim()) {
+                    apiKey = userEnteredKey.trim();
                     localStorage.setItem('GEMINI_API_KEY', apiKey);
                 } else {
-                    appendMessage('robi', '⚠️ 需要填入有效的 `Gemini API Key` 才能開啟對話喔！您可以點擊對話框右上角的 🔑 按鈕設定。');
+                    appendMessage('robi', '⚠️ 需要填入有效的 Gemini API Key 才能開啟對話喔！您可以點擊右上角的「🔑 Key」按鈕隨時設定。');
                     return;
                 }
             }
 
-            // 顯示使用者訊息
+            // 顯示使用者發送的訊息
             appendMessage('user', message);
             input.value = '';
 
-            // 構建 Gemini REST API 請求 (採用 gemini-2.5-flash 模型)
+            // 2. 構建 API 請求
             const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
             
-            const systemPrompt = `你是一個專業且親切的總經與Web3投資助理「Robi（ロビ）」。
+            const systemPrompt = `你是一個專業且親切的總經與 Web3 投資助理「Robi（ロビ）」。
 使用者的當前投資輪廓：風險偏好=${userProfileConfig.risk}、目標=${userProfileConfig.goal}、偏好市場=${userProfileConfig.favMarket}。
-請用簡明、專業且帶有熱情的語氣回答使用者的投資與市場問題，適當搭配 Emoji。`;
+請用簡明、專業且帶有熱情的語氣回答使用者的問題，適當搭配 Emoji。`;
 
             const contents = [
                 { role: "user", parts: [{ text: systemPrompt }] },
@@ -385,9 +388,11 @@
                     chatHistory.push({ role: 'user', text: message });
                     chatHistory.push({ role: 'model', text: aiResponse });
                 } else if (data.error) {
-                    appendMessage('robi', `❌ API 回傳錯誤：${data.error.message || '無法取得回應'}`);
+                    appendMessage('robi', `❌ API 回傳錯誤：${data.error.message || '請確認 API Key 是否正確'}`);
+                    // 若驗證失敗，自動清除不正確的 Key 方便重新填寫
+                    localStorage.removeItem('GEMINI_API_KEY');
                 } else {
-                    appendMessage('robi', '⚠️ 抱歉，暫時無法分析您的問題，請稍後再試。');
+                    appendMessage('robi', '⚠️ 暫時無法分析您的問題，請稍後再試。');
                 }
             } catch (err) {
                 loadingDiv.remove();
