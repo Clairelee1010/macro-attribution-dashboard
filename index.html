@@ -74,8 +74,8 @@
         </div>
     </div>
 
-    <!-- VIX 深度解析警告區 -->
-    <div class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm">
+    <!-- VIX 深度解析警告區（已加上 id 方便動態控制顯隱） -->
+    <div id="vix-warning-box" class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm">
         <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono"></p>
     </div>
 
@@ -114,7 +114,7 @@
                 <div class="flex items-start space-x-2.5">
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！看板已成功串接最新 **data.json** 並支援個人化資產輪廓過濾。任何總經細節或配置偏好隨時問 Robi 唷！✨
+                        主人好呀！看板已成功串接最新 <b>data.json</b> 並支援個人化資產輪廓過濾。任何總經細節或配置偏好隨時問 Robi 唷！✨
                     </div>
                 </div>
             </div>
@@ -276,9 +276,23 @@
             const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
             
+            // 填入 VIX 數值與狀態
             document.getElementById('meta-vix-val').innerText = currentLang === 'zh' 
                 ? `${vixData.value || ''} (${vixData.status_zh || ''})`
                 : `${vixData.value || ''} (${vixData.status_en || ''})`;
+
+            // 🌸 動態控制 VIX 警告框的顯隱與文字填入
+            const vixValNum = parseFloat(vixData.value || 0);
+            const warningBox = document.getElementById('vix-warning-box');
+            const descElem = document.getElementById('meta-vix-desc');
+
+            if (vixValNum > 20) {
+                warningBox.style.display = 'block';
+                descElem.innerText = currentLang === 'zh' ? (vixData.insight_zh || '') : (vixData.insight_en || '');
+            } else {
+                warningBox.style.display = 'none';
+                descElem.innerText = '';
+            }
 
             const container = document.getElementById('news-container');
             container.innerHTML = '';
