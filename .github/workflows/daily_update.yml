@@ -23,10 +23,10 @@ jobs:
       - name: Run update script
         run: python update_data.py
 
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data.json
-          # 如果沒有變動，這裡不會報錯；有變動則自動 commit 並推送到 main
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update dashboard data automatically" && git push)
+      - name: Auto Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-update dashboard data.json"
+          file_pattern: data.json
+          git_user_name: "github-actions[bot]"
+          git_user_email: "github-actions[bot]@users.noreply.github.com"
