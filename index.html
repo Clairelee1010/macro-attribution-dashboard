@@ -3,64 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Macro Attribution Dashboard | Robi Edition</title>
+    <title>🎯 Macro Attribution Dashboard | Soft Robi Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; color: #1e293b; font-family: system-ui, -apple-system, sans-serif; }
-        .robi-gradient { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-        .robi-border { border-color: #fecaca; }
+        body { background-color: #faf9f6; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
+        .robi-gradient { background: linear-gradient(135deg, #d97777 0%, #c05656 100%); }
+        .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01); }
     </style>
 </head>
 <body class="p-6 max-w-7xl mx-auto">
 
     <!-- 頂部標題與狀態、語系切換 -->
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-slate-200 pb-5 mb-6 gap-4">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-stone-200 pb-5 mb-6 gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
-                🔴 <span id="ui-title">每日總經與台美股跨市場連動歸因看板</span>
-                <span class="text-xs bg-red-600 text-white px-2.5 py-1 rounded-md font-mono shadow-sm">Robi v4.1 Live</span>
+            <h1 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                🌸 <span id="ui-title">每日總經與台美股跨市場連動歸因看板</span>
+                <span class="text-xs bg-[#c05656] text-white px-2.5 py-1 rounded-md font-mono shadow-sm">Soft Robi v4.2 Updated</span>
             </h1>
         </div>
         <div class="flex flex-wrap items-center gap-3">
             <!-- 🌐 中英文切換按鈕 -->
-            <div class="bg-slate-200 p-1 rounded-xl flex gap-1 text-xs font-semibold">
-                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1.5 rounded-lg transition-all bg-white text-slate-900 shadow-sm">中文</button>
-                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900">EN</button>
+            <div class="bg-stone-200/70 p-1 rounded-xl flex gap-1 text-xs font-semibold">
+                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1.5 rounded-lg transition-all bg-white text-stone-800 shadow-sm">中文</button>
+                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1.5 rounded-lg transition-all text-stone-600 hover:text-stone-900">EN</button>
             </div>
             
-            <div class="flex items-center gap-2 bg-white border border-slate-200 px-4 py-2 rounded-xl shadow-sm text-xs text-slate-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-red-500 animate-ping"></span> Robi Core Active
+            <div class="flex items-center gap-2 bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm text-xs text-stone-600 font-mono">
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Live Feed Active
             </div>
         </div>
     </div>
 
     <!-- 上方四格儀表板 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-            <div id="ui-meta-total" class="text-xs font-semibold text-slate-500 tracking-wider uppercase">當前分區情報總數</div>
-            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-slate-900 font-mono">0</div>
+        <div class="soft-card rounded-2xl p-5">
+            <div id="ui-meta-total" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">當前分區情報總數</div>
+            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">0</div>
         </div>
-        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-            <div id="ui-meta-bullish" class="text-xs font-semibold text-slate-500 tracking-wider uppercase">多頭 (Bullish) 訊號</div>
-            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-600 font-mono">0%</div>
+        <div class="soft-card rounded-2xl p-5">
+            <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">多頭 (Bullish) 訊號</div>
+            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">0%</div>
         </div>
-        <div class="bg-white border border-red-200 rounded-2xl p-5 shadow-sm shadow-red-50">
-            <div id="ui-meta-vix" class="text-xs font-semibold text-red-600 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
-            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-red-600 font-mono">Loading...</div>
+        <div class="soft-card rounded-2xl p-5 border-rose-100 bg-rose-50/30">
+            <div id="ui-meta-vix" class="text-xs font-semibold text-rose-700 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
+            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono">Loading...</div>
         </div>
-        <div class="bg-white border border-amber-200 rounded-2xl p-5 shadow-sm shadow-amber-50">
-            <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-600 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
-            <div id="meta-rwa-val" class="text-lg font-bold mt-2 text-amber-700 font-mono">+$45.8M</div>
+        <div class="soft-card rounded-2xl p-5 border-amber-100 bg-amber-50/30">
+            <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-700 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
+            <div id="meta-rwa-val" class="text-lg font-bold mt-2 text-amber-800 font-mono">+$52.4M</div>
         </div>
     </div>
 
-    <!-- VIX 深度解析警告區 -->
-    <div class="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6 shadow-sm">
-        <p id="meta-vix-desc" class="text-xs text-red-800 leading-relaxed font-mono">Synchronizing Robi Matrix...</p>
+    <!-- VIX 深度解析警告區 (柔和玫瑰色) -->
+    <div class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm">
+        <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono">Synchronizing Soft Robi Matrix...</p>
     </div>
 
     <!-- 三大分頁標籤切換 -->
-    <div class="grid grid-cols-1 md:grid-cols-3 border-b border-slate-200 mb-6 gap-2">
+    <div class="grid grid-cols-1 md:grid-cols-3 border-b border-stone-200 mb-6 gap-2">
         <button id="tab-us_macro" onclick="switchTab('us_macro')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-xl">
             🇺🇸 美股總經與 Fed 決策
         </button>
@@ -78,103 +78,103 @@
     <!-- 🔴⚪ Robi 機器人精緻懸浮按鈕與聊天視窗 -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- 聊天視窗主體 (預設隱藏 hidden) -->
-        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-red-100 overflow-hidden flex flex-col transition-all duration-300">
-            <!-- 標題列 (Robi 紅白精緻漸層) -->
+        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden flex flex-col transition-all duration-300">
+            <!-- 標題列 -->
             <div class="robi-gradient text-white px-5 py-4 flex justify-between items-center shadow-md">
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl shadow-inner border border-white/30">🤖</div>
                     <div>
                         <h3 class="font-bold text-sm tracking-wide">Robi（ロビ）智慧小幫手</h3>
-                        <p class="text-[11px] text-red-100 font-mono">日本大師級精緻 AI 引擎 🔴⚪</p>
+                        <p class="text-[11px] text-rose-100 font-mono">2026.07 溫潤精緻 AI 引擎 🌸</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold transition-colors">&times;</button>
             </div>
 
             <!-- 對話內容區 -->
-            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50/70">
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-stone-50/50">
                 <div class="flex items-start space-x-2.5">
-                    <div class="w-7 h-7 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
-                    <div class="bg-white border border-red-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！我是 Robi 🔴⚪ 您的專屬機器人助理。看板上的 VIX 與市場資訊都已經幫您完美更新囉！有什麼想跟 Robi 聊聊的嗎？✨
+                    <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
+                    <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
+                        主人好呀！我是 Robi 🌸 看板已切換至全新的柔和溫潤色調，並同步更新了 2026 年 7 月最新市場數據囉！有什麼想跟 Robi 聊聊的嗎？✨
                     </div>
                 </div>
             </div>
 
             <!-- 輸入框區 -->
-            <div class="p-3 bg-white border-t border-slate-100 flex items-center space-x-2">
-                <input type="text" id="chat-input" placeholder="問問 Robi 關於市場或 VIX 的事..." class="flex-1 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-red-400 bg-slate-50" onkeypress="handleKeyPress(event)">
+            <div class="p-3 bg-white border-t border-stone-100 flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="問問 Robi 關於市場或 VIX 的事..." class="flex-1 border border-stone-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-rose-400 bg-stone-50/50" onkeypress="handleKeyPress(event)">
                 <button onclick="sendChatMessage()" class="robi-gradient hover:opacity-95 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">傳送</button>
             </div>
         </div>
 
-        <!-- 右下角 Robi 紅白高質感膠囊按鈕 -->
-        <button onclick="toggleChat()" class="robi-gradient text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center gap-3 text-sm font-bold transition-all hover:scale-105 focus:outline-none shadow-red-300 border border-white/30">
+        <!-- 右下角 Robi 柔和膠囊按鈕 -->
+        <button onclick="toggleChat()" class="robi-gradient text-white px-5 py-3.5 rounded-full shadow-lg flex items-center gap-3 text-sm font-bold transition-all hover:scale-105 focus:outline-none border border-white/30">
             <span class="text-xl animate-bounce">🤖</span>
             <span class="tracking-wide">呼叫 Robi 助理</span>
         </button>
     </div>
 
     <script>
-        // 內嵌即時市場與歸因資料
+        // 2026年7月最新市場與歸因資料
         let marketData = {
-            "vix_index": 22.4,
-            "fed_rate_cut_prob": 75.0,
-            "sentiment_score": 68,
-            "market_regime": "軟著陸降息循環",
+            "vix_index": 17.8,
+            "fed_rate_cut_prob": 82.5,
+            "sentiment_score": 74,
+            "market_regime": "夏季降息預期與 AI 實質落地",
             "global_vix": {
-                "value": "22.4",
-                "status_zh": "突破關鍵20關卡 / 強烈避險情緒 (Risk-Off)",
-                "status_en": "Risk-Off / Above Key Level 20",
-                "insight_zh": "【VIX 跨境聯動歸因】VIX 恐慌指數升至 22.4，反映宏觀資金正全面買入波動率期權進行下行保護。此現象與線上美債與 RWA 池 (+$45.8M) 資金流入高庫共振，預示傳統股市權值股短期將臨流動性洗盤，資金朝技術護城河極高的防禦性節點集中。",
-                "insight_en": "【VIX Cross-Market Insight】VIX surged to 22.4, signaling broad institutional hedging..."
+                "value": "17.8",
+                "status_zh": "回落至 20 以下常態區間 / 風險偏好回暖 (Risk-On)",
+                "status_en": "Normalizing Below 20 / Risk-On Sentiment",
+                "insight_zh": "【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數回落至 17.8。隨著通膨數據溫和降溫，市場消化 Fed 降息時點，資金重新流入高成長 AI 基礎設施與 RWA 收益池（+$52.4M）。整體資本流動更趨穩健，有利實質獲利支撐之中大型權值股。",
+                "insight_en": "【July 2026 VIX Insight】VIX stabilized at 17.8. Easing inflation expectations drive capital back to risk assets..."
             },
             "us_macro": [
                 {
-                    "title": "Fed 紀要釋放 'Higher for Longer' 訊號，黏性通膨扭曲殖利率曲線",
-                    "ai_sentiment": "Bearish",
-                    "vol_multiplier": "2.8x",
-                    "source": "Reuters / FOMC Minutes",
-                    "macro_attribution": "聯準會最新會議紀要釋放鷹派訊號，核心通膨 (PCE) 具備高黏性，導致美債殖利率再次攀升。傳統科技股面臨估值修正壓力，促使跨市場資金從投機性高風險資產撤出，转向具備實質現金流的防禦性標的。",
-                    "tw_spillover_effect": "台美利差維持高位，引外資對台股評價偏低的防禦性族群較具吸引力；高負債比、缺乏實質營運支撐之中小型電子股面臨流動性測試。",
-                    "rwa_flow_metric": "傳統美債 RWA 代幣化收益率攀升至 5.65%，引發線上資本回流買回短期美債。",
-                    "agent_action_log": "[ROBI SYSTEM] Autonomous Agent initiated portfolio de-risking; reallocating 14.2% capital from small-cap AI into defensive nodes.",
-                    "recommended_groups_tw": [{"name": "高殖利率及防禦性網通股", "reason": "擁有實質在手訂單與穩定配息能力，具備避險資金進駐效益。"}],
-                    "high_risk_groups_tw": [{"name": "高負債比、尚未獲利之中小型科技", "reason": "借貸成本高企直接侵蝕獲利，缺乏實質營運支撐。"}],
-                    "recommended_groups_us": [{"name": "Microsoft (MSFT)", "reason": "大型股現金流強勁，抗高利率風險能力高。"}, {"name": "NextEra Energy (NEE)", "reason": "防禦性公用事業龍頭，受惠資金避險。"}],
-                    "high_risk_groups_us": [{"name": "投機性小型 AI 概念股", "reason": "市場流動性緊縮，缺乏實質營收支撐的直觀估值修正。"}]
+                    "title": "7 月 FOMC 會議前瞻：核心 PCE 降溫，市場高度定價 9 月降息",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.4x",
+                    "source": "Bloomberg / Federal Reserve",
+                    "macro_attribution": "最新公布之美國總經數據顯示通膨壓力持續緩解，聯準會官員語調轉趨平衡，市場對秋季啟動降息循環的共識凝聚，壓抑長債殖利率進一步走揚。",
+                    "tw_spillover_effect": "美債殖利率回穩減輕外資資金匯出壓力，助益台股權值股與半導體供應鏈評價修復，資金面環境轉趨寬鬆友善。",
+                    "rwa_flow_metric": "鏈上美債 RWA 收益率微調至 5.15%，機構資金持續定存化配置。",
+                    "agent_action_log": "[SOFT ROBI] Portfolio rebalanced to overweight quality growth and resilient infrastructure nodes.",
+                    "recommended_groups_tw": [{"name": "大型權值半導體與 AI 伺服器", "reason": "受惠外資評價修復與實質訂單能見度。"}],
+                    "high_risk_groups_tw": [{"name": "匯率敏感度高且無利基傳產", "reason": "受資金排擠效應顯著。"}],
+                    "recommended_groups_us": [{"name": "Apple (AAPL) & Microsoft (MSFT)", "reason": "大型科技股現金流極佳，受惠降息資金青睞。"}],
+                    "high_risk_groups_us": [{"name": "高負債小型生技與純題材股", "reason": "融資成本依舊處於相對高檔區間。"}]
                 }
             ],
             "web3_crypto": [
                 {
-                    "title": "RWA 協議資金淨流入加速，鏈上美債代幣化突破新高",
+                    "title": "Agentic RWA 協議全面放量，機構級鏈上代幣化資產突破新高",
                     "ai_sentiment": "Bullish",
-                    "vol_multiplier": "1.5x",
-                    "source": "DefiLlama / RWA.xyz",
-                    "macro_attribution": "全球總經避險情緒升溫下，資金加速湧入鏈上實體資產代幣化（RWA）協議，尋求高於傳統國庫券的流動性收益。",
-                    "tw_spillover_effect": "推動台灣區塊鏈與金融科技應用概念股關注度，軟體整合與資安廠商迎來中長期佈局契機。",
-                    "rwa_flow_metric": "+$45.8M Pool Inflow (24H)",
-                    "agent_action_log": "[ROBI SYSTEM] Smart Contract rebalanced Treasury yield vault.",
-                    "recommended_groups_tw": [{"name": "區塊鏈應用與資安服務商", "reason": "受惠企業級 RWA 導入與合規需求。"}],
-                    "high_risk_groups_tw": [{"name": "無實質營收的迷因幣概念股", "reason": "受資金抽干影響較大。"}],
-                    "recommended_groups_us": [{"name": "BlackRock BUIDL Node / Ondo Finance", "reason": "機構級 RWA 核心承載節點。"}],
-                    "high_risk_groups_us": [{"name": "高槓桿 DeFi 借貸協議", "reason": "流動性衝擊下清算風險高。"}]
+                    "vol_multiplier": "1.6x",
+                    "source": "RWA.xyz / DefiLlama",
+                    "macro_attribution": "傳統金融機構加速與公共區塊鏈協議整合，AI 代理（Agentic AI）自動化資產配置使 RWA 資金池流動效率達到歷史新高。",
+                    "tw_spillover_effect": "帶動台灣本土軟體服務商與資安產業鏈切入國際企業級區塊鏈應用的想像空間。",
+                    "rwa_flow_metric": "+$52.4M Net Pool Inflow (7D)",
+                    "agent_action_log": "[SOFT ROBI] Automated Treasury Vault optimized yield weights.",
+                    "recommended_groups_tw": [{"name": "企業級軟體服務與資安防護", "reason": "受惠全球金融科技合規與鏈上資產擴張。"}],
+                    "high_risk_groups_tw": [{"name": "無實質業務之早期加密概念櫃買個股", "reason": "流動性易受短線雜音干擾。"}],
+                    "recommended_groups_us": [{"name": "Ondo Finance & BlackRock BUIDL ecosystem", "reason": "機構級 RWA 核心承載節點。"}],
+                    "high_risk_groups_us": [{"name": "高槓桿投機性 DeFi 衍生品協議", "reason": "市場震盪時面臨程式化清算風險。"}]
                 }
             ],
             "tw_stocks": [
                 {
-                    "title": "經濟部拍板 AI 算力基礎設施補助，網通與重電雙引擎點火",
+                    "title": "經濟部推動邊緣 AI 算力基礎設施，重電與散熱雙軌迎來夏月高峰",
                     "ai_sentiment": "Bullish",
-                    "vol_multiplier": "1.2x",
-                    "source": "MoEA / TWSE",
-                    "macro_attribution": "經濟部針對邊緣 AI 與資料中心建置推出專案補助，帶動本土硬體供應鏈資本支出擴增。",
-                    "tw_spillover_effect": "重電與散熱族群受惠於電力網升級與伺服器高功耗剛需，訂單能見度延伸至下半年。",
-                    "rwa_flow_metric": "+$12.4M Local Hardware CapEx Node",
-                    "agent_action_log": "[ROBI SYSTEM] TW Supply Chain Index updated.",
-                    "recommended_groups_tw": [{"name": "重電與不斷電系統 (UPS)", "reason": "資料中心電力擴容剛需。"}, {"name": "散熱模組與伺服器代工", "reason": "AI 伺服器出貨量增溫。"}],
-                    "high_risk_groups_tw": [{"name": "傳統傳產無轉型題材個股", "reason": "資金遭高科技與政策受惠股磁吸。"}],
-                    "recommended_groups_us": [{"name": "NVIDIA (NVDA)", "reason": "晶片供應鏈上游核心。"}, {"name": "Super Micro Computer (SMCI)", "reason": "伺服器整合商。"}],
-                    "high_risk_groups_us": [{"name": "傳統 PC 代工廠 (無 AI 轉型)", "reason": "換機潮不如預期。"}]
+                    "vol_multiplier": "1.3x",
+                    "source": "MoEA / TWSE Daily Insights",
+                    "macro_attribution": "因應全球資料中心功耗升級與邊緣 AI 終端裝置落地，經濟部專案補助激發本土硬體供應鏈強勁資本支出。",
+                    "tw_spillover_effect": "重電設備、不斷電系統（UPS）與液冷散熱模組訂單滿載，能見度已延伸至明年度。",
+                    "rwa_flow_metric": "+$18.2M Hardware CapEx Allocation",
+                    "agent_action_log": "[SOFT ROBI] TW Supply Chain Index optimized for high-power thermal solutions.",
+                    "recommended_groups_tw": [{"name": "液冷散熱與伺服器機殼", "reason": "AI 晶片高功耗剛性需求點火。"}, {"name": "重電與電網強韌化供應商", "reason": "國內外資料中心用電擴容。"}],
+                    "high_risk_groups_tw": [{"name": "傳統消費性電子代工（無 AI 轉型）", "reason": "終端換機動能尚待驗證。"}],
+                    "recommended_groups_us": [{"name": "NVIDIA (NVDA)", "reason": "全球 AI 算力基礎建設核心供應商。"}, {"name": "Vertiv Holdings (VRT)", "reason": "資料中心散熱與電力管理領導者。"}],
+                    "high_risk_groups_us": [{"name": "傳統 PC 品牌廠", "reason": "面臨傳統淡季與庫存調整。"}]
                 }
             ]
         };
@@ -221,8 +221,8 @@
             currentLang = lang;
             const isZh = lang === 'zh';
             
-            document.getElementById('lang-zh').className = `px-3 py-1.5 rounded-lg transition-all ${isZh ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`;
-            document.getElementById('lang-en').className = `px-3 py-1.5 rounded-lg transition-all ${!isZh ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`;
+            document.getElementById('lang-zh').className = `px-3 py-1.5 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-900'}`;
+            document.getElementById('lang-en').className = `px-3 py-1.5 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-900'}`;
             
             const t = translations[lang];
             document.getElementById('ui-title').innerText = t.title;
@@ -247,9 +247,9 @@
                 const btn = document.getElementById(`tab-${key}`);
                 if (!btn) return;
                 if (key === activeTab) {
-                    btn.className = "py-3 px-4 font-bold text-center border-b-2 text-red-600 border-red-600 bg-white rounded-t-xl text-sm transition-all shadow-sm";
+                    btn.className = "py-3 px-4 font-bold text-center border-b-2 text-[#c05656] border-[#c05656] bg-white rounded-t-xl text-sm transition-all shadow-sm";
                 } else {
-                    btn.className = "py-3 px-4 font-bold text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-all text-sm";
+                    btn.className = "py-3 px-4 font-bold text-center border-b-2 border-transparent text-stone-500 hover:text-stone-800 hover:bg-stone-100/50 transition-all text-sm";
                 }
             });
 
@@ -262,29 +262,29 @@
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
             
             document.getElementById('meta-vix-val').innerText = currentLang === 'zh' 
-                ? `${vixData.value || '22.4'} (${vixData.status_zh || '避險情緒強烈'})`
-                : `${vixData.value || '22.4'} (${vixData.status_en || 'Risk-Off'})`;
+                ? `${vixData.value || '17.8'} (${vixData.status_zh || '風險偏好回暖'})`
+                : `${vixData.value || '17.8'} (${vixData.status_en || 'Risk-On'})`;
                 
             document.getElementById('meta-vix-desc').innerText = currentLang === 'zh'
-                ? (vixData.insight_zh || '【VIX 跨境聯動歸因】VIX 恐慌指數維持高位。')
-                : (vixData.insight_en || '【VIX Cross-Market Insight】VIX remains elevated.');
+                ? (vixData.insight_zh || '【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數回落。')
+                : (vixData.insight_en || '【July 2026 VIX Insight】VIX stabilized.');
 
             const container = document.getElementById('news-container');
             container.innerHTML = '';
 
             if (rawData.length === 0) {
-                container.innerHTML = `<div class="text-slate-400 text-center py-8">No active intelligence in this sector.</div>`;
+                container.innerHTML = `<div class="text-stone-400 text-center py-8">No active intelligence in this sector.</div>`;
                 return;
             }
 
             rawData.forEach((news, index) => {
                 const card = document.createElement('div');
-                card.className = 'bg-white border border-slate-200 rounded-2xl p-6 hover:border-red-300 hover:shadow-xl transition-all shadow-sm';
+                card.className = 'soft-card rounded-2xl p-6 hover:border-rose-200 hover:shadow-md transition-all';
                 
-                let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => { recTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
-                let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => { riskTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
-                let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => { recUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
-                let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => { riskUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
+                let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => { recTwHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
+                let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => { riskTwHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
+                let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => { recUsHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
+                let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => { riskUsHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
 
                 const displayTitle = news.title || "市場總經焦點";
                 const displayMacro = news.macro_attribution || "無詳細歸因數據";
@@ -293,44 +293,44 @@
                 card.innerHTML = `
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs">
                         <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-0.5 rounded-full font-mono font-bold bg-slate-100 text-slate-700">${news.ai_sentiment || 'Mixed'}</span>
-                            <span class="text-slate-500 font-mono">Volatility: <b class="text-red-600">${news.vol_multiplier || '1.0x'}</b></span>
-                            <span class="text-slate-300">|</span>
-                            <span class="text-slate-500 font-mono">Source: <b class="text-red-600">${news.source || 'RAG Node'}</b></span>
+                            <span class="px-2.5 py-0.5 rounded-full font-mono font-bold bg-stone-100 text-stone-700">${news.ai_sentiment || 'Mixed'}</span>
+                            <span class="text-stone-500 font-mono">Volatility: <b class="text-[#c05656]">${news.vol_multiplier || '1.0x'}</b></span>
+                            <span class="text-stone-300">|</span>
+                            <span class="text-stone-500 font-mono">Source: <b class="text-[#c05656]">${news.source || 'RAG Node'}</b></span>
                         </div>
                     </div>
                     
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 border-l-4 border-red-500 pl-3">TOP ${index + 1} · ${displayTitle}</h3>
+                    <h3 class="text-lg font-bold text-stone-900 mb-4 border-l-4 border-[#d97777] pl-3">TOP ${index + 1} · ${displayTitle}</h3>
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-3.5 border-t border-slate-100 mb-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-3.5 border-t border-stone-100 mb-4">
                         <div>
-                            <div class="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-1.5">${t.macro_title}</div>
-                            <p class="text-xs text-slate-600 leading-relaxed">${displayMacro}</p>
+                            <div class="text-[11px] font-bold text-stone-400 tracking-wider uppercase mb-1.5">${t.macro_title}</div>
+                            <p class="text-xs text-stone-600 leading-relaxed">${displayMacro}</p>
                         </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-5">
-                            <div class="text-[11px] font-bold text-red-600 tracking-wider uppercase mb-1.5">${t.spillover_title}</div>
-                            <p class="text-xs text-slate-600 leading-relaxed font-medium">${displaySpillover}</p>
+                        <div class="lg:border-l lg:border-stone-100 lg:pl-5">
+                            <div class="text-[11px] font-bold text-[#c05656] tracking-wider uppercase mb-1.5">${t.spillover_title}</div>
+                            <p class="text-xs text-stone-600 leading-relaxed font-medium">${displaySpillover}</p>
                         </div>
                     </div>
 
-                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-4 font-mono text-[11px]">
-                        <div class="mb-1"><span class="text-amber-700 font-bold">📊 RWA On-Chain Metric:</span> <span class="text-slate-600 ml-1">${news.rwa_flow_metric || '+$45.8M Pool Inflow'}</span></div>
-                        <div><span class="text-red-700 font-bold">🤖 Robi Execution Log:</span> <span class="text-slate-600 ml-1">${news.agent_action_log || '[SYSTEM] Nodes Balanced.'}</span></div>
+                    <div class="bg-stone-50/70 p-3.5 rounded-xl border border-stone-100 mb-4 font-mono text-[11px]">
+                        <div class="mb-1"><span class="text-amber-800 font-bold">📊 RWA On-Chain Metric:</span> <span class="text-stone-600 ml-1">${news.rwa_flow_metric || '+$52.4M Pool Inflow'}</span></div>
+                        <div><span class="text-rose-800 font-bold">🤖 Soft Robi Execution Log:</span> <span class="text-stone-600 ml-1">${news.agent_action_log || '[SYSTEM] Nodes Balanced.'}</span></div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                        <div class="bg-emerald-50/40 border border-emerald-100 rounded-2xl p-4 space-y-2">
-                            <div class="text-[11px] font-bold text-emerald-700 tracking-wider uppercase">${t.rec_tw}</div>
-                            <div>${recTwHtml || '微星、技嘉、華城'}</div>
-                            <div class="border-t border-emerald-100 my-2 pt-2 text-[11px] font-bold text-emerald-700 tracking-wider uppercase">${t.rec_us}</div>
-                            <div>${recUsHtml || 'Microsoft (MSFT), NextEra Energy (NEE)'}</div>
+                        <div class="bg-emerald-50/30 border border-emerald-100/60 rounded-2xl p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-emerald-800 tracking-wider uppercase">${t.rec_tw}</div>
+                            <div>${recTwHtml || '台積電、鴻海、緯創'}</div>
+                            <div class="border-t border-emerald-100/60 my-2 pt-2 text-[11px] font-bold text-emerald-800 tracking-wider uppercase">${t.rec_us}</div>
+                            <div>${recUsHtml || 'Apple (AAPL), Microsoft (MSFT)'}</div>
                         </div>
 
-                        <div class="bg-rose-50/40 border border-rose-100 rounded-2xl p-4 space-y-2">
-                            <div class="text-[11px] font-bold text-rose-700 tracking-wider uppercase">${t.risk_tw}</div>
-                            <div>${riskTwHtml || '缺乏實質營收之中小型投機電子股'}</div>
-                            <div class="border-t border-rose-100 my-2 pt-2 text-[11px] font-bold text-rose-700 tracking-wider uppercase">${t.risk_us}</div>
-                            <div>${riskUsHtml || '高估值、無獲利支撐之投機型 AI 概念股'}</div>
+                        <div class="bg-rose-50/30 border border-rose-100/60 rounded-2xl p-4 space-y-2">
+                            <div class="text-[11px] font-bold text-rose-800 tracking-wider uppercase">${t.risk_tw}</div>
+                            <div>${riskTwHtml || '匯率敏感度高且無利基傳產'}</div>
+                            <div class="border-t border-rose-100/60 my-2 pt-2 text-[11px] font-bold text-rose-800 tracking-wider uppercase">${t.risk_us}</div>
+                            <div>${riskUsHtml || '高負債小型生技與純題材股'}</div>
                         </div>
                     </div>
                 `;
@@ -364,22 +364,22 @@
             setTimeout(() => {
                 let reply = "";
                 const lowerText = text.toLowerCase();
-                const vixVal = marketData.global_vix ? marketData.global_vix.value : '22.4';
+                const vixVal = marketData.global_vix ? marketData.global_vix.value : '17.8';
 
                 if (lowerText.includes('做什麼') || lowerText.includes('功能') || lowerText.includes('你可以') || lowerText.includes('help')) {
-                    reply = `主人好呀！我是 Robi 🔴⚪ 為您精緻服務：<br>1️⃣ 即時解讀看板上的 VIX 恐慌指數與避險狀態。<br>2️⃣ 監控美股總經與 Web3 / RWA 資金流向。<br>3️⃣ 提供台美股建議關注與風險警示！隨時吩咐 Robi 唷！✨`;
+                    reply = `主人好呀！我是 Robi 🌸 為您提供 2026.07 最新精緻服務：<br>1️⃣ 即時解讀 2026 年 7 月 VIX 恐慌指數與避險狀態。<br>2️⃣ 監控 7 月美股降息預期與 Web3 / RWA 資金流向。<br>3️⃣ 提供台美股建議關注與風險警示！隨時吩咐 Robi 唷！✨`;
                 } else if (lowerText.includes('vix') || lowerText.includes('恐慌') || lowerText.includes('指數')) {
-                    reply = `目前的 VIX 恐慌指數是 <b class="text-red-600">${vixVal}</b> 唷！市場正在積極避險，Robi 建議多留意防禦性類股與資產配置！🛡️`;
+                    reply = `目前 2026 年 7 月的 VIX 恐慌指數是 <b class="text-rose-700">${vixVal}</b> 唷！市場風險偏好回暖，Robi 建議聚焦實質營收與高成長 AI 節點！🛡️`;
                 } else if (lowerText.includes('rwa') || lowerText.includes('web3') || lowerText.includes('幣')) {
-                    reply = `關於 Web3 與 Agentic RWA 鏈上節點：目前實體資產代幣化淨流向保持在 +$45.8M，Robi 正在背景持續幫您維持節點平衡！💎`;
+                    reply = `關於 Web3 與 Agentic RWA 鏈上節點：目前 7 月實體資產代幣化淨流向保持在 +$52.4M，Robi 正在背景持續幫您維持節點平衡！💎`;
                 } else {
-                    reply = `收到您的指令：「${text}」🔴⚪ Robi 已完美更新 VIX 與新聞資訊，請安心交給我吧！✨`;
+                    reply = `收到您的指令：「${text}」🌸 Robi 已完美更新 2026.07 溫潤柔和介面與最新市場資訊，請安心交給我吧！✨`;
                 }
 
                 msgContainer.innerHTML += `
                     <div class="flex items-start space-x-2.5">
-                        <div class="w-7 h-7 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
-                        <div class="bg-white border border-red-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
+                        <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
+                        <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
                             ${reply}
                         </div>
                     </div>
