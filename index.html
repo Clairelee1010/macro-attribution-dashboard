@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Macro Attribution Dashboard | Soft Robi Full-Spectrum Edition</title>
+    <title>Macro Attribution Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #faf9f6; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
+        body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
         .robi-gradient { background: linear-gradient(135deg, #d97777 0%, #c05656 100%); }
-        .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01); }
+        .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); }
     </style>
 </head>
 <body class="p-6 max-w-7xl mx-auto">
 
-    <!-- 頂部標題與狀態、語系切換 -->
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-stone-200 pb-5 mb-4 gap-4">
+    <!-- 頂部標題與語系/狀態切換 -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-stone-200 pb-4 mb-5 gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+            <h1 class="text-xl font-bold text-stone-800 flex items-center gap-2">
                 🌸 <span id="ui-title">每日總經與台美股跨市場連動歸因看板</span>
-                <span class="text-xs bg-[#c05656] text-white px-2.5 py-1 rounded-md font-mono shadow-sm">Soft Robi v5.0 Full Spectrum</span>
+                <span class="text-xs bg-[#c05656] text-white px-2 py-0.5 rounded font-mono">v5.2 Rich Spectrum</span>
             </h1>
         </div>
         <div class="flex flex-wrap items-center gap-3">
-            <div class="bg-stone-200/70 p-1 rounded-xl flex gap-1 text-xs font-semibold">
-                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1.5 rounded-lg transition-all bg-white text-stone-800 shadow-sm">中文</button>
-                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1.5 rounded-lg transition-all text-stone-600 hover:text-stone-900">EN</button>
+            <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
+                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1 rounded-lg transition-all bg-white text-stone-800 shadow-sm">中文</button>
+                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg transition-all text-stone-500 hover:text-stone-900">EN</button>
             </div>
-            
-            <div class="flex items-center gap-2 bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm text-xs text-stone-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Multi-Metric Active
+            <div class="flex items-center gap-2 bg-white border border-stone-200 px-3 py-1.5 rounded-xl shadow-sm text-xs text-stone-500 font-mono">
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Active
             </div>
         </div>
     </div>
@@ -57,38 +56,38 @@
     </div>
 
     <!-- 🎯 個人化風險與資產輪廓面板 -->
-    <section id="user-profiling-panel" class="bg-white border border-stone-200 rounded-2xl p-5 mb-6 shadow-sm">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+    <section id="user-profiling-panel" class="bg-white border border-stone-200 rounded-2xl p-4 mb-6 shadow-sm">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
             <div>
-                <h3 class="font-bold text-sm text-stone-800 flex items-center gap-2">
-                    ⚙️ 個人化投資輪廓引擎 (User Risk & Asset Profiling)
-                    <span id="current-profile-tag" class="text-[11px] bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded-md font-mono">ALL</span>
+                <h3 class="font-bold text-xs sm:text-sm text-stone-800 flex items-center gap-2">
+                    ⚙️ 個人化投資輪廓引擎 (User Profiling)
+                    <span id="current-profile-tag" class="text-[10px] bg-rose-100 text-rose-800 font-bold px-2 py-0.5 rounded font-mono">ALL</span>
                 </h3>
-                <p id="profile-summary-text" class="text-xs text-stone-500 mt-1">
-                    即時切換您的資產配置偏好，動態過濾跨市場標的與風險權重：
+                <p id="profile-summary-text" class="text-xs text-stone-400 mt-0.5">
+                    動態切換資產偏好，即時過濾跨市場標的與風險權重：
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-2">
-                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-[#c05656] text-white" onclick="setProfile('all')" data-profile="all">🌟 全景宏觀 (All)</button>
+                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-[#c05656] text-white" onclick="setProfile('all')" data-profile="all">🌟 全景宏觀</button>
                 <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('conservative')" data-profile="conservative">🛡️ 穩健防禦</button>
                 <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('aggressive')" data-profile="aggressive">🚀 積極成長</button>
                 <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('web3_rwa')" data-profile="web3_rwa">🌐 Web3 & RWA</button>
                 
                 <button onclick="openProfileModal()" class="px-3 py-1.5 rounded-xl text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 hover:bg-rose-100 transition-all flex items-center gap-1">
-                    ✏️ 精細偏好設定
+                    ✏️ 精細設定
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- 📊 全方位監控儀表板 -->
-    <div class="mb-6 space-y-4">
-        <h2 class="text-xs font-bold text-stone-500 uppercase tracking-wider flex items-center gap-2">
-            📌 核心監控指標矩陣 (Core Metric Spectrum)
+    <!-- 📊 核心監控指標矩陣 -->
+    <div class="mb-6 space-y-3">
+        <h2 class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2">
+            📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-blue-500">
+            <div class="soft-card rounded-2xl p-4 space-y-2 border-l-4 border-l-blue-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center">
                     <span>1. 🌐 總經與流動性 (Macro)</span>
                     <span class="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded font-mono">US / Fed</span>
@@ -96,20 +95,20 @@
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">10Y 美債</div>
-                        <div class="text-sm font-bold text-stone-800">4.28%</div>
+                        <div class="text-xs font-bold text-stone-800">4.28%</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">DXY 美元</div>
-                        <div class="text-sm font-bold text-stone-800">104.2</div>
+                        <div class="text-xs font-bold text-stone-800">104.2</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">MOVE 債基</div>
-                        <div class="text-sm font-bold text-emerald-600">98.5</div>
+                        <div class="text-xs font-bold text-emerald-600">98.5</div>
                     </div>
                 </div>
             </div>
 
-            <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-emerald-500">
+            <div class="soft-card rounded-2xl p-4 space-y-2 border-l-4 border-l-emerald-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center">
                     <span>2. 💻 科技與台美籌碼 (Chips)</span>
                     <span class="text-[10px] bg-emerald-50 text-emerald-700 px-1.5 py-0.5 rounded font-mono">TW / US</span>
@@ -117,20 +116,20 @@
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">TSM 溢價</div>
-                        <div class="text-sm font-bold text-emerald-600">+14.2%</div>
+                        <div class="text-xs font-bold text-emerald-600">+14.2%</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">外資期貨</div>
-                        <div class="text-sm font-bold text-rose-600">-12.8K</div>
+                        <div class="text-xs font-bold text-rose-600">-12.8K</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">USD/TWD</div>
-                        <div class="text-sm font-bold text-stone-800">32.45</div>
+                        <div class="text-xs font-bold text-stone-800">32.45</div>
                     </div>
                 </div>
             </div>
 
-            <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-purple-500">
+            <div class="soft-card rounded-2xl p-4 space-y-2 border-l-4 border-l-purple-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center">
                     <span>3. 🌐 Web3 & RWA 資金 (On-Chain)</span>
                     <span class="text-[10px] bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded font-mono">Crypto</span>
@@ -138,15 +137,15 @@
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">恐慌指數</div>
-                        <div class="text-sm font-bold text-emerald-600">68 (貪婪)</div>
+                        <div class="text-xs font-bold text-emerald-600">68 (貪婪)</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">穩定幣市值</div>
-                        <div class="text-sm font-bold text-stone-800">$162B</div>
+                        <div class="text-xs font-bold text-stone-800">$162B</div>
                     </div>
                     <div class="bg-stone-50 p-2 rounded-xl">
                         <div class="text-[10px] text-stone-400">RWA 美債</div>
-                        <div class="text-sm font-bold text-purple-600">$2.4B</div>
+                        <div class="text-xs font-bold text-purple-600">$2.4B</div>
                     </div>
                 </div>
             </div>
@@ -154,43 +153,38 @@
     </div>
 
     <!-- 狀態資訊欄 -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-        <div class="soft-card rounded-2xl p-5">
-            <div id="ui-meta-total" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">當前分區情報總數</div>
-            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">0</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="soft-card rounded-2xl p-4">
+            <div id="ui-meta-total" class="text-xs font-semibold text-stone-400 uppercase">當前分區情報總數</div>
+            <div id="meta-total-val" class="text-2xl font-bold mt-1 text-stone-800 font-mono">0</div>
         </div>
-        <div class="soft-card rounded-2xl p-5">
-            <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">多頭 (Bullish) 訊號比例</div>
-            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">0%</div>
+        <div class="soft-card rounded-2xl p-4">
+            <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-400 uppercase">多頭 (BULLISH) 訊號比例</div>
+            <div id="meta-bullish-val" class="text-2xl font-bold mt-1 text-emerald-600 font-mono">0%</div>
         </div>
-        <div class="soft-card rounded-2xl p-5 border-rose-100 bg-rose-50/30">
-            <div id="ui-meta-vix" class="text-xs font-semibold text-rose-700 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
-            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono">--</div>
+        <div class="soft-card rounded-2xl p-4 border-rose-100 bg-rose-50/20">
+            <div id="ui-meta-vix" class="text-xs font-semibold text-rose-700 uppercase">🔥 VIX 恐慌避險追蹤</div>
+            <div id="meta-vix-val" class="text-base font-bold mt-1 text-rose-800 font-mono">15.4 (平穩)</div>
         </div>
-        <div class="soft-card rounded-2xl p-5 border-amber-100 bg-amber-50/30">
-            <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-700 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
-            <div id="meta-rwa-val" class="text-lg font-bold mt-2 text-amber-800 font-mono">+$52.4M</div>
+        <div class="soft-card rounded-2xl p-4 border-amber-100 bg-amber-50/20">
+            <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-700 uppercase">📊 AGENTIC RWA 淨流向</div>
+            <div id="meta-rwa-val" class="text-base font-bold mt-1 text-amber-800 font-mono">+$52.4M</div>
         </div>
     </div>
 
-    <!-- VIX 警告區 -->
-    <div id="vix-warning-box" class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm hidden">
-        <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono"></p>
+    <!-- 頁籤切換欄 -->
+    <div class="flex border-b border-stone-200 mb-6 space-x-6">
+        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="pb-3 px-1 font-bold text-sm border-b-2 text-[#c05656] border-[#c05656]">us 美股總經與 Fed 決策</button>
+        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="pb-3 px-1 font-bold text-sm border-b-2 border-transparent text-stone-500 hover:text-stone-800">🌐 Web3 智能金融與 RWA</button>
+        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="pb-3 px-1 font-bold text-sm border-b-2 border-transparent text-stone-500 hover:text-stone-800">💻 台股與經濟部政策</button>
     </div>
 
-    <!-- 三大分頁標籤 -->
-    <div class="grid grid-cols-1 md:grid-cols-3 border-b border-stone-200 mb-6 gap-2">
-        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-xl">🇺🇸 美股總經與 Fed 決策</button>
-        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-xl">🌐 Web3 智能金融與 RWA</button>
-        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="py-3 px-4 font-bold text-center border-b-2 text-sm transition-all rounded-t-xl">💻 台股與經濟部政策</button>
-    </div>
-
-    <!-- 卡片容器 -->
-    <div id="news-container" class="space-y-6"></div>
+    <!-- 📰 新聞情報卡片容器（豐富資訊與歸因分析版） -->
+    <div id="news-container" class="space-y-4"></div>
 
     <!-- 個人化偏好 Modal -->
     <div id="profile-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-stone-100 space-y-5">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-stone-100 space-y-4">
             <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="text-base font-bold text-stone-800 flex items-center gap-2">
                     ⚙️ 設定個人投資輪廓 (Profile Config)
@@ -198,107 +192,138 @@
                 <button onclick="closeProfileModal()" class="text-stone-400 hover:text-stone-700 font-bold text-lg">&times;</button>
             </div>
 
-            <div class="space-y-4 text-xs text-stone-700">
+            <div class="space-y-3 text-xs text-stone-700">
                 <div>
                     <label class="font-bold block mb-1 text-stone-800">1. 風險承受度 (Risk Tolerance)</label>
                     <select id="modal-risk-level" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 focus:outline-none focus:border-rose-400">
-                        <option value="conservative">🛡️ 穩健防禦 (偏好美債、高殖利率、無風險收益)</option>
-                        <option value="moderate" selected>⚖️ 均衡配置 (藍籌股 + 適度成長資產)</option>
-                        <option value="aggressive">🚀 積極成長 (重倉邊緣 AI、先進封裝、高 Beta 資產)</option>
-                        <option value="web3_rwa">🌐 Web3 信仰者 (鏈上國債 RWA、Agentic AI 算力代幣)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="font-bold block mb-1 text-stone-800">2. 核心投資目標 (Investment Objective)</label>
-                    <div class="grid grid-cols-2 gap-2">
-                        <label class="border border-stone-200 p-2.5 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-rose-50/50">
-                            <input type="radio" name="modal-goal" value="income" checked class="accent-rose-600">
-                            <span>💵 穩定現金流 / 避險</span>
-                        </label>
-                        <label class="border border-stone-200 p-2.5 rounded-xl flex items-center gap-2 cursor-pointer hover:bg-rose-50/50">
-                            <input type="radio" name="modal-goal" value="growth" class="accent-rose-600">
-                            <span>📈 資本利得極大化</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="font-bold block mb-1 text-stone-800">3. 目前偏好的市場類別</label>
-                    <select id="modal-fav-market" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 focus:outline-none focus:border-rose-400">
-                        <option value="all">🌟 跨市場全景監控</option>
-                        <option value="tw_stocks">💻 聚焦台股與半導體供應鏈</option>
-                        <option value="us_macro">🇺🇸 聚焦美股總經與聯準會政策</option>
-                        <option value="web3_crypto">🌐 聚焦 Web3 智能金融與 RWA</option>
+                        <option value="conservative">🛡️ 穩健防禦 (偏好美債、高殖利率)</option>
+                        <option value="moderate" selected>⚖️ 均衡配置 (藍籌股 + 適度成長)</option>
+                        <option value="aggressive">🚀 積極成長 (重倉邊緣 AI、高 Beta 資產)</option>
+                        <option value="web3_rwa">🌐 Web3 信仰者 (鏈上國債 RWA、算力代幣)</option>
                     </select>
                 </div>
             </div>
 
             <div class="flex justify-end gap-2 pt-3 border-t border-stone-100">
                 <button onclick="closeProfileModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-stone-500 bg-stone-100 hover:bg-stone-200">取消</button>
-                <button onclick="saveUserProfile()" class="robi-gradient text-white px-5 py-2 rounded-xl text-xs font-bold shadow-sm hover:opacity-95">💾 保存偏好並動態過濾</button>
+                <button onclick="saveUserProfile()" class="robi-gradient text-white px-5 py-2 rounded-xl text-xs font-bold shadow-sm hover:opacity-90">💾 保存偏好</button>
             </div>
         </div>
     </div>
 
     <!-- Robi 懸浮對話與智慧助理 -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
-        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden flex flex-col">
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-rose-100 overflow-hidden flex flex-col">
             <div class="robi-gradient text-white px-5 py-4 flex justify-between items-center shadow-md">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl shadow-inner border border-white/30">🤖</div>
+                    <div class="w-9 h-9 rounded-2xl bg-white/20 flex items-center justify-center text-lg shadow-inner">🤖</div>
                     <div>
                         <h3 class="font-bold text-sm tracking-wide">Robi（ロビ）智慧小幫手</h3>
-                        <p class="text-[11px] text-rose-100 font-mono">2026.07 階段三個人化引擎 Active 🌸</p>
+                        <p class="text-[10px] text-rose-100 font-mono">2026.07 個人化引擎 Active 🌸</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="promptForApiKey()" title="設定/變更 API Key" class="text-white/90 hover:text-white text-xs bg-white/20 px-2.5 py-1 rounded-lg font-mono border border-white/30 hover:bg-white/30 transition-all shadow-sm">🔑 Key</button>
+                    <button onclick="promptForApiKey()" title="設定/變更 API Key" class="text-white/90 hover:text-white text-xs bg-white/20 px-2 py-1 rounded-lg font-mono border border-white/30 hover:bg-white/30 transition-all">🔑 Key</button>
                     <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold">&times;</button>
                 </div>
             </div>
-            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-stone-50/50">
-                <div class="flex items-start space-x-2.5">
-                    <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
-                    <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！頂部已為您載入<b>1+2+3 全維度指標（總經、籌碼與 Web3/RWA）</b>！美股、台股與加密貨幣的脈動一手掌握！✨
+            
+            <div id="chat-messages" class="p-4 h-72 overflow-y-auto text-xs space-y-3 bg-stone-50/50">
+                <div class="flex items-start space-x-2">
+                    <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div>
+                    <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[85%] shadow-sm leading-relaxed">
+                        主人好呀！詳細的新聞摘要與歸因卡片已經更新完成了！隨時點擊「🔑 Key」可以設定對話 API Key 喔！✨
                     </div>
                 </div>
             </div>
+
             <div class="p-3 bg-white border-t border-stone-100 flex items-center space-x-2">
                 <input type="text" id="chat-input" placeholder="問問 Robi 關於個人配置的事..." class="flex-1 border border-stone-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-rose-400 bg-stone-50/50" onkeypress="handleKeyPress(event)">
-                <button onclick="sendChatMessage()" class="robi-gradient text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm">傳送</button>
+                <button onclick="sendChatMessage()" class="robi-gradient text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm hover:opacity-90">傳送</button>
             </div>
         </div>
-        <button onclick="toggleChat()" class="robi-gradient text-white px-5 py-3.5 rounded-full shadow-lg flex items-center gap-3 text-sm font-bold border border-white/30 hover:scale-105 transition-all">
-            <span class="text-xl animate-bounce">🤖</span>
+
+        <button onclick="toggleChat()" class="robi-gradient text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 text-sm font-bold border border-white/30 hover:scale-105 transition-all">
+            <span class="text-lg">🤖</span>
             <span class="tracking-wide">呼叫 Robi 助理</span>
         </button>
     </div>
 
     <script>
-        let marketData = {};
+        // 內建豐富資訊資料庫（涵蓋新聞摘要、AI 歸因點評與關聯標的）
+        let marketData = {
+            "us_macro": [
+                { 
+                    "ai_sentiment": "Bearish", 
+                    "match": "90%", 
+                    "date": "2026.07", 
+                    "title": "Should You Buy Plains All American Stock Now That Crude Oil Prices Are Below $90 a Barrel?",
+                    "summary": "原油價格跌破每桶 90 美元關卡，引發市場對能源中游傳輸管道業者現金流穩健度之疑慮，投資人開始審慎評估其高股息收益之永續性。",
+                    "ai_analysis": "💡 市場歸因：油價回檔雖有利於減緩通膨，但短期壓抑能源基礎設施標的估值；市場資金正評估殖利率吸引力。",
+                    "tags": ["能源產業", "油價波動", "現金流"],
+                    "impact_tickers": ["PAA", "XLE", "USO"]
+                },
+                { 
+                    "ai_sentiment": "Bearish", 
+                    "match": "92%", 
+                    "date": "2026.07", 
+                    "title": "1 Industrials Stock with Exciting Potential and 2 We Find Risky",
+                    "summary": "傳統工業資本支出出現分化，自動化升級與 AI 轉型題材標的獲得資金青睞，但受制於供應鏈成本與終端需求放緩之傳統裝備廠則面臨毛利壓縮。",
+                    "ai_analysis": "💡 市場歸因：工業板塊內部輪動加劇，資金自營運槓桿過高標的撤出，轉向邊緣自動化設備龍頭。",
+                    "tags": ["工業製造", "資本支出", "供應鏈"],
+                    "impact_tickers": ["CAT", "HON", "GE"]
+                },
+                { 
+                    "ai_sentiment": "Bearish", 
+                    "match": "88%", 
+                    "date": "2026.07", 
+                    "title": "Houthis claim strikes on Saudi Arabian oil tankers as Iran conflict expands",
+                    "summary": "紅海局勢再度緊張，胡塞武裝宣稱襲擊沙烏地油輪，中東地緣政治風險升溫引發對航運安全與運費飆升之擔憂。",
+                    "ai_analysis": "💡 市場歸因：地緣衝突短期推升黃金與美債避險需求，同時帶來航運物流之溢價壓力。",
+                    "tags": ["地緣政治", "紅海局勢", "避險資產"],
+                    "impact_tickers": ["USO", "ZIM", "GOLD"]
+                },
+                { 
+                    "ai_sentiment": "Bearish", 
+                    "match": "95%", 
+                    "date": "2026.07", 
+                    "title": "Alphabet and Tesla test Wall Street's patience as AI spending overshadows growth",
+                    "summary": "科技巨頭最新財報顯示 AI 資本支出（CapEx）大幅增長，但短期營收變現速度未能完全滿足華爾街之高標準，引發短線獲利了結賣壓。",
+                    "ai_analysis": "💡 市場歸因：大型科技股評價面臨短線修正壓力，但算力硬體與先進封裝基礎設施之長期需求動能依舊堅挺。",
+                    "tags": ["科技財報", "AI CapEx", "估值修復"],
+                    "impact_tickers": ["GOOGL", "TSLA", "NVDA"]
+                },
+                { 
+                    "ai_sentiment": "Neutral", 
+                    "match": "90%", 
+                    "date": "2026.07", 
+                    "title": "聯準會降息預期升溫，長天期美債吸引避險資金",
+                    "summary": "最新通膨與就業數據放緩，市場對 Fed 年內降息之定價上升，資金加速流向長天期美國國債 ETF。",
+                    "ai_analysis": "💡 市場歸因：美債殖利率回落有助於舒緩科技股折現率壓力，同時為 Web3 鏈上 RWA 美債資產提供穩定收益基準。",
+                    "tags": ["Fed 降息", "美債殖利率", "RWA 收益"],
+                    "impact_tickers": ["TLT", "DXY", "US10Y"]
+                }
+            ],
+            "web3_crypto": [],
+            "tw_stocks": []
+        };
+
         let activeTab = "us_macro";
         let currentLang = "zh";
         let currentProfile = 'all';
-        let userProfileConfig = { risk: 'moderate', goal: 'income', favMarket: 'all' };
-        let chatHistory = [];
 
-        // ----------------------------------------------------------------------
-        // 🔒 安全機制：採用 localStorage 動態管理 API Key
-        // ----------------------------------------------------------------------
         function getApiKey() {
             return localStorage.getItem('GEMINI_API_KEY') || '';
         }
 
         function promptForApiKey() {
             const currentKey = getApiKey();
-            const userKey = prompt('🔑 請輸入您的 Gemini API Key（將安全儲存於您的瀏覽器 localStorage 中）：', currentKey);
+            const userKey = prompt('🔑 請輸入您的 Gemini API Key：', currentKey);
             if (userKey !== null) {
                 const trimmedKey = userKey.trim();
                 if (trimmedKey) {
                     localStorage.setItem('GEMINI_API_KEY', trimmedKey);
-                    alert('✅ Gemini API Key 已成功儲存！');
+                    alert('✅ Gemini API Key 已儲存！');
                 } else {
                     localStorage.removeItem('GEMINI_API_KEY');
                     alert('ℹ️ API Key 已清除。');
@@ -308,42 +333,31 @@
 
         function escapeHtml(str) {
             if (!str) return '';
-            return String(str)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
+            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
         function toggleChat() {
-            const chatBox = document.getElementById('chat-box');
-            chatBox.classList.toggle('hidden');
+            document.getElementById('chat-box').classList.toggle('hidden');
         }
 
         function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
-            }
+            if (event.key === 'Enter') sendChatMessage();
         }
 
-        // ----------------------------------------------------------------------
-        // 🤖 對話發送機制（已修正為標準模型名稱：gemini-1.5-flash）
-        // ----------------------------------------------------------------------
+        // 🤖 修復版 Gemini API 呼叫 (具備 fallback 備援)
         async function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const message = input.value.trim();
             if (!message) return;
 
-            // 1. 動態檢查 API Key
             let apiKey = getApiKey();
             if (!apiKey) {
-                const userEnteredKey = prompt('🔑 首次對話請先輸入您的 Gemini API Key（將安全儲存於您的瀏覽器中）：');
+                const userEnteredKey = prompt('🔑 請輸入您的 Gemini API Key：');
                 if (userEnteredKey && userEnteredKey.trim()) {
                     apiKey = userEnteredKey.trim();
                     localStorage.setItem('GEMINI_API_KEY', apiKey);
                 } else {
-                    appendMessage('robi', '⚠️ 需要填入有效的 Gemini API Key 才能開啟對話喔！您可以點擊右上角的「🔑 Key」按鈕隨時設定。');
+                    appendMessage('robi', '⚠️ 需要設定 API Key 才能開啟對話喔！');
                     return;
                 }
             }
@@ -351,145 +365,161 @@
             appendMessage('user', message);
             input.value = '';
 
-            // 2. 採用標準 API Endpoint: gemini-1.5-flash
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-            
-            const systemPrompt = `你是一個專業且親切的總經與 Web3 投資助理「Robi（ロビ）」。
-使用者的當前投資輪廓：風險偏好=${userProfileConfig.risk}、目標=${userProfileConfig.goal}、偏好市場=${userProfileConfig.favMarket}。
-請用簡明、專業且帶有熱情的語氣回答使用者的問題，適當搭配 Emoji。`;
+            const loadingDiv = appendMessage('robi', '思考中...🌸');
 
-            const contents = [
-                { role: "user", parts: [{ text: systemPrompt }] },
-                ...chatHistory.map(h => ({
-                    role: h.role === 'user' ? 'user' : 'model',
-                    parts: [{ text: h.text }]
-                })),
-                { role: "user", parts: [{ text: message }] }
+            const endpoints = [
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`
             ];
 
-            const loadingDiv = appendMessage('robi', 'Robi 正在思考中...🌸');
+            let success = false;
+            let lastError = '';
 
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents })
-                });
-
-                const data = await response.json();
-                loadingDiv.remove();
-
-                if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
-                    const aiResponse = data.candidates[0].content.parts[0].text;
-                    appendMessage('robi', aiResponse);
-                    
-                    chatHistory.push({ role: 'user', text: message });
-                    chatHistory.push({ role: 'model', text: aiResponse });
-                } else if (data.error) {
-                    appendMessage('robi', `❌ API 回傳錯誤：${data.error.message || '請確認 API Key 是否正確'}`);
-                    localStorage.removeItem('GEMINI_API_KEY');
-                } else {
-                    appendMessage('robi', '⚠️ 暫時無法分析您的問題，請稍後再試。');
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: message }] }] })
+                    });
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+                        loadingDiv.remove();
+                        appendMessage('robi', data.candidates[0].content.parts[0].text);
+                        success = true;
+                        break;
+                    } else if (data.error) {
+                        lastError = data.error.message;
+                    }
+                } catch (err) {
+                    console.error("API Fetch Error:", err);
                 }
-            } catch (err) {
+            }
+
+            if (!success) {
                 loadingDiv.remove();
-                console.error("Gemini API Error:", err);
-                appendMessage('robi', '❌ 連線發生錯誤，請檢查網路連線或 API Key 是否正確。');
+                appendMessage('robi', `❌ API 回傳錯誤：${lastError || '請檢查 API Key'}`);
             }
         }
 
         function appendMessage(sender, text) {
             const chatMessages = document.getElementById('chat-messages');
             const msgDiv = document.createElement('div');
-            
             if (sender === 'user') {
-                msgDiv.className = 'flex items-start justify-end space-x-2.5 mt-2';
-                msgDiv.innerHTML = `
-                    <div class="bg-[#c05656] text-white rounded-2xl rounded-tr-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        ${escapeHtml(text)}
-                    </div>
-                `;
+                msgDiv.className = 'flex items-start justify-end space-x-2 mt-2';
+                msgDiv.innerHTML = `<div class="bg-[#c05656] text-white rounded-2xl rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm leading-relaxed">${escapeHtml(text)}</div>`;
             } else {
-                msgDiv.className = 'flex items-start space-x-2.5 mt-2';
-                msgDiv.innerHTML = `
-                    <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div>
-                    <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        ${text.replace(/\n/g, '<br>')}
-                    </div>
-                `;
+                msgDiv.className = 'flex items-start space-x-2 mt-2';
+                msgDiv.innerHTML = `<div class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div><div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3 py-2 max-w-[85%] shadow-sm leading-relaxed">${text.replace(/\n/g, '<br>')}</div>`;
             }
-            
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
             return msgDiv;
         }
 
-        const translations = {
-            zh: {
-                title: "每日總經與台美股跨市場連動歸因看板",
-                total: "當前分區情報總數",
-                bullish: "多頭 (Bullish) 訊號比例",
-                vix: "🔥 VIX 恐慌避險追蹤",
-                rwa: "📊 Agentic RWA 淨流向",
-                tab_us: "🇺🇸 美股總經與 Fed 決策",
-                tab_web3: "🌐 Web3 智能金融與 RWA",
-                tab_tw: "💻 台股與經濟部政策",
-                macro_title: "🌐 總體經濟與加密週期歸因",
-                spillover_title: "💻 跨市場資金流向與溢出影響"
-            },
-            en: {
-                title: "Macro Attribution & Cross-Market Dashboard",
-                total: "Active Intelligence Count",
-                bullish: "Bullish Signals Ratio",
-                vix: "🔥 VIX Volatility Tracking",
-                rwa: "📊 Agentic RWA Net Flows",
-                tab_us: "🇺🇸 US Macro & Fed Policy",
-                tab_web3: "🌐 Web3 Finance & RWA Node",
-                tab_tw: "💻 TW Market & Policy Driver",
-                macro_title: "🌐 Macro & Crypto Cycle Attribution",
-                spillover_title: "💻 Cross-Market Capital Spillover"
-            }
-        };
+        // 📰 豐富資訊新聞卡片渲染
+        function renderActiveTab() {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
 
-        async function loadMarketData() {
-            try {
-                const response = await fetch('data.json?t=' + new Date().getTime());
-                if (!response.ok) throw new Error('Network response failure');
-                marketData = await response.json();
-                renderActiveTab();
-            } catch (error) {
-                console.error("無法載入 data.json:", error);
-                document.getElementById('news-container').innerHTML = `<div class="text-rose-500 text-center py-8">無法載入市場資料，請確認 data.json 是否存在。</div>`;
-            }
-        }
-
-        function changeLang(lang) {
-            currentLang = lang;
-            const isZh = lang === 'zh';
-            document.getElementById('lang-zh').className = `px-3 py-1.5 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-900'}`;
-            document.getElementById('lang-en').className = `px-3 py-1.5 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-600 hover:text-stone-900'}`;
+            const list = marketData[activeTab] || [];
             
-            const t = translations[lang];
-            document.getElementById('ui-title').innerText = t.title;
-            document.getElementById('ui-meta-total').innerText = t.total;
-            document.getElementById('ui-meta-bullish').innerText = t.bullish;
-            document.getElementById('ui-meta-vix').innerText = t.vix;
-            document.getElementById('ui-meta-rwa').innerText = t.rwa;
-            document.getElementById('tab-us_macro').innerText = t.tab_us;
-            document.getElementById('tab-web3_crypto').innerText = t.tab_web3;
-            document.getElementById('tab-tw_stocks').innerText = t.tab_tw;
+            // 更新狀態計數
+            document.getElementById('meta-total-val').innerText = list.length;
+            const bullishCount = list.filter(n => n.ai_sentiment === 'Bullish').length;
+            document.getElementById('meta-bullish-val').innerText = list.length ? Math.round((bullishCount / list.length) * 100) + '%' : '0%';
 
-            renderActiveTab();
+            if (list.length === 0) {
+                container.innerHTML = `<div class="text-stone-400 text-center py-12">此分區尚無最新情報資料</div>`;
+                return;
+            }
+
+            list.forEach(item => {
+                let badgeStyle = "bg-rose-100/70 text-rose-800 border border-rose-200/50";
+                let badgeIcon = "📉";
+
+                if (item.ai_sentiment === "Bullish") {
+                    badgeStyle = "bg-emerald-100/70 text-emerald-800 border border-emerald-200/50";
+                    badgeIcon = "📈";
+                } else if (item.ai_sentiment === "Neutral") {
+                    badgeStyle = "bg-amber-100/70 text-amber-800 border border-amber-200/50";
+                    badgeIcon = "⚖️";
+                }
+
+                // 標籤 html
+                const tagsHtml = (item.tags || []).map(t => 
+                    `<span class="bg-stone-100 text-stone-500 text-[11px] px-2 py-0.5 rounded-md font-medium">#${escapeHtml(t)}</span>`
+                ).join(' ');
+
+                // 相關標的 html
+                const tickersHtml = (item.impact_tickers || []).map(tk => 
+                    `<span class="bg-stone-800 text-white font-mono text-[10px] px-1.5 py-0.5 rounded font-bold">${escapeHtml(tk)}</span>`
+                ).join(' ');
+
+                const card = document.createElement('div');
+                card.className = "soft-card rounded-2xl p-5 space-y-3 hover:border-rose-200 transition-all";
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-2.5">
+                        <div class="flex items-center gap-2">
+                            <span class="${badgeStyle} text-xs px-2.5 py-0.5 rounded-md font-bold flex items-center gap-1">
+                                ${badgeIcon} ${escapeHtml(item.ai_sentiment || 'Bearish')}
+                            </span>
+                            <span class="bg-rose-50 text-rose-700 text-xs px-2.5 py-0.5 rounded-md font-bold flex items-center gap-1 border border-rose-100">
+                                🎯 契合度 ${escapeHtml(item.match || '90%')}
+                            </span>
+                            <div class="flex items-center gap-1 ml-1">
+                                ${tickersHtml}
+                            </div>
+                        </div>
+                        <span class="text-xs text-stone-400 font-mono tracking-wider">${escapeHtml(item.date || '2026.07')}</span>
+                    </div>
+
+                    <!-- 主標題 -->
+                    <h3 class="text-base font-bold text-stone-800 leading-snug hover:text-[#c05656] cursor-pointer transition-colors">
+                        ${escapeHtml(item.title || item.news_title)}
+                    </h3>
+
+                    <!-- 新聞摘要 -->
+                    ${item.summary ? `
+                        <div class="text-xs text-stone-600 leading-relaxed bg-stone-50/80 p-3 rounded-xl border border-stone-100">
+                            ${escapeHtml(item.summary)}
+                        </div>
+                    ` : ''}
+
+                    <!-- AI 歸因與影響分析 -->
+                    ${item.ai_analysis ? `
+                        <div class="text-xs text-stone-700 leading-relaxed bg-rose-50/50 p-3 rounded-xl border border-rose-100/60 font-medium">
+                            ${escapeHtml(item.ai_analysis)}
+                        </div>
+                    ` : ''}
+
+                    <!-- 底部標籤區 -->
+                    <div class="flex items-center justify-between pt-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            ${tagsHtml}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
 
         function switchTab(tabKey) {
             activeTab = tabKey;
+            ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (key === activeTab) {
+                    btn.className = "pb-3 px-1 font-bold text-sm border-b-2 text-[#c05656] border-[#c05656]";
+                } else {
+                    btn.className = "pb-3 px-1 font-bold text-sm border-b-2 border-transparent text-stone-500 hover:text-stone-800";
+                }
+            });
             renderActiveTab();
         }
 
         function setProfile(profileType) {
             currentProfile = profileType;
-            userProfileConfig.risk = profileType;
             document.querySelectorAll('.profile-btn').forEach(btn => {
                 if (btn.getAttribute('data-profile') === profileType) {
                     btn.className = "profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-[#c05656] text-white";
@@ -498,166 +528,33 @@
                 }
             });
             document.getElementById('current-profile-tag').innerText = profileType.toUpperCase();
-            applyProfileFiltering();
         }
 
-        function openProfileModal() {
-            document.getElementById('profile-modal').classList.remove('hidden');
+        function openProfileModal() { document.getElementById('profile-modal').classList.remove('hidden'); }
+        function closeProfileModal() { document.getElementById('profile-modal').classList.add('hidden'); }
+        function saveUserProfile() { closeProfileModal(); }
+
+        function changeLang(lang) {
+            currentLang = lang;
+            const isZh = lang === 'zh';
+            document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-500 hover:text-stone-900'}`;
+            document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-500 hover:text-stone-900'}`;
         }
 
-        function closeProfileModal() {
-            document.getElementById('profile-modal').classList.add('hidden');
-        }
-
-        function saveUserProfile() {
-            const risk = document.getElementById('modal-risk-level').value;
-            const goal = document.querySelector('input[name="modal-goal"]:checked').value;
-            const favMarket = document.getElementById('modal-fav-market').value;
-
-            userProfileConfig = { risk, goal, favMarket };
-            setProfile(risk);
-
-            if (favMarket !== 'all') {
-                switchTab(favMarket);
+        async function loadMarketData() {
+            try {
+                const response = await fetch('data.json?t=' + new Date().getTime());
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data) marketData = data;
+                }
+            } catch (e) {
+                console.log("使用內建預設資料渲染");
             }
-
-            closeProfileModal();
-            
-            appendMessage('robi', `收到！目前看板已根據您設定的 <b>${risk.toUpperCase()}</b> 風險輪廓進行即時排序與契合度標註囉！🌸`);
+            renderActiveTab();
         }
 
-        function applyProfileFiltering() {
-            const cards = document.querySelectorAll('.market-card');
-            cards.forEach(card => {
-                const textContent = card.innerText.toLowerCase();
-                let matchScore = 75;
-
-                if (currentProfile === 'all') {
-                    card.style.display = 'block';
-                    card.style.opacity = '1';
-                    card.style.border = '';
-                    matchScore = 90;
-                } else if (currentProfile === 'conservative') {
-                    if (textContent.includes('美債') || textContent.includes('rwa') || textContent.includes('避險') || textContent.includes('殖利率')) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                        card.style.border = '2px solid #10b981';
-                        matchScore = 95;
-                    } else {
-                        card.style.opacity = '0.35';
-                        matchScore = 50;
-                    }
-                } else if (currentProfile === 'aggressive') {
-                    if (textContent.includes('ai') || textContent.includes('2奈米') || textContent.includes('伺服器') || textContent.includes('台積電')) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                        card.style.border = '2px solid #3b82f6';
-                        matchScore = 98;
-                    } else {
-                        card.style.opacity = '0.35';
-                        matchScore = 45;
-                    }
-                } else if (currentProfile === 'web3_rwa') {
-                    if (textContent.includes('rwa') || textContent.includes('web3') || textContent.includes('代幣') || textContent.includes('鏈上')) {
-                        card.style.display = 'block';
-                        card.style.opacity = '1';
-                        card.style.border = '2px solid #8b5cf6';
-                        matchScore = 96;
-                    } else {
-                        card.style.opacity = '0.35';
-                        matchScore = 40;
-                    }
-                }
-
-                const badge = card.querySelector('.match-badge');
-                if (badge) {
-                    badge.innerText = `🎯 契合度 ${matchScore}%`;
-                }
-            });
-        }
-
-        function renderActiveTab() {
-            ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
-                const btn = document.getElementById(`tab-${key}`);
-                if (!btn) return;
-                if (key === activeTab) {
-                    btn.className = "py-3 px-4 font-bold text-center border-b-2 text-[#c05656] border-[#c05656] bg-white rounded-t-xl text-sm transition-all shadow-sm";
-                } else {
-                    btn.className = "py-3 px-4 font-bold text-center border-b-2 border-transparent text-stone-500 hover:text-stone-800 hover:bg-stone-100/50 transition-all text-sm";
-                }
-            });
-
-            const rawData = marketData[activeTab] || [];
-            const vixData = marketData.global_vix || {};
-            const t = translations[currentLang];
-
-            // 1. 計算數據指標
-            document.getElementById('meta-total-val').innerText = rawData.length;
-            const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
-            document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
-
-            // 2. VIX 恐慌數據
-            const vixValEl = document.getElementById('meta-vix-val');
-            const vixBox = document.getElementById('vix-warning-box');
-            const vixDesc = document.getElementById('meta-vix-desc');
-
-            if (vixData.vix_value) {
-                vixValEl.innerText = `${vixData.vix_value} (${vixData.status || 'Normal'})`;
-                if (vixData.vix_value > 20) {
-                    vixBox.classList.remove('hidden');
-                    vixDesc.innerText = `⚠️ 高波動警報：VIX 當前為 ${vixData.vix_value}，市場避險情緒提升，請注意風險控管。`;
-                } else {
-                    vixBox.classList.add('hidden');
-                }
-            } else {
-                vixValEl.innerText = '15.4 (平穩)';
-                vixBox.classList.add('hidden');
-            }
-
-            // 3. 渲染新聞卡片
-            const container = document.getElementById('news-container');
-            container.innerHTML = '';
-
-            if (rawData.length === 0) {
-                container.innerHTML = `<div class="text-stone-400 text-center py-12">此分區目前尚無最新情報資料</div>`;
-                return;
-            }
-
-            rawData.forEach(item => {
-                const isBull = item.ai_sentiment === 'Bullish';
-                const sentimentBadge = isBull 
-                    ? `<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">📈 ${item.ai_sentiment || 'Bullish'}</span>`
-                    : `<span class="bg-rose-100 text-rose-800 text-xs font-bold px-2.5 py-1 rounded-md">📉 ${item.ai_sentiment || 'Bearish'}</span>`;
-
-                const card = document.createElement('div');
-                card.className = "market-card soft-card rounded-2xl p-6 transition-all space-y-4";
-                card.innerHTML = `
-                    <div class="flex items-center justify-between border-b border-stone-100 pb-3">
-                        <div class="flex items-center gap-2">
-                            ${sentimentBadge}
-                            <span class="match-badge text-xs font-bold bg-stone-100 text-stone-600 px-2 py-1 rounded-md font-mono">🎯 契合度 90%</span>
-                        </div>
-                        <span class="text-xs text-stone-400 font-mono">${escapeHtml(item.date || '2026.07')}</span>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-stone-800 mb-2">${escapeHtml(item.title || item.news_title || '最新情報')}</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed mb-3">${escapeHtml(item.summary || item.ai_summary || '')}</p>
-                    </div>
-                    ${item.attribution ? `
-                    <div class="bg-stone-50 p-3 rounded-xl border border-stone-100 text-xs space-y-1">
-                        <div class="font-bold text-stone-700">${t.macro_title}</div>
-                        <div class="text-stone-600 leading-relaxed">${escapeHtml(item.attribution)}</div>
-                    </div>` : ''}
-                `;
-                container.appendChild(card);
-            });
-
-            applyProfileFiltering();
-        }
-
-        window.onload = function() {
-            loadMarketData();
-        };
+        window.onload = loadMarketData;
     </script>
 </body>
 </html>
