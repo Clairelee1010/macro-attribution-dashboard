@@ -14,7 +14,7 @@
 <body class="p-6 max-w-7xl mx-auto">
 
     <!-- 頂部標題與狀態、語系切換 -->
-    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-stone-200 pb-5 mb-6 gap-4">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between border-b border-stone-200 pb-5 mb-4 gap-4">
         <div>
             <h1 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
                 🌸 <span id="ui-title">每日總經與台美股跨市場連動歸因看板</span>
@@ -33,7 +33,29 @@
         </div>
     </div>
 
-    <!-- 🎯 階段三：個人化風險與資產輪廓面板 + 彈窗按鈕 -->
+    <!-- 📈 方案一：TradingView 跨市場即時跑馬燈組件 -->
+    <div class="tradingview-widget-container mb-6 rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          { "proName": "NASDAQ:NVDA", "title": "輝達 (NVDA)" },
+          { "proName": "NYSE:TSM", "title": "台積電 ADR (TSM)" },
+          { "proName": "TWSE:2330", "title": "台積電 (2330.TW)" },
+          { "proName": "TWSE:2454", "title": "聯發科 (2454.TW)" },
+          { "proName": "BINANCE:BTCUSDT", "title": "比特幣 (BTC/USDT)" },
+          { "proName": "BINANCE:ETHUSDT", "title": "以太幣 (ETH/USDT)" }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "light",
+        "locale": "zh_TW"
+      }
+      </script>
+    </div>
+
+    <!-- 🎯 階段三：個人化風險與資產輪廓面板 -->
     <section id="user-profiling-panel" class="bg-white border border-stone-200 rounded-2xl p-5 mb-6 shadow-sm">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
@@ -51,7 +73,6 @@
                 <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('aggressive')" data-profile="aggressive">🚀 積極成長</button>
                 <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('web3_rwa')" data-profile="web3_rwa">🌐 Web3 & RWA</button>
                 
-                <!-- ⚙️ 階段三專用：打開詳細問卷彈窗按鈕 -->
                 <button onclick="openProfileModal()" class="px-3 py-1.5 rounded-xl text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 hover:bg-rose-100 transition-all flex items-center gap-1">
                     ✏️ 精細偏好設定
                 </button>
@@ -94,7 +115,7 @@
     <!-- 卡片容器 (TOP 渲染區) -->
     <div id="news-container" class="space-y-6"></div>
 
-    <!-- 🛠️ 階段三專用：個人化風險與資產輪廓 Modal 彈窗 -->
+    <!-- 個人化偏好 Modal 彈窗 -->
     <div id="profile-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-stone-100 space-y-5">
             <div class="flex items-center justify-between border-b border-stone-100 pb-3">
@@ -147,7 +168,7 @@
         </div>
     </div>
 
-    <!-- Robi 懸浮按鈕與對話視窗 -->
+    <!-- Robi 懸浮對話與智慧助理 -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
         <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden flex flex-col">
             <div class="robi-gradient text-white px-5 py-4 flex justify-between items-center shadow-md">
@@ -164,7 +185,7 @@
                 <div class="flex items-start space-x-2.5">
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！階段三 **個人化風險與資產輪廓引擎** 已成功啟用！點擊「✏️ 精細偏好設定」可以設定您的專屬投資屬性唷！✨
+                        主人好呀！頂部已為您嵌入 **跨市場即時跑馬燈**！美股、台股與加密貨幣的漲跌一手掌握！✨
                     </div>
                 </div>
             </div>
@@ -271,7 +292,6 @@
             applyProfileFiltering();
         }
 
-        /* ⚙️ 階段三專用：Modal 彈窗控制與保存邏輯 */
         function openProfileModal() {
             document.getElementById('profile-modal').classList.remove('hidden');
         }
@@ -294,7 +314,6 @@
 
             closeProfileModal();
             
-            // 彈出 Robi 回饋
             const chatMessages = document.getElementById('chat-messages');
             const robMsgDiv = document.createElement('div');
             robMsgDiv.className = 'flex items-start space-x-2.5 mt-2';
@@ -312,7 +331,7 @@
             const cards = document.querySelectorAll('.market-card');
             cards.forEach(card => {
                 const textContent = card.innerText.toLowerCase();
-                let matchScore = 75; // 預設契合度
+                let matchScore = 75;
 
                 if (currentProfile === 'all') {
                     card.style.display = 'block';
