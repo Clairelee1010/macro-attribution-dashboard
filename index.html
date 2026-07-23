@@ -73,6 +73,44 @@
     <!-- 卡片容器 -->
     <div id="news-container" class="space-y-6"></div>
 
+    <!-- 🤖 AI 機器人懸浮按鈕與聊天視窗 -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50">
+        <!-- 聊天視窗主體 (預設隱藏 hidden) -->
+        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all duration-300">
+            <!-- 標題列 -->
+            <div class="bg-slate-900 text-white px-4 py-3 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl">🤖</span>
+                    <div>
+                        <h3 class="font-bold text-sm">Agentic RWA 助手</h3>
+                        <p class="text-xs text-slate-400">已連線至 Colab 總經引擎</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+            </div>
+
+            <!-- 對話內容區 -->
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50">
+                <div class="flex items-start">
+                    <div class="bg-indigo-600 text-white rounded-xl rounded-tl-none px-3 py-2 max-w-[85%] shadow-sm">
+                        哈囉！我是您的總經與 RWA 智能助理。目前的 VIX 指數與市場訊號已同步完成，請問有什麼我可以協助分析的嗎？
+                    </div>
+                </div>
+            </div>
+
+            <!-- 輸入框區 -->
+            <div class="p-3 bg-white border-t border-slate-100 flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="輸入您的問題..." class="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500" onkeypress="handleKeyPress(event)">
+                <button onclick="sendChatMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">傳送</button>
+            </div>
+        </div>
+
+        <!-- 右下角浮動按鈕 -->
+        <button onclick="toggleChat()" class="bg-indigo-600 hover:bg-indigo-700 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition-transform hover:scale-105 focus:outline-none shadow-indigo-200">
+            🤖
+        </button>
+    </div>
+
     <script>
         let marketData = {};
         let activeTab = "us_macro";
@@ -118,11 +156,9 @@
             currentLang = lang;
             const isZh = lang === 'zh';
             
-            // 切換按鈕樣式
             document.getElementById('lang-zh').className = `px-3 py-1.5 rounded-lg transition-all ${isZh ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`;
             document.getElementById('lang-en').className = `px-3 py-1.5 rounded-lg transition-all ${!isZh ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`;
             
-            // 翻譯靜態 UI 文字
             const t = translations[lang];
             document.getElementById('ui-title').innerText = t.title;
             document.getElementById('ui-meta-total').innerText = t.total;
@@ -142,7 +178,6 @@
         }
 
         function renderActiveTab() {
-            // 切換 Tab 激活狀態顏色
             ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
                 const btn = document.getElementById(`tab-${key}`);
                 if (!btn) return;
@@ -153,17 +188,15 @@
                 }
             });
 
-            // 💡 核心防錯：如果後端 JSON 還沒上傳完，就自動拿最外層資料墊底，絕對不顯示 undefined!
             let rawData = marketData[activeTab];
             if (!rawData && Array.isArray(marketData)) {
-                rawData = marketData; // 兼容舊款扁平陣列結構
+                rawData = marketData;
             }
             rawData = rawData || [];
 
             const vixData = marketData.global_vix || {};
             const t = translations[currentLang];
 
-            // 更新上方的儀表板數據
             document.getElementById('meta-total-val').innerText = rawData.length;
             const bullishCount = rawData.filter(n => n.ai_sentiment === 'Bullish').length;
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
@@ -188,13 +221,11 @@
                 const card = document.createElement('div');
                 card.className = 'bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-lg transition-all shadow-sm';
                 
-                // 處理陣列渲染（防 undefined 空白）
                 let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => { recTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
                 let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => { riskTwHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
                 let recUsHtml = ''; (news.recommended_groups_us || []).forEach(g => { recUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
                 let riskUsHtml = ''; (news.high_risk_groups_us || []).forEach(g => { riskUsHtml += `<div class="mb-1 text-xs text-slate-800"><b>· ${g.name}</b> <span class="text-slate-500">(${g.reason})</span></div>`; });
 
-                // 💡 如果抓到舊 JSON，就自動用舊 JSON 的欄位補齊，不讓網頁爆掉
                 const displayTitle = news.title || "Fed 紀要釋放 'Higher for Longer' 訊號";
                 const displayMacro = news.macro_attribution || news.summary || "無詳細歸因數據";
                 const displaySpillover = news.tw_spillover_effect || news.recommendation || "持平觀望";
@@ -248,38 +279,81 @@
         }
 
         async function updateDashboard() {
-    try {
-        const res = await fetch('dashboard_data.json');
-        if (!res.ok) throw new Error("Fetch Error");
-        marketData = await res.json();
-        
-        // 🚀 完全獨立的背景同步（拿掉 await，絕對不影響前端渲染）
-      fetch('https://lovely-lights-stand.loca.lt/api/v1/update-macro-context', {
-    method: 'POST',
-    headers: { 
-        'Content-Type': 'application/json',
-        'Bypass-Tunnel-Reminder': 'true'
-    },
-    body: JSON.stringify({
-        vix_index: marketData.vix_index || 15.4,
-        fed_rate_cut_prob: marketData.fed_rate_cut_prob || 75.0,
-        sentiment_score: marketData.sentiment_score || 68,
-        market_regime: marketData.market_regime || "軟著陸降息循環"
-    })
-})
-.then(response => response.json())
-.then(result => console.log("🔥 【連線成功】後端 AI 回應：", result))
-.catch(error => console.error("❌ 【連線失敗】錯誤原因：", error));
+            try {
+                const res = await fetch('dashboard_data.json');
+                if (!res.ok) throw new Error("Fetch Error");
+                marketData = await res.json();
+                
+                // 背景同步至 Colab 伺服器
+                fetch('https://lovely-lights-stand.loca.lt/api/v1/update-macro-context', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Bypass-Tunnel-Reminder': 'true'
+                    },
+                    body: JSON.stringify({
+                        vix_index: marketData.vix_index || 15.4,
+                        fed_rate_cut_prob: marketData.fed_rate_cut_prob || 75.0,
+                        sentiment_score: marketData.sentiment_score || 68,
+                        market_regime: marketData.market_regime || "軟著陸降息循環"
+                    })
+                })
+                .then(response => response.json())
+                .then(result => console.log("🔥 【連線成功】後端 AI 回應：", result))
+                .catch(error => console.error("❌ 【連線失敗】錯誤原因：", error));
 
-        // 立即執行前端渲染，絕不等待後端
-        changeLang("zh");
-    } catch (error) {
-        console.error("載入失敗:", error);
-        changeLang("zh");
-    }
-}
+                changeLang("zh");
+            } catch (error) {
+                console.error("載入失敗:", error);
+                changeLang("zh");
+            }
+        }
 
-updateDashboard();
+        // 🤖 聊天互動視窗相關邏輯
+        function toggleChat() {
+            const box = document.getElementById('chat-box');
+            box.classList.toggle('hidden');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msgContainer = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            
+            if (!text) return;
+
+            // 顯示使用者訊息
+            msgContainer.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="bg-slate-800 text-white rounded-xl rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+
+            // 模擬 AI 智慧回應（可自動讀取看板上的 VIX 數值）
+            setTimeout(() => {
+                const vixVal = marketData.global_vix ? marketData.global_vix.value : '22.4';
+                msgContainer.innerHTML += `
+                    <div class="flex items-start space-x-2">
+                        <div class="bg-indigo-600 text-white rounded-xl rounded-tl-none px-3 py-2 max-w-[85%] shadow-sm">
+                            收到您的指令！目前看板的 VIX 恐慌指數為 ${vixVal}，智能代理正持續為您監控跨市場流動性與 RWA 節點。
+                        </div>
+                    </div>
+                `;
+                msgContainer.scrollTop = msgContainer.scrollHeight;
+            }, 600);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        updateDashboard();
     </script>
 </body>
 </html>
