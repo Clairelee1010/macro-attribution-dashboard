@@ -328,7 +328,7 @@
         }
 
         // ----------------------------------------------------------------------
-        // 🤖 對話發送機制（已修正為標準模型名稱：gemini-1.5-flash）
+        // 🤖 對話發送機制（升級版：支援多模型自動重試與 Fallback 機制）
         // ----------------------------------------------------------------------
         async function sendChatMessage() {
             const input = document.getElementById('chat-input');
@@ -351,9 +351,6 @@
             appendMessage('user', message);
             input.value = '';
 
-            // 2. 採用標準 API Endpoint: gemini-1.5-flash
-            const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-            
             const systemPrompt = `你是一個專業且親切的總經與 Web3 投資助理「Robi（ロビ）」。
 使用者的當前投資輪廓：風險偏好=${userProfileConfig.risk}、目標=${userProfileConfig.goal}、偏好市場=${userProfileConfig.favMarket}。
 請用簡明、專業且帶有熱情的語氣回答使用者的問題，適當搭配 Emoji。`;
@@ -369,32 +366,46 @@
 
             const loadingDiv = appendMessage('robi', 'Robi 正在思考中...🌸');
 
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents })
-                });
+            // 備援模型列表：自動按順序嘗試相容的 API Endpoint
+            const endpoints = [
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`,
+                `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`
+            ];
 
-                const data = await response.json();
-                loadingDiv.remove();
+            let success = false;
+            let lastErrorMessage = '';
 
-                if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
-                    const aiResponse = data.candidates[0].content.parts[0].text;
-                    appendMessage('robi', aiResponse);
-                    
-                    chatHistory.push({ role: 'user', text: message });
-                    chatHistory.push({ role: 'model', text: aiResponse });
-                } else if (data.error) {
-                    appendMessage('robi', `❌ API 回傳錯誤：${data.error.message || '請確認 API Key 是否正確'}`);
-                    localStorage.removeItem('GEMINI_API_KEY');
-                } else {
-                    appendMessage('robi', '⚠️ 暫時無法分析您的問題，請稍後再試。');
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+                        loadingDiv.remove();
+                        const aiResponse = data.candidates[0].content.parts[0].text;
+                        appendMessage('robi', aiResponse);
+                        
+                        chatHistory.push({ role: 'user', text: message });
+                        chatHistory.push({ role: 'model', text: aiResponse });
+                        success = true;
+                        break; // 成功回傳即跳出迴圈
+                    } else if (data.error) {
+                        lastErrorMessage = data.error.message || 'API 驗證失敗';
+                    }
+                } catch (err) {
+                    console.error("Gemini API Retry Fetch Error:", err);
                 }
-            } catch (err) {
+            }
+
+            if (!success) {
                 loadingDiv.remove();
-                console.error("Gemini API Error:", err);
-                appendMessage('robi', '❌ 連線發生錯誤，請檢查網路連線或 API Key 是否正確。');
+                appendMessage('robi', `❌ API 回傳錯誤：${lastErrorMessage || '請確認 API Key 是否正確或權限是否開啟'}`);
             }
         }
 
