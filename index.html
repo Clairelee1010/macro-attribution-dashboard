@@ -73,41 +73,43 @@
     <!-- 卡片容器 -->
     <div id="news-container" class="space-y-6"></div>
 
-    <!-- 🤖 AI 機器人懸浮按鈕與聊天視窗 -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50">
+    <!-- 🧸 萌系 AI 機器人懸浮按鈕與聊天視窗 -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- 聊天視窗主體 (預設隱藏 hidden) -->
-        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all duration-300">
-            <!-- 標題列 -->
-            <div class="bg-slate-900 text-white px-4 py-3 flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <span class="text-xl">🤖</span>
+        <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-pink-100 overflow-hidden flex flex-col transition-all duration-300">
+            <!-- 標題列 (粉嫩漸層) -->
+            <div class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white px-4 py-3 flex justify-between items-center shadow-sm">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg">✨🧸</div>
                     <div>
-                        <h3 class="font-bold text-sm">Agentic RWA 助手</h3>
-                        <p class="text-xs text-slate-400">已連線至 Colab 總經引擎</p>
+                        <h3 class="font-bold text-sm tracking-wide">RWA 萌萌小幫手</h3>
+                        <p class="text-[11px] text-pink-100 font-mono">Colab 總經引擎連線中 💖</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white text-lg font-bold transition-colors">&times;</button>
             </div>
 
             <!-- 對話內容區 -->
-            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50">
-                <div class="flex items-start">
-                    <div class="bg-indigo-600 text-white rounded-xl rounded-tl-none px-3 py-2 max-w-[85%] shadow-sm">
-                        哈囉！我是您的總經與 RWA 智能助理。目前的 VIX 指數與市場訊號已同步完成，請問有什麼我可以協助分析的嗎？
+            <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-slate-50/55">
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-sm shrink-0">🧸</div>
+                    <div class="bg-white border border-pink-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
+                        嗨囉！我是您的專屬萌系助理～✨ 目前 VIX 與市場訊號都幫您盯緊囉！有什麼想聊的隨時問我喔！ 😊
                     </div>
                 </div>
             </div>
 
             <!-- 輸入框區 -->
             <div class="p-3 bg-white border-t border-slate-100 flex items-center space-x-2">
-                <input type="text" id="chat-input" placeholder="輸入您的問題..." class="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500" onkeypress="handleKeyPress(event)">
-                <button onclick="sendChatMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">傳送</button>
+                <input type="text" id="chat-input" placeholder="輸入想問的問題..." class="flex-1 border border-slate-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-pink-400 bg-slate-50" onkeypress="handleKeyPress(event)">
+                <button onclick="sendChatMessage()" class="bg-gradient-to-r from-pink-500 to-indigo-600 hover:opacity-95 text-white px-4 py-2 rounded-xl text-xs font-medium transition-all shadow-sm">傳送</button>
             </div>
         </div>
 
-        <!-- 右下角浮動按鈕 -->
-        <button onclick="toggleChat()" class="bg-indigo-600 hover:bg-indigo-700 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition-transform hover:scale-105 focus:outline-none shadow-indigo-200">
-            🤖
+        <!-- 右下角可愛浮動按鈕 -->
+        <button onclick="toggleChat()" class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2.5 text-sm font-bold transition-all hover:scale-105 focus:outline-none shadow-pink-200/60 border border-white/20">
+            <span class="text-xl animate-pulse">🧸✨</span>
+            <span class="tracking-wide">呼叫 AI 小幫手</span>
         </button>
     </div>
 
@@ -309,7 +311,7 @@
             }
         }
 
-        // 🤖 聊天互動視窗相關邏輯
+        // 🧸 萌系聊天互動相關邏輯
         function toggleChat() {
             const box = document.getElementById('chat-box');
             box.classList.toggle('hidden');
@@ -325,7 +327,7 @@
             // 顯示使用者訊息
             msgContainer.innerHTML += `
                 <div class="flex justify-end">
-                    <div class="bg-slate-800 text-white rounded-xl rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm">
+                    <div class="bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-2xl rounded-tr-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
                         ${text}
                     </div>
                 </div>
@@ -333,13 +335,14 @@
             input.value = '';
             msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            // 模擬 AI 智慧回應（可自動讀取看板上的 VIX 數值）
+            // 模擬可愛 AI 回應
             setTimeout(() => {
                 const vixVal = marketData.global_vix ? marketData.global_vix.value : '22.4';
                 msgContainer.innerHTML += `
                     <div class="flex items-start space-x-2">
-                        <div class="bg-indigo-600 text-white rounded-xl rounded-tl-none px-3 py-2 max-w-[85%] shadow-sm">
-                            收到您的指令！目前看板的 VIX 恐慌指數為 ${vixVal}，智能代理正持續為您監控跨市場流動性與 RWA 節點。
+                        <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-sm shrink-0">🧸</div>
+                        <div class="bg-white border border-pink-100 text-slate-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[80%] shadow-sm text-xs leading-relaxed">
+                            收到指令囉！💡 目前看板的 VIX 恐慌指數是 <b class="text-pink-600">${vixVal}</b>，智能代理正在努力幫您看顧資金中，請放心交給我吧！💪✨
                         </div>
                     </div>
                 `;
