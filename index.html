@@ -34,6 +34,26 @@
         </div>
     </div>
 
+    <!-- 🎯 個人化風險與資產輪廓面板 -->
+    <section id="user-profiling-panel" class="bg-white border border-stone-200 rounded-2xl p-5 mb-6 shadow-sm">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div>
+                <h3 class="font-bold text-sm text-stone-800 flex items-center gap-2">
+                    ⚙️ 個人化投資輪廓引擎 (User Risk Profiling)
+                </h3>
+                <p class="text-xs text-stone-500 mt-1">
+                    即時切換您的資產配置偏好，動態過濾跨市場標的與風險權重：
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-[#c05656] text-white" onclick="setProfile('all')" data-profile="all">🌟 全景宏觀 (All)</button>
+                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('conservative')" data-profile="conservative">🛡️ 穩健防禦</button>
+                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('aggressive')" data-profile="aggressive">🚀 積極成長</button>
+                <button class="profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200" onclick="setProfile('web3_rwa')" data-profile="web3_rwa">🌐 Web3 & RWA</button>
+            </div>
+        </div>
+    </section>
+
     <!-- 上方四格儀表板 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <div class="soft-card rounded-2xl p-5">
@@ -94,7 +114,7 @@
                 <div class="flex items-start space-x-2.5">
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！看板已成功串接最新 **data.json**。任何總經細節、美股 Fed 動向或 RWA 數據隨時問 Robi 唷！✨
+                        主人好呀！看板已成功串接最新 **data.json** 並支援個人化資產輪廓過濾。任何總經細節或配置偏好隨時問 Robi 唷！✨
                     </div>
                 </div>
             </div>
@@ -112,11 +132,10 @@
     </div>
 
     <script>
-        // 改為從外部非同步載入 data.json
         let marketData = {};
-
         let activeTab = "us_macro";
         let currentLang = "zh";
+        let currentProfile = 'all';
 
         const translations = {
             zh: {
@@ -153,10 +172,9 @@
             }
         };
 
-        // 非同步讀取 data.json 函式
         async function loadMarketData() {
             try {
-                const response = await fetch('data.json?t=' + new Date().getTime()); // 加上時間戳記避免瀏覽器快取
+                const response = await fetch('data.json?t=' + new Date().getTime());
                 if (!response.ok) throw new Error('Network response was not ok');
                 marketData = await response.json();
                 renderActiveTab();
@@ -189,6 +207,54 @@
         function switchTab(tabKey) {
             activeTab = tabKey;
             renderActiveTab();
+        }
+
+        function setProfile(profileType) {
+            currentProfile = profileType;
+            document.querySelectorAll('.profile-btn').forEach(btn => {
+                if (btn.getAttribute('data-profile') === profileType) {
+                    btn.className = "profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm bg-[#c05656] text-white";
+                } else {
+                    btn.className = "profile-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-stone-600 bg-stone-100 hover:bg-stone-200";
+                }
+            });
+            applyProfileFiltering();
+        }
+
+        function applyProfileFiltering() {
+            const cards = document.querySelectorAll('.market-card');
+            cards.forEach(card => {
+                const textContent = card.innerText.toLowerCase();
+                if (currentProfile === 'all') {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.border = '';
+                } else if (currentProfile === 'conservative') {
+                    if (textContent.includes('防禦') || textContent.includes('殖利率') || textContent.includes('美債') || textContent.includes('公用事業') || textContent.includes('穩定')) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.border = '2px solid #10b981';
+                    } else {
+                        card.style.opacity = '0.3';
+                    }
+                } else if (currentProfile === 'aggressive') {
+                    if (textContent.includes('ai') || textContent.includes('伺服器') || textContent.includes('半導體') || textContent.includes('2奈米') || textContent.includes('台積電')) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.border = '2px solid #3b82f6';
+                    } else {
+                        card.style.opacity = '0.3';
+                    }
+                } else if (currentProfile === 'web3_rwa') {
+                    if (textContent.includes('rwa') || textContent.includes('web3') || textContent.includes('鏈上') || textContent.includes('智能合約') || textContent.includes('代幣')) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                        card.style.border = '2px solid #8b5cf6';
+                    } else {
+                        card.style.opacity = '0.3';
+                    }
+                }
+            });
         }
 
         function renderActiveTab() {
@@ -224,7 +290,7 @@
 
             rawData.forEach((news, index) => {
                 const card = document.createElement('div');
-                card.className = 'soft-card rounded-2xl p-6 hover:border-rose-200 hover:shadow-md transition-all';
+                card.className = 'soft-card rounded-2xl p-6 hover:border-rose-200 hover:shadow-md transition-all market-card';
                 
                 let recTwHtml = ''; (news.recommended_groups_tw || []).forEach(g => { recTwHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
                 let riskTwHtml = ''; (news.high_risk_groups_tw || []).forEach(g => { riskTwHtml += `<div class="mb-1 text-xs text-stone-800"><b>· ${g.name}</b> <span class="text-stone-500">(${g.reason})</span></div>`; });
@@ -284,9 +350,11 @@
                 `;
                 container.appendChild(card);
             });
+
+            // 渲染完成後立即套用當前的個人化過濾狀態
+            applyProfileFiltering();
         }
 
-        // 聊天視窗相關互動控制
         function toggleChat() {
             const box = document.getElementById('chat-box');
             box.classList.toggle('hidden');
@@ -305,7 +373,6 @@
 
             const chatMessages = document.getElementById('chat-messages');
 
-            // 顯示使用者訊息
             const userMsgDiv = document.createElement('div');
             userMsgDiv.className = 'flex items-start justify-end space-x-2.5';
             userMsgDiv.innerHTML = `
@@ -317,14 +384,13 @@
             input.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 模擬 Robi 回應
             setTimeout(() => {
                 const robMsgDiv = document.createElement('div');
                 robMsgDiv.className = 'flex items-start space-x-2.5';
                 robMsgDiv.innerHTML = `
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        收到您的提問！系統目前已成功與最新的 <b>data.json</b> 資料同步，看板各項 TOP 5 指標運作正常唷！🌸
+                        收到您的提問！系統目前已成功與最新的 <b>data.json</b> 資料同步，且個人化輪廓引擎運作正常唷！🌸
                     </div>
                 `;
                 chatMessages.appendChild(robMsgDiv);
@@ -336,7 +402,6 @@
             return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
-        // 初始化載入
         loadMarketData();
     </script>
 </body>
