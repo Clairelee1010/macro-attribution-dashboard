@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <!-- VIX 深度解析警告區（已加上 id 方便動態控制顯隱） -->
+    <!-- VIX 深度解析警告區 -->
     <div id="vix-warning-box" class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm">
         <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono"></p>
     </div>
@@ -97,7 +97,6 @@
 
     <!-- 🔴⚪ Robi 機器人精緻懸浮按鈕與聊天視窗 -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- 聊天視窗主體 -->
         <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden flex flex-col transition-all duration-300">
             <div class="robi-gradient text-white px-5 py-4 flex justify-between items-center shadow-md">
                 <div class="flex items-center space-x-3">
@@ -281,14 +280,16 @@
                 ? `${vixData.value || ''} (${vixData.status_zh || ''})`
                 : `${vixData.value || ''} (${vixData.status_en || ''})`;
 
-            // 🌸 動態控制 VIX 警告框的顯隱與文字填入
+            // 🌸 動態控制 VIX 警告框的顯隱與智慧備援文字 (Fallback)
             const vixValNum = parseFloat(vixData.value || 0);
             const warningBox = document.getElementById('vix-warning-box');
             const descElem = document.getElementById('meta-vix-desc');
 
             if (vixValNum > 20) {
                 warningBox.style.display = 'block';
-                descElem.innerText = currentLang === 'zh' ? (vixData.insight_zh || '') : (vixData.insight_en || '');
+                const textZh = vixData.insight_zh || vixData.insight || vixData.description_zh || `⚠️ VIX 突破 20 關鍵關卡 (${vixData.value})，市場避險情緒 (Risk-Off) 升溫，請提高跨市場資產配置防禦權重。`;
+                const textEn = vixData.insight_en || vixData.insight || vixData.description_en || `⚠️ VIX surpassed 20 (${vixData.value}), indicating heightened Risk-Off sentiment. Adjust defensive asset weights.`;
+                descElem.innerText = currentLang === 'zh' ? textZh : textEn;
             } else {
                 warningBox.style.display = 'none';
                 descElem.innerText = '';
@@ -365,7 +366,6 @@
                 container.appendChild(card);
             });
 
-            // 渲染完成後立即套用當前的個人化過濾狀態
             applyProfileFiltering();
         }
 
