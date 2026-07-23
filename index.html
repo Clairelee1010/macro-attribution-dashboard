@@ -185,7 +185,7 @@
                 <div class="flex items-start space-x-2.5">
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！我是 Robi 🌸 頂部已為您嵌入跨市場即時跑馬燈囉！有任何美股、台股或 Web3/RWA 投資配置問題都可以隨時問我！✨
+                        主人好呀！頂部已為您嵌入<b>跨市場即時跑馬燈</b>！美股、台股與加密貨幣的漲跌一手掌握！✨
                     </div>
                 </div>
             </div>
@@ -209,7 +209,6 @@
 
         // ----------------------------------------------------------------------
         // 🔑 步驟一：設定 Gemini API Key 與對話歷史紀錄
-        // 提示：請將下面的 YOUR_GEMINI_API_KEY 替換為您真實的 Google Gemini API Key
         // ----------------------------------------------------------------------
         const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"; 
         let chatHistory = [];
@@ -327,7 +326,7 @@
             robMsgDiv.innerHTML = `
                 <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div>
                 <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs">
-                    已為您套用最新投資輪廓：<b>${risk.toUpperCase()}</b>，目標：<b>${goal === 'income' ? '現金流' : '資本利得'}</b>！看板標的已完成契合度算分。✨
+                    收到！目前看板已根據您設定的 <b>${risk.toUpperCase()}</b> 風險輪廓進行即時排序與契合度標註囉！🌸
                 </div>
             `;
             chatMessages.appendChild(robMsgDiv);
@@ -503,6 +502,19 @@
         }
 
         // ----------------------------------------------------------------------
+        // 🛠️ Markdown 語法解析 (自動處理 **粗體** 與 換行)
+        // ----------------------------------------------------------------------
+        function renderMarkdownText(text) {
+            if (!text) return '';
+            let escaped = escapeHtml(text);
+            // 將 **粗體** 轉為 <b>粗體</b>
+            escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            // 將 換行 轉為 <br>
+            escaped = escaped.replace(/\n/g, '<br>');
+            return escaped;
+        }
+
+        // ----------------------------------------------------------------------
         // 🤖 步驟二：串接真實 AI API (Gemini API) 與 System Prompt 邏輯
         // ----------------------------------------------------------------------
         async function sendChatMessage() {
@@ -535,7 +547,7 @@
             chatMessages.appendChild(loadingDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 3. 動態構建專屬於 Robi 的 System Prompt (融入使用者當前的風險偏好)
+            // 3. 動態構建專屬於 Robi 的 System Prompt
             const systemPrompt = `
 你是 Soft Robi (ロビ)，一位專精於總體經濟、美股/台股跨市場連動、Web3 與 RWA（真實世界資產代幣化）的 AI 智慧投資助理。
 
@@ -544,7 +556,7 @@
 - 態度：客觀理性，重視風險控制，絕不給予直接的特許投資建議，而是提供架構性的市場歸因與資金流向分析。
 
 【核心知識領域】
-- 美股總經與聯聯會 (Fed) 利率政策動向
+- 美股總經與聯準會 (Fed) 利率政策動向
 - 台股半導體與 AI 供應鏈（如台積電 2330、聯發科 2454）與美股（NVDA、TSM）的溢出效應 (Spillover)
 - Web3、加密貨幣 (BTC/ETH)、鏈上美債與 Agentic RWA 資金流向
 - VIX 恐慌指數分析與風險防禦配置策略
@@ -585,13 +597,13 @@
                     // 記錄 AI 回覆至歷史記憶
                     chatHistory.push({ role: "model", parts: [{ text: aiReply }] });
 
-                    // 6. 渲染 Robi 的真實 API 回覆
+                    // 6. 渲染 Robi 的真實 API 回覆 (透過 renderMarkdownText 自動替換 **粗體** 語法)
                     const robMsgDiv = document.createElement('div');
                     robMsgDiv.className = 'flex items-start space-x-2.5';
                     robMsgDiv.innerHTML = `
                         <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 font-bold">R</div>
                         <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                            ${escapeHtml(aiReply).replace(/\n/g, '<br>')}
+                            ${renderMarkdownText(aiReply)}
                         </div>
                     `;
                     chatMessages.appendChild(robMsgDiv);
