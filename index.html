@@ -277,8 +277,8 @@
             document.getElementById('meta-bullish-val').innerText = rawData.length ? Math.round((bullishCount / rawData.length) * 100) + '%' : '0%';
             
             document.getElementById('meta-vix-val').innerText = currentLang === 'zh' 
-                ? `${vixData.value || '17.8'} (${vixData.status_zh || '風險偏好回暖'})`
-                : `${vixData.value || '17.8'} (${vixData.status_en || 'Risk-On'})`;
+                ? `${vixData.value || ''} (${vixData.status_zh || ''})`
+                : `${vixData.value || ''} (${vixData.status_en || ''})`;
 
             const container = document.getElementById('news-container');
             container.innerHTML = '';
