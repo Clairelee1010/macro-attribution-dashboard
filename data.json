@@ -1,25 +1,228 @@
 {
-    "us_macro": [
-        {
-            "title_zh": "Fed 紀要釋放 'Higher for Longer' 訊號，黏性通膨扭曲殖利率曲線",
-            "title_en": "Fed Minutes Signal 'Higher for Longer' as Sticky Inflation Distorts Yield Curve",
-            "source": "Reuters / FOMC Minutes",
-            "ai_sentiment": "Bearish",
-            "vol_multiplier": "2.8x",
-            "url": "https://www.reuters.com",
-            "macro_attribution_zh": "聯準會會議紀要釋放強烈鷹派訊號"
-        }
-    ],
-    "web3_crypto": [
-        {
-            "title_zh": "Web3 資金流動正常",
-            "ai_sentiment": "Neutral"
-        }
-    ],
-    "tw_stocks": [
-        {
-            "title_zh": "台股經濟部快訊",
-            "ai_sentiment": "Stable"
-        }
-    ]
+  "global_vix": {
+    "value": "17.8",
+    "status_zh": "風險偏好回暖，多頭共振",
+    "status_en": "Risk-On & Bullish Convergence"
+  },
+  "us_macro": [
+    {
+      "title": "Fed 利率政策進入觀察期，通膨降溫確立軟著陸",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.1x",
+      "source": "US Fed & Macro RAG",
+      "macro_attribution": "核心 PCE 年增率持續向 2%靠攏，聯準會主席釋放暫停升息循環訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
+      "tw_spillover_effect": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
+      "rwa_flow_metric": "+$52.4M 鏈上機構流動性流入",
+      "agent_action_log": "[NODE_01] US Macro Risk Index Stabilized at 17.8.",
+      "recommended_groups_tw": [{"name": "台積電 (2330)", "reason": "權值穩定與外資回補"}, {"name": "聯發科 (2454)", "reason": "IC 設計估值修復"}],
+      "high_risk_groups_tw": [{"name": "傳統塑化股", "reason": "終端需求復甦緩慢"}],
+      "recommended_groups_us": [{"name": "NVIDIA (NVDA)", "reason": "AI 基礎建設需求強勁"}, {"name": "Microsoft (MSFT)", "reason": "企業端雲端與 AI 變現穩健"}],
+      "high_risk_groups_us": [{"name": "高負債生技股", "reason": "融資成本依舊偏高"}]
+    },
+    {
+      "title": "大型科技股財報超預期，AI 資本支出（Capex）續強",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.3x",
+      "source": "Wall Street Earnings Feed",
+      "macro_attribution": "北美四大雲端服務商（CSP）Q2 資本支出指引全面上調，資料中心伺服器與 ASIC 晶片需求超乎預期，推動科技股估值上行。",
+      "tw_spillover_effect": "AI 伺服器代工與散熱模組廠訂單能見度直達年底，出貨動能強勁。",
+      "rwa_flow_metric": "+$38.1M 伺服器代工專項池",
+      "agent_action_log": "[NODE_02] CSP Capex Growth Confirmed (+24% YoY).",
+      "recommended_groups_tw": [{"name": "鴻海 (2317)", "reason": "GB200 伺服器量產出貨"}, {"name": "緯創 (3231)", "reason": "AI 伺服器訂單滿載"}],
+      "high_risk_groups_tw": [{"name": "利基型面板", "reason": "價格競爭激烈"}],
+      "recommended_groups_us": [{"name": "Alphabet (GOOGL)", "reason": "AI 搜尋與算力基礎建設領先"}, {"name": "Amazon (AMZN)", "reason": "AWS 成長率優於預期"}],
+      "high_risk_groups_us": [{"name": "實體零售百貨", "reason": "受電商與消費降級壓抑"}]
+    },
+    {
+      "title": "美國就業市場溫和降溫，消除過熱疑慮",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.0x",
+      "source": "BLS & Labor Analytics",
+      "macro_attribution": "非農就業新增人數符合市場預期，薪資增速放緩，消除了勞動市場過熱可能引發的再次升息恐慌。",
+      "tw_spillover_effect": "國際股市波動率下降，有利於台股維持箱型整理後的量價齊揚格局。",
+      "rwa_flow_metric": "+$14.5M 宏觀避險基金池",
+      "agent_action_log": "[NODE_03] Labor Cooling Index Normal.",
+      "recommended_groups_tw": [{"name": "中華電 (2412)", "reason": "防禦型資金避風港"}, {"name": "台灣大 (3045)", "reason": "高殖利率支撐"}],
+      "high_risk_groups_tw": [{"name": "高波動中小股", "reason": "資金流出風險"}],
+      "recommended_groups_us": [{"name": "Apple (AAPL)", "reason": "消費性電子換機潮支撐"}, {"name": "Procter & Gamble (PG)", "reason": "防禦性配置優選"}],
+      "high_risk_groups_us": [{"name": "高本益比新創軟體", "reason": "利率敏感度高"}]
+    },
+    {
+      "title": "美國商用不動產（CRE）風險受控，銀行體系流動性穩健",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "0.9x",
+      "source": "Federal Reserve Banking Report",
+      "macro_attribution": "區域銀行資產負債表重組順利，商用不動產壞帳提列在預期之內，未引發系統性金融信用緊縮。",
+      "tw_spillover_effect": "金融股投資信心回穩，外資對台灣金融股的匯出壓力減輕。",
+      "rwa_flow_metric": "+$22.0M 銀行資產代幣化池",
+      "agent_action_log": "[NODE_04] Banking System Credit Spread Narrowed.",
+      "recommended_groups_tw": [{"name": "富邦金 (2881)", "reason": "壽險金控獲利回穩"}, {"name": "國泰金 (2882)", "reason": "海外投資收益改善"}],
+      "high_risk_groups_tw": [{"name": "小型地區建設融資相關", "reason": "潛在呆帳壓力"}],
+      "recommended_groups_us": [{"name": "JPMorgan Chase (JPM)", "reason": "龍頭銀行信用體質健全"}, {"name": "Visa (V)", "reason": "支付手續費現金流強勁"}],
+      "high_risk_groups_us": [{"name": "地區性銀行 ETF", "reason": "資產品質分化嚴重"}]
+    },
+    {
+      "title": "全球供應鏈重組加速，美墨與印越產能擴建潮",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.2x",
+      "source": "Global Supply Chain Index",
+      "macro_attribution": "為因應地緣政治風險，跨國企業持續推行中國加一（China+1）策略，東南亞與拉丁美洲工業用房與網通設備需求激增。",
+      "tw_spillover_effect": "台灣網通廠及自動化設備廠海外廠區營收比重顯著拉升。",
+      "rwa_flow_metric": "+$19.8M 實體供應鏈 RWA 流入",
+      "agent_action_log": "[NODE_05] Supply Chain Diversification Velocity Peak.",
+      "recommended_groups_tw": [{"name": "台達電 (2308)", "reason": "全球在地化電源供應布局"}, {"name": "中鼎 (9933)", "reason": "海外機電工程接單暢旺"}],
+      "high_risk_groups_tw": [{"name": "純國內內需營建", "reason": "缺工與原料成本高張"}],
+      "recommended_groups_us": [{"name": "Caterpillar (CAT)", "reason": "全球基建與自動化受惠"}, {"name": "Cisco (CSCO)", "reason": "網通基礎建設升級"}],
+      "high_risk_groups_us": [{"name": "傳統遠洋航運", "reason": "運費指數面臨季節性回檔"}]
+    }
+  ],
+  "web3_crypto": [
+    {
+      "title": "實體資產權證化（RWA）代幣化協議 TVL 創歷史新高",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.4x",
+      "source": "DeFiLlama & RWA.xyz",
+      "macro_attribution": "傳統金融巨頭（如 BlackRock 等）加速將美國公債與房地產收益憑證上鏈，鏈上優質收益率吸引大量機構資金常駐。",
+      "tw_spillover_effect": "國內金融科技與區塊鏈軟體服務商迎來數位資產轉型商機。",
+      "rwa_flow_metric": "+$142.5M RWA 總鎖倉量激增",
+      "agent_action_log": "[WEB3_01] Tokenized Treasuries Yield Spread Optimized.",
+      "recommended_groups_tw": [{"name": "資安與軟體服務商", "reason": "區塊鏈底層安全審計需求"}, {"name": "金融科技概念股", "reason": "數位資產管理系統整合"}],
+      "high_risk_groups_tw": [{"name": "無實體支撐的迷因幣概念股", "reason": "資金遭 RWA 擠壓"}],
+      "recommended_groups_us": [{"name": "Coinbase (COIN)", "reason": "機構級託管與 RWA 基礎設施"}, {"name": "BlackRock (BLK)", "reason": "數位基金發行領頭羊"}],
+      "high_risk_groups_us": [{"name": "無現金流的小型加密挖礦股", "reason": "算力減半後營運成本壓力"}]
+    },
+    {
+      "title": "模組化區塊鏈與 AI Agent 執行層深度整合",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.5x",
+      "source": "Web3 Developer Network",
+      "macro_attribution": " autonome AI Agents 開始直接在區塊鏈上執行智能合約交易、流動性管理與跨鏈資產配置，大幅提升鏈上交易效率。",
+      "tw_spillover_effect": "邊緣 AI 運算晶片與高算力邊緣伺服器需求延伸至去中心化節點。",
+      "rwa_flow_metric": "+$45.2M AI Agent 專項金庫流入",
+      "agent_action_log": "[WEB3_02] Autonomous Agent Execution Layer Verified.",
+      "recommended_groups_tw": [{"name": "研華 (2395)", "reason": "邊緣 AI 運算硬體支援"}, {"name": "凌華 (6166)", "reason": "工業物聯網與邊緣運算節點"}],
+      "high_risk_groups_tw": [{"name": "傳統封閉式系統軟體", "reason": "面臨開源與智慧代理替代"}],
+      "recommended_groups_us": [{"name": "Solana (SOL Ecosystem)", "reason": "高吞吐量支援 AI 代理微交易"}, {"name": "Ethereum (ETH Ecosystem)", "reason": "結算層安全性認可"}],
+      "high_risk_groups_us": [{"name": "高延遲舊型公鏈", "reason": "使用者持續流失"}]
+    },
+    {
+      "title": "零知識證明（ZKPs）在隱私運算與企業資料共享的應用落地",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.2x",
+      "source": "Cryptographic Research Weekly",
+      "macro_attribution": "企業對於合規隱私的需求推動零知識證明硬體加速器（ZKFPGAs）商用化，解決雲端資料隱憂。",
+      "tw_spillover_effect": "台灣 IC 設計與半導體晶圓代工廠切入密碼學硬體加速晶片代工。",
+      "rwa_flow_metric": "+$28.9M ZK 基礎設施資金流入",
+      "agent_action_log": "[WEB3_03] ZK Proof Verification Speed Improved 3x.",
+      "recommended_groups_tw": [{"name": "創意 (3443)", "reason": "特殊應用晶片 (ASIC) 設計"}, {"name": "世芯-KY (3661)", "reason": "高效能運算晶片開發"}],
+      "high_risk_groups_tw": [{"name": "傳統資料中心硬體代工", "reason": "規格升級速度不及"}],
+      "recommended_groups_us": [{"name": "Cloudflare (NET)", "reason": "邊緣安全與隱私服務"}, {"name": "NVIDIA (NVDA)", "reason": "平行運算支援加密演算法"}],
+      "high_risk_groups_us": [{"name": "缺乏資安防護的傳統 SaaS", "reason": "資料洩漏風險高"}]
+    },
+    {
+      "title": "全球加密資產監管框架逐步明朗，合規交易所市佔擴大",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.1x",
+      "source": "Global Regulatory Bulletin",
+      "macro_attribution": "主要經濟體通過明確的虛擬資產服務提供商（VASP）法規，地下資金退場，合規機構資金進場速度加快。",
+      "tw_spillover_effect": "台灣金管會推動 VASP 登記制，推動國內合規業者建立信任壁壘。",
+      "rwa_flow_metric": "+$18.3M 合規資產管理池",
+      "agent_action_log": "[WEB3_04] Regulatory Compliance Index 92/100.",
+      "recommended_groups_tw": [{"name": "合規金融服務機構", "reason": "數位資產託管合作商機"}, {"name": "大型會計與法律事務所", "reason": "合規審計與稅務諮詢"}],
+      "high_risk_groups_tw": [{"name": "未合規地下交易所相關概念", "reason": "面臨嚴厲取締風險"}],
+      "recommended_groups_us": [{"name": "Interactive Brokers (IBKR)", "reason": "整合傳統與數位資產交易"}, {"name": "PayPal (PYPY)", "reason": "穩定幣支付生態擴大"}],
+      "high_risk_groups_us": [{"name": "匿名隱私幣發行實體", "reason": "面臨全球下架潮"}]
+    },
+    {
+      "title": "穩定幣（Stablecoins）跨境支付市佔率超越傳統 SWIFT 成長曲線",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.3x",
+      "source": "Cross-Border Settlement Data",
+      "macro_attribution": "美元穩定幣在跨境 B2B 貿易結算中的手續費優勢與 7x24 小時到帳特性，吸引大型供應鏈廠商導入。",
+      "tw_spillover_effect": "外貿導向型企業資金調度效率提升，降低匯兌與手續費成本。",
+      "rwa_flow_metric": "+$88.4M 穩定幣流動性池淨增量",
+      "agent_action_log": "[WEB3_05] Stablecoin Settlement Volume New High.",
+      "recommended_groups_tw": [{"name": "外銷電子大廠", "reason": "降低跨境匯款成本"}, {"name": "軟體系統整合商", "reason": "企業 ERP 結合區塊鏈結算模組"}],
+      "high_risk_groups_tw": [{"name": "傳統高收費跨境匯款銀行", "reason": "面臨手續費收入侵蝕"}],
+      "recommended_groups_us": [{"name": "Mastercard (MA)", "reason": "整合區塊鏈結算網路"}, {"name": "Block (SQ)", "reason": "加密與行動支付創新"}],
+      "high_risk_groups_us": [{"name": "傳統代理銀行業務部門", "reason": "業務量遭穩定幣取代"}]
+    }
+  ],
+  "tw_stocks": [
+    {
+      "title": "經濟部拍板 AI 產業行動計畫，加速在地算力中心建置",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.2x",
+      "source": "Taiwan Ministry of Economic Affairs",
+      "macro_attribution": "經濟部結合國科會資源，補助國內企業建置綠能 AI 資料中心，並推動台灣成為亞太 AI 應用樞紐。",
+      "tw_spillover_effect": "綠能、重電、伺服器散熱與機殼廠直接受惠於政策補貼與內需訂單。",
+      "rwa_flow_metric": "+$31.2M 台灣綠能與 AI 基礎建設專項",
+      "agent_action_log": "[TW_01] MOEA AI Action Plan Synchronized.",
+      "recommended_groups_tw": [{"name": "士電 (1503)", "reason": "重電與變壓器外銷美國及內需AI廠"}, {"name": "雙鴻 (3324)", "reason": "水冷散熱技術領先"}],
+      "high_risk_groups_tw": [{"name": "高碳排傳統製造業", "reason": "面臨碳費與環保法規壓力"}],
+      "recommended_groups_us": [{"name": "Eaton Corporation (ETN)", "reason": "電力管理與資料中心受惠"}, {"name": "Vertiv (VRT)", "reason": "資料中心散熱全球龍頭"}],
+      "high_risk_groups_us": [{"name": "傳統燃煤發電設備商", "reason": "政策轉向綠能排擠"}],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "台積電 2 奈米先進製程良率優於預期，資本支出維持高檔",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.3x",
+      "source": "TSMC Supply Chain Dispatch",
+      "macro_attribution": "南科與寶山廠 2 奈米製程試產順利，主要手機與高效能運算（HPC）客戶預訂晶圓產能滿載，帶動供應鏈擴產。",
+      "tw_spillover_effect": "半導體設備、化學品供應商、廠務工程營收連動暴增。",
+      "rwa_flow_metric": "+$65.0M 半導體設備專項資金池",
+      "agent_action_log": "[TW_02] 2nm Yield Rate Exceeds Benchmark.",
+      "recommended_groups_tw": [{"name": "家登 (3680)", "reason": "極紫外光（EUV）光罩盒市佔獨占"}, {"name": "弘塑 (3131)", "reason": "先進封裝濕製程設備"}],
+      "high_risk_groups_tw": [{"name": "成熟製程代工廠", "reason": "面臨產能過剩與價格競爭"}],
+      "recommended_groups_us": [{"name": "ASML Holding (ASML)", "reason": "EUV 機台出貨穩健"}, {"name": "Applied Materials (AMAT)", "reason": "先進封裝設備需求強"}],
+      "high_risk_groups_us": [{"name": "傳統記憶體製造商", "reason": "庫存調整週期延長"}],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "台灣出口連紅，資通訊與視聽產品續創單月歷史新高",
+      "ai_sentiment": "Bullish",
+      "vol_multiplier": "1.1x",
+      "source": "Ministry of Finance Taiwan",
+      "macro_attribution": "受惠於全球 AI 伺服器與高效能運算晶片需求暢旺，台灣對美出口金額佔比突破三成，貿易順差擴大。",
+      "tw_spillover_effect": "海運、空運物流需求穩定，科技大廠 Q3 營收季增率展望樂觀。",
+      "rwa_flow_metric": "+$27.3M 航運與出口物流流動池",
+      "agent_action_log": "[TW_03] Export Momentum Index Bullish.",
+      "recommended_groups_tw": [{"name": "長榮 (2603)", "reason": "高殖利率與運價持穩"}, {"name": "緯創 (3231)", "reason": "伺服器出口大廠"}],
+      "high_risk_groups_tw": [{"name": "傳統紡織與成衣代工", "reason": "歐美客戶庫存去化緩慢"}],
+      "recommended_groups_us": [{"name": "FedEx (FDX)", "reason": "全球快遞與物流需求回溫"}, {"name": "UPS (UPS)", "reason": "供應鏈貨運量穩定"}],
+      "high_risk_groups_us": [{"name": "傳統散裝航運", "reason": "鐵礦砂需求疲軟"}],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "金管會推動亞金融資產管理中心，引資回台有成",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.0x",
+      "source": "Financial Supervisory Commission Taiwan",
+      "macro_attribution": "鬆綁高資產客戶理財規範與家族辦公室設立條件，吸引境外資金回流台灣資本市場配置。",
+      "tw_spillover_effect": "國內金控旗下證券與私人銀行業務手續費收入顯著成長。",
+      "rwa_flow_metric": "+$15.8M 私人銀行資產管理池",
+      "agent_action_log": "[TW_04] Wealth Management Deregulation Active.",
+      "recommended_groups_tw": [{"name": "中信金 (2891)", "reason": "財富管理與海外分行獲利強勁"}, {"name": "元大金 (2885)", "reason": "證券市佔第一受惠成交量"}],
+      "high_risk_groups_tw": [{"name": "小型獨立券商", "reason": "面臨大型金控競爭壓力"}],
+      "recommended_groups_us": [{"name": "Morgan Stanley (MS)", "reason": "財富管理與機構資產配置龍頭"}, {"name": "BlackRock (BLK)", "reason": "全球資產管理規模擴大"}],
+      "high_risk_groups_us": [{"name": "傳統地方信合社", "reason": "數位轉型與資金規模不足"}],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "內需觀光與綠能產業迎來暑假旺季，碳費徵收細則底定",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "0.9x",
+      "source": "Environmental Protection Administration Taiwan",
+      "macro_attribution": "碳費起徵點與自主減量計畫審查辦法公布，高碳排企業加速採購綠電，綠能憑證交易熱絡。",
+      "tw_spillover_effect": "太陽能與風電開發商售電收入獲得長約保護，內需餐飲觀光受惠暑期商機。",
+      "rwa_flow_metric": "+$11.1M 綠能憑證與碳權交易池",
+      "agent_action_log": "[TW_05] Carbon Fee Implementation Rules Set.",
+      "recommended_groups_tw": [{"name": "雲豹能源 (6869)", "reason": "綠能統包與售電憑證業務"}, {"name": "晶華 (2707)", "reason": "高端商旅與餐飲內需強勁"}],
+      "high_risk_groups_tw": [{"name": "水泥與石化中下游", "reason": "碳費成本侵蝕毛利率"}],
+      "recommended_groups_us": [{"name": "NextEra Energy (NEE)", "reason": "綠能發電全球指標"}, {"name": "Waste Management (WM)", "reason": "環保與減碳服務龍頭"}],
+      "high_risk_groups_us": [{"name": "傳統航空業", "reason": "燃油與碳排成本增加"}],
+      "high_risk_groups_us": []
+    }
+  ]
 }
