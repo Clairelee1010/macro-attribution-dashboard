@@ -1,59 +1,4 @@
 {
-  "metrics": {
-    "us10y": "4.28%",
-    "dxy": "104.2",
-    "move": "98.5",
-    "tsm_premium": "+14.2%",
-    "futures_oi": "-12.8K",
-    "usdtwd": "32.45",
-    "crypto_fg": "68 (貪婪 / Greed)",
-    "stablecoin_cap": "$162B",
-    "rwa_tvl": "$2.4B"
-  },
-  "personal_asset_assessment": {
-    "status_zh": "防禦轉中性 / 動態再平衡中",
-    "status_en": "Defensive to Neutral / Rebalancing",
-    "portfolio_risk": "Moderate-High (中高)",
-    "hedge_ratio": "25% ~ 30%",
-    "allocations": [
-      {
-        "category_zh": "美債 RWA / 避險資產",
-        "category_en": "US Treasury RWA",
-        "weight": "35%",
-        "action_zh": "建議加碼",
-        "action_en": "Overweight",
-        "reason_zh": "VIX 升溫下鎖定 4.28%+ 無風險 Real Yield",
-        "reason_en": "Lock in 4.28%+ Real Yield under elevated VIX"
-      },
-      {
-        "category_zh": "AI 核心權值 (NVDA/2330)",
-        "category_en": "Core AI Equities",
-        "weight": "40%",
-        "action_zh": "長線持有",
-        "action_en": "Hold Long",
-        "reason_zh": "CapEx 強勁與先進封裝需求明確",
-        "reason_en": "Robust CapEx and high demand for advanced packaging"
-      },
-      {
-        "category_zh": "Web3 & Agentic AI",
-        "category_en": "Web3 & Agent Infrastructure",
-        "weight": "15%",
-        "action_zh": "選擇性配置",
-        "action_en": "Selective Allocation",
-        "reason_zh": "轉向具真實協議費用（Protocol Revenue）標的",
-        "reason_en": "Focus on protocols generating real fee revenue"
-      },
-      {
-        "category_zh": "美元 / USDT 現金",
-        "category_en": "USD / USDT Cash",
-        "weight": "10%",
-        "action_zh": "保留彈性",
-        "action_en": "Maintain Liquidity",
-        "reason_zh": "因應市場波動下的低撿回檔資產",
-        "reason_en": "Retain flexibility for market pullback buy-ins"
-      }
-    ]
-  },
   "global_vix": {
     "value": 22.4,
     "status_zh": "突破關鍵20關卡 / 強烈避險情緒 (Risk-Off)",
@@ -62,30 +7,6 @@
     "insight_en": "⚠️ VIX has crossed the key 20 benchmark (22.4), indicating heightened Risk-Off sentiment. Increase allocations in Treasury RWAs and high-dividend assets while reducing high-Beta stock leverage."
   },
   "us_macro": [
-    {
-      "title": "Fed 利率政策進入觀察期，通膨降溫確立軟著陸",
-      "ai_sentiment": "Bullish",
-      "vol_multiplier": "1.1x",
-      "source": "US Fed & Macro RAG",
-      "macro_attribution": "核心 PCE 年增率持續向 2%靠攏，聯準會主席釋放暫停升息循環訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
-      "tw_spillover_effect": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
-      "rwa_flow_metric": "+$52.4M 鏈上機構流動性流入",
-      "agent_action_log": "[NODE_01] US Macro Risk Index Stabilized at 17.8.",
-      "recommended_groups_tw": [
-        { "name": "台積電 (2330)", "reason": "權值穩定與外資回補" },
-        { "name": "聯發科 (2454)", "reason": "IC 設計估值修復" }
-      ],
-      "high_risk_groups_tw": [
-        { "name": "傳統塑化股", "reason": "終端需求復甦緩慢" }
-      ],
-      "recommended_groups_us": [
-        { "name": "NVIDIA (NVDA)", "reason": "AI 基礎建設需求強勁" },
-        { "name": "Microsoft (MSFT)", "reason": "企業端雲端與 AI 變現穩健" }
-      ],
-      "high_risk_groups_us": [
-        { "name": "高負債生技股", "reason": "融資成本依舊偏高" }
-      ]
-    },
     {
       "title": "Stock market today: Dow, S&P 500, Nasdaq futures slip as markets weigh AI capex, widening Mideast attacks",
       "ai_sentiment": "Bearish",
@@ -98,11 +19,20 @@
       "recommended_groups_tw": [],
       "high_risk_groups_tw": [],
       "recommended_groups_us": [
-        { "name": "TLT / 美債 ETF", "reason": "降息預期升溫，長天期公債避險價值凸顯" },
-        { "name": "NVDA / MSFT", "reason": "CapEx 強勁，邊緣 AI 需求帶來成長支撐" }
+        {
+          "name": "TLT / 美債 ETF",
+          "reason": "降息預期升溫，長天期公債避險價值凸顯"
+        },
+        {
+          "name": "NVDA / MSFT",
+          "reason": " CapEx 強勁，邊緣 AI 需求帶來成長支撐"
+        }
       ],
       "high_risk_groups_us": [
-        { "name": "高負債小型成長股 (IWM)", "reason": "避險情緒下資金偏好大型藍籌" }
+        {
+          "name": "高負債小型成長股 (IWM)",
+          "reason": "避險情緒下資金偏好大型藍籌"
+        }
       ]
     },
     {
@@ -117,11 +47,104 @@
       "recommended_groups_tw": [],
       "high_risk_groups_tw": [],
       "recommended_groups_us": [
-        { "name": "TLT / 美債 ETF", "reason": "降息預期升溫，長天期公債避險價值凸顯" },
-        { "name": "NVDA / MSFT", "reason": "CapEx 強勁，邊緣 AI 需求帶來成長支撐" }
+        {
+          "name": "TLT / 美債 ETF",
+          "reason": "降息預期升溫，長天期公債避險價值凸顯"
+        },
+        {
+          "name": "NVDA / MSFT",
+          "reason": " CapEx 強勁，邊緣 AI 需求帶來成長支撐"
+        }
       ],
       "high_risk_groups_us": [
-        { "name": "高負債小型成長股 (IWM)", "reason": "避險情緒下資金偏好大型藍籌" }
+        {
+          "name": "高負債小型成長股 (IWM)",
+          "reason": "避險情緒下資金偏好大型藍籌"
+        }
+      ]
+    },
+    {
+      "title": "Houthis claim strikes on Saudi Arabian oil tankers as Rubio says Iran not ready to make a deal",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution": "Yemen's Houthis said they had targeted two Saudi Arabian oil tankers with drones and missiles for allegedly violating its maritime blockade. (情緒指數: 0.22)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name": "TLT / 美債 ETF",
+          "reason": "降息預期升溫，長天期公債避險價值凸顯"
+        },
+        {
+          "name": "NVDA / MSFT",
+          "reason": " CapEx 強勁，邊緣 AI 需求帶來成長支撐"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name": "高負債小型成長股 (IWM)",
+          "reason": "避險情緒下資金偏好大型藍籌"
+        }
+      ]
+    },
+    {
+      "title": "Alphabet and Tesla test Wall Street's patience as AI spending overshadows growth",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution": "Shares of Alphabet and Tesla dipped after the companies reported massive spending increases in their quarterly earnings reports. (情緒指數: 0.31)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name": "TLT / 美債 ETF",
+          "reason": "降息預期升溫，長天期公債避險價值凸顯"
+        },
+        {
+          "name": "NVDA / MSFT",
+          "reason": " CapEx 強勁，邊緣 AI 需求帶來成長支撐"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name": "高負債小型成長股 (IWM)",
+          "reason": "避險情緒下資金偏好大型藍籌"
+        }
+      ]
+    },
+    {
+      "title": "聯準會降息預期升溫，長天期美債吸引避險資金",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Fed Policy Node",
+      "macro_attribution": "通脹趨勢符合預期，債券殖利率曲線平坦化，長天期美債 ETF 買盤踴躍。 (情緒指數: 0.4)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name": "TLT / 美債 ETF",
+          "reason": "降息預期升溫，長天期公債避險價值凸顯"
+        },
+        {
+          "name": "NVDA / MSFT",
+          "reason": " CapEx 強勁，邊緣 AI 需求帶來成長支撐"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name": "高負債小型成長股 (IWM)",
+          "reason": "避險情緒下資金偏好大型藍籌"
+        }
       ]
     }
   ],
@@ -131,16 +154,53 @@
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution": "Crypto home invasions rose to 20 in H1 2026 from one a year earlier, while France accounted for 33 of 52 verified wrench attacks. (情緒指數: 0.22)",
+      "macro_attribution": "Crypto home invasions rose to 20 in H1 2026 from one a year earlier, while France accounted for 33 of 52 verified wrench attacks, according to CertiK. (情緒指數: 0.22)",
       "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
       "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
       "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
-        { "name": "美債 RWA 代幣 (Ondo/BUIDL)", "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益" },
-        { "name": "Agentic AI 基礎設施代幣", "reason": "邊緣 AI 計算網路帶動真實協議費用收益" }
+        {
+          "name": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益"
+        },
+        {
+          "name": "Agentic AI 基礎設施代幣",
+          "reason": "邊緣 AI 計算網路帶動真實協議費用收益"
+        }
       ],
       "high_risk_groups_tw": [
-        { "name": "高槓桿迷因幣", "reason": "VIX > 20 時流動性收縮，面臨回檔" }
+        {
+          "name": "高槓桿迷因幣",
+          "reason": "VIX > 20 時流動性收縮，面臨回檔"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "BitMEX to shut down after 11 years in crypto derivatives",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Cointelegraph",
+      "macro_attribution": "BitMEX announced it will shut down operations on Sept. 23, 2026, after owner HDR Global Trading Limited decided to close the crypto exchange. (情緒指數: 0.22)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益"
+        },
+        {
+          "name": "Agentic AI 基礎設施代幣",
+          "reason": "邊緣 AI 計算網路帶動真實協議費用收益"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高槓桿迷因幣",
+          "reason": "VIX > 20 時流動性收縮，面臨回檔"
+        }
       ],
       "recommended_groups_us": [],
       "high_risk_groups_us": []
@@ -155,29 +215,218 @@
       "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
       "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
-        { "name": "美債 RWA 代幣 (Ondo/BUIDL)", "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益" }
+        {
+          "name": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益"
+        },
+        {
+          "name": "Agentic AI 基礎設施代幣",
+          "reason": "邊緣 AI 計算網路帶動真實協議費用收益"
+        }
       ],
-      "high_risk_groups_tw": [],
+      "high_risk_groups_tw": [
+        {
+          "name": "高槓桿迷因幣",
+          "reason": "VIX > 20 時流動性收縮，面臨回檔"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "去中心化邊緣 AI 算力網絡質押率上升，協議費用創新高",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "X KOL Signal",
+      "macro_attribution": "鏈上數據顯示分散式算力利用率達到 85%，帶動基礎設施代幣資金持續淨流入。 (情緒指數: 0.37)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益"
+        },
+        {
+          "name": "Agentic AI 基礎設施代幣",
+          "reason": "邊緣 AI 計算網路帶動真實協議費用收益"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高槓桿迷因幣",
+          "reason": "VIX > 20 時流動性收縮，面臨回檔"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "穩定幣總市值持續增長，鏈上美元流動性充足",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "DefiLlama Node",
+      "macro_attribution": "合規美元穩定幣發行量擴增，顯示全球資本對鏈上資產結算需求居高不下。 (情緒指數: 0.4)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益"
+        },
+        {
+          "name": "Agentic AI 基礎設施代幣",
+          "reason": "邊緣 AI 計算網路帶動真實協議費用收益"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高槓桿迷因幣",
+          "reason": "VIX > 20 時流動性收縮，面臨回檔"
+        }
+      ],
       "recommended_groups_us": [],
       "high_risk_groups_us": []
     }
   ],
   "tw_stocks": [
     {
-      "title": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心",
+      "title": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心 - Yahoo股市",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution": "台積電狂砸 3.2 兆投資亞利桑那擴廠，經濟部急喊保證以穩定市場信心。 (情緒指數: 0.22)",
+      "macro_attribution": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (情緒指數: 0.22)",
       "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
       "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
       "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
-        { "name": "台積電 (2330) / 鴻海 (2317)", "reason": "先進封裝產能滿載，伺服器出口強勁" },
-        { "name": "緯創 (3231) / 奇鋐 (3017)", "reason": "水冷散熱與邊緣 AI 伺服器需求明確" }
+        {
+          "name": "台積電 (2330) / 鴻海 (2317)",
+          "reason": "先進封裝產能滿載，伺服器出口強勁"
+        },
+        {
+          "name": "緯創 (3231) / 奇鋐 (3017)",
+          "reason": "水冷散熱與邊緣 AI 伺服器需求明確"
+        }
       ],
       "high_risk_groups_tw": [
-        { "name": "高估值無獲利概念股", "reason": "市場波動加大，資金退潮回歸績優股" }
+        {
+          "name": "高估值無獲利概念股",
+          "reason": "市場波動加大，資金退潮回歸績優股"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣 - 客新聞 HakkaNews",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Google News TW",
+      "macro_attribution": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (情緒指數: 0.22)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "台積電 (2330) / 鴻海 (2317)",
+          "reason": "先進封裝產能滿載，伺服器出口強勁"
+        },
+        {
+          "name": "緯創 (3231) / 奇鋐 (3017)",
+          "reason": "水冷散熱與邊緣 AI 伺服器需求明確"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高估值無獲利概念股",
+          "reason": "市場波動加大，資金退潮回歸績優股"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "經濟部推動先進封裝與邊緣 AI 供應鏈，台廠迎急單潮",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "經濟日報 Policy",
+      "macro_attribution": "台積電 2 奈米進展順利，先進封裝 (CoWoS) 產能供不應求，帶動相關設備廠營收衝高。 (情緒指數: 0.43)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "台積電 (2330) / 鴻海 (2317)",
+          "reason": "先進封裝產能滿載，伺服器出口強勁"
+        },
+        {
+          "name": "緯創 (3231) / 奇鋐 (3017)",
+          "reason": "水冷散熱與邊緣 AI 伺服器需求明確"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高估值無獲利概念股",
+          "reason": "市場波動加大，資金退潮回歸績優股"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "AI 伺服器水冷散熱模組滲透率提升，台系散熱雙雄接單熱絡",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "工商時報 Spec",
+      "macro_attribution": "新一代伺服器機櫃功耗激增，水冷散熱零組件出口大幅成長。 (情緒指數: 0.41)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "台積電 (2330) / 鴻海 (2317)",
+          "reason": "先進封裝產能滿載，伺服器出口強勁"
+        },
+        {
+          "name": "緯創 (3231) / 奇鋐 (3017)",
+          "reason": "水冷散熱與邊緣 AI 伺服器需求明確"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高估值無獲利概念股",
+          "reason": "市場波動加大，資金退潮回歸績優股"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title": "台灣半導體設備在地化政策發酵，供應鏈國產化比重上升",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "MOEA Report",
+      "macro_attribution": "政策補助引導本土設備業者進入晶圓代工大廠認證，增強產業防禦韌性。 (情緒指數: 0.39)",
+      "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name": "台積電 (2330) / 鴻海 (2317)",
+          "reason": "先進封裝產能滿載，伺服器出口強勁"
+        },
+        {
+          "name": "緯創 (3231) / 奇鋐 (3017)",
+          "reason": "水冷散熱與邊緣 AI 伺服器需求明確"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name": "高估值無獲利概念股",
+          "reason": "市場波動加大，資金退潮回歸績優股"
+        }
       ],
       "recommended_groups_us": [],
       "high_risk_groups_us": []
