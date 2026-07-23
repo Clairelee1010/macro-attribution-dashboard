@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Macro Attribution Dashboard | Soft Robi Edition</title>
+    <title>🎯 Macro Attribution Dashboard | Soft Robi Top 5 Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #faf9f6; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
@@ -18,7 +18,7 @@
         <div>
             <h1 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
                 🌸 <span id="ui-title">每日總經與台美股跨市場連動歸因看板</span>
-                <span class="text-xs bg-[#c05656] text-white px-2.5 py-1 rounded-md font-mono shadow-sm">Soft Robi v4.2 Updated</span>
+                <span class="text-xs bg-[#c05656] text-white px-2.5 py-1 rounded-md font-mono shadow-sm">Soft Robi v4.5 TOP 5 Live</span>
             </h1>
         </div>
         <div class="flex flex-wrap items-center gap-3">
@@ -29,7 +29,7 @@
             </div>
             
             <div class="flex items-center gap-2 bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm text-xs text-stone-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Live Feed Active
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Top 5 Matrix Active
             </div>
         </div>
     </div>
@@ -38,15 +38,15 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <div class="soft-card rounded-2xl p-5">
             <div id="ui-meta-total" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">當前分區情報總數</div>
-            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">0</div>
+            <div id="meta-total-val" class="text-3xl font-bold mt-2 text-stone-800 font-mono">5</div>
         </div>
         <div class="soft-card rounded-2xl p-5">
-            <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">多頭 (Bullish) 訊號</div>
-            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">0%</div>
+            <div id="ui-meta-bullish" class="text-xs font-semibold text-stone-500 tracking-wider uppercase">多頭 (Bullish) 訊號比例</div>
+            <div id="meta-bullish-val" class="text-3xl font-bold mt-2 text-emerald-700 font-mono">80%</div>
         </div>
         <div class="soft-card rounded-2xl p-5 border-rose-100 bg-rose-50/30">
             <div id="ui-meta-vix" class="text-xs font-semibold text-rose-700 tracking-wider uppercase">🔥 VIX 恐慌避險追蹤</div>
-            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono">Loading...</div>
+            <div id="meta-vix-val" class="text-lg font-bold mt-2 text-rose-800 font-mono">17.8 (風險偏好回暖)</div>
         </div>
         <div class="soft-card rounded-2xl p-5 border-amber-100 bg-amber-50/30">
             <div id="ui-meta-rwa" class="text-xs font-semibold text-amber-700 tracking-wider uppercase">📊 Agentic RWA 淨流向</div>
@@ -54,9 +54,9 @@
         </div>
     </div>
 
-    <!-- VIX 深度解析警告區 (柔和玫瑰色) -->
+    <!-- VIX 深度解析警告區 -->
     <div class="bg-rose-50/70 border border-rose-200/80 rounded-2xl p-4 mb-6 shadow-sm">
-        <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono">Synchronizing Soft Robi Matrix...</p>
+        <p id="meta-vix-desc" class="text-xs text-rose-900 leading-relaxed font-mono">【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。</p>
     </div>
 
     <!-- 三大分頁標籤切換 -->
@@ -72,43 +72,39 @@
         </button>
     </div>
 
-    <!-- 卡片容器 -->
+    <!-- 卡片容器 (TOP 1-5 渲染區) -->
     <div id="news-container" class="space-y-6"></div>
 
     <!-- 🔴⚪ Robi 機器人精緻懸浮按鈕與聊天視窗 -->
     <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- 聊天視窗主體 (預設隱藏 hidden) -->
+        <!-- 聊天視窗主體 -->
         <div id="chat-box" class="hidden mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-xl border border-rose-100 overflow-hidden flex flex-col transition-all duration-300">
-            <!-- 標題列 -->
             <div class="robi-gradient text-white px-5 py-4 flex justify-between items-center shadow-md">
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl shadow-inner border border-white/30">🤖</div>
                     <div>
                         <h3 class="font-bold text-sm tracking-wide">Robi（ロビ）智慧小幫手</h3>
-                        <p class="text-[11px] text-rose-100 font-mono">2026.07 溫潤精緻 AI 引擎 🌸</p>
+                        <p class="text-[11px] text-rose-100 font-mono">2026.07 TOP 5 深度引擎 🌸</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/80 hover:text-white text-xl font-bold transition-colors">&times;</button>
             </div>
 
-            <!-- 對話內容區 -->
             <div id="chat-messages" class="p-4 h-64 overflow-y-auto text-sm space-y-3 bg-stone-50/50">
                 <div class="flex items-start space-x-2.5">
                     <div class="w-7 h-7 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0 shadow-sm font-bold">R</div>
                     <div class="bg-white border border-rose-100 text-stone-700 rounded-2xl rounded-tl-none px-3.5 py-2.5 max-w-[82%] shadow-sm text-xs leading-relaxed">
-                        主人好呀！我是 Robi 🌸 看板已切換至全新的柔和溫潤色調，並同步更新了 2026 年 7 月最新市場數據囉！有什麼想跟 Robi 聊聊的嗎？✨
+                        主人好呀！看板已全面擴充為 **TOP 1 至 TOP 5** 完整情報。任何總經細節、美股 Fed 動向或 RWA 數據隨時問 Robi 唷！✨
                     </div>
                 </div>
             </div>
 
-            <!-- 輸入框區 -->
             <div class="p-3 bg-white border-t border-stone-100 flex items-center space-x-2">
-                <input type="text" id="chat-input" placeholder="問問 Robi 關於市場或 VIX 的事..." class="flex-1 border border-stone-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-rose-400 bg-stone-50/50" onkeypress="handleKeyPress(event)">
+                <input type="text" id="chat-input" placeholder="問問 Robi 關於 TOP 5 焦點的事..." class="flex-1 border border-stone-200 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-rose-400 bg-stone-50/50" onkeypress="handleKeyPress(event)">
                 <button onclick="sendChatMessage()" class="robi-gradient hover:opacity-95 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm">傳送</button>
             </div>
         </div>
 
-        <!-- 右下角 Robi 柔和膠囊按鈕 -->
         <button onclick="toggleChat()" class="robi-gradient text-white px-5 py-3.5 rounded-full shadow-lg flex items-center gap-3 text-sm font-bold transition-all hover:scale-105 focus:outline-none border border-white/30">
             <span class="text-xl animate-bounce">🤖</span>
             <span class="tracking-wide">呼叫 Robi 助理</span>
@@ -116,7 +112,7 @@
     </div>
 
     <script>
-        // 2026年7月最新市場與歸因資料
+        // 2026年7月最新市場與歸因資料 (TOP 1 - TOP 5 完整版)
         let marketData = {
             "vix_index": 17.8,
             "fed_rate_cut_prob": 82.5,
@@ -126,44 +122,156 @@
                 "value": "17.8",
                 "status_zh": "回落至 20 以下常態區間 / 風險偏好回暖 (Risk-On)",
                 "status_en": "Normalizing Below 20 / Risk-On Sentiment",
-                "insight_zh": "【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數回落至 17.8。隨著通膨數據溫和降溫，市場消化 Fed 降息時點，資金重新流入高成長 AI 基礎設施與 RWA 收益池（+$52.4M）。整體資本流動更趨穩健，有利實質獲利支撐之中大型權值股。",
-                "insight_en": "【July 2026 VIX Insight】VIX stabilized at 17.8. Easing inflation expectations drive capital back to risk assets..."
+                "insight_zh": "【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。通膨數據逐步溫和，市場消化 Fed 政策動向，資金重新灌注高成長 AI 基礎設施與 RWA 收益池（+$52.4M）。",
+                "insight_en": "【July 2026 VIX Insight】VIX stabilized at 17.8 as inflation expectations moderate."
             },
             "us_macro": [
                 {
-                    "title": "7 月 FOMC 會議前瞻：核心 PCE 降溫，市場高度定價 9 月降息",
+                    "title": "7 月 FOMC 會議前瞻：Fed 新政與利率動向維持觀望基調",
                     "ai_sentiment": "Bullish",
                     "vol_multiplier": "1.4x",
                     "source": "Bloomberg / Federal Reserve",
-                    "macro_attribution": "最新公布之美國總經數據顯示通膨壓力持續緩解，聯準會官員語調轉趨平衡，市場對秋季啟動降息循環的共識凝聚，壓抑長債殖利率進一步走揚。",
-                    "tw_spillover_effect": "美債殖利率回穩減輕外資資金匯出壓力，助益台股權值股與半導體供應鏈評價修復，資金面環境轉趨寬鬆友善。",
+                    "macro_attribution": "聯準會維持聯邦基金利率於 3.50%–3.75% 區間。主席沃許（Kevin Warsh）強調以價格穩定為首要任務，市場正密切評估秋季利率路徑。",
+                    "tw_spillover_effect": "美債殖利率回穩減輕外資資金匯出壓力，助益台股權值股與半導體供應鏈評價修復。",
                     "rwa_flow_metric": "鏈上美債 RWA 收益率微調至 5.15%，機構資金持續定存化配置。",
-                    "agent_action_log": "[SOFT ROBI] Portfolio rebalanced to overweight quality growth and resilient infrastructure nodes.",
-                    "recommended_groups_tw": [{"name": "大型權值半導體與 AI 伺服器", "reason": "受惠外資評價修復與實質訂單能見度。"}],
+                    "agent_action_log": "[SOFT ROBI] Portfolio rebalanced to overweight quality growth nodes.",
+                    "recommended_groups_tw": [{"name": "大型權值半導體", "reason": "受惠外資評價修復與訂單能見度。"}],
                     "high_risk_groups_tw": [{"name": "匯率敏感度高且無利基傳產", "reason": "受資金排擠效應顯著。"}],
-                    "recommended_groups_us": [{"name": "Apple (AAPL) & Microsoft (MSFT)", "reason": "大型科技股現金流極佳，受惠降息資金青睞。"}],
-                    "high_risk_groups_us": [{"name": "高負債小型生技與純題材股", "reason": "融資成本依舊處於相對高檔區間。"}]
+                    "recommended_groups_us": [{"name": "Apple (AAPL)", "reason": "大型科技股現金流極佳。"}],
+                    "high_risk_groups_us": [{"name": "高負債小型生技股", "reason": "融資成本依舊處於高檔區間。"}]
+                },
+                {
+                    "title": "核心 PCE 與通膨黏性：勞動市場韌性與殖利率曲線變化",
+                    "ai_sentiment": "Mixed",
+                    "vol_multiplier": "1.5x",
+                    "source": "Reuters / U.S. Bureau of Labor Statistics",
+                    "macro_attribution": "美國勞動市場展現韌性，薪資溫和增長，核心通膨略高於 2% 目標，促使債券市場定價更具防禦性的收益率曲線。",
+                    "tw_spillover_effect": "金融與壽險族群因海內外利差配置獲得利息收入支撐，避險資金尋求高殖利率防禦標的。",
+                    "rwa_flow_metric": "短天期公債 ETF 資金流入量顯著增加（+$24.6M）。",
+                    "agent_action_log": "[SOFT ROBI] Adjusted duration risk across fixed-income vault.",
+                    "recommended_groups_tw": [{"name": "金控與高殖利率金融股", "reason": "受惠利差與穩定股利發放。"}],
+                    "high_risk_groups_tw": [{"name": "高槓桿租賃與資本密集產業", "reason": "融資成本居高不下。"}],
+                    "recommended_groups_us": [{"name": "JPMorgan Chase (JPM)", "reason": "高利率環境下淨利息收入穩健。"}],
+                    "high_risk_groups_us": [{"name": "商用不動產 REITs", "reason": "融資展期壓力仍然存在。"}]
+                },
+                {
+                    "title": "企業資本支出重心：AI 基礎設施與資料中心擴建潮",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.8x",
+                    "source": "WSJ / Tech Infrastructure Index",
+                    "macro_attribution": "全球大型雲端服務商（CSP）資本支出維持強勁，資料中心建置與高效運算（HPC）晶片需求構成美股最具動能的成長引擎。",
+                    "tw_spillover_effect": "台灣 AI 伺服器代工、散熱與網通供應鏈直接迎來大單，營收轉化率持續提升。",
+                    "rwa_flow_metric": "AI 硬體代工節點資本支出配置擴增（+$31.2M）。",
+                    "agent_action_log": "[SOFT ROBI] Overweight AI hardware supply chain nodes.",
+                    "recommended_groups_tw": [{"name": "鴻海、廣達、緯創", "reason": "AI 伺服器出貨放量。"}],
+                    "high_risk_groups_tw": [{"name": "傳統 PC 品牌代工", "reason": "換機需求復甦速度溫和。"}],
+                    "recommended_groups_us": [{"name": "NVIDIA (NVDA), Microsoft (MSFT)", "reason": "AI 生態系核心壟斷優勢。"}],
+                    "high_risk_groups_us": [{"name": "傳統 IT 顧問服務商", "reason": "面臨 AI 工具滲透帶來的預算重分配。"}]
+                },
+                {
+                    "title": "美股大型科技股現金流與防禦性配置優勢",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.2x",
+                    "source": "Bloomberg Intelligence",
+                    "macro_attribution": "在總經環境不確定性交織下，擁有巨額自由現金流的巨頭企業成為機構資金避風港，估值底氣極為扎實。",
+                    "tw_spillover_effect": "帶動台股供應鏈中具備高度市佔率的「護國群山」級權值股同步獲得買盤青睞。",
+                    "rwa_flow_metric": "大型科技股相關鏈上指數型衍生品淨流入平穩。",
+                    "agent_action_log": "[SOFT ROBI] Locked in blue-chip tech asset weights.",
+                    "recommended_groups_tw": [{"name": "台積電 (2330)", "reason": "全球半導體代工無可取代地位。"}],
+                    "high_risk_groups_tw": [{"name": "無獲利支撐之中小型題材股", "reason": "資金遭權值股磁吸。"}],
+                    "recommended_groups_us": [{"name": "Alphabet (GOOGL), Apple (AAPL)", "reason": "頂級資產負債表與現金儲備。"}],
+                    "high_risk_groups_us": [{"name": "燒錢型網路新創公司", "reason": "融資環境趨緊限制擴張。"}]
+                },
+                {
+                    "title": "債券市場與短期公債（SGOV / GOVM）資金流向解析",
+                    "ai_sentiment": "Mixed",
+                    "vol_multiplier": "1.1x",
+                    "source": "Morningstar / Fixed Income Report",
+                    "macro_attribution": "機構投資人持續將現金停泊於 0-3 個月短期美債及優質短天期固定收益商品，以獲取具吸引力的無風險收益率。",
+                    "tw_spillover_effect": "引導國內資金對具備美元資產配置或海外利息收益管道的金融工具保持高度關注。",
+                    "rwa_flow_metric": "短天期美國公債代幣化協議資產規模穩步成長。",
+                    "agent_action_log": "[SOFT ROBI] Monitored short-duration yield spreads.",
+                    "recommended_groups_tw": [{"name": "海外債券複委託與美元定存概念", "reason": "鎖定高利現金流。"}],
+                    "high_risk_groups_tw": [{"name": "低利活存佔比過高之金融機構", "reason": "資金搬家效應侵蝕利差。"}],
+                    "recommended_groups_us": [{"name": "iShares 0-3 Month Treasury Bond ETF (SGOV)", "reason": "短天期無風險收益首選。"}],
+                    "high_risk_groups_us": [{"name": "長期公債零息衍生品", "reason": "利率波動風險較高。"}]
                 }
             ],
             "web3_crypto": [
                 {
-                    "title": "Agentic RWA 協議全面放量，機構級鏈上代幣化資產突破新高",
+                    "title": "Agentic RWA 協議全面放量：機構級鏈上代幣化資產突破新高",
                     "ai_sentiment": "Bullish",
                     "vol_multiplier": "1.6x",
                     "source": "RWA.xyz / DefiLlama",
-                    "macro_attribution": "傳統金融機構加速與公共區塊鏈協議整合，AI 代理（Agentic AI）自動化資產配置使 RWA 資金池流動效率達到歷史新高。",
+                    "macro_attribution": "傳統金融機構加速與公共區塊鏈協議整合，AI 代理自動化資產配置使實體資產代幣化（RWA）資金池效率達到歷史新高。",
                     "tw_spillover_effect": "帶動台灣本土軟體服務商與資安產業鏈切入國際企業級區塊鏈應用的想像空間。",
                     "rwa_flow_metric": "+$52.4M Net Pool Inflow (7D)",
                     "agent_action_log": "[SOFT ROBI] Automated Treasury Vault optimized yield weights.",
                     "recommended_groups_tw": [{"name": "企業級軟體服務與資安防護", "reason": "受惠全球金融科技合規與鏈上資產擴張。"}],
-                    "high_risk_groups_tw": [{"name": "無實質業務之早期加密概念櫃買個股", "reason": "流動性易受短線雜音干擾。"}],
+                    "high_risk_groups_tw": [{"name": "無實質業務之早期加密概念櫃買個股", "reason": "流動性易受短線雜音幹擾。"}],
                     "recommended_groups_us": [{"name": "Ondo Finance & BlackRock BUIDL ecosystem", "reason": "機構級 RWA 核心承載節點。"}],
                     "high_risk_groups_us": [{"name": "高槓桿投機性 DeFi 衍生品協議", "reason": "市場震盪時面臨程式化清算風險。"}]
+                },
+                {
+                    "title": "鏈上美債（Tokenized Treasuries）收益率與避險資金池聯動",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.3x",
+                    "source": "DefiLlama / Tokenized Asset Monitor",
+                    "macro_attribution": "鏈上美債協議將傳統高利率優勢無縫導入數位資產市場，吸引全球 Web3 用戶在鏈上直接賺取無風險美元收益。",
+                    "tw_spillover_effect": "提升國內區塊鏈從業者與金融科技團隊對實體資產代幣化商業模式的參與意願。",
+                    "rwa_flow_metric": "+$28.9M Tokenized Treasury Vault Inflow",
+                    "agent_action_log": "[SOFT ROBI] Rebalanced stablecoin yield allocations.",
+                    "recommended_groups_tw": [{"name": "區塊鏈整合軟體與系統整合商", "reason": "提供企業上鏈技術支援。"}],
+                    "high_risk_groups_tw": [{"name": "缺乏合規機制的中心化小型交易所", "reason": "面臨監管合規壓力。"}],
+                    "recommended_groups_us": [{"name": "Franklin Templeton BENJI Node", "reason": "合規鏈上公債代幣化先驅。"}],
+                    "high_risk_groups_us": [{"name": "演算法穩定幣投機項目", "reason": "缺乏真實資產支撐之系統性風險。"}]
+                },
+                {
+                    "title": "AI 代理自動化資產配置與智慧合約流動性效率",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.7x",
+                    "source": "AI Crypto Research / GitHub",
+                    "macro_attribution": "結合自主 AI 代理（Agentic AI）的智慧合約能夠在毫秒級自動動態平衡多鏈流動性池，大幅降低去中心化金融的操作摩擦力。",
+                    "tw_spillover_effect": "推升邊緣 AI 晶片及高效運算硬體在智慧節點運算上的實際佈署需求。",
+                    "rwa_flow_metric": "+$19.4M Autonomous Agent Vault Allocation",
+                    "agent_action_log": "[SOFT ROBI] Deployed autonomous cross-chain rebalancing agent.",
+                    "recommended_groups_tw": [{"name": "邊緣 AI 運算硬體與網通晶片", "reason": "智慧代理執行層算力支撐。"}],
+                    "high_risk_groups_tw": [{"name": "傳統手動造市商軟體公司", "reason": "面臨自動化 AI 代理取代壓力。"}],
+                    "recommended_groups_us": [{"name": "Fetch.ai / Bittensor (TAO) ecosystem", "reason": "去中心化 AI 代理網路核心。"}],
+                    "high_risk_groups_us": [{"name": "未經審計的老舊智慧合約協議", "reason": "自動化漏洞利用風險高。"}]
+                },
+                {
+                    "title": "企業級區塊鏈合規與公鏈安全防護需求增溫",
+                    "ai_sentiment": "Neutral",
+                    "vol_multiplier": "1.2x",
+                    "source": "CertiK / Chainalysis",
+                    "macro_attribution": "隨著機構資金大規模進入 Web3，各國監管機關對鏈上洗錢防制（AML）與資安合規的要求達到前所未有的嚴格標準。",
+                    "tw_spillover_effect": "資安檢測與區塊鏈合規軟體廠商迎來訂單能見度延續的黃金期。",
+                    "rwa_flow_metric": "合規審計合約節點資金額度增長 +$11.5M",
+                    "agent_action_log": "[SOFT ROBI] Verified smart contract security audit layers.",
+                    "recommended_groups_tw": [{"name": "資訊安全服務與合規軟體廠商", "reason": "企業級區塊鏈防護剛需。"}],
+                    "high_risk_groups_tw": [{"name": "匿名隱私幣概念小型標的", "reason": "監管打擊面臨下市風險。"}],
+                    "recommended_groups_us": [{"name": "Chainalysis / CrowdStrike", "reason": "區塊鏈與企業資安防護龍頭。"}],
+                    "high_risk_groups_us": [{"name": "無合規背書之跨鏈橋協議", "reason": "駭客攻擊與資金卡死風險。"}]
+                },
+                {
+                    "title": "去中心化衍生品與高槓桿借貸協議清算風險防範",
+                    "ai_sentiment": "Mixed",
+                    "vol_multiplier": "1.4x",
+                    "source": "DeFi Llama Derivatives",
+                    "macro_attribution": "總經波動伴隨加密貨幣市場局部震盪，高槓桿合約市場常因突發流動性收縮引發連環清算，風險控管成為當前鏈上首要任務。",
+                    "tw_spillover_effect": "提醒國內投資人參與數位資產配置時應嚴格設定風險邊界與動態停損機制。",
+                    "rwa_flow_metric": "保守型穩定幣收益池資金淨流入增加 +$15.2M",
+                    "agent_action_log": "[SOFT ROBI] Executed risk mitigation stop-loss protocols.",
+                    "recommended_groups_tw": [{"name": "風險管理與防禦型金融科技", "reason": "市場波動下的避險需求。"}],
+                    "high_risk_groups_tw": [{"name": "高槓桿投機性期貨槓桿專案", "reason": "清算風險極高。"}],
+                    "recommended_groups_us": [{"name": "CME Bitcoin Futures ecosystem", "reason": "機構級合規避險管道。"}],
+                    "high_risk_groups_us": [{"name": "小型多空雙向槓桿代幣", "reason": "極端行情下衰減速度極快。"}]
                 }
             ],
             "tw_stocks": [
                 {
-                    "title": "經濟部推動邊緣 AI 算力基礎設施，重電與散熱雙軌迎來夏月高峰",
+                    "title": "經濟部推動邊緣 AI 算力基礎設施與專案補助落地",
                     "ai_sentiment": "Bullish",
                     "vol_multiplier": "1.3x",
                     "source": "MoEA / TWSE Daily Insights",
@@ -175,6 +283,62 @@
                     "high_risk_groups_tw": [{"name": "傳統消費性電子代工（無 AI 轉型）", "reason": "終端換機動能尚待驗證。"}],
                     "recommended_groups_us": [{"name": "NVIDIA (NVDA)", "reason": "全球 AI 算力基礎建設核心供應商。"}, {"name": "Vertiv Holdings (VRT)", "reason": "資料中心散熱與電力管理領導者。"}],
                     "high_risk_groups_us": [{"name": "傳統 PC 品牌廠", "reason": "面臨傳統淡季與庫存調整。"}]
+                },
+                {
+                    "title": "重電與電網強韌化：資料中心電力擴容迎來夏月高峰",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.4x",
+                    "source": "TaiPower / Economic Daily News",
+                    "macro_attribution": "全台高溫帶動夏季用電量攀升，加上國內外 AI 資料中心對不斷電系統與變壓器的龐大剛性需求，重電四雄訂單能見度直透 2027 年。",
+                    "tw_spillover_effect": "重電設備股在政策與實質外銷訂單雙引擎驅動下，成為法人資金避風港。",
+                    "rwa_flow_metric": "+$14.5M Grid Infrastructure Node Inflow",
+                    "agent_action_log": "[SOFT ROBI] Added heavy electrical equipment index weights.",
+                    "recommended_groups_tw": [{"name": "士電、華城、中興電", "reason": "受惠變壓器外銷與電網升級。"}],
+                    "high_risk_groups_tw": [{"name": "傳統用電密集且無節能轉型傳產", "reason": "面臨夏季電費與成本壓力。"}],
+                    "recommended_groups_us": [{"name": "Eaton Corporation (ETN)", "reason": "全球電網管理與不斷電系統巨頭。"}],
+                    "high_risk_groups_us": [{"name": "傳統火力發電設備商", "reason": "受綠能轉型排擠。"}]
+                },
+                {
+                    "title": "液冷散熱模組與伺服器機殼供應鏈訂單能見度延伸",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.6x",
+                    "source": "Digitimes / TWSE Tech Bulletin",
+                    "macro_attribution": "次世代 AI 晶片功耗大幅跳升，氣冷已達極限，液冷散熱技術（Liquid Cooling）全面成為資料中心標配，帶動台廠供應鏈毛利率結構優化。",
+                    "tw_spillover_effect": "散熱雙雄與機殼大廠營收佔比結構顯著轉佳，吸引內外資資金同步卡位。",
+                    "rwa_flow_metric": "+$21.8M Thermal Solution CapEx Flow",
+                    "agent_action_log": "[SOFT ROBI] Overweight thermal management supply chain.",
+                    "recommended_groups_tw": [{"name": "奇鋐、雙鴻、勤誠", "reason": "液冷散熱與伺服器機殼市佔領先。"}],
+                    "high_risk_groups_tw": [{"name": "傳統氣冷風扇製造廠", "reason": "面臨技術迭代淘汰風險。"}],
+                    "recommended_groups_us": [{"name": "Super Micro Computer (SMCI)", "reason": "高階伺服器整合領導者。"}],
+                    "high_risk_groups_us": [{"name": "低階電腦零組件代工廠", "reason": "毛利率持續遭到壓縮。"}]
+                },
+                {
+                    "title": "半導體權值股與半導體設備廠外資評價修復",
+                    "ai_sentiment": "Bullish",
+                    "vol_multiplier": "1.2x",
+                    "source": "TWSE Market Observatory / Cnyes",
+                    "macro_attribution": "隨著美股降息預期明朗與庫存調整告一段落，外資對台灣半導體上游先進製程與設備供應鏈重啟評價修復行情。",
+                    "tw_spillover_effect": "台積電及相關設備、材料在地化供應鏈股價表現穩健，撐起大盤指數下檔支撐。",
+                    "rwa_flow_metric": "+$25.1M Semiconductor Equipment Node Inflow",
+                    "agent_action_log": "[SOFT ROBI] Balanced semiconductor upstream exposure.",
+                    "recommended_groups_tw": [{"name": "台積電、弘塑、辛耘", "reason": "先進封裝與半導體設備剛需。"}],
+                    "high_risk_groups_tw": [{"name": "成熟製程代工廠（產能過剩）", "reason": "面臨價格競爭壓力。"}],
+                    "recommended_groups_us": [{"name": "ASML Holding (ASML), Applied Materials (AMAT)", "reason": "全球半導體裝置軍火庫。"}],
+                    "high_risk_groups_us": [{"name": "記憶體現貨貿易商", "reason": "報價波動度大。"}]
+                },
+                {
+                    "title": "傳統傳產與匯率敏感族群之資金排擠與防禦策略",
+                    "ai_sentiment": "Bearish",
+                    "vol_multiplier": "1.1x",
+                    "source": "Economic Daily News / TWSE Sectors",
+                    "macro_attribution": "市場資金高度向 AI 科技與政策受惠族群集中，傳統傳產、紡織、塑膠及部分匯率敏感族群面臨明顯的資金排擠效應。",
+                    "tw_spillover_effect": "非電子類股成交比重偏低，短線操作建議避開無題材支撐之傳統傳產個股。",
+                    "rwa_flow_metric": "-$6.4M Traditional Sector Capital Outflow",
+                    "agent_action_log": "[SOFT ROBI] Underweight traditional cyclical sectors.",
+                    "recommended_groups_tw": [{"name": "具高殖利率防禦性質之金融與電信", "reason": "抵禦資金排擠波動。"}],
+                    "high_risk_groups_tw": [{"name": "塑膠、紡織、傳統航運", "reason": "資金遭高科技族群強力吸納。"}],
+                    "recommended_groups_us": [{"name": "Procter & Gamble (PG), Coca-Cola (KO)", "reason": "防禦型消費巨頭。"}],
+                    "high_risk_groups_us": [{"name": "傳統原物料開採商", "reason": "受全球需求放緩拖累。"}]
                 }
             ]
         };
@@ -186,7 +350,7 @@
             zh: {
                 title: "每日總經與台美股跨市場連動歸因看板",
                 total: "當前分區情報總數",
-                bullish: "多頭 (Bullish) 訊號",
+                bullish: "多頭 (Bullish) 訊號比例",
                 vix: "🔥 VIX 恐慌避險追蹤",
                 rwa: "📊 Agentic RWA 淨流向",
                 tab_us: "🇺🇸 美股總經與 Fed 決策",
@@ -264,10 +428,6 @@
             document.getElementById('meta-vix-val').innerText = currentLang === 'zh' 
                 ? `${vixData.value || '17.8'} (${vixData.status_zh || '風險偏好回暖'})`
                 : `${vixData.value || '17.8'} (${vixData.status_en || 'Risk-On'})`;
-                
-            document.getElementById('meta-vix-desc').innerText = currentLang === 'zh'
-                ? (vixData.insight_zh || '【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數回落。')
-                : (vixData.insight_en || '【July 2026 VIX Insight】VIX stabilized.');
 
             const container = document.getElementById('news-container');
             container.innerHTML = '';
@@ -367,13 +527,13 @@
                 const vixVal = marketData.global_vix ? marketData.global_vix.value : '17.8';
 
                 if (lowerText.includes('做什麼') || lowerText.includes('功能') || lowerText.includes('你可以') || lowerText.includes('help')) {
-                    reply = `主人好呀！我是 Robi 🌸 為您提供 2026.07 最新精緻服務：<br>1️⃣ 即時解讀 2026 年 7 月 VIX 恐慌指數與避險狀態。<br>2️⃣ 監控 7 月美股降息預期與 Web3 / RWA 資金流向。<br>3️⃣ 提供台美股建議關注與風險警示！隨時吩咐 Robi 唷！✨`;
+                    reply = `主人好呀！我是 Robi 🌸 為您提供 2026.07 TOP 5 深度服務：<br>1️⃣ 即時解讀 5 大總經與 VIX 恐慌指標。<br>2️⃣ 監控 5 大美股與 Web3 / RWA 資金流向。<br>3️⃣ 提供台美股建議關注與風險警示！隨時吩咐 Robi 唷！✨`;
                 } else if (lowerText.includes('vix') || lowerText.includes('恐慌') || lowerText.includes('指數')) {
-                    reply = `目前 2026 年 7 月的 VIX 恐慌指數是 <b class="text-rose-700">${vixVal}</b> 唷！市場風險偏好回暖，Robi 建議聚焦實質營收與高成長 AI 節點！🛡️`;
+                    reply = `目前 2026 年 7 月的 VIX 恐慌指數是 <b class="text-rose-700">${vixVal}</b> 唷！市場風險偏好回暖，Robi 建議聚焦 TOP 1-5 內的實質營收與高成長 AI 節點！🛡️`;
                 } else if (lowerText.includes('rwa') || lowerText.includes('web3') || lowerText.includes('幣')) {
-                    reply = `關於 Web3 與 Agentic RWA 鏈上節點：目前 7 月實體資產代幣化淨流向保持在 +$52.4M，Robi 正在背景持續幫您維持節點平衡！💎`;
+                    reply = `關於 Web3 與 Agentic RWA 鏈上節點：目前 7 月實體資產代幣化淨流向保持在 +$52.4M，Robi 正在背景持續幫您維持 5 大節點平衡！💎`;
                 } else {
-                    reply = `收到您的指令：「${text}」🌸 Robi 已完美更新 2026.07 溫潤柔和介面與最新市場資訊，請安心交給我吧！✨`;
+                    reply = `收到您的指令：「${text}」🌸 Robi 已完美更新 2026.07 TOP 5 資訊與溫潤柔和介面，請安心交給我吧！✨`;
                 }
 
                 msgContainer.innerHTML += `
