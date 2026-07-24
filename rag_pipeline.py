@@ -31,12 +31,11 @@ RSS_SOURCES = {
 }
 
 # ==========================================
-# 1️⃣ RSS 爬蟲與情緒抓取模組 (增強防護)
+# 1️⃣ RSS 爬蟲與情緒抓取模組
 # ==========================================
 def fetch_rss_items(url, source_name, category, max_items=3):
     items = []
     try:
-        # 建立防封鎖 Header 與 SSL 豁免上下文
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
         req = urllib.request.Request(url, headers=headers)
         
@@ -78,11 +77,12 @@ def analyze_nlp_score(text):
     return min(max(0.5 + (bull_count - bear_count) * 0.15, 0.1), 0.95)
 
 # ==========================================
-# 2️⃣ 雙語備援資料庫 (方案 A 標準)
+# 2️⃣ 全面相容雙語備援資料庫
 # ==========================================
 FALLBACK_FEEDS = {
     "us_macro": [
         {
+            "title": "聯準會降息預期升溫，長天期美債吸引避險資金",
             "title_zh": "聯準會降息預期升溫，長天期美債吸引避險資金",
             "title_en": "Fed Rate Cut Expectations Rise, Long-Term Treasuries Attract Safe-Haven Capital",
             "raw_text_zh": "通脹趨勢符合預期，債券殖利率曲線平坦化，長天期美債 ETF 買盤踴躍。",
@@ -90,6 +90,7 @@ FALLBACK_FEEDS = {
             "source": "Fed Policy Node", "nlp_score": 0.8
         },
         {
+            "title": "大型科技股 CapEx 擴張，邊緣 AI 伺服器需求持續走高",
             "title_zh": "大型科技股 CapEx 擴張，邊緣 AI 伺服器需求持續走高",
             "title_en": "Tech Giants Expand CapEx, Edge AI Server Demand Continues to Surge",
             "raw_text_zh": "雲端巨頭加大資本支出，晶片與伺服器組裝供應鏈業績能見度大幅提升。",
@@ -97,6 +98,7 @@ FALLBACK_FEEDS = {
             "source": "Wall Street Research", "nlp_score": 0.85
         },
         {
+            "title": "美國勞動市場適度放緩，市場期待軟著陸劇本",
             "title_zh": "美國勞動市場適度放緩，市場期待軟著陸劇本",
             "title_en": "US Labor Market Moderates, Boosting Soft-Landing Expectations",
             "raw_text_zh": "初領失業金人數持平，市場解讀就業市場回歸常態，有助舒緩通脹壓力。",
@@ -104,6 +106,7 @@ FALLBACK_FEEDS = {
             "source": "Bloomberg Macro", "nlp_score": 0.65
         },
         {
+            "title": "能源價格回檔整理，減輕核心 CPI 通脹回升壓力",
             "title_zh": "能源價格回檔整理，減輕核心 CPI 通脹回升壓力",
             "title_en": "Energy Prices Pull Back, Alleviating Core CPI Pressure",
             "raw_text_zh": "原油庫存增加推動油價高檔震盪，進一步舒緩消費者物價指數衝擊。",
@@ -111,6 +114,7 @@ FALLBACK_FEEDS = {
             "source": "EIA Data Analysis", "nlp_score": 0.6
         },
         {
+            "title": "美股企業財報季登場，AI 應用變現能力成法人聚焦重點",
             "title_zh": "美股企業財報季登場，AI 應用變現能力成法人聚焦重點",
             "title_en": "US Earnings Season Begins, AI Monetization Takes Center Stage",
             "raw_text_zh": "軟體與雲端企業相繼公布財報，市場高度關注 AI Agent 工具之訂閱營收成長。",
@@ -120,6 +124,7 @@ FALLBACK_FEEDS = {
     ],
     "web3_crypto": [
         {
+            "title": "機構級美國國債 RWA 代幣化規模突破新高，流動性池持續爆發",
             "title_zh": "機構級美國國債 RWA 代幣化規模突破新高，流動性池持續爆發",
             "title_en": "Institutional US Treasury RWA Tokenization Hits Record Highs as Liquidity Pools Expand",
             "raw_text_zh": "傳統機構將美債帶入鏈上，結合 Agentic AI 執行套利與流動性再平衡。",
@@ -127,6 +132,7 @@ FALLBACK_FEEDS = {
             "source": "On-Chain Analytics", "nlp_score": 0.88
         },
         {
+            "title": "去中心化邊緣 AI 算力網絡質押率上升，協議費用創新高",
             "title_zh": "去中心化邊緣 AI 算力網絡質押率上升，協議費用創新高",
             "title_en": "Decentralized Edge AI Compute Staking Surges, Driving Protocol Fees to Record Highs",
             "raw_text_zh": "鏈上數據顯示分散式算力利用率達到 85%，帶動基礎設施代幣資金持續淨流入。",
@@ -134,6 +140,7 @@ FALLBACK_FEEDS = {
             "source": "X KOL Signal", "nlp_score": 0.75
         },
         {
+            "title": "穩定幣總市值持續增長，鏈上美元流動性充足",
             "title_zh": "穩定幣總市值持續增長，鏈上美元流動性充足",
             "title_en": "Stablecoin Market Cap Continues Growth, On-Chain USD Liquidity Remains Ample",
             "raw_text_zh": "合規美元穩定幣發行量擴增，顯示全球資本對鏈上資產結算需求居高不下。",
@@ -141,6 +148,7 @@ FALLBACK_FEEDS = {
             "source": "DefiLlama Node", "nlp_score": 0.8
         },
         {
+            "title": "Layer 2 交易費大幅下降，智能合約互動量創歷史新高",
             "title_zh": "Layer 2 交易費大幅下降，智能合約互動量創歷史新高",
             "title_en": "Layer 2 Transaction Fees Drop Significantly, Driving Smart Contract Usage to All-Time Highs",
             "raw_text_zh": "擴容方案升級完成，高頻 AI Agent 機器人在鏈上的微型支付成本顯著降低。",
@@ -148,6 +156,7 @@ FALLBACK_FEEDS = {
             "source": "L2Beat Analytics", "nlp_score": 0.82
         },
         {
+            "title": "比特幣與美債相關性降至低點，數位黃金避險屬性凸顯",
             "title_zh": "比特幣與美債相關性降至低點，數位黃金避險屬性凸顯",
             "title_en": "Bitcoin Correlation with US Treasuries Hits Lows, Highlighting Digital Gold Safe-Haven Status",
             "raw_text_zh": "全球總經不確定性下，數位資產作為獨立風險分散工具的配置比重提升。",
@@ -157,6 +166,7 @@ FALLBACK_FEEDS = {
     ],
     "tw_stocks": [
         {
+            "title": "經濟部推動先進封裝與邊緣 AI 供應鏈，台廠迎急單潮",
             "title_zh": "經濟部推動先進封裝與邊緣 AI 供應鏈，台廠迎急單潮",
             "title_en": "MOEA Promotes Advanced Packaging & Edge AI Supply Chains, Taiwanese Firms See Rush Orders",
             "raw_text_zh": "台積電 2 奈米進展順利，先進封裝 (CoWoS) 產能供不應求，帶動相關設備廠營收衝高。",
@@ -164,6 +174,7 @@ FALLBACK_FEEDS = {
             "source": "經濟日報 Policy", "nlp_score": 0.85
         },
         {
+            "title": "AI 伺服器水冷散熱模組滲透率提升，台系散熱雙雄接單熱絡",
             "title_zh": "AI 伺服器水冷散熱模組滲透率提升，台系散熱雙雄接單熱絡",
             "title_en": "AI Server Liquid Cooling Penetration Rises, Taiwan Thermal Leaders See Strong Orders",
             "raw_text_zh": "新一代伺服器機櫃功耗激增，水冷散熱零組件出口大幅成長。",
@@ -171,6 +182,7 @@ FALLBACK_FEEDS = {
             "source": "工商時報 Spec", "nlp_score": 0.82
         },
         {
+            "title": "台灣半導體設備在地化政策發酵，供應鏈國產化比重上升",
             "title_zh": "台灣半導體設備在地化政策發酵，供應鏈國產化比重上升",
             "title_en": "Domestic Semiconductor Equipment Policy Takes Effect, Supply Chain Localization Ratio Rises",
             "raw_text_zh": "政策補助引導本土設備業者進入晶圓代工大廠認證，增強產業防禦韌性。",
@@ -178,6 +190,7 @@ FALLBACK_FEEDS = {
             "source": "MOEA Report", "nlp_score": 0.78
         },
         {
+            "title": "綠能與電網強韌計畫加速推出，重電族群訂單能見度直達明年",
             "title_zh": "綠能與電網強韌計畫加速推出，重電族群訂單能見度直達明年",
             "title_en": "Grid Resiliency Infrastructure Accelerates, Heavy Electrical Sector Order Visibility Extends to Next Year",
             "raw_text_zh": "台電強韌電網計畫與資料中心用電需求帶動變壓器與配電設備訂單滿載。",
@@ -185,6 +198,7 @@ FALLBACK_FEEDS = {
             "source": "Energy Sector News", "nlp_score": 0.75
         },
         {
+            "title": "台灣 IC 設計巨頭切入邊緣 AI 晶片，車用與物聯網佈局顯效",
             "title_zh": "台灣 IC 設計巨頭切入邊緣 AI 晶片，車用與物聯網佈局顯效",
             "title_en": "Taiwanese IC Design Leaders Expand into Edge AI Chips, Automotive & IoT Efforts Pay Off",
             "raw_text_zh": "終端裝置 AI 化趨勢明確，低功耗 AI 推理晶片出貨量比重逐漸提升。",
@@ -195,7 +209,7 @@ FALLBACK_FEEDS = {
 }
 
 # ==========================================
-# 3️⃣ 雙語資產推薦矩陣 (方案 A 標準)
+# 3️⃣ 資產推薦矩陣 (含雙語與預設相容欄位)
 # ==========================================
 def generate_recommendations(category, vix_value):
     is_high_risk = vix_value > 20.0
@@ -203,18 +217,18 @@ def generate_recommendations(category, vix_value):
     if category == "us_macro":
         rec_us = [
             {
-                "name_zh": "TLT / 美債 ETF", "name_en": "TLT / US Treasury ETF",
-                "reason_zh": "降息預期升溫，長天期公債避險價值凸顯", "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+                "name": "TLT / 美債 ETF", "name_zh": "TLT / 美債 ETF", "name_en": "TLT / US Treasury ETF",
+                "reason": "降息預期升溫，長天期公債避險價值凸顯", "reason_zh": "降息預期升溫，長天期公債避險價值凸顯", "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
             },
             {
-                "name_zh": "NVDA / MSFT", "name_en": "NVDA / MSFT",
-                "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐", "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+                "name": "NVDA / MSFT", "name_zh": "NVDA / MSFT", "name_en": "NVDA / MSFT",
+                "reason": "CapEx 強勁，邊緣 AI 需求帶來成長支撐", "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐", "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
             }
         ]
         risk_us = [
             {
-                "name_zh": "高負債小型成長股 (IWM)", "name_en": "High-Debt Small-Cap Growth (IWM)",
-                "reason_zh": "避險情緒下資金偏好大型藍籌", "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+                "name": "高負債小型成長股 (IWM)", "name_zh": "高負債小型成長股 (IWM)", "name_en": "High-Debt Small-Cap Growth (IWM)",
+                "reason": "避險情緒下資金偏好大型藍籌", "reason_zh": "避險情緒下資金偏好大型藍籌", "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
             }
         ] if is_high_risk else []
         return [], [], rec_us, risk_us
@@ -222,18 +236,18 @@ def generate_recommendations(category, vix_value):
     elif category == "web3_crypto":
         rec_tw = [
             {
-                "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)", "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
-                "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益", "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+                "name": "美債 RWA 代幣 (Ondo/BUIDL)", "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)", "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+                "reason": "無風險利率轉化，Risk-Off 下首選無損避險收益", "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益", "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
             },
             {
-                "name_zh": "Agentic AI 基礎設施代幣", "name_en": "Agentic AI Infrastructure Tokens",
-                "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益", "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+                "name": "Agentic AI 基礎設施代幣", "name_zh": "Agentic AI 基礎設施代幣", "name_en": "Agentic AI Infrastructure Tokens",
+                "reason": "邊緣 AI 計算網路帶動真實協議費用收益", "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益", "reason_en": "Edge AI compute networks drive real protocol fee revenues"
             }
         ]
         risk_tw = [
             {
-                "name_zh": "高槓桿迷因幣", "name_en": "High-Leverage Memecoins",
-                "reason_zh": "VIX > 20 時流動性收縮，面臨回檔", "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+                "name": "高槓桿迷因幣", "name_zh": "高槓桿迷因幣", "name_en": "High-Leverage Memecoins",
+                "reason": "VIX > 20 時流動性收縮，面臨回檔", "reason_zh": "VIX > 20 時流動性收縮，面臨回檔", "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
             }
         ] if is_high_risk else []
         return rec_tw, risk_tw, [], []
@@ -241,24 +255,24 @@ def generate_recommendations(category, vix_value):
     else: # tw_stocks
         rec_tw = [
             {
-                "name_zh": "台積電 (2330) / 鴻海 (2317)", "name_en": "TSMC (2330) / Foxconn (2317)",
-                "reason_zh": "先進封裝產能滿載，伺服器出口強勁", "reason_en": "Advanced packaging capacity full, strong server exports"
+                "name": "台積電 (2330) / 鴻海 (2317)", "name_zh": "台積電 (2330) / 鴻海 (2317)", "name_en": "TSMC (2330) / Foxconn (2317)",
+                "reason": "先進封裝產能滿載，伺服器出口強勁", "reason_zh": "先進封裝產能滿載，伺服器出口強勁", "reason_en": "Advanced packaging capacity full, strong server exports"
             },
             {
-                "name_zh": "緯創 (3231) / 奇鋐 (3017)", "name_en": "Wistron (3231) / AVC (3017)",
-                "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確", "reason_en": "Clear demand for liquid cooling and edge AI servers"
+                "name": "緯創 (3231) / 奇鋐 (3017)", "name_zh": "緯創 (3231) / 奇鋐 (3017)", "name_en": "Wistron (3231) / AVC (3017)",
+                "reason": "水冷散熱與邊緣 AI 伺服器需求明確", "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確", "reason_en": "Clear demand for liquid cooling and edge AI servers"
             }
         ]
         risk_tw = [
             {
-                "name_zh": "高估值無獲利概念股", "name_en": "High-Valuation Unprofitable Concept Stocks",
-                "reason_zh": "市場波動加大，資金退潮回歸績優股", "reason_en": "Higher market volatility drives capital back to quality earnings"
+                "name": "高估值無獲利概念股", "name_zh": "高估值無獲利概念股", "name_en": "High-Valuation Unprofitable Concept Stocks",
+                "reason": "市場波動加大，資金退潮回歸績優股", "reason_zh": "市場波動加大，資金退潮回歸績優股", "reason_en": "Higher market volatility drives capital back to quality earnings"
             }
         ] if is_high_risk else []
         return rec_tw, risk_tw, [], []
 
 # ==========================================
-# 4️⃣ 主執行管道 (雙語 Schema 轉換)
+# 4️⃣ 主執行管道 (雙語 + 基礎 Key 齊發)
 # ==========================================
 def run():
     print("🚀 [Step 1/3] 採集全球總經、Web3 與台股 RSS 數據...")
@@ -280,22 +294,21 @@ def run():
         for src in sources:
             fetched = fetch_rss_items(src["url"], src["name"], category, max_items=2)
             for f in fetched:
-                f["nlp_score"] = analyze_nlp_score(f["title"] + " " + f["raw_text"])
-                # 為爬取的 RSS 生成基礎雙語對應
+                f["nlp_score"] = analyze_nlp_score(f["title"] + " " + f.get("raw_text", ""))
                 f["title_zh"] = f["title"]
                 f["title_en"] = f["title"]
-                f["raw_text_zh"] = f["raw_text"]
-                f["raw_text_en"] = f["raw_text"]
+                f["raw_text_zh"] = f.get("raw_text", f["title"])
+                f["raw_text_en"] = f.get("raw_text", f["title"])
                 category_items.append(f)
                 
-        # 2. 如果 RSS 抓取的數量不足 5 筆，自動從雙語備援庫補滿
+        # 2. 若數量不足 5 筆，自動從備援庫補齊
         fallback_pool = FALLBACK_FEEDS.get(category, [])
         fb_idx = 0
         while len(category_items) < 5 and fb_idx < len(fallback_pool):
             category_items.append(fallback_pool[fb_idx])
             fb_idx += 1
             
-        # 3. 執行 Agentic 推理並填入雙語 Scheme 結構
+        # 3. 填入完整 JSON 結構（兼具預設 Key 與雙語 Key）
         for feed in category_items:
             nlp_score = feed.get("nlp_score", 0.7)
             vix_val = vix_data["value"]
@@ -308,19 +321,25 @@ def run():
             
             rec_tw, risk_tw, rec_us, risk_us = generate_recommendations(category, vix_val)
             
-            title_zh = feed.get("title_zh", feed.get("title", ""))
-            title_en = feed.get("title_en", feed.get("title", ""))
+            title_val = feed.get("title", feed.get("title_zh", ""))
+            title_zh = feed.get("title_zh", title_val)
+            title_en = feed.get("title_en", title_val)
+            
             raw_zh = feed.get("raw_text_zh", feed.get("raw_text", ""))
             raw_en = feed.get("raw_text_en", feed.get("raw_text", ""))
 
             output_data[category].append({
+                # 關鍵修正：同時補上 title 與 title_zh/title_en，徹底解決「無標題新聞」問題
+                "title": title_val,
                 "title_zh": title_zh,
                 "title_en": title_en,
                 "ai_sentiment": sentiment_tag,
                 "vol_multiplier": vol_mult,
                 "source": feed.get("source", "Macro RAG Node"),
+                "macro_attribution": f"{raw_zh} (情緒指數: {round(composite_score, 2)})",
                 "macro_attribution_zh": f"{raw_zh} (情緒指數: {round(composite_score, 2)})",
                 "macro_attribution_en": f"{raw_en} (Sentiment Index: {round(composite_score, 2)})",
+                "tw_spillover_effect": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
                 "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
                 "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
                 "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
@@ -335,7 +354,7 @@ def run():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
         
-    print("✨ [完成] data.json 已成功升級為雙語 Schema！三個頁籤資料皆已完整綁定！")
+    print("✨ [完成] data.json 已升級為相容 Schema！標題與雙語欄位均已正確輸出！")
 
 if __name__ == "__main__":
     run()
