@@ -1,140 +1,570 @@
-import os
-import json
-from typing import List, Optional
-from pydantic import BaseModel, Field
-from google import genai
-from google.genai import types
-
-# =====================================================================
-# 1. Pydantic JSON Schema 規範 (方案 A：雙語 _zh / _en 後綴)
-# =====================================================================
-
-class AssetGroup(BaseModel):
-    name_zh: str = Field(..., description="資產或標的族群名稱 (中文)")
-    name_en: str = Field(..., description="Asset or group name (English)")
-    reason_zh: str = Field(..., description="推薦或避險原因說明 (中文)")
-    reason_en: str = Field(..., description="Recommendation or risk reason (English)")
-
-
-class GlobalVix(BaseModel):
-    value: float = Field(..., description="VIX 當前指標數值")
-    status_zh: str = Field(..., description="VIX 狀態描述 (中文)")
-    status_en: str = Field(..., description="VIX status description (English)")
-    insight_zh: str = Field(..., description="VIX 核心市場洞察與策略建議 (中文)")
-    insight_en: str = Field(..., description="VIX core insight and strategic advice (English)")
-
-
-class NewsItem(BaseModel):
-    title_zh: str = Field(..., description="新聞/訊號標題 (中文)")
-    title_en: str = Field(..., description="News/Signal title (English)")
-    ai_sentiment: str = Field(..., description="AI 分析情緒：Bullish / Bearish / Neutral")
-    vol_multiplier: str = Field(..., description="波動度倍數預估 (例如 '1.4x')")
-    source: str = Field(..., description="新聞或數據來源")
-    macro_attribution_zh: str = Field(..., description="總經與市場歸因分析，包含情緒指數 (中文)")
-    macro_attribution_en: str = Field(..., description="Macro attribution analysis including sentiment index (English)")
-    tw_spillover_effect_zh: str = Field(..., description="台股或跨市場連動外溢效應 (中文)")
-    tw_spillover_effect_en: str = Field(..., description="Taiwan or cross-market spillover effect (English)")
-    rwa_flow_metric: str = Field(..., description="RWA 資金池流向數據 (例如 '+$52.4M Pool Inflow')")
-    agent_action_log: str = Field(..., description="Agent 執行日誌紀錄 (例如 '[AGENT EXEC] Rebalanced...')")
-    
-    recommended_groups_tw: List[AssetGroup] = Field(default_factory=list, description="台股推薦投資族群")
-    high_risk_groups_tw: List[AssetGroup] = Field(default_factory=list, description="台股高風險/避險族群")
-    recommended_groups_us: List[AssetGroup] = Field(default_factory=list, description="美股/美債推薦投資族群")
-    high_risk_groups_us: List[AssetGroup] = Field(default_factory=list, description="美股高風險/避險族群")
-
-
-class MarketIntelligenceReport(BaseModel):
-    global_vix: GlobalVix = Field(..., description="全球 VIX 恐慌指數模組")
-    us_macro: List[NewsItem] = Field(..., description="美股與全球總經新聞分析")
-    web3_crypto: List[NewsItem] = Field(..., description="Web3 / 加密貨幣 / RWA 市場分析")
-    tw_stocks: List[NewsItem] = Field(..., description="台股與半導體供應鏈分析")
-
-
-# =====================================================================
-# 2. Prompt 結構設定
-# =====================================================================
-
-SYSTEM_INSTRUCTION = """
-你是一個頂級的量化總經與 Web3/台股 跨市場 AI 分析師。
-你的任務是將輸入的原始市場新聞數據，轉化為標準化的「市場情報與 Agent 再平衡 JSON 報告」。
-
-【輸出規則與規範】
-1. 嚴格遵循提供的 JSON Schema，不得遺漏任何必填欄位。
-2. 所有敘述性欄位必須同時提供繁體中文 (_zh) 與 英文 (_en) 兩種版本。
-3. 如果輸入新聞為英文，請翻譯並精煉為繁體中文至 _zh 欄位；若輸入為中文，請精確翻譯為英文至 _en 欄位。
-4. 針對 VIX > 20 的風險情境，相應的資產推薦應偏向 Real Yield (RWA)、美債與防禦型標的。
-5. ai_sentiment 僅能輸出: "Bullish", "Bearish", 或 "Neutral"。
-"""
-
-
-def build_user_prompt(raw_data: dict) -> str:
-    """根據輸入數據構建 User Prompt"""
-    return f"""
-請分析以下原始市場情報數據，並依據 Schema 生成完整的雙語市場情報分析報告：
-
-【原始情報數據】
-{json.dumps(raw_data, ensure_ascii=False, indent=2)}
-"""
-
-
-# =====================================================================
-# 3. RAG Pipeline 執行函式
-# =====================================================================
-
-def run_rag_pipeline(raw_input_data: dict) -> dict:
-    """
-    執行 RAG Pipeline 生成符合雙語 Schema 的市場情報報告
-    """
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
-    # 呼叫 Gemini 並傳入 Structured Output (Pydantic Schema)
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=build_user_prompt(raw_input_data),
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_INSTRUCTION,
-            response_mime_type="application/json",
-            response_schema=MarketIntelligenceReport,
-            temperature=0.2, # 低隨機性，確保輸出穩定符合 Schema
-        ),
-    )
-
-    # 回傳 JSON 字典格式
-    return json.loads(response.text)
-
-
-# =====================================================================
-# 4. 測試範例
-# =====================================================================
-
-if __name__ == "__main__":
-    # 模擬 RAG 上游收集到的 Raw Data
-    sample_raw_input = {
-        "vix_value": 22.4,
-        "raw_news": [
-            {
-                "category": "us_macro",
-                "title": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla",
-                "source": "Yahoo Finance US",
-                "content": "The Nasdaq undercut key levels as Google and Tesla led titans lower while oil prices soared."
-            },
-            {
-                "category": "web3_crypto",
-                "title": "Coinbase lets businesses accept USDC payments from AI agents",
-                "source": "Cointelegraph",
-                "content": "The exchange introduced AI trading tools and developer kit for autonomous AI agents."
-            },
-            {
-                "category": "tw_stocks",
-                "title": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣",
-                "source": "Google News TW",
-                "content": "台積電亞利桑那擴廠引發討論，經濟部強調核心 2 奈米與先進封裝 CoWoS 主力產能仍留台灣。"
-            }
-        ]
+{
+  "global_vix": {
+    "value": 22.4,
+    "status_zh": "突破關鍵20關卡 / 強烈避險情緒 (Risk-Off)",
+    "status_en": "Surpassed Key 20 Level / Strong Risk-Off",
+    "insight_zh": "⚠️ 當前 VIX 突破 20 關鍵關卡 (22.4)，市場避險情緒 (Risk-Off) 顯著升溫。建議提高美債 RWA 代幣與防禦型高殖利率資產比重，適度降低高 Beta 股票槓桿。",
+    "insight_en": "⚠️ VIX has crossed the key 20 benchmark (22.4), indicating heightened Risk-Off sentiment. Increase allocations in Treasury RWAs and high-dividend assets while reducing high-Beta stock leverage."
+  },
+  "us_macro": [
+    {
+      "title_zh": "3 Reasons LYFT Has Explosive Upside Potential",
+      "title_en": "3 Reasons LYFT Has Explosive Upside Potential",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "Over the past six months, Lyft’s shares (currently trading at $14.64) have posted a disappointing 18.2% loss, well below the S&P 500’s 8.6% gain. This may have investors wondering how to approach the situation. (情緒指數: 0.31)",
+      "macro_attribution_en": "Over the past six months, Lyft’s shares (currently trading at $14.64) have posted a disappointing 18.2% loss, well below the S&P 500’s 8.6% gain. This may have investors wondering how to approach the situation. (Sentiment Index: 0.31)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla; Intel Rises Late, SpaceX Starship Launch Delayed",
+      "title_en": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla; Intel Rises Late, SpaceX Starship Launch Delayed",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "The Nasdaq undercut key levels as Google and Tesla led titans lower while oil prices soared. A big SpaceX launch is due. (情緒指數: 0.49)",
+      "macro_attribution_en": "The Nasdaq undercut key levels as Google and Tesla led titans lower while oil prices soared. A big SpaceX launch is due. (Sentiment Index: 0.49)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire",
+      "title_en": "Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution_zh": "The Trump administration has ramped its tariff actions back up since the president's trade  agenda suffered major legal setbacks earlier this year. (情緒指數: 0.22)",
+      "macro_attribution_en": "The Trump administration has ramped its tariff actions back up since the president's trade  agenda suffered major legal setbacks earlier this year. (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years",
+      "title_en": "Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution_zh": "Intel rallied after the company reported blowout earnings and guidance. (情緒指數: 0.4)",
+      "macro_attribution_en": "Intel rallied after the company reported blowout earnings and guidance. (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "聯準會降息預期升溫，長天期美債吸引避險資金",
+      "title_en": "Fed Rate Cut Expectations Rise, Long-Term Treasuries Attract Safe-Haven Capital",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Fed Policy Node",
+      "macro_attribution_zh": "通脹趨勢符合預期，債券殖利率曲線平坦化，長天期美債 ETF 買盤踴躍。 (情緒指數: 0.4)",
+      "macro_attribution_en": "Inflation aligns with forecasts, yield curve flattens, long-duration Treasury ETFs see heavy inflows. (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
     }
-
-    print("🚀 正在執行 RAG Pipeline 分析...")
-    structured_report = run_rag_pipeline(sample_raw_input)
-    
-    # 印出標準雙語 JSON 結果
-    print(json.dumps(structured_report, ensure_ascii=False, indent=2))
+  ],
+  "web3_crypto": [
+    {
+      "title_zh": "Gemini sent $10M in Bitcoin to Trump PAC after joint motion with CFTC",
+      "title_en": "Gemini sent $10M in Bitcoin to Trump PAC after joint motion with CFTC",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Cointelegraph",
+      "macro_attribution_zh": "The Bitcoin donation can be used to support Donald Trump as a New York court considers whether to reverse a $5 million settlement between the CFTC and Gemini. (情緒指數: 0.22)",
+      "macro_attribution_en": "The Bitcoin donation can be used to support Donald Trump as a New York court considers whether to reverse a $5 million settlement between the CFTC and Gemini. (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+          "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益",
+          "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+        },
+        {
+          "name_zh": "Agentic AI 基礎設施代幣",
+          "name_en": "Agentic AI Infrastructure Tokens",
+          "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益",
+          "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高槓桿迷因幣",
+          "name_en": "High-Leverage Memecoins",
+          "reason_zh": "VIX > 20 時流動性收縮，面臨回檔",
+          "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "Coinbase lets businesses accept USDC payments from AI agents",
+      "title_en": "Coinbase lets businesses accept USDC payments from AI agents",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Cointelegraph",
+      "macro_attribution_zh": "The exchange also introduced AI trading tools and a developer kit as part of a broader push to build financial infrastructure for autonomous AI agents. (情緒指數: 0.22)",
+      "macro_attribution_en": "The exchange also introduced AI trading tools and a developer kit as part of a broader push to build financial infrastructure for autonomous AI agents. (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+          "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益",
+          "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+        },
+        {
+          "name_zh": "Agentic AI 基礎設施代幣",
+          "name_en": "Agentic AI Infrastructure Tokens",
+          "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益",
+          "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高槓桿迷因幣",
+          "name_en": "High-Leverage Memecoins",
+          "reason_zh": "VIX > 20 時流動性收縮，面臨回檔",
+          "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "機構級美國國債 RWA 代幣化規模突破新高，流動性池持續爆發",
+      "title_en": "Institutional US Treasury RWA Tokenization Hits Record Highs as Liquidity Pools Expand",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "On-Chain Analytics",
+      "macro_attribution_zh": "傳統機構將美債帶入鏈上，結合 Agentic AI 執行套利與流動性再平衡。 (情緒指數: 0.45)",
+      "macro_attribution_en": "Institutions bring Treasuries on-chain, utilizing Agentic AI for arbitrage and automated rebalancing. (Sentiment Index: 0.45)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+          "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益",
+          "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+        },
+        {
+          "name_zh": "Agentic AI 基礎設施代幣",
+          "name_en": "Agentic AI Infrastructure Tokens",
+          "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益",
+          "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高槓桿迷因幣",
+          "name_en": "High-Leverage Memecoins",
+          "reason_zh": "VIX > 20 時流動性收縮，面臨回檔",
+          "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "去中心化邊緣 AI 算力網絡質押率上升，協議費用創新高",
+      "title_en": "Decentralized Edge AI Compute Staking Surges, Driving Protocol Fees to Record Highs",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "X KOL Signal",
+      "macro_attribution_zh": "鏈上數據顯示分散式算力利用率達到 85%，帶動基礎設施代幣資金持續淨流入。 (情緒指數: 0.37)",
+      "macro_attribution_en": "On-chain metrics show 85% compute utilization, attracting net capital inflows into infrastructure tokens. (Sentiment Index: 0.37)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+          "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益",
+          "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+        },
+        {
+          "name_zh": "Agentic AI 基礎設施代幣",
+          "name_en": "Agentic AI Infrastructure Tokens",
+          "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益",
+          "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高槓桿迷因幣",
+          "name_en": "High-Leverage Memecoins",
+          "reason_zh": "VIX > 20 時流動性收縮，面臨回檔",
+          "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "穩定幣總市值持續增長，鏈上美元流動性充足",
+      "title_en": "Stablecoin Market Cap Continues Growth, On-Chain USD Liquidity Remains Ample",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "DefiLlama Node",
+      "macro_attribution_zh": "合規美元穩定幣發行量擴增，顯示全球資本對鏈上資產結算需求居高不下。 (情緒指數: 0.4)",
+      "macro_attribution_en": "Compliant USD stablecoin issuance expands, underscoring strong global demand for digital asset settlement. (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
+          "name_en": "Treasury RWA Tokens (Ondo/BUIDL)",
+          "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益",
+          "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"
+        },
+        {
+          "name_zh": "Agentic AI 基礎設施代幣",
+          "name_en": "Agentic AI Infrastructure Tokens",
+          "reason_zh": "邊緣 AI 計算網路帶動真實協議費用收益",
+          "reason_en": "Edge AI compute networks drive real protocol fee revenues"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高槓桿迷因幣",
+          "name_en": "High-Leverage Memecoins",
+          "reason_zh": "VIX > 20 時流動性收縮，面臨回檔",
+          "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    }
+  ],
+  "tw_stocks": [
+    {
+      "title_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心 - Yahoo股市",
+      "title_en": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心 - Yahoo股市",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Google News TW",
+      "macro_attribution_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (情緒指數: 0.22)",
+      "macro_attribution_en": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "台積電 (2330) / 鴻海 (2317)",
+          "name_en": "TSMC (2330) / Foxconn (2317)",
+          "reason_zh": "先進封裝產能滿載，伺服器出口強勁",
+          "reason_en": "Advanced packaging capacity full, strong server exports"
+        },
+        {
+          "name_zh": "緯創 (3231) / 奇鋐 (3017)",
+          "name_en": "Wistron (3231) / AVC (3017)",
+          "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確",
+          "reason_en": "Clear demand for liquid cooling and edge AI servers"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高估值無獲利概念股",
+          "name_en": "High-Valuation Unprofitable Concept Stocks",
+          "reason_zh": "市場波動加大，資金退潮回歸績優股",
+          "reason_en": "Higher market volatility drives capital back to quality earnings"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣 - 客新聞 HakkaNews",
+      "title_en": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣 - 客新聞 HakkaNews",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "Google News TW",
+      "macro_attribution_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (情緒指數: 0.22)",
+      "macro_attribution_en": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "台積電 (2330) / 鴻海 (2317)",
+          "name_en": "TSMC (2330) / Foxconn (2317)",
+          "reason_zh": "先進封裝產能滿載，伺服器出口強勁",
+          "reason_en": "Advanced packaging capacity full, strong server exports"
+        },
+        {
+          "name_zh": "緯創 (3231) / 奇鋐 (3017)",
+          "name_en": "Wistron (3231) / AVC (3017)",
+          "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確",
+          "reason_en": "Clear demand for liquid cooling and edge AI servers"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高估值無獲利概念股",
+          "name_en": "High-Valuation Unprofitable Concept Stocks",
+          "reason_zh": "市場波動加大，資金退潮回歸績優股",
+          "reason_en": "Higher market volatility drives capital back to quality earnings"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "經濟部推動先進封裝與邊緣 AI 供應鏈，台廠迎急單潮",
+      "title_en": "MOEA Promotes Advanced Packaging & Edge AI Supply Chains, Taiwanese Firms See Rush Orders",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "經濟日報 Policy",
+      "macro_attribution_zh": "台積電 2 奈米進展順利，先進封裝 (CoWoS) 產能供不應求，帶動相關設備廠營收衝高。 (情緒指數: 0.43)",
+      "macro_attribution_en": "TSMC 2nm progresses smoothly, CoWoS advanced packaging in short supply, boosting equipment vendor revenues. (Sentiment Index: 0.43)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "台積電 (2330) / 鴻海 (2317)",
+          "name_en": "TSMC (2330) / Foxconn (2317)",
+          "reason_zh": "先進封裝產能滿載，伺服器出口強勁",
+          "reason_en": "Advanced packaging capacity full, strong server exports"
+        },
+        {
+          "name_zh": "緯創 (3231) / 奇鋐 (3017)",
+          "name_en": "Wistron (3231) / AVC (3017)",
+          "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確",
+          "reason_en": "Clear demand for liquid cooling and edge AI servers"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高估值無獲利概念股",
+          "name_en": "High-Valuation Unprofitable Concept Stocks",
+          "reason_zh": "市場波動加大，資金退潮回歸績優股",
+          "reason_en": "Higher market volatility drives capital back to quality earnings"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "AI 伺服器水冷散熱模組滲透率提升，台系散熱雙雄接單熱絡",
+      "title_en": "AI Server Liquid Cooling Penetration Rises, Taiwan Thermal Leaders See Strong Orders",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "工商時報 Spec",
+      "macro_attribution_zh": "新一代伺服器機櫃功耗激增，水冷散熱零組件出口大幅成長。 (情緒指數: 0.41)",
+      "macro_attribution_en": "Surging power consumption in next-gen server racks fuels explosive growth in liquid cooling exports. (Sentiment Index: 0.41)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "台積電 (2330) / 鴻海 (2317)",
+          "name_en": "TSMC (2330) / Foxconn (2317)",
+          "reason_zh": "先進封裝產能滿載，伺服器出口強勁",
+          "reason_en": "Advanced packaging capacity full, strong server exports"
+        },
+        {
+          "name_zh": "緯創 (3231) / 奇鋐 (3017)",
+          "name_en": "Wistron (3231) / AVC (3017)",
+          "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確",
+          "reason_en": "Clear demand for liquid cooling and edge AI servers"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高估值無獲利概念股",
+          "name_en": "High-Valuation Unprofitable Concept Stocks",
+          "reason_zh": "市場波動加大，資金退潮回歸績優股",
+          "reason_en": "Higher market volatility drives capital back to quality earnings"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    },
+    {
+      "title_zh": "台灣半導體設備在地化政策發酵，供應鏈國產化比重上升",
+      "title_en": "Domestic Semiconductor Equipment Policy Takes Effect, Supply Chain Localization Ratio Rises",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "MOEA Report",
+      "macro_attribution_zh": "政策補助引導本土設備業者進入晶圓代工大廠認證，增強產業防禦韌性。 (情緒指數: 0.39)",
+      "macro_attribution_en": "Policy subsidies help local toolmakers pass foundry qualifications, enhancing supply chain resilience. (Sentiment Index: 0.39)",
+      "tw_spillover_effect_zh": "連動影響：帶動資金轉向具備真實收益 (Real Yield) 與政策加持之標的。",
+      "tw_spillover_effect_en": "Spillover Effect: Capital shifts toward Real Yield assets and policy-backed sectors.",
+      "rwa_flow_metric": "+$52.4M Pool Inflow (Agentic AI Net Allocation)",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [
+        {
+          "name_zh": "台積電 (2330) / 鴻海 (2317)",
+          "name_en": "TSMC (2330) / Foxconn (2317)",
+          "reason_zh": "先進封裝產能滿載，伺服器出口強勁",
+          "reason_en": "Advanced packaging capacity full, strong server exports"
+        },
+        {
+          "name_zh": "緯創 (3231) / 奇鋐 (3017)",
+          "name_en": "Wistron (3231) / AVC (3017)",
+          "reason_zh": "水冷散熱與邊緣 AI 伺服器需求明確",
+          "reason_en": "Clear demand for liquid cooling and edge AI servers"
+        }
+      ],
+      "high_risk_groups_tw": [
+        {
+          "name_zh": "高估值無獲利概念股",
+          "name_en": "High-Valuation Unprofitable Concept Stocks",
+          "reason_zh": "市場波動加大，資金退潮回歸績優股",
+          "reason_en": "Higher market volatility drives capital back to quality earnings"
+        }
+      ],
+      "recommended_groups_us": [],
+      "high_risk_groups_us": []
+    }
+  ]
+}
