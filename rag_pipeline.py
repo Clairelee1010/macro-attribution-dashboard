@@ -8,8 +8,8 @@ from html import unescape
 # ==========================================
 # ⚙️ 系統設定與權重參數
 # ==========================================
-W_NLP = 0.6       # 輿情分析權重
-W_VIX = 0.4       # VIX 恐慌指數扣分權重
+W_NLP = 0.6        # 輿情分析權重
+W_VIX = 0.4        # VIX 恐慌指數扣分權重
 
 BULLISH_KEYWORDS = ["surge", "gain", "soar", "growth", "cut", "bullish", "rally", "rise", "record", "jump", "創高", "上漲", "降息", "激增", "擴建", "看好", "動能"]
 BEARISH_KEYWORDS = ["drop", "fall", "decline", "fear", "bearish", "inflation", "hike", "risk", "crisis", "slump", "下跌", "升息", "通脹", "衰退", "衝擊", "警告", "下修"]
@@ -29,6 +29,8 @@ RSS_SOURCES = {
 }
 
 def auto_translate_to_en(text_zh):
+    if not isinstance(text_zh, str) or not text_zh.strip():
+        return ""
     if not re.search(r'[\u4e00-\u9fa5]', text_zh):
         return text_zh
     
@@ -66,7 +68,11 @@ def fetch_rss_items(url, source_name, category, max_items=3):
 
         with urllib.request.urlopen(req, timeout=8, context=ssl_ctx) as response:
             xml_data = response.read().decode('utf-8', errors='ignore')
-            root = ET.fromstring(xml_data)
+            try:
+                root = ET.fromstring(xml_data)
+            except ET.ParseError as pe:
+                print(f"⚠️ XML 解析錯誤 ({source_name}): {pe}")
+                return items
             
             channel = root.find('channel')
             if channel is not None:
@@ -89,6 +95,8 @@ def fetch_rss_items(url, source_name, category, max_items=3):
     return items
 
 def analyze_nlp_score(text):
+    if not isinstance(text, str):
+        return 0.5
     text_lower = text.lower()
     bull_count = sum(1 for w in BULLISH_KEYWORDS if w in text_lower)
     bear_count = sum(1 for w in BEARISH_KEYWORDS if w in text_lower)
@@ -128,6 +136,8 @@ FALLBACK_FEEDS = {
 
 def generate_recommendations(category, vix_value):
     is_high_risk = vix_value > 20.0
+    
+    # 統一回傳格式：(rec_tw, risk_tw, rec_us, risk_us)
     if category == "us_macro":
         rec_us = [
             {"name_zh": "TLT / 美債 ETF", "name_en": "TLT / US Treasury ETF", "reason_zh": "降息預期升溫，長天期公債避險價值凸顯", "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"},
@@ -135,6 +145,7 @@ def generate_recommendations(category, vix_value):
         ]
         risk_us = [{"name_zh": "高負債小型成長股 (IWM)", "name_en": "High-Debt Small-Cap Growth (IWM)", "reason_zh": "避險情緒下資金偏好大型藍籌", "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"}] if is_high_risk else []
         return [], [], rec_us, risk_us
+        
     elif category == "web3_crypto":
         rec_tw = [
             {"name_zh": "美債 RWA 代幣 (Ondo/BUIDL)", "name_en": "Treasury RWA Tokens (Ondo/BUIDL)", "reason_zh": "無風險利率轉化，Risk-Off 下首選無損避險收益", "reason_en": "Risk-free yield conversion, top choice for capital preservation in Risk-Off"},
@@ -142,6 +153,7 @@ def generate_recommendations(category, vix_value):
         ]
         risk_tw = [{"name_zh": "高槓桿迷因幣", "name_en": "High-Leverage Memecoins", "reason_zh": "VIX > 20 時流動性收縮，面臨回檔", "reason_en": "Liquidity contracts when VIX > 20, triggering pullbacks"}] if is_high_risk else []
         return rec_tw, risk_tw, [], []
+        
     else:
         rec_tw = [
             {"name_zh": "台積電 (2330) / 鴻海 (2317)", "name_en": "TSMC (2330) / Foxconn (2317)", "reason_zh": "先進封裝產能滿載，伺服器出口強勁", "reason_en": "Advanced packaging capacity full, strong server exports"},
@@ -196,7 +208,6 @@ def run():
             raw_zh = feed.get("raw_text_zh", feed.get("raw_text", ""))
             raw_en = feed.get("raw_text_en", auto_translate_to_en(raw_zh))
 
-            # 核心關鍵修復：針對 JSON 的每一項欄位都提供徹底隔離的 _zh 與 _en
             output_data[category].append({
                 "title_zh": title_zh,
                 "title_en": title_en,
@@ -204,15 +215,12 @@ def run():
                 "vol_multiplier": vol_mult,
                 "source": feed.get("source", "Macro RAG Node"),
                 
-                # 歸因說明 (徹底雙語)
                 "macro_attribution_zh": f"{raw_zh} (情緒指數: {round(composite_score, 2)})",
                 "macro_attribution_en": f"{raw_en} (Sentiment Index: {round(composite_score, 2)})",
                 
-                # 溢出效應 (徹底雙語)
                 "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
                 "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
                 
-                # RWA 指標 (徹底雙語)
                 "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
                 "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
                 
