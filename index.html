@@ -46,8 +46,8 @@
             <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
                 🔥 VIX VOLATILITY TRACKING
             </div>
-            <div class="text-xl font-bold text-rose-900 font-mono mt-1">
-                17.8 <span class="text-xs text-rose-700 font-normal">(Risk-On & Bullish Convergence)</span>
+            <div id="vix-card-val" class="text-xl font-bold text-rose-900 font-mono mt-1">
+                17.8 <span class="text-xs text-rose-700 font-normal" id="vix-desc">(Risk-On & Bullish Convergence)</span>
             </div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-amber-50/20 border-amber-100">
@@ -58,9 +58,9 @@
         </div>
     </div>
 
-    <!-- 🎯 歸因：3 大維度 9 項核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
+    <!-- 🎯 核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
     <div class="space-y-2">
-        <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2">
+        <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2" id="label-core-matrix">
             📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
         </div>
         
@@ -68,20 +68,20 @@
             <!-- 1. 總經與利率流動性 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-blue-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
-                    <span>1. 🌐 總經與利率流動性 (Macro)</span>
+                    <span id="label-macro-group">1. 🌐 總經與利率流動性 (Macro)</span>
                     <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-mono font-bold">Rates & Liquidity</span>
                 </div>
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">美債 10Y</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-us10y">美債 10Y</div>
                         <div id="m-us10y" class="text-xs font-bold text-stone-800 mt-0.5">4.28%</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">美元 DXY</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-dxy">美元 DXY</div>
                         <div id="m-dxy" class="text-xs font-bold text-stone-800 mt-0.5">104.2</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">MOVE 債基</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-move">MOVE 債基</div>
                         <div id="m-move" class="text-xs font-bold text-emerald-600 mt-0.5">98.5</div>
                     </div>
                 </div>
@@ -90,20 +90,20 @@
             <!-- 2. 美台股連動與籌碼面 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-emerald-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
-                    <span>2. 💻 美台股連動與籌碼 (Chips)</span>
+                    <span id="label-chips-group">2. 💻 美台股連動與籌碼 (Chips)</span>
                     <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono font-bold">TW & US Equity</span>
                 </div>
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">TSM 溢價</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-tsm">TSM 溢價</div>
                         <div id="m-tsm" class="text-xs font-bold text-emerald-600 mt-0.5">+14.2%</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">外資期貨</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-futures">外資期貨</div>
                         <div id="m-futures" class="text-xs font-bold text-rose-600 mt-0.5">-12.8K</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">USD/TWD</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-usdtwd">USD/TWD</div>
                         <div id="m-usdtwd" class="text-xs font-bold text-stone-800 mt-0.5">32.45</div>
                     </div>
                 </div>
@@ -112,20 +112,20 @@
             <!-- 3. Web3 金融與 RWA 鏈上資金 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-purple-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
-                    <span>3. 🌐 Web3 金融與 RWA (On-Chain)</span>
+                    <span id="label-crypto-group">3. 🌐 Web3 金融與 RWA (On-Chain)</span>
                     <span class="text-[10px] bg-purple-50 text-purple-700 px-2 py-0.5 rounded font-mono font-bold">Crypto Capital</span>
                 </div>
                 <div class="grid grid-cols-3 gap-2 text-center font-mono">
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">Crypto 恐慌</div>
-                        <div id="m-cryptofg" class="text-xs font-bold text-emerald-600 mt-0.5">68 (貪婪)</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-cryptofg">Crypto 恐慌</div>
+                        <div id="m-cryptofg" class="text-xs font-bold text-emerald-600 mt-0.5">68</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">穩定幣市值</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-stablecoin">穩定幣市值</div>
                         <div id="m-stablecoin" class="text-xs font-bold text-stone-800 mt-0.5">$162B</div>
                     </div>
                     <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
-                        <div class="text-[10px] text-stone-400 font-sans">RWA 美債</div>
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-rwatvl">RWA 美債</div>
                         <div id="m-rwatvl" class="text-xs font-bold text-purple-600 mt-0.5">$2.4B</div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
     </div>
 
     <!-- 📢 VIX 通報 Banner -->
-    <div class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">
+    <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">
         【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。
     </div>
 
@@ -151,18 +151,18 @@
         </button>
     </div>
 
-    <!-- 📰 新聞卡片容器 (v4.5 雙欄點評 + 推薦/風險個股矩陣) -->
+    <!-- 📰 新聞卡片容器 -->
     <div id="news-container" class="space-y-6"></div>
 
     <!-- 🤖 浮動 AI 助理按鈕 -->
     <div class="fixed bottom-6 right-6 z-40">
         <button onclick="toggleRobiDrawer()" class="bg-[#c05656] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:bg-[#a84444] hover:shadow-xl transition-all flex items-center gap-2">
-            🤖 呼叫 Robi 助理
+            🤖 <span id="robi-btn-text">呼叫 Robi 助理</span>
         </button>
     </div>
 
-    <!-- 🤖 ROBI AI 助理邊欄抽屜 (Slide-over Drawer) -->
-    <div id-[#robi-drawer-overlay]` onclick="toggleRobiDrawer()" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <!-- 🤖 ROBI AI 助理邊欄抽屜 (修正了 id 拼寫錯誤) -->
+    <div id="robi-drawer-overlay" onclick="toggleRobiDrawer()" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
     <div id="robi-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full drawer-transition p-6 flex flex-col space-y-4">
         <div class="flex items-center justify-between border-b border-stone-100 pb-3">
             <div class="flex items-center gap-2">
@@ -177,17 +177,17 @@
 
         <div class="flex-1 overflow-y-auto space-y-3 text-xs">
             <div class="bg-stone-50 p-3 rounded-xl border border-stone-100 space-y-1">
-                <div class="font-semibold text-stone-700">👋 你好，我是 Robi！</div>
-                <p class="text-stone-500 leading-relaxed">我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。</p>
+                <div class="font-semibold text-stone-700" id="robi-welcome-title">👋 你好，我是 Robi！</div>
+                <p class="text-stone-500 leading-relaxed" id="robi-welcome-desc">我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。</p>
             </div>
             
             <div class="space-y-2 pt-2">
-                <div class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">熱門分析指令：</div>
-                <button onclick="sendQuickQuery('分析當前 Fed 利率變動對 RWA 美債流向的影響')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
-                    💡 分析 Fed 利率對 RWA 資金流向的影響
+                <div class="text-[10px] font-bold text-stone-400 uppercase tracking-wider" id="robi-quick-title">熱門分析指令：</div>
+                <button onclick="sendQuickQuery(currentLang === 'zh' ? '分析當前 Fed 利率變動對 RWA 美債流向的影響' : 'Analyze the current impact of Fed rate changes on RWA Treasury flows')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 <span id="q-txt-1">分析 Fed 利率對 RWA 資金流向的影響</span>
                 </button>
-                <button onclick="sendQuickQuery('評估台積電 (2330) ADR 溢價率與外資期貨空單對大盤的承壓')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
-                    💡 評估台積電 ADR 溢價與外資期貨佈局
+                <button onclick="sendQuickQuery(currentLang === 'zh' ? '評估台積電 (2330) ADR 溢價率與外資期貨空單對大盤的承壓' : 'Evaluate TSM ADR premium and foreign futures short pressure')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 <span id="q-txt-2">評估台積電 ADR 溢價與外資期貨佈局</span>
                 </button>
             </div>
 
@@ -196,12 +196,19 @@
 
         <div class="border-t border-stone-100 pt-3 flex gap-2">
             <input id="robi-input" type="text" placeholder="輸入您的總經或市場疑問..." class="flex-1 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#c05656]">
-            <button onclick="handleSendMessage()" class="bg-[#c05656] text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-[#a84444] transition-all">發送</button>
+            <button onclick="handleSendMessage()" id="robi-send-btn" class="bg-[#c05656] text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-[#a84444] transition-all">發送</button>
         </div>
     </div>
 
     <script>
         let marketData = {
+            "global_vix": {
+                "value": 17.8,
+                "status_zh": "Risk-On & Bullish Convergence",
+                "status_en": "Risk-On & Bullish Convergence",
+                "insight_zh": "【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。",
+                "insight_en": "[2026.07 VIX Cross-Market Attribution] VIX volatility index stabilized at 17.8. As inflation expectations cool and the Fed enters a policy observation period, capital flows are turning stable."
+            },
             "metrics": {
                 "us10y": "4.28%",
                 "dxy": "104.2",
@@ -209,7 +216,7 @@
                 "tsm_premium": "+14.2%",
                 "futures_oi": "-12.8K",
                 "usdtwd": "32.45",
-                "crypto_fg": "68 (貪婪)",
+                "crypto_fg": "68",
                 "stablecoin_cap": "$162B",
                 "rwa_tvl": "$2.4B"
             },
@@ -219,24 +226,28 @@
                     "sentiment": "Bullish",
                     "volatility": "1.1x",
                     "source": "US Fed & Macro RAG",
-                    "title": "Fed 利率政策進入觀察期，通膨降溫確立軟著陸",
-                    "macro_attribution": "核心 PCE 年增率持續向 2%靠攏，聯準會主席釋放暫停升息循環訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
-                    "spillover_attribution": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
-                    "rwa_metric": "+$52.4M 鏈上機構流動性流入",
-                    "execution_log": "[NODE_01] US Macro Risk Index Stabilized at 17.8.",
-                    "recommended_tw": [
-                        { "name": "台積電 (2330)", "reason": "權值穩定與外資回補" },
-                        { "name": "聯發科 (2454)", "reason": "IC 設計估值修復" }
+                    "title_zh": "Fed 利率政策進入觀察期，通膨降溫確立軟著陸",
+                    "title_en": "Fed Interest Rate Policy Enters Observation Period, Cooling Inflation Confirms Soft Landing",
+                    "macro_attribution_zh": "核心 PCE 年增率持續向 2%靠攏，聯準會主席釋放暫停升息循環訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
+                    "macro_attribution_en": "Core PCE continues to approach 2%, and Fed signals pause in rate hikes, driving down Treasury yields and bringing capital back to risk assets.",
+                    "tw_spillover_effect_zh": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
+                    "tw_spillover_effect_en": "Foreign buyers repurchase large caps, NTD stabilizes, and semiconductor supply chain valuations recover.",
+                    "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+                    "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+                    "agent_action_log": "[NODE_01] US Macro Risk Index Stabilized at 17.8.",
+                    "recommended_groups_tw": [
+                        { "name_zh": "台積電 (2330)", "name_en": "TSMC (2330)", "reason_zh": "權值穩定與外資回補", "reason_en": "Weight stability & foreign buyback" },
+                        { "name_zh": "聯發科 (2454)", "name_en": "MediaTek (2454)", "reason_zh": "IC 設計估值修復", "reason_en": "IC design valuation recovery" }
                     ],
-                    "high_risk_tw": [
-                        { "name": "傳統塑化股", "reason": "終端需求復甦緩慢" }
+                    "high_risk_groups_tw": [
+                        { "name_zh": "傳統塑化股", "name_en": "Traditional Petrochemicals", "reason_zh": "終端需求復甦緩慢", "reason_en": "Slow terminal demand recovery" }
                     ],
-                    "recommended_us": [
-                        { "name": "NVIDIA (NVDA)", "reason": "AI 基礎建設需求強勁" },
-                        { "name": "Microsoft (MSFT)", "reason": "企業端雲端與 AI 變現穩健" }
+                    "recommended_groups_us": [
+                        { "name_zh": "NVIDIA (NVDA)", "name_en": "NVIDIA (NVDA)", "reason_zh": "AI 基礎建設需求強勁", "reason_en": "Strong AI infrastructure demand" },
+                        { "name_zh": "Microsoft (MSFT)", "name_en": "Microsoft (MSFT)", "reason_zh": "企業端雲端與 AI 變現穩健", "reason_en": "Robust enterprise cloud & AI monetization" }
                     ],
-                    "high_risk_us": [
-                        { "name": "高負債生技股", "reason": "融資成本依舊偏高" }
+                    "high_risk_groups_us": [
+                        { "name_zh": "高負債生技股", "name_en": "High-Debt Biotech Stocks", "reason_zh": "融資成本依舊偏高", "reason_en": "Financing costs remain high" }
                     ]
                 }
             ],
@@ -265,7 +276,6 @@
             if (metrics.rwa_tvl) document.getElementById('m-rwatvl').innerText = metrics.rwa_tvl;
         }
 
-        // 動態計算全站情報數量與看多比例
         function calculateOverallStats() {
             const tabs = ['us_macro', 'web3_crypto', 'tw_stocks'];
             let total = 0;
@@ -294,22 +304,22 @@
             const list = marketData[activeTab] || [];
 
             if (list.length === 0) {
-                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">此分區尚無最新情報資料</div>`;
+                const emptyMsg = currentLang === 'zh' ? '此分區尚無最新情報資料' : 'No intelligence data available in this section yet.';
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${emptyMsg}</div>`;
                 return;
             }
 
             list.forEach((item, index) => {
                 const rankText = item.top_rank || `TOP ${index + 1}`;
-                const titleText = item.title || item.news_title || '無標題新聞';
+                const titleText = currentLang === 'zh' ? (item.title_zh || item.title || '無標題新聞') : (item.title_en || item.title || 'Untitled News');
                 const sentiment = item.sentiment || item.ai_sentiment || 'Bullish';
-                const volatility = item.volatility || '1.1x';
+                const volatility = item.vol_multiplier || item.volatility || '1.1x';
                 const source = item.source || 'RAG Intelligence Engine';
 
-                // 安全防護：僅在該項目有定義個股推薦時渲染該區塊
-                const twRec = item.recommended_tw || null;
-                const twRisk = item.high_risk_tw || null;
-                const usRec = item.recommended_us || null;
-                const usRisk = item.high_risk_us || null;
+                const twRec = item.recommended_groups_tw || item.recommended_tw || null;
+                const twRisk = item.high_risk_groups_tw || item.high_risk_tw || null;
+                const usRec = item.recommended_groups_us || item.recommended_us || null;
+                const usRisk = item.high_risk_groups_us || item.high_risk_us || null;
 
                 const hasStockData = twRec || twRisk || usRec || usRisk;
 
@@ -318,52 +328,62 @@
                 
                 let stockMatrixHtml = '';
                 if (hasStockData) {
+                    const recTwTitle = currentLang === 'zh' ? '推薦台股標的' : 'RECOMMENDED TW SECTORS';
+                    const riskTwTitle = currentLang === 'zh' ? '高風險台股標的' : 'HIGH-RISK TW SECTORS';
+                    const recUsTitle = currentLang === 'zh' ? '推薦美股標的' : 'RECOMMENDED US EQUITIES';
+                    const riskUsTitle = currentLang === 'zh' ? '高風險美股標的' : 'HIGH-RISK US EQUITIES';
+
                     stockMatrixHtml = `
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
                             <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
-                                ${twRec ? `
+                                ${twRec && twRec.length > 0 ? `
                                 <div>
                                     <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED TW SECTORS
+                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> ${recTwTitle}
                                     </div>
                                     <ul class="space-y-1 text-stone-700">
-                                        ${twRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                        ${twRec.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
                                     </ul>
                                 </div>` : ''}
-                                ${twRisk ? `
-                                <div class="${twRec ? 'pt-2 border-t border-emerald-100/80' : ''}">
+                                ${twRisk && twRisk.length > 0 ? `
+                                <div class="${twRec && twRec.length > 0 ? 'pt-2 border-t border-emerald-100/80' : ''}">
                                     <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK TW SECTORS
+                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> ${riskTwTitle}
                                     </div>
                                     <ul class="space-y-1 text-stone-700">
-                                        ${twRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                        ${twRisk.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
                                     </ul>
                                 </div>` : ''}
                             </div>
 
                             <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
-                                ${usRec ? `
+                                ${usRec && usRec.length > 0 ? `
                                 <div>
                                     <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED US EQUITIES
+                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> ${recUsTitle}
                                     </div>
                                     <ul class="space-y-1 text-stone-700">
-                                        ${usRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                        ${usRec.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
                                     </ul>
                                 </div>` : ''}
-                                ${usRisk ? `
-                                <div class="${usRec ? 'pt-2 border-t border-emerald-100/80' : ''}">
+                                ${usRisk && usRisk.length > 0 ? `
+                                <div class="${usRec && usRec.length > 0 ? 'pt-2 border-t border-emerald-100/80' : ''}">
                                     <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK US EQUITIES
+                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> ${riskUsTitle}
                                     </div>
                                     <ul class="space-y-1 text-stone-700">
-                                        ${usRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                        ${usRisk.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
                                     </ul>
                                 </div>` : ''}
                             </div>
                         </div>
                     `;
                 }
+
+                const macroText = currentLang === 'zh' ? (item.macro_attribution_zh || item.macro_attribution || item.summary || '') : (item.macro_attribution_en || item.macro_attribution || item.summary || '');
+                const spilloverText = currentLang === 'zh' ? (item.tw_spillover_effect_zh || item.spillover_attribution || item.ai_analysis || '') : (item.tw_spillover_effect_en || item.spillover_attribution || item.ai_analysis || '');
+                const rwaMetricText = currentLang === 'zh' ? (item.rwa_flow_metric_zh || item.rwa_metric || '') : (item.rwa_flow_metric_en || item.rwa_metric || '');
+                const executionLogText = item.agent_action_log || item.execution_log || '[NODE_01] Risk Index Stabilized.';
 
                 card.innerHTML = `
                     <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
@@ -383,7 +403,7 @@
                                 🌐 MACRO & CRYPTO CYCLE ATTRIBUTION
                             </div>
                             <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
-                                ${escapeHtml(item.macro_attribution || item.summary || '市場總經與流動性分析正常。')}
+                                ${escapeHtml(macroText)}
                             </p>
                         </div>
                         <div class="space-y-1.5">
@@ -391,7 +411,7 @@
                                 💻 CROSS-MARKET CAPITAL SPILLOVER
                             </div>
                             <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
-                                ${escapeHtml(item.spillover_attribution || item.ai_analysis || '跨市場資金外溢與產業動向穩定。')}
+                                ${escapeHtml(spilloverText)}
                             </p>
                         </div>
                     </div>
@@ -399,11 +419,11 @@
                     <div class="bg-stone-50 rounded-xl p-3 text-xs font-mono text-stone-600 space-y-1 border border-stone-200/60">
                         <div class="flex items-center gap-2">
                             <span>📊 RWA On-Chain Metric:</span>
-                            <span class="font-semibold text-stone-800">${escapeHtml(item.rwa_metric || '+$52.4M 鏈上機構流動性流入')}</span>
+                            <span class="font-semibold text-stone-800">${escapeHtml(rwaMetricText)}</span>
                         </div>
                         <div class="flex items-center gap-2 text-stone-500">
                             <span>🤖 Soft Robi Execution Log:</span>
-                            <span>${escapeHtml(item.execution_log || '[NODE_01] Risk Index Stabilized.')}</span>
+                            <span>${escapeHtml(executionLogText)}</span>
                         </div>
                     </div>
 
@@ -431,12 +451,75 @@
             const isZh = lang === 'zh';
             document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
             document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
+
+            // 更新介面靜態文字
+            if (isZh) {
+                document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
+                document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
+                document.getElementById('label-core-matrix').innerText = "📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)";
+                document.getElementById('label-macro-group').innerText = "1. 🌐 總經與利率流動性 (Macro)";
+                document.getElementById('label-chips-group').innerText = "2. 💻 美台股連動與籌碼 (Chips)";
+                document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 金融與 RWA (On-Chain)";
+                document.getElementById('lbl-us10y').innerText = "美債 10Y";
+                document.getElementById('lbl-dxy').innerText = "美元 DXY";
+                document.getElementById('lbl-move').innerText = "MOVE 債基";
+                document.getElementById('lbl-tsm').innerText = "TSM 溢價";
+                document.getElementById('lbl-futures').innerText = "外資期貨";
+                document.getElementById('lbl-usdtwd').innerText = "USD/TWD";
+                document.getElementById('lbl-cryptofg').innerText = "Crypto 恐慌";
+                document.getElementById('lbl-stablecoin').innerText = "穩定幣市值";
+                document.getElementById('lbl-rwatvl').innerText = "RWA 美債";
+                document.getElementById('vix-banner').innerText = marketData.global_vix.insight_zh;
+                document.getElementById('vix-desc').innerText = "(Risk-On & Bullish Convergence)";
+                document.getElementById('robi-btn-text').innerText = "呼叫 Robi 助理";
+                document.getElementById('robi-welcome-title').innerText = "👋 你好，我是 Robi！";
+                document.getElementById('robi-welcome-desc').innerText = "我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。";
+                document.getElementById('robi-quick-title').innerText = "熱門分析指令：";
+                document.getElementById('q-txt-1').innerText = "分析 Fed 利率對 RWA 資金流向的影響";
+                document.getElementById('q-txt-2').innerText = "評估台積電 ADR 溢價與外資期貨佈局";
+                document.getElementById('robi-input').placeholder = "輸入您的總經或市場疑問...";
+                document.getElementById('robi-send-btn').innerText = "發送";
+                document.getElementById('tab-us_macro').innerHTML = "<span>🇺🇸</span> US Macro & Fed Policy";
+                document.getElementById('tab-web3_crypto').innerHTML = "<span>🌐</span> Web3 Finance & RWA Node";
+                document.getElementById('tab-tw_stocks').innerHTML = "<span>💻</span> TW Market & Policy Driver";
+            } else {
+                document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
+                document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
+                document.getElementById('label-core-matrix').innerText = "📌 CORE METRIC SPECTRUM";
+                document.getElementById('label-macro-group').innerText = "1. 🌐 Macro & Rates Liquidity";
+                document.getElementById('label-chips-group').innerText = "2. 💻 TW/US Equity & Chips";
+                document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 Finance & RWA";
+                document.getElementById('lbl-us10y').innerText = "US 10Y";
+                document.getElementById('lbl-dxy').innerText = "USD DXY";
+                document.getElementById('lbl-move').innerText = "MOVE Index";
+                document.getElementById('lbl-tsm').innerText = "TSM Premium";
+                document.getElementById('lbl-futures').innerText = "Foreign Futures";
+                document.getElementById('lbl-usdtwd').innerText = "USD/TWD";
+                document.getElementById('lbl-cryptofg').innerText = "Crypto FG";
+                document.getElementById('lbl-stablecoin').innerText = "Stablecoin Cap";
+                document.getElementById('lbl-rwatvl').innerText = "RWA Treasury";
+                document.getElementById('vix-banner').innerText = marketData.global_vix.insight_en;
+                document.getElementById('vix-desc').innerText = "(Risk-On & Bullish Convergence)";
+                document.getElementById('robi-btn-text').innerText = "Call Robi Copilot";
+                document.getElementById('robi-welcome-title').innerText = "👋 Hello, I'm Robi!";
+                document.getElementById('robi-welcome-desc').innerText = "I can help you analyze Fed rate attributions, on-chain RWA Treasury flows, and AI supply chain spillover effects.";
+                document.getElementById('robi-quick-title').innerText = "Popular Prompts:";
+                document.getElementById('q-txt-1').innerText = "Analyze impact of Fed rates on RWA Treasury flows";
+                document.getElementById('q-txt-2').innerText = "Evaluate TSM ADR premium & foreign futures pressure";
+                document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
+                document.getElementById('robi-send-btn').innerText = "Send";
+                document.getElementById('tab-us_macro').innerHTML = "<span>🇺🇸</span> US Macro & Fed Policy";
+                document.getElementById('tab-web3_crypto').innerHTML = "<span>🌐</span> Web3 Finance & RWA Node";
+                document.getElementById('tab-tw_stocks').innerHTML = "<span>💻</span> TW Market & Policy Driver";
+            }
+
+            renderActiveTab();
         }
 
         // ROBI Drawer 控制
         function toggleRobiDrawer() {
             const drawer = document.getElementById('robi-drawer');
-            const overlay = document.getElementById('#robi-drawer-overlay');
+            const overlay = document.getElementById('robi-drawer-overlay');
             const isHidden = drawer.classList.contains('translate-x-full');
 
             if (isHidden) {
@@ -462,7 +545,6 @@
 
             const chatContainer = document.getElementById('chat-messages');
 
-            // 使用者訊息
             const userMsg = document.createElement('div');
             userMsg.className = "bg-stone-100 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-stone-200/50";
             userMsg.innerText = `💬 ${text}`;
@@ -470,13 +552,16 @@
 
             input.value = '';
 
-            // 模擬 AI 回覆
             setTimeout(() => {
                 const aiMsg = document.createElement('div');
                 aiMsg.className = "bg-rose-50/80 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-rose-100 space-y-1";
+                const replyText = currentLang === 'zh' 
+                    ? `根據 2026.07 總經與鏈上數據，針對「${escapeHtml(text)}」：當前美債 10Y 穩定於 4.28%，資金正向高資本效率的 AI 運算節點與 RWA 鏈上資產集中。`
+                    : `Based on 2026.07 macro & on-chain data regarding "${escapeHtml(text)}": US 10Y remains stable at 4.28%, capital is concentrating on AI compute nodes and RWA assets.`;
+                
                 aiMsg.innerHTML = `
                     <div class="font-bold text-[#c05656]">🤖 Robi Copilot:</div>
-                    <div>根據 2026.07 總經與鏈上數據，針對「${escapeHtml(text)}」：當前美債 10Y 穩定於 4.28%，資金正向高資本效率的 AI 運算節點與 RWA 鏈上資產集中。</div>
+                    <div>${replyText}</div>
                 `;
                 chatContainer.appendChild(aiMsg);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -490,6 +575,7 @@
                     const data = await response.json();
                     if (data) {
                         if (data.metrics) updateMetricsDisplay(data.metrics);
+                        if (data.global_vix) marketData.global_vix = data.global_vix;
                         if (data.us_macro || data.web3_crypto || data.tw_stocks) {
                             marketData = { ...marketData, ...data };
                         }
