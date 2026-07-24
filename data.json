@@ -1,139 +1,139 @@
 {
   "global_vix": {
-    "value": 17.8,
-    "status_zh": "穩固於 17.8 區間 / 呈現 Risk-On 與多頭收斂",
-    "status_en": "Stable at 17.8 / Risk-On and Bullish Convergence",
-    "insight_zh": "✨ 當前 VIX 穩固於 17.8，市場呈現多頭收斂與 Risk-On 訊號。通膨預期降溫且 Fed 進入政策觀察期，可適度提高風險性資產與核心科技股配置。",
-    "insight_en": "✨ VIX is currently stable at 17.8, showing bullish convergence and Risk-On signals. With inflation expectations cooling and the Fed entering a policy observation period, allocations to risk assets and core tech stocks can be moderately increased."
+    "value": 22.4,
+    "status_zh": "突破關鍵20關卡 / 強烈避險情緒 (Risk-Off)",
+    "status_en": "Surpassed Key 20 Level / Strong Risk-Off",
+    "insight_zh": "⚠️ 當前 VIX 突破 20 關鍵關卡 (22.4)，市場避險情緒 (Risk-Off) 顯著升溫。建議提高美債 RWA 代幣與防禦型高殖利率資產比重，適度降低高 Beta 股票槓桿。",
+    "insight_en": "⚠️ VIX has crossed the key 20 benchmark (22.4), indicating heightened Risk-Off sentiment. Increase allocations in Treasury RWAs and high-dividend assets while reducing high-Beta stock leverage."
   },
   "us_macro": [
     {
-      "title_zh": "HP (HPQ): Buy, Sell, or Hold Post Q1 Earnings?",
-      "title_en": "HP (HPQ): Buy, Sell, or Hold Post Q1 Earnings?",
-      "ai_sentiment": "Bearish",
-      "vol_multiplier": "1.4x",
-      "source": "Yahoo Finance US",
-      "macro_attribution_zh": "HP has had an impressive run over the past six months as its shares have beaten the S&P 500 by 20.7%. The stock now trades at $25.12, marking a 29.3% gain. This was partly due to its solid quarterly results, and the run-up might have investors contemplating their next move. (情緒指數: 0.31)",
-      "macro_attribution_en": "HP has had an impressive run over the past six months as its shares have beaten the S&P 500 by 20.7%. The stock now trades at $25.12, marking a 29.3% gain. This was partly due to its solid quarterly results, and the run-up might have investors contemplating their next move. (Sentiment Index: 0.31)",
-      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
-      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
-      "recommended_groups_tw": [],
-      "high_risk_groups_tw": [],
-      "recommended_groups_us": [
-        {
-          "name_zh": "TLT / 美債 ETF",
-          "name_en": "TLT / US Treasury ETF",
-          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
-          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
-        },
-        {
-          "name_zh": "NVDA / MSFT",
-          "name_en": "NVDA / MSFT",
-          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
-          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
-        }
-      ],
-      "high_risk_groups_us": [
-        {
-          "name_zh": "高負債小型成長股 (IWM)",
-          "name_en": "High-Debt Small-Cap Growth (IWM)",
-          "reason_zh": "避險情緒下資金偏好大型藍籌",
-          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
-        }
-      ]
-    },
-    {
-      "title_zh": "3 Big Reasons to Love Brady (BRC)",
-      "title_en": "3 Big Reasons to Love Brady (BRC)",
-      "ai_sentiment": "Bearish",
-      "vol_multiplier": "1.4x",
-      "source": "Yahoo Finance US",
-      "macro_attribution_zh": "Brady has followed the market’s trajectory closely, rising in tandem with the S&P 500 over the past six months. The stock has climbed by 10.8% to $93.42 per share while the index has gained 8.6%. (情緒指數: 0.31)",
-      "macro_attribution_en": "Brady has followed the market’s trajectory closely, rising in tandem with the S&P 500 over the past six months. The stock has climbed by 10.8% to $93.42 per share while the index has gained 8.6%. (Sentiment Index: 0.31)",
-      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
-      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
-      "recommended_groups_tw": [],
-      "high_risk_groups_tw": [],
-      "recommended_groups_us": [
-        {
-          "name_zh": "TLT / 美債 ETF",
-          "name_en": "TLT / US Treasury ETF",
-          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
-          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
-        },
-        {
-          "name_zh": "NVDA / MSFT",
-          "name_en": "NVDA / MSFT",
-          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
-          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
-        }
-      ],
-      "high_risk_groups_us": [
-        {
-          "name_zh": "高負債小型成長股 (IWM)",
-          "name_en": "High-Debt Small-Cap Growth (IWM)",
-          "reason_zh": "避險情緒下資金偏好大型藍籌",
-          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
-        }
-      ]
-    },
-    {
-      "title_zh": "Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire",
-      "title_en": "Trump to slap 'sweeping' new tariffs on 60 trade partners as global duties expire",
-      "ai_sentiment": "Bearish",
-      "vol_multiplier": "1.4x",
-      "source": "CNBC Top News",
-      "macro_attribution_zh": "The Trump administration has ramped its tariff actions back up since the president's trade  agenda suffered major legal setbacks earlier this year. (情緒指數: 0.22)",
-      "macro_attribution_en": "The Trump administration has ramped its tariff actions back up since the president's trade  agenda suffered major legal setbacks earlier this year. (Sentiment Index: 0.22)",
-      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
-      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
-      "recommended_groups_tw": [],
-      "high_risk_groups_tw": [],
-      "recommended_groups_us": [
-        {
-          "name_zh": "TLT / 美債 ETF",
-          "name_en": "TLT / US Treasury ETF",
-          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
-          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
-        },
-        {
-          "name_zh": "NVDA / MSFT",
-          "name_en": "NVDA / MSFT",
-          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
-          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
-        }
-      ],
-      "high_risk_groups_us": [
-        {
-          "name_zh": "高負債小型成長股 (IWM)",
-          "name_en": "High-Debt Small-Cap Growth (IWM)",
-          "reason_zh": "避險情緒下資金偏好大型藍籌",
-          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
-        }
-      ]
-    },
-    {
-      "title_zh": "Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years",
-      "title_en": "Intel's stock jumps as chipmaker rides AI boom to fastest revenue growth in almost 15 years",
+      "title_zh": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla; Intel Jumps Late",
+      "title_en": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla; Intel Jumps Late",
       "ai_sentiment": "Neutral",
       "vol_multiplier": "1.4x",
-      "source": "CNBC Top News",
-      "macro_attribution_zh": "Intel rallied after the company reported blowout earnings and guidance. (情緒指數: 0.4)",
-      "macro_attribution_en": "Intel rallied after the company reported blowout earnings and guidance. (Sentiment Index: 0.4)",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "The Nasdaq undercut key levels as Google and Tesla led titans lower while oil prices soared. Intel jumped late. (情緒指數: 0.49)",
+      "macro_attribution_en": "The Nasdaq undercut key levels as Google and Tesla led titans lower while oil prices soared. Intel jumped late. (Sentiment Index: 0.49)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "Cathie Wood buys $8.7 million of beaten-down AI stock",
+      "title_en": "Cathie Wood buys $8.7 million of beaten-down AI stock",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "Cathie Wood, CEO of Ark Investment Management, is known for buying her favorite growth stocks during sharp pullbacks. That's exactly what she's doing with Tempus AI (TEM) after the healthcare technology stock tumbled 14% over the past week. In 2025, the flagship Ark Innovation ETF gained ... (情緒指數: 0.4)",
+      "macro_attribution_en": "Cathie Wood, CEO of Ark Investment Management, is known for buying her favorite growth stocks during sharp pullbacks. That's exactly what she's doing with Tempus AI (TEM) after the healthcare technology stock tumbled 14% over the past week. In 2025, the flagship Ark Innovation ETF gained ... (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
+      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "Trump's new global tariff draws rebukes from trade partners over forced-labor justification",
+      "title_en": "Trump's new global tariff draws rebukes from trade partners over forced-labor justification",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution_zh": "U.S. trading partners have rejected the forced-labor rationale behind Trump's new global tariffs, while most signaled plans to keep negotiating. (情緒指數: 0.22)",
+      "macro_attribution_en": "U.S. trading partners have rejected the forced-labor rationale behind Trump's new global tariffs, while most signaled plans to keep negotiating. (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
+      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "U.S., other nations back open-source AI with 'strong security' at China summit",
+      "title_en": "U.S., other nations back open-source AI with 'strong security' at China summit",
+      "ai_sentiment": "Bearish",
+      "vol_multiplier": "1.4x",
+      "source": "CNBC Top News",
+      "macro_attribution_zh": "The APEC statement is the first to include open-source cooperation at a minister level, said Li Lecheng, China's industry and information technology minister. (情緒指數: 0.22)",
+      "macro_attribution_en": "The APEC statement is the first to include open-source cooperation at a minister level, said Li Lecheng, China's industry and information technology minister. (Sentiment Index: 0.22)",
+      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
+      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [],
       "high_risk_groups_tw": [],
       "recommended_groups_us": [
@@ -169,9 +169,9 @@
       "macro_attribution_en": "Inflation aligns with forecasts, yield curve flattens, long-duration Treasury ETFs see heavy inflows. (Sentiment Index: 0.4)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [],
       "high_risk_groups_tw": [],
       "recommended_groups_us": [
@@ -200,18 +200,18 @@
   ],
   "web3_crypto": [
     {
-      "title_zh": "Gemini sent $10M in Bitcoin to Trump PAC after joint motion with CFTC",
-      "title_en": "Gemini sent $10M in Bitcoin to Trump PAC after joint motion with CFTC",
+      "title_zh": "Dem senator calls GOP’s CLARITY ethics proposal a ‘piece of shit’: Politico",
+      "title_en": "Dem senator calls GOP’s CLARITY ethics proposal a ‘piece of shit’: Politico",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "The Bitcoin donation can be used to support Donald Trump as a New York court considers whether to reverse a $5 million settlement between the CFTC and Gemini. (情緒指數: 0.22)",
-      "macro_attribution_en": "The Bitcoin donation can be used to support Donald Trump as a New York court considers whether to reverse a $5 million settlement between the CFTC and Gemini. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "On Wednesday, Senate Republicans released the proposed text for the CLARITY Act, which has been met with pushback from Democrats regarding ethics provisions. (情緒指數: 0.22)",
+      "macro_attribution_en": "On Wednesday, Senate Republicans released the proposed text for the CLARITY Act, which has been met with pushback from Democrats regarding ethics provisions. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
@@ -238,18 +238,18 @@
       "high_risk_groups_us": []
     },
     {
-      "title_zh": "Coinbase lets businesses accept USDC payments from AI agents",
-      "title_en": "Coinbase lets businesses accept USDC payments from AI agents",
+      "title_zh": "BitMEX delists 65 trading pairs, derivatives in July amid exchange shutdown",
+      "title_en": "BitMEX delists 65 trading pairs, derivatives in July amid exchange shutdown",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "The exchange also introduced AI trading tools and a developer kit as part of a broader push to build financial infrastructure for autonomous AI agents. (情緒指數: 0.22)",
-      "macro_attribution_en": "The exchange also introduced AI trading tools and a developer kit as part of a broader push to build financial infrastructure for autonomous AI agents. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "BitMEX will have removed 65 derivative contracts and trading pairs in July, compared with just 19 across the first six months of the year. (情緒指數: 0.22)",
+      "macro_attribution_en": "BitMEX will have removed 65 derivative contracts and trading pairs in July, compared with just 19 across the first six months of the year. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
@@ -285,9 +285,9 @@
       "macro_attribution_en": "Institutions bring Treasuries on-chain, utilizing Agentic AI for arbitrage and automated rebalancing. (Sentiment Index: 0.45)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "美債 RWA 代幣 (Ondo/BUIDL)",
@@ -321,13 +321,13 @@
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (情緒指數: 0.22)",
+      "macro_attribution_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (情緒指數: 0.22)",
       "macro_attribution_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "台積電 (2330) / 鴻海 (2317)",
@@ -359,13 +359,13 @@
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (情緒指數: 0.22)",
+      "macro_attribution_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (情緒指數: 0.22)",
       "macro_attribution_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "台積電 (2330) / 鴻海 (2317)",
@@ -401,9 +401,9 @@
       "macro_attribution_en": "TSMC 2nm progresses smoothly, CoWoS advanced packaging in short supply, boosting equipment vendor revenues. (Sentiment Index: 0.43)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "RWA 美債總鎖倉量達 $2.4B (穩定幣市值 $162B)",
-      "rwa_flow_metric_en": "Total Treasury RWA TVL reached $2.4B (Stablecoin Market Cap $162B)",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 17.8 (Risk-On Convergence).",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
       "recommended_groups_tw": [
         {
           "name_zh": "台積電 (2330) / 鴻海 (2317)",
@@ -420,7 +420,7 @@
       ],
       "high_risk_groups_tw": [
         {
-          "name_zh": "High-Valuation Unprofitable Concept Stocks",
+          "name_zh": "高估值無獲利概念股",
           "name_en": "High-Valuation Unprofitable Concept Stocks",
           "reason_zh": "市場波動加大，資金退潮回歸績優股",
           "reason_en": "Higher market volatility drives capital back to quality earnings"
