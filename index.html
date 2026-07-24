@@ -8,24 +8,26 @@
     <style>
         body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
         .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); }
+        /* 抽屜平滑過渡 */
+        .drawer-transition { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
-<body class="p-6 max-w-7xl mx-auto space-y-6">
+<body class="p-4 md:p-6 max-w-7xl mx-auto space-y-6 relative min-h-screen">
 
     <!-- 🌸 頁首 HEADER -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200/80 pb-4">
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
-            <h1 class="text-xl font-bold text-stone-800 tracking-tight">Macro Attribution & Cross-Market Dashboard</h1>
+            <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro Attribution & Cross-Market Dashboard</h1>
             <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.5 Full Spectrum</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
-                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1 rounded-lg bg-white text-stone-800 shadow-sm">中文</button>
-                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg text-stone-500 hover:text-stone-900">EN</button>
+                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1 rounded-lg bg-white text-stone-800 shadow-sm transition-all">中文</button>
+                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition-all">EN</button>
             </div>
             <div class="flex items-center gap-2 bg-white border border-stone-200 px-3 py-1.5 rounded-full shadow-sm text-xs text-stone-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> 2026.07 Top 5 Matrix Active
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">2026.07 Top 5 Matrix Active</span>
             </div>
         </div>
     </div>
@@ -34,11 +36,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="soft-card rounded-2xl p-4 space-y-1">
             <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">ACTIVE INTELLIGENCE COUNT</div>
-            <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">5</div>
+            <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">0</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1">
             <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">BULLISH SIGNALS RATIO</div>
-            <div id="meta-bullish-val" class="text-3xl font-bold text-emerald-600 font-mono">80%</div>
+            <div id="meta-bullish-val" class="text-3xl font-bold text-emerald-600 font-mono">0%</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-rose-50/20 border-rose-100">
             <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
@@ -56,7 +58,7 @@
         </div>
     </div>
 
-    <!-- 🎯 歸還：3 大維度 9 項核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
+    <!-- 🎯 歸因：3 大維度 9 項核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
     <div class="space-y-2">
         <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2">
             📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
@@ -137,14 +139,14 @@
     </div>
 
     <!-- 📑 TAB 頁籤切換 -->
-    <div class="flex border-b border-stone-200 space-x-8 text-sm font-semibold text-stone-500">
-        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1">
+    <div class="flex border-b border-stone-200 space-x-8 text-sm font-semibold text-stone-500 overflow-x-auto">
+        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 whitespace-nowrap">
             <span>🇺🇸</span> US Macro & Fed Policy
         </button>
-        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1">
+        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
             <span>🌐</span> Web3 Finance & RWA Node
         </button>
-        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1">
+        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
             <span>💻</span> TW Market & Policy Driver
         </button>
     </div>
@@ -153,10 +155,49 @@
     <div id="news-container" class="space-y-6"></div>
 
     <!-- 🤖 浮動 AI 助理按鈕 -->
-    <div class="fixed bottom-6 right-6">
-        <button class="bg-[#c05656] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:bg-[#a84444] transition-all flex items-center gap-2">
+    <div class="fixed bottom-6 right-6 z-40">
+        <button onclick="toggleRobiDrawer()" class="bg-[#c05656] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:bg-[#a84444] hover:shadow-xl transition-all flex items-center gap-2">
             🤖 呼叫 Robi 助理
         </button>
+    </div>
+
+    <!-- 🤖 ROBI AI 助理邊欄抽屜 (Slide-over Drawer) -->
+    <div id-[#robi-drawer-overlay]` onclick="toggleRobiDrawer()" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="robi-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full drawer-transition p-6 flex flex-col space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🤖</span>
+                <div>
+                    <h3 class="font-bold text-stone-800 text-sm">Soft Robi Copilot</h3>
+                    <p class="text-[10px] text-stone-400">Cross-Market Macro RAG Engine</p>
+                </div>
+            </div>
+            <button onclick="toggleRobiDrawer()" class="text-stone-400 hover:text-stone-700 text-lg">✕</button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto space-y-3 text-xs">
+            <div class="bg-stone-50 p-3 rounded-xl border border-stone-100 space-y-1">
+                <div class="font-semibold text-stone-700">👋 你好，我是 Robi！</div>
+                <p class="text-stone-500 leading-relaxed">我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。</p>
+            </div>
+            
+            <div class="space-y-2 pt-2">
+                <div class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">熱門分析指令：</div>
+                <button onclick="sendQuickQuery('分析當前 Fed 利率變動對 RWA 美債流向的影響')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 分析 Fed 利率對 RWA 資金流向的影響
+                </button>
+                <button onclick="sendQuickQuery('評估台積電 (2330) ADR 溢價率與外資期貨空單對大盤的承壓')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 評估台積電 ADR 溢價與外資期貨佈局
+                </button>
+            </div>
+
+            <div id="chat-messages" class="space-y-2 pt-2"></div>
+        </div>
+
+        <div class="border-t border-stone-100 pt-3 flex gap-2">
+            <input id="robi-input" type="text" placeholder="輸入您的總經或市場疑問..." class="flex-1 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#c05656]">
+            <button onclick="handleSendMessage()" class="bg-[#c05656] text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-[#a84444] transition-all">發送</button>
+        </div>
     </div>
 
     <script>
@@ -204,6 +245,7 @@
         };
 
         let activeTab = "us_macro";
+        let currentLang = "zh";
 
         function escapeHtml(str) {
             if (!str) return '';
@@ -223,6 +265,28 @@
             if (metrics.rwa_tvl) document.getElementById('m-rwatvl').innerText = metrics.rwa_tvl;
         }
 
+        // 動態計算全站情報數量與看多比例
+        function calculateOverallStats() {
+            const tabs = ['us_macro', 'web3_crypto', 'tw_stocks'];
+            let total = 0;
+            let bullishCount = 0;
+
+            tabs.forEach(tab => {
+                const list = marketData[tab] || [];
+                total += list.length;
+                list.forEach(item => {
+                    const sentiment = (item.sentiment || item.ai_sentiment || '').toLowerCase();
+                    if (sentiment === 'bullish' || sentiment === '看多') {
+                        bullishCount++;
+                    }
+                });
+            });
+
+            document.getElementById('meta-total-val').innerText = total;
+            const ratio = total > 0 ? Math.round((bullishCount / total) * 100) : 0;
+            document.getElementById('meta-bullish-val').innerText = `${ratio}%`;
+        }
+
         function renderActiveTab() {
             const container = document.getElementById('news-container');
             container.innerHTML = '';
@@ -230,7 +294,7 @@
             const list = marketData[activeTab] || [];
 
             if (list.length === 0) {
-                container.innerHTML = `<div class="text-stone-400 text-center py-12">此分區尚無最新情報資料</div>`;
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">此分區尚無最新情報資料</div>`;
                 return;
             }
 
@@ -241,25 +305,68 @@
                 const volatility = item.volatility || '1.1x';
                 const source = item.source || 'RAG Intelligence Engine';
 
-                const twRec = item.recommended_tw || [
-                    { name: "台積電 (2330)", reason: "權值穩定與外資回補" },
-                    { name: "聯發科 (2454)", reason: "IC 設計估值修復" }
-                ];
-                const twRisk = item.high_risk_tw || [
-                    { name: "傳統塑化股", reason: "終端需求復甦緩慢" }
-                ];
-                const usRec = item.recommended_us || [
-                    { name: "NVIDIA (NVDA)", reason: "AI 基礎建設需求強勁" },
-                    { name: "Microsoft (MSFT)", reason: "企業端雲端與 AI 變現穩健" }
-                ];
-                const usRisk = item.high_risk_us || [
-                    { name: "高負債生技股", reason: "融資成本依舊偏高" }
-                ];
+                // 安全防護：僅在該項目有定義個股推薦時渲染該區塊
+                const twRec = item.recommended_tw || null;
+                const twRisk = item.high_risk_tw || null;
+                const usRec = item.recommended_us || null;
+                const usRisk = item.high_risk_us || null;
+
+                const hasStockData = twRec || twRisk || usRec || usRisk;
 
                 const card = document.createElement('div');
-                card.className = "soft-card rounded-2xl p-6 space-y-5";
+                card.className = "soft-card rounded-2xl p-6 space-y-5 transition-all hover:shadow-md";
+                
+                let stockMatrixHtml = '';
+                if (hasStockData) {
+                    stockMatrixHtml = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
+                            <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
+                                ${twRec ? `
+                                <div>
+                                    <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
+                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED TW SECTORS
+                                    </div>
+                                    <ul class="space-y-1 text-stone-700">
+                                        ${twRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                    </ul>
+                                </div>` : ''}
+                                ${twRisk ? `
+                                <div class="${twRec ? 'pt-2 border-t border-emerald-100/80' : ''}">
+                                    <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
+                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK TW SECTORS
+                                    </div>
+                                    <ul class="space-y-1 text-stone-700">
+                                        ${twRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                    </ul>
+                                </div>` : ''}
+                            </div>
+
+                            <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
+                                ${usRec ? `
+                                <div>
+                                    <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
+                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED US EQUITIES
+                                    </div>
+                                    <ul class="space-y-1 text-stone-700">
+                                        ${usRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                    </ul>
+                                </div>` : ''}
+                                ${usRisk ? `
+                                <div class="${usRec ? 'pt-2 border-t border-emerald-100/80' : ''}">
+                                    <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
+                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK US EQUITIES
+                                    </div>
+                                    <ul class="space-y-1 text-stone-700">
+                                        ${usRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
+                                    </ul>
+                                </div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }
+
                 card.innerHTML = `
-                    <div class="flex items-center gap-3 text-xs font-mono">
+                    <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
                         <span class="bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded font-semibold border border-amber-200/50">${escapeHtml(sentiment)}</span>
                         <span class="text-stone-400">Volatility: <strong class="text-stone-700">${escapeHtml(volatility)}</strong></span>
                         <span class="text-stone-300">|</span>
@@ -275,7 +382,7 @@
                             <div class="font-bold text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
                                 🌐 MACRO & CRYPTO CYCLE ATTRIBUTION
                             </div>
-                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-2.5 rounded-xl border border-stone-100">
+                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
                                 ${escapeHtml(item.macro_attribution || item.summary || '市場總經與流動性分析正常。')}
                             </p>
                         </div>
@@ -283,7 +390,7 @@
                             <div class="font-bold text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
                                 💻 CROSS-MARKET CAPITAL SPILLOVER
                             </div>
-                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-2.5 rounded-xl border border-stone-100">
+                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
                                 ${escapeHtml(item.spillover_attribution || item.ai_analysis || '跨市場資金外溢與產業動向穩定。')}
                             </p>
                         </div>
@@ -296,49 +403,11 @@
                         </div>
                         <div class="flex items-center gap-2 text-stone-500">
                             <span>🤖 Soft Robi Execution Log:</span>
-                            <span>${escapeHtml(item.execution_log || '[NODE_01] US Macro Risk Index Stabilized at 17.8.')}</span>
+                            <span>${escapeHtml(item.execution_log || '[NODE_01] Risk Index Stabilized.')}</span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
-                        <div class="bg-emerald-50/40 border border-emerald-100 rounded-2xl p-4 space-y-3">
-                            <div>
-                                <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED TW SECTORS
-                                </div>
-                                <ul class="space-y-1 text-stone-700">
-                                    ${twRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
-                                </ul>
-                            </div>
-                            <div class="pt-2 border-t border-emerald-100/80">
-                                <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK TW SECTORS
-                                </div>
-                                <ul class="space-y-1 text-stone-700">
-                                    ${twRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="bg-emerald-50/40 border border-emerald-100 rounded-2xl p-4 space-y-3">
-                            <div>
-                                <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span> RECOMMENDED US EQUITIES
-                                </div>
-                                <ul class="space-y-1 text-stone-700">
-                                    ${usRec.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
-                                </ul>
-                            </div>
-                            <div class="pt-2 border-t border-emerald-100/80">
-                                <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                    <span class="h-2 w-2 rounded-full bg-rose-500"></span> HIGH-RISK US EQUITIES
-                                </div>
-                                <ul class="space-y-1 text-stone-700">
-                                    ${usRisk.map(r => `<li>· <strong>${escapeHtml(r.name)}</strong> <span class="text-stone-400">(${escapeHtml(r.reason)})</span></li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    ${stockMatrixHtml}
                 `;
                 container.appendChild(card);
             });
@@ -349,18 +418,69 @@
             ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
                 const btn = document.getElementById(`tab-${key}`);
                 if (key === activeTab) {
-                    btn.className = "pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 font-bold";
+                    btn.className = "pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 font-bold whitespace-nowrap";
                 } else {
-                    btn.className = "pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 font-semibold";
+                    btn.className = "pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 font-semibold whitespace-nowrap";
                 }
             });
             renderActiveTab();
         }
 
         function changeLang(lang) {
+            currentLang = lang;
             const isZh = lang === 'zh';
-            document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg ${isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-500'}`;
-            document.getElementById('lang-en').className = `px-3 py-1 rounded-lg ${!isZh ? 'bg-white text-stone-800 shadow-sm' : 'text-stone-500'}`;
+            document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
+            document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
+        }
+
+        // ROBI Drawer 控制
+        function toggleRobiDrawer() {
+            const drawer = document.getElementById('robi-drawer');
+            const overlay = document.getElementById('#robi-drawer-overlay');
+            const isHidden = drawer.classList.contains('translate-x-full');
+
+            if (isHidden) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        function sendQuickQuery(queryText) {
+            document.getElementById('robi-input').value = queryText;
+            handleSendMessage();
+        }
+
+        function handleSendMessage() {
+            const input = document.getElementById('robi-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatContainer = document.getElementById('chat-messages');
+
+            // 使用者訊息
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-stone-100 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-stone-200/50";
+            userMsg.innerText = `💬 ${text}`;
+            chatContainer.appendChild(userMsg);
+
+            input.value = '';
+
+            // 模擬 AI 回覆
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = "bg-rose-50/80 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-rose-100 space-y-1";
+                aiMsg.innerHTML = `
+                    <div class="font-bold text-[#c05656]">🤖 Robi Copilot:</div>
+                    <div>根據 2026.07 總經與鏈上數據，針對「${escapeHtml(text)}」：當前美債 10Y 穩定於 4.28%，資金正向高資本效率的 AI 運算節點與 RWA 鏈上資產集中。</div>
+                `;
+                chatContainer.appendChild(aiMsg);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 500);
         }
 
         async function loadMarketData() {
@@ -369,17 +489,17 @@
                 if (response.ok) {
                     const data = await response.json();
                     if (data) {
-                        if (data.metrics) {
-                            updateMetricsDisplay(data.metrics);
-                        }
+                        if (data.metrics) updateMetricsDisplay(data.metrics);
                         if (data.us_macro || data.web3_crypto || data.tw_stocks) {
-                            marketData = data;
+                            marketData = { ...marketData, ...data };
                         }
                     }
                 }
             } catch (e) {
                 console.log("採用預設完整資料");
             }
+            updateMetricsDisplay(marketData.metrics);
+            calculateOverallStats();
             renderActiveTab();
         }
 
