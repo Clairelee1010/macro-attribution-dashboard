@@ -8,13 +8,51 @@
   },
   "us_macro": [
     {
-      "title_zh": "Morgan Stanley sees a troubling S&P 500 repeat",
-      "title_en": "Morgan Stanley sees a troubling S&P 500 repeat",
+      "title_zh": "Dow Jones Futures: Oil Jumps On Iran News; Seagate, SK Hynix, KLA, Bloom Energy Earnings Late",
+      "title_en": "Dow Jones Futures: Oil Jumps On Iran News; Seagate, SK Hynix, KLA, Bloom Energy Earnings Late",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "Futures fell as oil prices jumped on an Iran news. Seagate, SK Hynix, KLA, Bloom Energy are key earnings late. Will the Fed surprise? (情緒指數: 0.4)",
+      "macro_attribution_en": "Futures fell as oil prices jumped on an Iran news. Seagate, SK Hynix, KLA, Bloom Energy are key earnings late. Will the Fed surprise? (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
+      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "The Smartest Dividend Stock to Buy With $1,000 Right Now (Spoiler: It Yields 5.6%.)",
+      "title_en": "The Smartest Dividend Stock to Buy With $1,000 Right Now (Spoiler: It Yields 5.6%.)",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Yahoo Finance US",
-      "macro_attribution_zh": "Investors were betting the S&P 500’s next leg higher would come from a broader rally, with more cyclical and speculative stocks joining the biggest winners. Morgan Stanley sees something else. Instead of spreading the risk, investors are apparently retreating toward high-quality ... (情緒指數: 0.22)",
-      "macro_attribution_en": "Investors were betting the S&P 500’s next leg higher would come from a broader rally, with more cyclical and speculative stocks joining the biggest winners. Morgan Stanley sees something else. Instead of spreading the risk, investors are apparently retreating toward high-quality ... (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "Add the effect of stock buybacks to the dividend, and you're looking at a total yield approaching 11%. (情緒指數: 0.22)",
+      "macro_attribution_en": "Add the effect of stock buybacks to the dividend, and you're looking at a total yield approaching 11%. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -46,51 +84,13 @@
       ]
     },
     {
-      "title_zh": "SNDK, NVDA, SKHY, ASML Stocks Extend Slide Overnight Amid China's AI Challenge, Tech Rotation",
-      "title_en": "SNDK, NVDA, SKHY, ASML Stocks Extend Slide Overnight Amid China's AI Challenge, Tech Rotation",
-      "ai_sentiment": "Bearish",
-      "vol_multiplier": "1.4x",
-      "source": "Yahoo Finance US",
-      "macro_attribution_zh": "New Chinese AI technologies and a remarkably strong listing by the country’s largest memory chip firm weighed on sentiment toward U.S. semiconductors. (情緒指數: 0.22)",
-      "macro_attribution_en": "New Chinese AI technologies and a remarkably strong listing by the country’s largest memory chip firm weighed on sentiment toward U.S. semiconductors. (Sentiment Index: 0.22)",
-      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
-      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
-      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
-      "recommended_groups_tw": [],
-      "high_risk_groups_tw": [],
-      "recommended_groups_us": [
-        {
-          "name_zh": "TLT / 美債 ETF",
-          "name_en": "TLT / US Treasury ETF",
-          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
-          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
-        },
-        {
-          "name_zh": "NVDA / MSFT",
-          "name_en": "NVDA / MSFT",
-          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
-          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
-        }
-      ],
-      "high_risk_groups_us": [
-        {
-          "name_zh": "高負債小型成長股 (IWM)",
-          "name_en": "High-Debt Small-Cap Growth (IWM)",
-          "reason_zh": "避險情緒下資金偏好大型藍籌",
-          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
-        }
-      ]
-    },
-    {
-      "title_zh": "Oil prices drop more than 2% as a pause in U.S.-Iran hostilities raises de-escalation hopes",
-      "title_en": "Oil prices drop more than 2% as a pause in U.S.-Iran hostilities raises de-escalation hopes",
+      "title_zh": "Iran launches surprise ballistic missile attack on U.S. forces in the Middle East",
+      "title_en": "Iran launches surprise ballistic missile attack on U.S. forces in the Middle East",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "CNBC Top News",
-      "macro_attribution_zh": "Speaking to reporters aboard Air Force One on Monday en route to Michigan, Trump dismissed suggestions that the U.S. was running short on weapons. (情緒指數: 0.13)",
-      "macro_attribution_en": "Speaking to reporters aboard Air Force One on Monday en route to Michigan, Trump dismissed suggestions that the U.S. was running short on weapons. (Sentiment Index: 0.13)",
+      "macro_attribution_zh": "Centcom in a post on X said that the attack originated from Iran, but all missiles were intercepted. (情緒指數: 0.31)",
+      "macro_attribution_en": "Centcom in a post on X said that the attack originated from Iran, but all missiles were intercepted. (Sentiment Index: 0.31)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -122,13 +122,13 @@
       ]
     },
     {
-      "title_zh": "Apple ends day as world's most valuable company, passing Nvidia",
-      "title_en": "Apple ends day as world's most valuable company, passing Nvidia",
+      "title_zh": "Oil jumps as U.S.-Iran resume strikes after a brief pause",
+      "title_en": "Oil jumps as U.S.-Iran resume strikes after a brief pause",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "CNBC Top News",
-      "macro_attribution_zh": "Nvidia had held the top spot as the most valuable company since June 2025, when it took the crown from Microsoft. (情緒指數: 0.22)",
-      "macro_attribution_en": "Nvidia had held the top spot as the most valuable company since June 2025, when it took the crown from Microsoft. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "Oil rose sharply amid renewed tensions in the Middle East after Iran launched an attack on U.S. forces using ballistic missiles. (情緒指數: 0.31)",
+      "macro_attribution_en": "Oil rose sharply amid renewed tensions in the Middle East after Iran launched an attack on U.S. forces using ballistic missiles. (Sentiment Index: 0.31)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -200,13 +200,13 @@
   ],
   "web3_crypto": [
     {
-      "title_zh": "Zimbabwe admits seven fintech projects to regulatory sandbox",
-      "title_en": "Zimbabwe admits seven fintech projects to regulatory sandbox",
+      "title_zh": "South Korea plans stablecoin rules as opposition pushes crypto tax repeal",
+      "title_en": "South Korea plans stablecoin rules as opposition pushes crypto tax repeal",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "Sandbox participation permits supervised testing but does not guarantee full commercial registration. (情緒指數: 0.22)",
-      "macro_attribution_en": "Sandbox participation permits supervised testing but does not guarantee full commercial registration. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "The FSC reportedly plans a government-backed digital asset bill covering stablecoins and exchanges, while opposition lawmakers seek to scrap a 22% crypto tax due in 2027. (情緒指數: 0.22)",
+      "macro_attribution_en": "The FSC reportedly plans a government-backed digital asset bill covering stablecoins and exchanges, while opposition lawmakers seek to scrap a 22% crypto tax due in 2027. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -238,13 +238,13 @@
       "high_risk_groups_us": []
     },
     {
-      "title_zh": "Hong Kong prepares banks for quantum threats amid tokenization push",
-      "title_en": "Hong Kong prepares banks for quantum threats amid tokenization push",
+      "title_zh": "Celsius-linked Bitcoin miner Ionic Digital gains 26% in Nasdaq debut",
+      "title_en": "Celsius-linked Bitcoin miner Ionic Digital gains 26% in Nasdaq debut",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "The HKMA aims to make Hong Kong’s banking sector fully prepared for quantum-related security risks by 2030 as the city expands tokenized finance. (情緒指數: 0.13)",
-      "macro_attribution_en": "The HKMA aims to make Hong Kong’s banking sector fully prepared for quantum-related security risks by 2030 as the city expands tokenized finance. (Sentiment Index: 0.13)",
+      "macro_attribution_zh": "The Bitcoin miner and AI infrastructure company closed at $62.90, giving it a market capitalization of about $2.8 billion after its direct listing. (情緒指數: 0.31)",
+      "macro_attribution_en": "The Bitcoin miner and AI infrastructure company closed at $62.90, giving it a market capitalization of about $2.8 billion after its direct listing. (Sentiment Index: 0.31)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -316,12 +316,12 @@
   ],
   "tw_stocks": [
     {
-      "title_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心 - Yahoo股市",
+      "title_zh": "熊本7.1強震！台積電部分建廠工程暫停 經濟部證實台廠暫無影響 - Yahoo新聞",
       "title_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution_zh": "台積電變「美積電」？狂砸3.2兆投資亞利桑那擴廠 經濟部急喊「3保證」穩信心  Yahoo股市 (情緒指數: 0.22)",
+      "macro_attribution_zh": "熊本7.1強震！台積電部分建廠工程暫停 經濟部證實台廠暫無影響  Yahoo新聞 (情緒指數: 0.22)",
       "macro_attribution_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
@@ -354,12 +354,12 @@
       "high_risk_groups_us": []
     },
     {
-      "title_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣 - 客新聞 HakkaNews",
+      "title_zh": "日本熊本7.1強震！台積電急疏散清點人數　經濟部曝台廠現況 - ETtoday財經雲",
       "title_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution_zh": "台積電加碼投資美國1000億美元 經濟部：最大產能仍留台灣  客新聞 HakkaNews (情緒指數: 0.22)",
+      "macro_attribution_zh": "日本熊本7.1強震！台積電急疏散清點人數　經濟部曝台廠現況  ETtoday財經雲 (情緒指數: 0.22)",
       "macro_attribution_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
