@@ -8,13 +8,51 @@
   },
   "us_macro": [
     {
-      "title_zh": "Dow Jones Futures: Trump Calls Off Iran Attacks; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom",
-      "title_en": "Dow Jones Futures: Trump Calls Off Iran Attacks; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom",
+      "title_zh": "Dow Jones Futures Rise, Oil Prices Dive As Trump Shifts On Iran; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom",
+      "title_en": "Dow Jones Futures Rise, Oil Prices Dive As Trump Shifts On Iran; SpaceX, AMD, Sandisk, Eli Lilly Earnings Loom",
+      "ai_sentiment": "Neutral",
+      "vol_multiplier": "1.4x",
+      "source": "Yahoo Finance US",
+      "macro_attribution_zh": "President Trump said he's holding off on massive new Iran attacks. SpaceX, AMD, Sandisk, Lilly earnings loom as market rally attempt begins. (情緒指數: 0.4)",
+      "macro_attribution_en": "President Trump said he's holding off on massive new Iran attacks. SpaceX, AMD, Sandisk, Lilly earnings loom as market rally attempt begins. (Sentiment Index: 0.4)",
+      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
+      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
+      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
+      "recommended_groups_tw": [],
+      "high_risk_groups_tw": [],
+      "recommended_groups_us": [
+        {
+          "name_zh": "TLT / 美債 ETF",
+          "name_en": "TLT / US Treasury ETF",
+          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
+          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
+        },
+        {
+          "name_zh": "NVDA / MSFT",
+          "name_en": "NVDA / MSFT",
+          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
+          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
+        }
+      ],
+      "high_risk_groups_us": [
+        {
+          "name_zh": "高負債小型成長股 (IWM)",
+          "name_en": "High-Debt Small-Cap Growth (IWM)",
+          "reason_zh": "避險情緒下資金偏好大型藍籌",
+          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
+        }
+      ]
+    },
+    {
+      "title_zh": "As Earnings Season Peaks, Jim Cramer Highlights These 10 Rules for Investing",
+      "title_en": "As Earnings Season Peaks, Jim Cramer Highlights These 10 Rules for Investing",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Yahoo Finance US",
-      "macro_attribution_zh": "President Trump said he's holding off on massive new Iran attacks. SpaceX, AMD, Sandisk, Lilly earnings loom as market rally attempt begins. (情緒指數: 0.31)",
-      "macro_attribution_en": "President Trump said he's holding off on massive new Iran attacks. SpaceX, AMD, Sandisk, Lilly earnings loom as market rally attempt begins. (Sentiment Index: 0.31)",
+      "macro_attribution_zh": "Jim Cramer outlines his 10 rules for investing, from watching bonds to avoiding hope, as Q2 earnings season hits its peak. (情緒指數: 0.22)",
+      "macro_attribution_en": "Jim Cramer outlines his 10 rules for investing, from watching bonds to avoiding hope, as Q2 earnings season hits its peak. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -46,51 +84,13 @@
       ]
     },
     {
-      "title_zh": "XLV vs. IBBQ: Is Broad Healthcare Exposure or Biotech Growth the Better ETF Buy?",
-      "title_en": "XLV vs. IBBQ: Is Broad Healthcare Exposure or Biotech Growth the Better ETF Buy?",
-      "ai_sentiment": "Bearish",
-      "vol_multiplier": "1.4x",
-      "source": "Yahoo Finance US",
-      "macro_attribution_zh": "IBBQ posted the stronger return over the past year, but has also experienced much higher historical volatility than XLV. (情緒指數: 0.31)",
-      "macro_attribution_en": "IBBQ posted the stronger return over the past year, but has also experienced much higher historical volatility than XLV. (Sentiment Index: 0.31)",
-      "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
-      "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
-      "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
-      "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
-      "agent_action_log": "[AGENT EXEC] Rebalanced risk exposure based on VIX 22.4.",
-      "recommended_groups_tw": [],
-      "high_risk_groups_tw": [],
-      "recommended_groups_us": [
-        {
-          "name_zh": "TLT / 美債 ETF",
-          "name_en": "TLT / US Treasury ETF",
-          "reason_zh": "降息預期升溫，長天期公債避險價值凸顯",
-          "reason_en": "Rising rate-cut expectations highlight long-duration Treasury hedge value"
-        },
-        {
-          "name_zh": "NVDA / MSFT",
-          "name_en": "NVDA / MSFT",
-          "reason_zh": "CapEx 強勁，邊緣 AI 需求帶來成長支撐",
-          "reason_en": "Strong CapEx and edge AI demand provide solid growth support"
-        }
-      ],
-      "high_risk_groups_us": [
-        {
-          "name_zh": "高負債小型成長股 (IWM)",
-          "name_en": "High-Debt Small-Cap Growth (IWM)",
-          "reason_zh": "避險情緒下資金偏好大型藍籌",
-          "reason_en": "Capital favors large-cap blue chips during risk-off sentiment"
-        }
-      ]
-    },
-    {
-      "title_zh": "As Americans go direct with GLP-1 prescriptions, Walmart, Costco, Amazon will be big weight-loss winners",
-      "title_en": "As Americans go direct with GLP-1 prescriptions, Walmart, Costco, Amazon will be big weight-loss winners",
+      "title_zh": "Why the U.S. stepped in after decades to prop up Japan's yen — and what's at stake",
+      "title_en": "Why the U.S. stepped in after decades to prop up Japan's yen — and what's at stake",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "CNBC Top News",
-      "macro_attribution_zh": "As Americans are encouraged to go direct with weight-loss drug prescriptions, retail pharmacy chains are poised to win big. (情緒指數: 0.22)",
-      "macro_attribution_en": "As Americans are encouraged to go direct with weight-loss drug prescriptions, retail pharmacy chains are poised to win big. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "Washington's decision to join Japan in supporting the battered yen has prompted questions over what motivated the rare coordinated intervention. (情緒指數: 0.22)",
+      "macro_attribution_en": "Washington's decision to join Japan in supporting the battered yen has prompted questions over what motivated the rare coordinated intervention. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -122,13 +122,13 @@
       ]
     },
     {
-      "title_zh": "Embassies warn Americans of travel risk amid signs of possible U.S.-Iran military action in the coming days",
-      "title_en": "Embassies warn Americans of travel risk amid signs of possible U.S.-Iran military action in the coming days",
+      "title_zh": "Trump says Iran talks to resume Monday after calling off planned strikes",
+      "title_en": "Trump says Iran talks to resume Monday after calling off planned strikes",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "CNBC Top News",
-      "macro_attribution_zh": "The latest attacks come amid U.S. media reports that U.S. President Donald Trump is preparing a fresh round of strikes against Iran. (情緒指數: 0.22)",
-      "macro_attribution_en": "The latest attacks come amid U.S. media reports that U.S. President Donald Trump is preparing a fresh round of strikes against Iran. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "The latest peace proposal calls for warring parties to return to negotiations and continue working out some of the thorny issues that derailed diplomatic efforts. (情緒指數: 0.22)",
+      "macro_attribution_en": "The latest peace proposal calls for warring parties to return to negotiations and continue working out some of the thorny issues that derailed diplomatic efforts. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -200,13 +200,13 @@
   ],
   "web3_crypto": [
     {
-      "title_zh": "Onchain, in court: What happened in crypto legal news this week",
-      "title_en": "Onchain, in court: What happened in crypto legal news this week",
+      "title_zh": "Coldcard’s 5-year flaw reveals hardware wallet testing gap: Kraken’s security chief",
+      "title_en": "Coldcard’s 5-year flaw reveals hardware wallet testing gap: Kraken’s security chief",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "A case tied to defunct crypto exchange FTX moves forward, a soldier seeks to dismiss over a Polymarket bet and a former congressman was ordered to pay $35,000 for manipulative trading. (情緒指數: 0.22)",
-      "macro_attribution_en": "A case tied to defunct crypto exchange FTX moves forward, a soldier seeks to dismiss over a Polymarket bet and a former congressman was ordered to pay $35,000 for manipulative trading. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "The five-year bug escaped detection because auditors verified that the intended random number generator existed, but not that it was being called. (情緒指數: 0.22)",
+      "macro_attribution_en": "The five-year bug escaped detection because auditors verified that the intended random number generator existed, but not that it was being called. (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -238,13 +238,13 @@
       "high_risk_groups_us": []
     },
     {
-      "title_zh": "Minnesota crypto ATM ban goes into effect after reported $1M losses",
-      "title_en": "Minnesota crypto ATM ban goes into effect after reported $1M losses",
+      "title_zh": "South Korean stablecoin outflows top $367M in June: Report",
+      "title_en": "South Korean stablecoin outflows top $367M in June: Report",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Cointelegraph",
-      "macro_attribution_zh": "State officials reported that Minnesota residents, and largely senior citizens, had lost about $1 million from scams tied to crypto kiosks from 2023 to 2025. (情緒指數: 0.22)",
-      "macro_attribution_en": "State officials reported that Minnesota residents, and largely senior citizens, had lost about $1 million from scams tied to crypto kiosks from 2023 to 2025. (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "Stablecoins have been flowing out of South Korean exchanges for 18 consecutive months as regulators weigh tighter oversight of cross-border crypto activity. (情緒指數: 0.31)",
+      "macro_attribution_en": "Stablecoins have been flowing out of South Korean exchanges for 18 consecutive months as regulators weigh tighter oversight of cross-border crypto activity. (Sentiment Index: 0.31)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -316,13 +316,13 @@
   ],
   "tw_stocks": [
     {
-      "title_zh": "我外銷訂單「美國製造」比重 二倍速成長 | 經濟日報 - LINE TODAY",
-      "title_en": "Taiwan Market & Policy Driver: Macro & Tech Sector Insights",
+      "title_zh": "經濟部通過200億美元增資美國 TSMC 建置12吋晶圓廠及先進封裝廠 | 政經焦點 | 要聞 - 經濟日報",
+      "title_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics",
       "ai_sentiment": "Bearish",
       "vol_multiplier": "1.4x",
       "source": "Google News TW",
-      "macro_attribution_zh": "我外銷訂單「美國製造」比重 二倍速成長 | 經濟日報  LINE TODAY (情緒指數: 0.22)",
-      "macro_attribution_en": "Taiwan Market & Policy Driver: Macro & Tech Sector Insights (Sentiment Index: 0.22)",
+      "macro_attribution_zh": "經濟部通過200億美元增資美國 TSMC 建置12吋晶圓廠及先進封裝廠 | 政經焦點 | 要聞  經濟日報 (情緒指數: 0.22)",
+      "macro_attribution_en": "TSMC & Semiconductor Supply Chain: Investment & Policy Dynamics (Sentiment Index: 0.22)",
       "tw_spillover_effect_zh": "跨市場資金外溢與產業動向穩定。",
       "tw_spillover_effect_en": "Cross-market capital spillover and industry momentum remain stable.",
       "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
