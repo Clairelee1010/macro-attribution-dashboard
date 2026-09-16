@@ -161,7 +161,7 @@
         </button>
     </div>
 
-    <!-- 🤖 ROBI AI 助理邊欄抽屜 (修正了 id 拼寫錯誤) -->
+    <!-- 🤖 ROBI AI 助理邊欄抽屜 -->
     <div id="robi-drawer-overlay" onclick="toggleRobiDrawer()" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
     <div id="robi-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full drawer-transition p-6 flex flex-col space-y-4">
         <div class="flex items-center justify-between border-b border-stone-100 pb-3">
@@ -251,8 +251,47 @@
                     ]
                 }
             ],
-            "web3_crypto": [],
-            "tw_stocks": []
+            "web3_crypto": [
+                {
+                    "top_rank": "TOP 1",
+                    "sentiment": "Bullish",
+                    "volatility": "1.3x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "RWA 代幣化規模突破 24 億美元，機構級美債收益率吸引鏈上資金",
+                    "title_en": "RWA Tokenization Exceeds $2.4B, Institutional Treasury Yields Attract On-Chain Capital",
+                    "macro_attribution_zh": "現實世界資產 (RWA) 結合帳戶抽象與美債收益協議，推動穩定幣流動性在 DeFi 協議中的深度整合。",
+                    "macro_attribution_en": "Real-World Assets (RWA) integrating account abstraction and Treasury yield protocols drive deep stablecoin liquidity across DeFi.",
+                    "tw_spillover_effect_zh": "台灣金融科技與區塊鏈基礎建設團隊加速與國際合規協議對接，開拓新型態 Web3 資本路徑。",
+                    "tw_spillover_effect_en": "Taiwanese fintech and blockchain teams accelerate integration with global compliance protocols to open new Web3 capital pathways.",
+                    "rwa_flow_metric_zh": "+$18.5M RWA Protocol Net Inflow",
+                    "rwa_flow_metric_en": "+$18.5M RWA Protocol Net Inflow",
+                    "agent_action_log": "[NODE_02] On-chain RWA TVL synchronized successfully.",
+                    "recommended_groups_us": [
+                        { "name_zh": "Aave V3 Protocol", "name_en": "Aave V3 Protocol", "reason_zh": "借貸與流動性池規模擴大", "reason_en": "Expanding lending & liquidity pool scale" }
+                    ]
+                }
+            ],
+            "tw_stocks": [
+                {
+                    "top_rank": "TOP 1",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台積電法說會釋放正向展望，AI 伺服器供應鏈動能強勁",
+                    "title_en": "TSMC Briefing Releases Positive Outlook, AI Server Supply Chain Momentum Remains Strong",
+                    "macro_attribution_zh": "全球高效能運算 (HPC) 與先進封裝產能持續吃緊，推動台系供應鏈營收與毛利率同步上揚。",
+                    "macro_attribution_en": "Global High-Performance Computing (HPC) and advanced packaging capacity remain tight, boosting Taiwanese supply chain revenue and margins.",
+                    "tw_spillover_effect_zh": "散熱、機殼及 PCB 等 AI 概念族群受惠於資金外溢，成交比重顯著回溫。",
+                    "tw_spillover_effect_en": "AI-related sectors like cooling, chassis, and PCBs benefit from capital spillover with rebounding trading volume share.",
+                    "rwa_flow_metric_zh": "+$31.2M 供應鏈資金點火",
+                    "rwa_flow_metric_en": "+$31.2M Supply Chain Capital Ignition",
+                    "agent_action_log": "[NODE_03] Taiwan Semiconductor Sector Matrix Updated.",
+                    "recommended_groups_tw": [
+                        { "name_zh": "鴻海 (2317)", "name_en": "Hon Hai (2317)", "reason_zh": "AI 伺服器代工訂單滿載", "reason_en": "Full capacity in AI server ODM" },
+                        { "name_zh": "廣達 (2382)", "name_en": "Quanta (2382)", "reason_zh": "雲端大廠資本支出受惠", "reason_en": "Beneficiary of hyperscaler CapEx" }
+                    ]
+                }
+            ]
         };
 
         let activeTab = "us_macro";
@@ -452,7 +491,6 @@
             document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
             document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
 
-            // 更新介面靜態文字
             if (isZh) {
                 document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
                 document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
@@ -479,117 +517,91 @@
                 document.getElementById('q-txt-2').innerText = "評估台積電 ADR 溢價與外資期貨佈局";
                 document.getElementById('robi-input').placeholder = "輸入您的總經或市場疑問...";
                 document.getElementById('robi-send-btn').innerText = "發送";
-                document.getElementById('tab-us_macro').innerHTML = "<span>🇺🇸</span> US Macro & Fed Policy";
-                document.getElementById('tab-web3_crypto').innerHTML = "<span>🌐</span> Web3 Finance & RWA Node";
-                document.getElementById('tab-tw_stocks').innerHTML = "<span>💻</span> TW Market & Policy Driver";
             } else {
                 document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
                 document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
                 document.getElementById('label-core-matrix').innerText = "📌 CORE METRIC SPECTRUM";
                 document.getElementById('label-macro-group').innerText = "1. 🌐 Macro & Rates Liquidity";
-                document.getElementById('label-chips-group').innerText = "2. 💻 TW/US Equity & Chips";
+                document.getElementById('label-chips-group').innerText = "2. 💻 TW & US Equity Chips";
                 document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 Finance & RWA";
                 document.getElementById('lbl-us10y').innerText = "US 10Y";
-                document.getElementById('lbl-dxy').innerText = "USD DXY";
+                document.getElementById('lbl-dxy').innerText = "DXY";
                 document.getElementById('lbl-move').innerText = "MOVE Index";
                 document.getElementById('lbl-tsm').innerText = "TSM Premium";
                 document.getElementById('lbl-futures').innerText = "Foreign Futures";
                 document.getElementById('lbl-usdtwd').innerText = "USD/TWD";
-                document.getElementById('lbl-cryptofg').innerText = "Crypto FG";
+                document.getElementById('lbl-cryptofg').innerText = "Crypto F&G";
                 document.getElementById('lbl-stablecoin').innerText = "Stablecoin Cap";
-                document.getElementById('lbl-rwatvl').innerText = "RWA Treasury";
+                document.getElementById('lbl-rwatvl').innerText = "RWA Treasuries";
                 document.getElementById('vix-banner').innerText = marketData.global_vix.insight_en;
                 document.getElementById('vix-desc').innerText = "(Risk-On & Bullish Convergence)";
                 document.getElementById('robi-btn-text').innerText = "Call Robi Copilot";
-                document.getElementById('robi-welcome-title').innerText = "👋 Hello, I'm Robi!";
-                document.getElementById('robi-welcome-desc').innerText = "I can help you analyze Fed rate attributions, on-chain RWA Treasury flows, and AI supply chain spillover effects.";
-                document.getElementById('robi-quick-title').innerText = "Popular Prompts:";
-                document.getElementById('q-txt-1').innerText = "Analyze impact of Fed rates on RWA Treasury flows";
-                document.getElementById('q-txt-2').innerText = "Evaluate TSM ADR premium & foreign futures pressure";
+                document.getElementById('robi-welcome-title').innerText = "👋 Hello, I am Robi!";
+                document.getElementById('robi-welcome-desc').innerText = "I can analyze Fed rate attributions, on-chain RWA Treasury flows, and AI supply chain spillovers for you.";
+                document.getElementById('robi-quick-title').innerText = "Quick Analysis Commands:";
+                document.getElementById('q-txt-1').innerText = "Analyze the current impact of Fed rate changes on RWA Treasury flows";
+                document.getElementById('q-txt-2').innerText = "Evaluate TSM ADR premium and foreign futures short pressure";
                 document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
                 document.getElementById('robi-send-btn').innerText = "Send";
-                document.getElementById('tab-us_macro').innerHTML = "<span>🇺🇸</span> US Macro & Fed Policy";
-                document.getElementById('tab-web3_crypto').innerHTML = "<span>🌐</span> Web3 Finance & RWA Node";
-                document.getElementById('tab-tw_stocks').innerHTML = "<span>💻</span> TW Market & Policy Driver";
             }
-
             renderActiveTab();
         }
 
-        // ROBI Drawer 控制
         function toggleRobiDrawer() {
             const drawer = document.getElementById('robi-drawer');
             const overlay = document.getElementById('robi-drawer-overlay');
-            const isHidden = drawer.classList.contains('translate-x-full');
+            const isOpen = !drawer.classList.contains('translate-x-full');
 
-            if (isHidden) {
-                drawer.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-            } else {
+            if (isOpen) {
                 drawer.classList.add('translate-x-full');
                 overlay.classList.add('opacity-0');
                 setTimeout(() => overlay.classList.add('hidden'), 300);
+            } else {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                drawer.classList.remove('translate-x-full');
             }
         }
 
+        function appendChatMessage(sender, text) {
+            const chatMessages = document.getElementById('chat-messages');
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 rounded-2xl text-xs space-y-1 ${sender === 'user' ? 'bg-rose-50 border border-rose-100 text-rose-900 ml-4' : 'bg-stone-100 text-stone-800 mr-4'}`;
+            bubble.innerHTML = `<div class="font-bold text-[10px] uppercase tracking-wider text-stone-400">${sender === 'user' ? 'You' : 'Soft Robi'}</div><div>${escapeHtml(text)}</div>`;
+            chatMessages.appendChild(bubble);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
         function sendQuickQuery(queryText) {
-            document.getElementById('robi-input').value = queryText;
-            handleSendMessage();
+            appendChatMessage('user', queryText);
+            setTimeout(() => {
+                const reply = currentLang === 'zh' 
+                    ? `[RAG 歸因分析] 針對「${queryText}」，當前模型檢測到 VIX 於 17.8 震盪，鏈上 RWA 美債流入穩定（+$52.4M），建議持續追蹤 Fed 利率動向與外資期貨淨部位。`
+                    : `[RAG Attribution] Regarding "${queryText}", current model detects VIX at 17.8 with steady on-chain RWA inflows (+$52.4M). Recommend monitoring Fed rate trajectories and foreign futures positions.`;
+                appendChatMessage('robi', reply);
+            }, 600);
         }
 
         function handleSendMessage() {
             const input = document.getElementById('robi-input');
-            const text = input.value.trim();
-            if (!text) return;
-
-            const chatContainer = document.getElementById('chat-messages');
-
-            const userMsg = document.createElement('div');
-            userMsg.className = "bg-stone-100 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-stone-200/50";
-            userMsg.innerText = `💬 ${text}`;
-            chatContainer.appendChild(userMsg);
-
+            const val = input.value.trim();
+            if (!val) return;
             input.value = '';
-
+            appendChatMessage('user', val);
             setTimeout(() => {
-                const aiMsg = document.createElement('div');
-                aiMsg.className = "bg-rose-50/80 text-stone-800 p-2.5 rounded-xl text-xs font-sans border border-rose-100 space-y-1";
-                const replyText = currentLang === 'zh' 
-                    ? `根據 2026.07 總經與鏈上數據，針對「${escapeHtml(text)}」：當前美債 10Y 穩定於 4.28%，資金正向高資本效率的 AI 運算節點與 RWA 鏈上資產集中。`
-                    : `Based on 2026.07 macro & on-chain data regarding "${escapeHtml(text)}": US 10Y remains stable at 4.28%, capital is concentrating on AI compute nodes and RWA assets.`;
-                
-                aiMsg.innerHTML = `
-                    <div class="font-bold text-[#c05656]">🤖 Robi Copilot:</div>
-                    <div>${replyText}</div>
-                `;
-                chatContainer.appendChild(aiMsg);
-                chatContainer.scrollTop = chatContainer.scrollHeight;
-            }, 500);
+                const reply = currentLang === 'zh'
+                    ? `[AI Copilot 應答] 收到您的查詢：「${val}」。系統已調用跨市場向量資料庫，指標顯示總體流動性保持中性偏多，AI 基礎建設題材維持高度共振。`
+                    : `[AI Copilot Reply] Received your query: "${val}". Cross-market vector DB queried: overall liquidity remains neutral-to-bullish with high resonance in AI infrastructure.`;
+                appendChatMessage('robi', reply);
+            }, 600);
         }
 
-        async function loadMarketData() {
-            try {
-                const response = await fetch('data.json?t=' + new Date().getTime());
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data) {
-                        if (data.metrics) updateMetricsDisplay(data.metrics);
-                        if (data.global_vix) marketData.global_vix = data.global_vix;
-                        if (data.us_macro || data.web3_crypto || data.tw_stocks) {
-                            marketData = { ...marketData, ...data };
-                        }
-                    }
-                }
-            } catch (e) {
-                console.log("採用預設完整資料");
-            }
+        // 初始化載入
+        window.onload = function() {
             updateMetricsDisplay(marketData.metrics);
             calculateOverallStats();
             renderActiveTab();
-        }
-
-        window.onload = loadMarketData;
+        };
     </script>
 </body>
 </html>
