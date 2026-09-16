@@ -8,7 +8,6 @@
     <style>
         body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
         .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); }
-        /* 抽屜平滑過渡 */
         .drawer-transition { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
@@ -27,7 +26,7 @@
                 <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition-all">EN</button>
             </div>
             <div class="flex items-center gap-2 bg-white border border-stone-200 px-3 py-1.5 rounded-full shadow-sm text-xs text-stone-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">2026.07 Top 5 Matrix Active</span>
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">2026.09 Top 5 Matrix Active</span>
             </div>
         </div>
     </div>
@@ -58,14 +57,13 @@
         </div>
     </div>
 
-    <!-- 🎯 核心監控指標矩陣 (CORE METRIC SPECTRUM) -->
+    <!-- 🎯 核心監控指標矩陣 -->
     <div class="space-y-2">
         <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2" id="label-core-matrix">
             📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- 1. 總經與利率流動性 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-blue-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
                     <span id="label-macro-group">1. 🌐 總經與利率流動性 (Macro)</span>
@@ -87,7 +85,6 @@
                 </div>
             </div>
 
-            <!-- 2. 美台股連動與籌碼面 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-emerald-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
                     <span id="label-chips-group">2. 💻 美台股連動與籌碼 (Chips)</span>
@@ -109,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- 3. Web3 金融與 RWA 鏈上資金 -->
             <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-purple-500">
                 <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
                     <span id="label-crypto-group">3. 🌐 Web3 金融與 RWA (On-Chain)</span>
@@ -135,7 +131,7 @@
 
     <!-- 📢 VIX 通報 Banner -->
     <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">
-        【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。
+        【2026.09 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著 Q3 財報季展望明朗及 Fed 進入政策寬鬆期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。
     </div>
 
     <!-- 📑 TAB 頁籤切換 -->
@@ -206,8 +202,8 @@
                 "value": 17.8,
                 "status_zh": "Risk-On & Bullish Convergence",
                 "status_en": "Risk-On & Bullish Convergence",
-                "insight_zh": "【2026.07 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著通膨預期降溫及 Fed 進入政策觀察期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。",
-                "insight_en": "[2026.07 VIX Cross-Market Attribution] VIX volatility index stabilized at 17.8. As inflation expectations cool and the Fed enters a policy observation period, capital flows are turning stable."
+                "insight_zh": "【2026.09 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著 Q3 財報季展望明朗及 Fed 進入政策寬鬆期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。",
+                "insight_en": "[2026.09 VIX Cross-Market Attribution] VIX volatility index stabilized at 17.8. As Q3 earnings outlook clears and the Fed enters easing, capital flows turn robust."
             },
             "metrics": {
                 "us10y": "4.28%",
@@ -226,10 +222,10 @@
                     "sentiment": "Bullish",
                     "volatility": "1.1x",
                     "source": "US Fed & Macro RAG",
-                    "title_zh": "Fed 利率政策進入觀察期，通膨降溫確立軟著陸",
-                    "title_en": "Fed Interest Rate Policy Enters Observation Period, Cooling Inflation Confirms Soft Landing",
-                    "macro_attribution_zh": "核心 PCE 年增率持續向 2%靠攏，聯準會主席釋放暫停升息循環訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
-                    "macro_attribution_en": "Core PCE continues to approach 2%, and Fed signals pause in rate hikes, driving down Treasury yields and bringing capital back to risk assets.",
+                    "title_zh": "Fed 利率政策進入降息循環，通膨降溫確立軟著陸路徑",
+                    "title_en": "Fed Rate Policy Enters Easing Cycle, Cooling Inflation Confirms Soft Landing Path",
+                    "macro_attribution_zh": "核心 PCE 年增率持續向 2% 靠攏，聯準會主席釋放寬息訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
+                    "macro_attribution_en": "Core PCE approaches 2%, Fed signals rate easing, driving Treasury yields down and capital back into risk assets.",
                     "tw_spillover_effect_zh": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
                     "tw_spillover_effect_en": "Foreign buyers repurchase large caps, NTD stabilizes, and semiconductor supply chain valuations recover.",
                     "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
@@ -239,16 +235,60 @@
                         { "name_zh": "台積電 (2330)", "name_en": "TSMC (2330)", "reason_zh": "權值穩定與外資回補", "reason_en": "Weight stability & foreign buyback" },
                         { "name_zh": "聯發科 (2454)", "name_en": "MediaTek (2454)", "reason_zh": "IC 設計估值修復", "reason_en": "IC design valuation recovery" }
                     ],
-                    "high_risk_groups_tw": [
-                        { "name_zh": "傳統塑化股", "name_en": "Traditional Petrochemicals", "reason_zh": "終端需求復甦緩慢", "reason_en": "Slow terminal demand recovery" }
-                    ],
                     "recommended_groups_us": [
                         { "name_zh": "NVIDIA (NVDA)", "name_en": "NVIDIA (NVDA)", "reason_zh": "AI 基礎建設需求強勁", "reason_en": "Strong AI infrastructure demand" },
                         { "name_zh": "Microsoft (MSFT)", "name_en": "Microsoft (MSFT)", "reason_zh": "企業端雲端與 AI 變現穩健", "reason_en": "Robust enterprise cloud & AI monetization" }
-                    ],
-                    "high_risk_groups_us": [
-                        { "name_zh": "高負債生技股", "name_en": "High-Debt Biotech Stocks", "reason_zh": "融資成本依舊偏高", "reason_en": "Financing costs remain high" }
                     ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Neutral",
+                    "volatility": "1.2x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國 Q3 就業數據呈現溫和降溫，勞動市場未見硬著陸風險",
+                    "title_en": "US Q3 Employment Data Shows Moderate Cooling, No Hard Landing Risks",
+                    "macro_attribution_zh": "非農就業人數增幅貼近預期，薪資成長率放緩有助於減輕通膨黏著性，降低 Fed 激進緊縮的必要性。",
+                    "macro_attribution_en": "Non-farm payrolls match expectations, wage growth slowing helps reduce sticky inflation and lowers aggressive tightening needs.",
+                    "tw_spillover_effect_zh": "總經不確定性降低，出口導向廠商對下半年接單能見度維持樂觀。",
+                    "tw_spillover_effect_en": "Macro uncertainty drops, export-oriented firms maintain positive visibility on H2 orders.",
+                    "rwa_flow_metric_zh": "+$22.1M 短端美債池穩定流入",
+                    "rwa_flow_metric_en": "+$22.1M Short-Term Treasury Pool Inflow"
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Bullish",
+                    "volatility": "1.0x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國公債殖利率曲線陡峭化，長天期資金配置需求升溫",
+                    "title_en": "US Treasury Yield Curve Steapens, Long-Term Capital Allocation Demand Rises",
+                    "macro_attribution_zh": "隨著貨幣政策轉向，長短端利差收窄並逐步正常化，激發機構法人對優質固定收益與代幣化美債的強烈配置意願。",
+                    "macro_attribution_en": "With monetary policy shifting, yield spread normalizes, stimulating institutional appetite for fixed income and tokenized Treasuries.",
+                    "tw_spillover_effect_zh": "金融壽險業資產評價壓力減輕，隱含獲利結構改善。",
+                    "tw_spillover_effect_en": "Financial life insurance asset valuation pressure eases, improving earnings structure."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國核心服務業 PMI 超越預期，內需韌性支撐全球經濟",
+                    "title_en": "US Core Services PMI Exceeds Expectations, Domestic Resilience Supports Global Economy",
+                    "macro_attribution_zh": "服務業擴張速度超乎預期，顯示終端消費者購買力依然強勁，有助於支撐跨國跨業跨市場的營收表現。",
+                    "macro_attribution_en": "Services expansion outpaces expectations, showing resilient consumer purchasing power supporting cross-border revenues.",
+                    "tw_spillover_effect_zh": "航運及跨境物流需求保持平穩，旺季效應逐步顯現。",
+                    "tw_spillover_effect_en": "Shipping and cross-border logistics demand remain steady as peak season kicks in."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Neutral",
+                    "volatility": "1.3x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "全球地緣政治供應鏈重組，美中科技與關鍵金屬博弈持續",
+                    "title_en": "Global Geopolitical Supply Chain Restructuring, US-China Tech and Critical Metals Games Continue",
+                    "macro_attribution_zh": "跨國企業加速進行供應鏈「去風險化 (De-risking)」佈局，產能分散至東南亞與美洲本土。",
+                    "macro_attribution_en": "Multinational corporations accelerate supply chain de-risking, dispersing production to Southeast Asia and Americas.",
+                    "tw_spillover_effect_zh": "台灣廠商業者受惠於東南亞 Solution Room 落地與全球在地化製造訂單。",
+                    "tw_spillover_effect_en": "Taiwanese manufacturers benefit from Southeast Asian Solution Room deployments and localization."
                 }
             ],
             "web3_crypto": [
@@ -269,6 +309,49 @@
                     "recommended_groups_us": [
                         { "name_zh": "Aave V3 Protocol", "name_en": "Aave V3 Protocol", "reason_zh": "借貸與流動性池規模擴大", "reason_en": "Expanding lending & liquidity pool scale" }
                     ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "Agentic Finance 智慧代理協議起飛，AI 結合 Web3 交易自動化升溫",
+                    "title_en": "Agentic Finance Protocols Take Off, AI Combined With Web3 Trading Automation Rises",
+                    "macro_attribution_zh": "藉由 LangGraph 與 Model Context Protocol 架構，鏈上智慧代理能自動執行跨鏈套利與 KYC 合規審查。",
+                    "macro_attribution_en": "Through LangGraph and MCP architectures, on-chain smart agents automatically execute cross-chain arbitrage and KYC compliance audits.",
+                    "tw_spillover_effect_zh": "吸引國內軟體工程與 AI 開發者投入金融科技自動化專案研發。",
+                    "tw_spillover_effect_en": "Attracts domestic software and AI developers into fintech automation project R&D."
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Neutral",
+                    "volatility": "1.4x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "以太坊 Layer 2 生態全面擴容，Base 與 Sepolia 測試網活躍度激增",
+                    "title_en": "Ethereum Layer 2 Ecosystem Expands, Base and Sepolia Testnet Activity Surges",
+                    "macro_attribution_zh": "帳戶抽象化 (Account Abstraction) 技術普及，降低用戶使用 Web3 應用的門檻，鏈上活躍地址創新高。",
+                    "macro_attribution_en": "Account abstraction tech adoption lowers Web3 onboarding barriers, hitting record active on-chain addresses.",
+                    "tw_spillover_effect_en": "Drives developer adoption of gasless transaction infrastructure."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.5x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "穩定幣總市值突破 1,620 億美元，跨鏈流動性迎來爆發點",
+                    "title_en": "Total Stablecoin Market Cap Exceeds $162B, Cross-Chain Liquidity Reaches Inflection Point",
+                    "macro_attribution_zh": "高收益穩定幣與合規美元代幣成為全球跨境匯款與鏈上避險的核心載體。",
+                    "macro_attribution_en": "High-yield stablecoins and compliant dollar tokens become core vehicles for cross-border settlement and hedging."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Neutral",
+                    "volatility": "1.2x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "全球虛擬資產監管框架（MiCA 等）落地，合規性成機構資金入場關鍵",
+                    "title_en": "Global Crypto Regulatory Frameworks (MiCA) Take Effect, Compliance Becomes Key for Institutions",
+                    "macro_attribution_zh": "去中心化金融逐步向完全合規化轉型，防制洗錢與 KYC 代理驗證成為標配。",
+                    "macro_attribution_en": "DeFi transitions toward full compliance, making AML and KYC agent verification standard requirements."
                 }
             ],
             "tw_stocks": [
@@ -290,6 +373,52 @@
                         { "name_zh": "鴻海 (2317)", "name_en": "Hon Hai (2317)", "reason_zh": "AI 伺服器代工訂單滿載", "reason_en": "Full capacity in AI server ODM" },
                         { "name_zh": "廣達 (2382)", "name_en": "Quanta (2382)", "reason_zh": "雲端大廠資本支出受惠", "reason_en": "Beneficiary of hyperscaler CapEx" }
                     ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台美半導體產業鏈深化合作，車用與光學儀器製造商迎來轉單",
+                    "title_en": "US-Taiwan Semiconductor Supply Chain Deepening Cooperation, Automotive & Optical Makers Benefit",
+                    "macro_attribution_zh": "系統軟硬體整合與 AIoT 平台需求擴增，促使台灣精密製造與光學儀器供應商拓展跨國專案。",
+                    "macro_attribution_en": "System HW-SW integration and AIoT platform demand expansion drive Taiwanese precision manufacturing to expand global projects.",
+                    "tw_spillover_effect_zh": "工業自動化與智慧工廠解決方案供應商訂單能見度延伸至 2027 年。",
+                    "tw_spillover_effect_en": "Industrial automation and smart factory solution vendors extend order visibility into 2027."
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Neutral",
+                    "volatility": "1.3x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "外資期貨淨空單與台積電 ADR 溢價震盪，權值股進入區間整理",
+                    "title_en": "Foreign Futures Net Shorts and TSM ADR Premium Fluctuating, Large Caps Enter Consolidation",
+                    "macro_attribution_zh": "國際資金在期現貨之間進行短線對沖佈局，台股加權指數於歷史高點附近量縮驚驚漲。",
+                    "macro_attribution_en": "International capital conducts short-term hedging between futures and cash markets; TAIEX consolidates near historical highs.",
+                    "tw_spillover_effect_zh": "中小型題材股與生技、綠能概念輪動表現。",
+                    "tw_spillover_effect_en": "Small-to-mid cap themed stocks, biotech, and green energy sectors take turns outperforming."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "AI 伺服器水冷散熱技術標準底定，相關零組件廠出貨放量",
+                    "title_en": "AI Server Liquid Cooling Standards Settled, Related Component Makers Ramp Up Shipments",
+                    "macro_attribution_zh": "資料中心高功耗需求帶動散熱架構由氣冷全面轉向液冷，台廠供應鏈成為全球軍備競賽贏家。",
+                    "macro_attribution_en": "High power consumption in data centers drives cooling architectures from air to liquid, making Taiwanese suppliers global winners.",
+                    "tw_spillover_effect_zh": "散熱模組與管線接頭廠商營收月增率續創佳績。",
+                    "tw_spillover_effect_en": "Cooling module and fitting makers post continued MoM revenue growth records."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台灣金融科技法規逐步放寬，純網銀與 Web3 創新實驗室加速推動",
+                    "title_en": "Taiwan Fintech Regulations Relaxing, Pure Digital Banks and Web3 Innovation Labs Accelerate",
+                    "macro_attribution_zh": "金管會推動金融創新實驗，鼓勵金融機構與科技團隊合作開發數位資產應用。",
+                    "macro_attribution_en": "FSC promotes financial innovation experiments, encouraging institutions and tech teams to develop digital asset apps."
                 }
             ]
         };
@@ -493,7 +622,7 @@
 
             if (isZh) {
                 document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
-                document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
+                document.getElementById('status-tag').innerText = "2026.09 Top 5 Matrix Active";
                 document.getElementById('label-core-matrix').innerText = "📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)";
                 document.getElementById('label-macro-group').innerText = "1. 🌐 總經與利率流動性 (Macro)";
                 document.getElementById('label-chips-group').innerText = "2. 💻 美台股連動與籌碼 (Chips)";
@@ -519,7 +648,7 @@
                 document.getElementById('robi-send-btn').innerText = "發送";
             } else {
                 document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
-                document.getElementById('status-tag').innerText = "2026.07 Top 5 Matrix Active";
+                document.getElementById('status-tag').innerText = "2026.09 Top 5 Matrix Active";
                 document.getElementById('label-core-matrix').innerText = "📌 CORE METRIC SPECTRUM";
                 document.getElementById('label-macro-group').innerText = "1. 🌐 Macro & Rates Liquidity";
                 document.getElementById('label-chips-group').innerText = "2. 💻 TW & US Equity Chips";
@@ -596,7 +725,6 @@
             }, 600);
         }
 
-        // 初始化載入
         window.onload = function() {
             updateMetricsDisplay(marketData.metrics);
             calculateOverallStats();
