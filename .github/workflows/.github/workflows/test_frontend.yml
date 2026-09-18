@@ -1,6 +1,9 @@
 name: Test Frontend Live Data
 
 on:
+  push:
+    branches:
+      - feature/live-market-data
   workflow_dispatch:
 
 jobs:
