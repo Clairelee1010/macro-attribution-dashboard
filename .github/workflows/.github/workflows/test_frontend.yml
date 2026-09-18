@@ -1,0 +1,133 @@
+name: Test Frontend Live Data
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Start local web server
+        run: |
+          python -m http.server 8000 > server.log 2>&1 &
+          echo $! > server.pid
+          sleep 3
+
+      - name: Verify web server
+        run: |
+          curl --fail http://127.0.0.1:8000/index.html
+          curl --fail http://127.0.0.1:8000/live_market_data.json
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run browser integration test
+        run: |
+          node <<'EOF'
+          const { chromium } = require('playwright');
+
+          (async () => {
+            const browser = await chromium.launch({
+              headless: true
+            });
+
+            const page = await browser.newPage();
+
+            page.on('console', msg => {
+              console.log('BROWSER:', msg.text());
+            });
+
+            page.on('pageerror', error => {
+              console.log('PAGE ERROR:', error.message);
+            });
+
+            await page.goto(
+              'http://127.0.0.1:8000/index.html',
+              { waitUntil: 'networkidle' }
+            );
+
+            await page.waitForTimeout(2000);
+
+            const vixText = await page
+              .locator('#vix-card-val')
+              .innerText();
+
+            console.log('VIX CARD TEXT:', vixText);
+
+            const response = await page.request.get(
+              'http://127.0.0.1:8000/live_market_data.json'
+            );
+
+            if (!response.ok()) {
+              throw new Error(
+                `live_market_data.json HTTP ${response.status()}`
+              );
+            }
+
+            const data = await response.json();
+            const vix = data?.metrics?.VIX;
+
+            if (!vix) {
+              throw new Error('VIX missing from live_market_data.json');
+            }
+
+            if (vix.status !== 'FRESH') {
+              throw new Error(
+                `VIX status is ${vix.status}, expected FRESH`
+              );
+            }
+
+            const expectedVix =
+              Number(vix.value).toFixed(2);
+
+            console.log('EXPECTED LIVE VIX:', expectedVix);
+
+            if (!vixText.includes(expectedVix)) {
+              throw new Error(
+                `Frontend VIX mismatch. Expected ${expectedVix}, got ${vixText}`
+              );
+            }
+
+            await page.screenshot({
+              path: 'frontend-test.png',
+              fullPage: true
+            });
+
+            console.log(
+              'PASS: Frontend successfully loaded live VIX:',
+              expectedVix
+            );
+
+            await browser.close();
+          })().catch(error => {
+            console.error('TEST FAILED:', error);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Upload browser screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-live-data-test
+          path: |
+            frontend-test.png
+            server.log
+          if-no-files-found: warn
