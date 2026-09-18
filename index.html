@@ -1,3 +1,4 @@
+```
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -18,7 +19,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro Attribution & Cross-Market Dashboard</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.5 Full Spectrum</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.6 · P01-000D</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -125,6 +126,47 @@
                         <div id="m-rwatvl" class="text-xs font-bold text-purple-600 mt-0.5">$2.4B</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📡 P01-000D Market Data Status -->
+    <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-cyan-500">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+                <div class="text-xs font-bold text-stone-700 uppercase tracking-wider">📡 Market Data Status</div>
+                <div id="live-last-updated" class="text-[10px] text-stone-400 mt-1">Last Updated: Loading...</div>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+                <span class="text-stone-500">Data Quality</span>
+                <span id="live-data-quality" class="font-bold font-mono text-stone-800">--</span>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-center font-mono">
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">US10Y</div>
+                <div id="live-us10y" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-us10y" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">DXY</div>
+                <div id="live-dxy" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-dxy" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">VIX</div>
+                <div id="live-vix" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-vix" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">BTC</div>
+                <div id="live-btc" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-btc" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">ETH</div>
+                <div id="live-eth" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-eth" class="text-[9px] text-stone-400 mt-1">LOADING</div>
             </div>
         </div>
     </div>
@@ -637,7 +679,10 @@
                 document.getElementById('lbl-stablecoin').innerText = "穩定幣市值";
                 document.getElementById('lbl-rwatvl').innerText = "RWA 美債";
                 document.getElementById('vix-banner').innerText = marketData.global_vix.insight_zh;
-                document.getElementById('vix-desc').innerText = "(Risk-On & Bullish Convergence)";
+                document.getElementById('vix-desc').innerText =
+                    marketData.global_vix.live_change_text
+                        ? `(${marketData.global_vix.live_change_text})`
+                        : "(Loading live VIX...)";
                 document.getElementById('robi-btn-text').innerText = "呼叫 Robi 助理";
                 document.getElementById('robi-welcome-title').innerText = "👋 你好，我是 Robi！";
                 document.getElementById('robi-welcome-desc').innerText = "我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。";
@@ -663,7 +708,10 @@
                 document.getElementById('lbl-stablecoin').innerText = "Stablecoin Cap";
                 document.getElementById('lbl-rwatvl').innerText = "RWA Treasuries";
                 document.getElementById('vix-banner').innerText = marketData.global_vix.insight_en;
-                document.getElementById('vix-desc').innerText = "(Risk-On & Bullish Convergence)";
+                document.getElementById('vix-desc').innerText =
+                    marketData.global_vix.live_change_text
+                        ? `(${marketData.global_vix.live_change_text})`
+                        : "(Loading live VIX...)";
                 document.getElementById('robi-btn-text').innerText = "Call Robi Copilot";
                 document.getElementById('robi-welcome-title').innerText = "👋 Hello, I am Robi!";
                 document.getElementById('robi-welcome-desc').innerText = "I can analyze Fed rate attributions, on-chain RWA Treasury flows, and AI supply chain spillovers for you.";
@@ -726,52 +774,157 @@
         }
 
         // ============================================================
-        // P01-000C — Live Market Data Frontend Binding
+        // P01-000D — Multi-Metric Live Market Data Frontend Binding
         // ============================================================
+        let liveMarketSnapshot = null;
+
+        function formatLiveValue(metricId, metric) {
+            if (!metric || metric.value === null || metric.value === undefined) return '--';
+            const value = Number(metric.value);
+            if (!Number.isFinite(value)) return '--';
+
+            if (metricId === 'US10Y') return `${value.toFixed(3)}%`;
+            if (metricId === 'DXY' || metricId === 'VIX') return value.toFixed(2);
+            if (metricId === 'BTC' || metricId === 'ETH') {
+                return `$${value.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            }
+            return String(value);
+        }
+
+        function renderSourceStatus(metricId, metric) {
+            const id = metricId.toLowerCase();
+            const valueEl = document.getElementById(`live-${id}`);
+            const statusEl = document.getElementById(`status-${id}`);
+            if (valueEl) valueEl.innerText = formatLiveValue(metricId, metric);
+
+            if (statusEl) {
+                const status = metric?.status || 'MISSING';
+                statusEl.innerText = status;
+                statusEl.className =
+                    `text-[9px] mt-1 font-bold ${
+                        status === 'FRESH' ? 'text-emerald-600' :
+                        status === 'STALE' ? 'text-amber-600' :
+                        'text-rose-600'
+                    }`;
+            }
+        }
+
+        function syncLiveMetricToCore(metricId, metric) {
+            if (!metric || metric.status !== 'FRESH' || metric.value === null) return;
+            const formatted = formatLiveValue(metricId, metric);
+
+            if (metricId === 'US10Y') {
+                marketData.metrics.us10y = formatted;
+                const el = document.getElementById('m-us10y');
+                if (el) el.innerText = formatted;
+            }
+
+            if (metricId === 'DXY') {
+                marketData.metrics.dxy = formatted;
+                const el = document.getElementById('m-dxy');
+                if (el) el.innerText = formatted;
+            }
+        }
+
+        function renderLiveVix(vix) {
+            if (!vix || vix.status !== 'FRESH' || vix.value === null) return;
+
+            const liveVix = Number(vix.value);
+            marketData.global_vix.value = liveVix;
+
+            const changeText = vix.change_pct !== null && vix.change_pct !== undefined
+                ? `${Number(vix.change_pct) >= 0 ? '+' : ''}${Number(vix.change_pct).toFixed(2)}% vs previous close`
+                : 'Live';
+
+            marketData.global_vix.live_change_text = changeText;
+            marketData.global_vix.insight_zh =
+                `【Live VIX 市場監控】目前 VIX 為 ${liveVix.toFixed(2)}（${changeText}）。此數值來自自動市場資料管線；歸因敘事將於後續 Intelligence Engine 產生。`;
+            marketData.global_vix.insight_en =
+                `[Live VIX Monitoring] Current VIX is ${liveVix.toFixed(2)} (${changeText}). This value comes from the automated market-data pipeline; attribution narrative will be generated by the later Intelligence Engine.`;
+
+            const vixCard = document.getElementById('vix-card-val');
+            if (vixCard) {
+                const textNode = Array.from(vixCard.childNodes)
+                    .find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = `${liveVix.toFixed(2)} `;
+            }
+
+            const vixDesc = document.getElementById('vix-desc');
+            if (vixDesc) vixDesc.innerText = `(${changeText})`;
+
+            const vixBanner = document.getElementById('vix-banner');
+            if (vixBanner) {
+                vixBanner.innerText = currentLang === 'zh'
+                    ? marketData.global_vix.insight_zh
+                    : marketData.global_vix.insight_en;
+            }
+        }
+
+        function renderPipelineQuality(data) {
+            const metrics = data?.metrics || {};
+            const items = ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH']
+                .map(key => metrics[key])
+                .filter(Boolean);
+
+            const freshCount = items.filter(item => item.status === 'FRESH').length;
+            const quality = items.length ? Math.round((freshCount / items.length) * 100) : 0;
+
+            const qualityEl = document.getElementById('live-data-quality');
+            if (qualityEl) qualityEl.innerText = `${quality}% (${freshCount}/${items.length})`;
+
+            const timestamps = items
+                .map(item => item.fetched_at)
+                .filter(Boolean)
+                .map(value => new Date(value))
+                .filter(value => !Number.isNaN(value.getTime()));
+
+            const lastUpdatedEl = document.getElementById('live-last-updated');
+            if (lastUpdatedEl) {
+                if (timestamps.length) {
+                    const latest = new Date(Math.max(...timestamps.map(d => d.getTime())));
+                    lastUpdatedEl.innerText = `Last Updated: ${latest.toLocaleString()}`;
+                } else {
+                    lastUpdatedEl.innerText = 'Last Updated: unavailable';
+                }
+            }
+        }
+
         async function loadLiveMarketData() {
             try {
-                const response = await fetch('./live_market_data.json?ts=' + Date.now());
+                const response = await fetch('./live_market_data.json?ts=' + Date.now(), {
+                    cache: 'no-store'
+                });
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
                 const data = await response.json();
-                const vix = data?.metrics?.VIX;
+                liveMarketSnapshot = data;
 
-                if (vix && vix.status === 'FRESH' && vix.value !== null) {
-                    const liveVix = Number(vix.value);
+                const metrics = data?.metrics || {};
+                ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH'].forEach(metricId => {
+                    renderSourceStatus(metricId, metrics[metricId]);
+                    syncLiveMetricToCore(metricId, metrics[metricId]);
+                });
 
-                    // Keep the shared in-memory model synchronized so language
-                    // switching and Robi responses do not restore 17.8.
-                    marketData.global_vix.value = liveVix;
-                    marketData.global_vix.insight_zh =
-                        `【Live VIX 市場監控】目前 VIX 為 ${liveVix.toFixed(2)}。此數值來自自動市場資料管線；歸因敘事將於後續 Intelligence Engine 產生。`;
-                    marketData.global_vix.insight_en =
-                        `[Live VIX Monitoring] Current VIX is ${liveVix.toFixed(2)}. This value comes from the automated market-data pipeline; attribution narrative will be generated by the later Intelligence Engine.`;
+                renderLiveVix(metrics.VIX);
+                renderPipelineQuality(data);
 
-                    const vixCard = document.getElementById('vix-card-val');
-                    if (vixCard) {
-                        const textNode = Array.from(vixCard.childNodes)
-                            .find(node => node.nodeType === Node.TEXT_NODE);
-                        if (textNode) textNode.nodeValue = `${liveVix.toFixed(2)} `;
-                    }
-
-                    const vixDesc = document.getElementById('vix-desc');
-                    if (vixDesc) {
-                        vixDesc.innerText = vix.change_pct !== null
-                            ? `(${Number(vix.change_pct) >= 0 ? '+' : ''}${Number(vix.change_pct).toFixed(2)}% vs previous close)`
-                            : '(Live)';
-                    }
-
-                    const vixBanner = document.getElementById('vix-banner');
-                    if (vixBanner) {
-                        vixBanner.innerText = currentLang === 'zh'
-                            ? marketData.global_vix.insight_zh
-                            : marketData.global_vix.insight_en;
-                    }
-
-                    console.log('VIX live data loaded:', liveVix, vix.change_pct);
-                }
+                console.log('P01-000D live market data loaded:', metrics);
             } catch (error) {
                 console.error('Live market data loading failed:', error);
+
+                ['us10y', 'dxy', 'vix', 'btc', 'eth'].forEach(id => {
+                    const statusEl = document.getElementById(`status-${id}`);
+                    if (statusEl) {
+                        statusEl.innerText = 'ERROR';
+                        statusEl.className = 'text-[9px] mt-1 font-bold text-rose-600';
+                    }
+                });
+
+                const qualityEl = document.getElementById('live-data-quality');
+                if (qualityEl) qualityEl.innerText = 'ERROR';
+
+                const updatedEl = document.getElementById('live-last-updated');
+                if (updatedEl) updatedEl.innerText = 'Last Updated: data unavailable';
             }
         }
 
@@ -784,3 +937,4 @@
     </script>
 </body>
 </html>
+```
