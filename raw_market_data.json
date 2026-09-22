@@ -1,8 +1,15 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "generated_at": "2026-09-22T16:46:22.903982+00:00",
-  "metrics": {
-    "US10Y": {
+  "expected_metrics": [
+    "US10Y",
+    "DXY",
+    "VIX",
+    "BTC",
+    "ETH"
+  ],
+  "records": [
+    {
       "metric_id": "US10Y",
       "name": "US 10-Year Treasury Yield",
       "category": "MACRO",
@@ -18,7 +25,7 @@
       "status": "FRESH",
       "error": "Primary FRED failed; fallback used: 'DATE'"
     },
-    "DXY": {
+    {
       "metric_id": "DXY",
       "name": "US Dollar Index",
       "category": "FX",
@@ -34,7 +41,7 @@
       "status": "FRESH",
       "error": null
     },
-    "VIX": {
+    {
       "metric_id": "VIX",
       "name": "CBOE Volatility Index",
       "category": "RISK",
@@ -50,7 +57,7 @@
       "status": "FRESH",
       "error": null
     },
-    "BTC": {
+    {
       "metric_id": "BTC",
       "name": "Bitcoin",
       "category": "CRYPTO",
@@ -66,7 +73,7 @@
       "status": "FRESH",
       "error": null
     },
-    "ETH": {
+    {
       "metric_id": "ETH",
       "name": "Ethereum",
       "category": "CRYPTO",
@@ -82,14 +89,5 @@
       "status": "FRESH",
       "error": null
     }
-  },
-  "data_quality": {
-    "total": 5,
-    "fresh": 5,
-    "stale": 0,
-    "missing": 0,
-    "error": 0,
-    "score": 1.0,
-    "status": "SUCCESS"
-  }
+  ]
 }

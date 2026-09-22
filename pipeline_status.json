@@ -1,14 +1,24 @@
 {
-  "pipeline": "P01-000B",
-  "started_at": "2026-09-18T06:54:35.553472+00:00",
-  "completed_at": "2026-09-18T06:54:36.376488+00:00",
+  "pipeline": "P01-002",
+  "started_at": "2026-09-22T16:46:19.065746+00:00",
+  "completed_at": "2026-09-22T16:46:22.903982+00:00",
   "status": "SUCCESS",
   "data_quality": {
     "total": 5,
     "fresh": 5,
     "stale": 0,
+    "missing": 0,
     "error": 0,
     "score": 1.0,
     "status": "SUCCESS"
-  }
+  },
+  "expected_metrics": [
+    "US10Y",
+    "DXY",
+    "VIX",
+    "BTC",
+    "ETH"
+  ],
+  "raw_schema_version": "2.0",
+  "raw_schema_valid": true
 }
