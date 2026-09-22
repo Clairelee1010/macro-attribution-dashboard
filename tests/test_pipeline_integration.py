@@ -6,3 +6,5 @@ def test_outputs(monkeypatch,tmp_path):
     monkeypatch.chdir(tmp_path); monkeypatch.setattr(update_market_data,"fetch_metric",fake); update_market_data.main()
     d=json.loads(Path("live_market_data.json").read_text())
     assert d["schema_version"]=="1.0" and set(d["metrics"])==set(update_market_data.EXPECTED_METRICS) and d["data_quality"]["fresh"]==5
+    raw=json.loads(Path("raw_market_data.json").read_text())
+    assert raw["schema_version"]=="2.0" and len(raw["records"])==5
