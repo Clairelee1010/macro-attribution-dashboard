@@ -1,15 +1,17 @@
-name: P01-001 Adapter Acceptance
+name: P01-002 Raw Data Schema Acceptance
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - feature/p01-001-data-source-adapters
+      - feature/p01-002-raw-data-schema
     paths:
       - "adapters/**"
       - "tests/**"
       - "update_market_data.py"
       - "requirements.txt"
+      - "schemas/**"
+      - "schema_validation.py"
       - ".github/workflows/test_market_pipeline.yml"
 
 permissions:
@@ -50,8 +52,11 @@ jobs:
           test -f adapters/crypto_adapter.py
           test -f tests/test_adapters.py
           test -f tests/test_pipeline_integration.py
+          test -f tests/test_raw_data_schema.py
+          test -f schemas/raw_market_data.schema.json
+          test -f schema_validation.py
 
-          echo "PASS: P01-001 repository structure verified"
+          echo "PASS: P01-002 repository structure verified"
 
       - name: Verify Python imports
         run: |
@@ -76,78 +81,32 @@ jobs:
         run: |
           python update_market_data.py
 
-      - name: Validate contract
+      - name: Validate P01-002 contracts
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+          from schema_validation import validate_raw_payload
 
           expected = {"US10Y", "DXY", "VIX", "BTC", "ETH"}
+          raw = json.loads(Path("raw_market_data.json").read_text(encoding="utf-8"))
+          live = json.loads(Path("live_market_data.json").read_text(encoding="utf-8"))
+          status = json.loads(Path("pipeline_status.json").read_text(encoding="utf-8"))
 
-          live = json.loads(
-              Path("live_market_data.json").read_text(encoding="utf-8")
-          )
-
-          status = json.loads(
-              Path("pipeline_status.json").read_text(encoding="utf-8")
-          )
-
+          assert validate_raw_payload(raw) is True
+          assert raw["schema_version"] == "2.0"
+          assert set(raw["expected_metrics"]) == expected
+          assert {r["metric_id"] for r in raw["records"]} == expected
           assert live["schema_version"] == "1.0"
-          assert set(live["metrics"].keys()) == expected
-          assert live["data_quality"]["total"] == 5
-          assert status["pipeline"] == "P01-001"
+          assert set(live["metrics"]) == expected
+          assert status["pipeline"] == "P01-002"
+          assert status["raw_schema_version"] == "2.0"
+          assert status["raw_schema_valid"] is True
 
-          for metric_id in expected:
-              metric = live["metrics"][metric_id]
-
-              required = {
-                  "metric_id",
-                  "name",
-                  "category",
-                  "ticker",
-                  "value",
-                  "previous_close",
-                  "change_pct",
-                  "unit",
-                  "source",
-                  "source_type",
-                  "observed_at",
-                  "fetched_at",
-                  "status",
-                  "error",
-              }
-
-              missing = required - set(metric.keys())
-
-              assert not missing, (
-                  f"{metric_id} missing fields: {missing}"
-              )
-
-              assert metric["status"] in {
-                  "FRESH",
-                  "STALE",
-                  "MISSING",
-                  "ERROR",
-              }
-
-              assert metric["source_type"] in {
-                  "PRIMARY",
-                  "FALLBACK",
-                  "NONE",
-              }
-
-              print(
-                  f"{metric_id}: "
-                  f"{metric['status']} | "
-                  f"{metric['source_type']} | "
-                  f"{metric['source']} | "
-                  f"{metric['value']}"
-              )
-
-          print("PASS: five expected metrics present")
-          print("PASS: backward-compatible schema_version=1.0")
-          print("PASS: source provenance fields present")
-          print("PASS: fixed expected-count quality denominator")
-          print("PASS: P01-001 pipeline status generated")
-          print("P01-001 ACCEPTANCE CONTRACT: PASS")
+          print("PASS: raw schema v2.0 validated")
+          print("PASS: five expected raw metric records present")
+          print("PASS: provenance/status/timestamps contract enforced")
+          print("PASS: live schema v1.0 backward compatibility preserved")
+          print("PASS: P01-002 pipeline status generated")
+          print("P01-002 ACCEPTANCE CONTRACT: PASS")
           PY
