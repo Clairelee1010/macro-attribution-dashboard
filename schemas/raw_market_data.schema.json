@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clairelee1010.github.io/macro-attribution-dashboard/schemas/raw_market_data.schema.json",
+  "title": "P01-002 Raw Market Data Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "expected_metrics", "records"],
+  "properties": {
+    "schema_version": {"const": "2.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "expected_metrics": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/rawMetric"}
+    }
+  },
+  "$defs": {
+    "nullableNumber": {"type": ["number", "null"]},
+    "nullableString": {"type": ["string", "null"]},
+    "rawMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric_id", "name", "category", "ticker", "value", "previous_close",
+        "change_pct", "unit", "source", "source_type", "observed_at", "fetched_at",
+        "status", "error"
+      ],
+      "properties": {
+        "metric_id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1},
+        "ticker": {"$ref": "#/$defs/nullableString"},
+        "value": {"$ref": "#/$defs/nullableNumber"},
+        "previous_close": {"$ref": "#/$defs/nullableNumber"},
+        "change_pct": {"$ref": "#/$defs/nullableNumber"},
+        "unit": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["PRIMARY", "FALLBACK", "NONE"]},
+        "observed_at": {"$ref": "#/$defs/nullableString"},
+        "fetched_at": {"type": "string", "format": "date-time"},
+        "status": {"enum": ["FRESH", "STALE", "MISSING", "ERROR"]},
+        "error": {"$ref": "#/$defs/nullableString"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"enum": ["FRESH", "STALE"]}}},
+          "then": {"properties": {"value": {"type": "number"}, "observed_at": {"type": "string", "format": "date-time"}}}
+        },
+        {
+          "if": {"properties": {"source_type": {"const": "NONE"}}},
+          "then": {"properties": {"status": {"enum": ["MISSING", "ERROR"]}}}
+        }
+      ]
+    }
+  }
+}
