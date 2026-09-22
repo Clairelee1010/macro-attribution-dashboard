@@ -2,8 +2,11 @@ name: Daily Data Update
 
 on:
   schedule:
+    # UTC 01:00 = Taiwan 09:00
     - cron: '0 1 * * *'
+
   workflow_dispatch:
+
   push:
     branches:
       - main
@@ -59,8 +62,11 @@ jobs:
 
           for filename in required:
               path = Path(filename)
+
               if not path.exists():
-                  raise FileNotFoundError(f"Missing generated file: {filename}")
+                  raise FileNotFoundError(
+                      f"Missing generated file: {filename}"
+                  )
 
               with path.open("r", encoding="utf-8") as f:
                   json.load(f)
@@ -70,10 +76,36 @@ jobs:
           print("PASS: All generated JSON files are valid.")
           PY
 
+      - name: Diagnose generated artifacts
+        run: |
+          echo "=== Generated files ==="
+          ls -la data.json live_market_data.json raw_market_data.json pipeline_status.json
+
+          echo ""
+          echo "=== Git status ==="
+          git status --short
+
+          echo ""
+          echo "=== raw_market_data.json existence check ==="
+          if [ -f raw_market_data.json ]; then
+            echo "PASS: raw_market_data.json exists"
+          else
+            echo "FAIL: raw_market_data.json missing"
+            exit 1
+          fi
+
+          echo ""
+          echo "=== Git ignore check ==="
+          git check-ignore -v raw_market_data.json || echo "PASS: raw_market_data.json is not ignored"
+
       - name: Auto Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "🤖 Auto-update dashboard and live market data [skip ci]"
-         file_pattern: "data.json live_market_data.json raw_market_data.json pipeline_status.json"
+          file_pattern: |
+            data.json
+            live_market_data.json
+            raw_market_data.json
+            pipeline_status.json
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
