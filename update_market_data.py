@@ -3,6 +3,7 @@ from datetime import datetime,timezone
 from pathlib import Path
 from adapters import FredAdapter,MarketAdapter,CryptoAdapter
 from adapters.base_adapter import BaseAdapter
+from schema_validation import validate_raw_payload
 EXPECTED_METRICS=("US10Y","DXY","VIX","BTC","ETH")
 
 def err(mid,name,cat,unit,e): return BaseAdapter.result(mid,name,cat,unit,"Unavailable","NONE",status="ERROR",error=str(e))
@@ -36,7 +37,20 @@ def main():
         metrics[m]=fetch_metric(m); x=metrics[m]
         print(f"{m}: {x['status']} | {x['source_type']} | {x['source']} | {x['value']}")
     q=calculate_quality(metrics); done=datetime.now(timezone.utc)
+
+    # P01-002 canonical raw-data envelope. Records preserve adapter provenance and
+    # are validated before downstream consumers receive them.
+    raw_payload={
+        "schema_version":"2.0",
+        "generated_at":done.isoformat(),
+        "expected_metrics":list(EXPECTED_METRICS),
+        "records":[metrics[m] for m in EXPECTED_METRICS],
+    }
+    validate_raw_payload(raw_payload)
+    Path("raw_market_data.json").write_text(json.dumps(raw_payload,ensure_ascii=False,indent=2),encoding="utf-8")
+
+    # Backward-compatible v1.0 contract consumed by the current frontend.
     Path("live_market_data.json").write_text(json.dumps({"schema_version":"1.0","generated_at":done.isoformat(),"metrics":metrics,"data_quality":q},ensure_ascii=False,indent=2),encoding="utf-8")
-    Path("pipeline_status.json").write_text(json.dumps({"pipeline":"P01-001","started_at":start.isoformat(),"completed_at":done.isoformat(),"status":q["status"],"data_quality":q,"expected_metrics":list(EXPECTED_METRICS)},ensure_ascii=False,indent=2),encoding="utf-8")
+    Path("pipeline_status.json").write_text(json.dumps({"pipeline":"P01-002","started_at":start.isoformat(),"completed_at":done.isoformat(),"status":q["status"],"data_quality":q,"expected_metrics":list(EXPECTED_METRICS),"raw_schema_version":"2.0","raw_schema_valid":True},ensure_ascii=False,indent=2),encoding="utf-8")
     if q["fresh"]==0: raise RuntimeError("No expected metric returned FRESH data.")
 if __name__=="__main__": main()
