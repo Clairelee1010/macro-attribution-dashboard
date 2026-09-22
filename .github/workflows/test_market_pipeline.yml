@@ -1,18 +1,28 @@
-name: Test Live Market Pipeline
+name: P01-001 Adapter Acceptance
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - feature/p01-001-data-source-adapters
+    paths:
+      - "adapters/**"
+      - "tests/**"
+      - "update_market_data.py"
+      - "requirements.txt"
+      - ".github/workflows/test_market_pipeline.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  test-market-data:
-
+  acceptance:
     runs-on: ubuntu-latest
 
-    steps:
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -24,30 +34,120 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install yfinance
+          pip install -r requirements.txt
 
-      - name: Run live market pipeline
+      - name: Verify repository structure
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          echo "Repository files:"
+          find . -maxdepth 3 -type f | sort
+
+          test -f update_market_data.py
+          test -f adapters/__init__.py
+          test -f adapters/base_adapter.py
+          test -f adapters/fred_adapter.py
+          test -f adapters/market_adapter.py
+          test -f adapters/crypto_adapter.py
+          test -f tests/test_adapters.py
+          test -f tests/test_pipeline_integration.py
+
+          echo "PASS: P01-001 repository structure verified"
+
+      - name: Verify Python imports
+        run: |
+          python - <<'PY'
+          import sys
+          print("Python path:")
+          for path in sys.path:
+              print(path)
+
+          import adapters
+          import update_market_data
+
+          print("PASS: adapters import")
+          print("PASS: update_market_data import")
+          PY
+
+      - name: Deterministic tests
+        run: |
+          python -m pytest tests -q
+
+      - name: Live adapter pipeline
         run: |
           python update_market_data.py
 
-      - name: Show generated market data
+      - name: Validate contract
         run: |
-          echo "===== LIVE MARKET DATA ====="
-          cat live_market_data.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
 
-          echo "===== PIPELINE STATUS ====="
-          cat pipeline_status.json
+          expected = {"US10Y", "DXY", "VIX", "BTC", "ETH"}
 
-      - name: Commit test data
-        run: |
-          git config user.name "market-data-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          live = json.loads(
+              Path("live_market_data.json").read_text(encoding="utf-8")
+          )
 
-          git add live_market_data.json pipeline_status.json
+          status = json.loads(
+              Path("pipeline_status.json").read_text(encoding="utf-8")
+          )
 
-          if git diff --cached --quiet; then
-            echo "No market data changes."
-          else
-            git commit -m "data: update live market data [skip ci]"
-            git push
-          fi
+          assert live["schema_version"] == "1.0"
+          assert set(live["metrics"].keys()) == expected
+          assert live["data_quality"]["total"] == 5
+          assert status["pipeline"] == "P01-001"
+
+          for metric_id in expected:
+              metric = live["metrics"][metric_id]
+
+              required = {
+                  "metric_id",
+                  "name",
+                  "category",
+                  "ticker",
+                  "value",
+                  "previous_close",
+                  "change_pct",
+                  "unit",
+                  "source",
+                  "source_type",
+                  "observed_at",
+                  "fetched_at",
+                  "status",
+                  "error",
+              }
+
+              missing = required - set(metric.keys())
+
+              assert not missing, (
+                  f"{metric_id} missing fields: {missing}"
+              )
+
+              assert metric["status"] in {
+                  "FRESH",
+                  "STALE",
+                  "MISSING",
+                  "ERROR",
+              }
+
+              assert metric["source_type"] in {
+                  "PRIMARY",
+                  "FALLBACK",
+                  "NONE",
+              }
+
+              print(
+                  f"{metric_id}: "
+                  f"{metric['status']} | "
+                  f"{metric['source_type']} | "
+                  f"{metric['source']} | "
+                  f"{metric['value']}"
+              )
+
+          print("PASS: five expected metrics present")
+          print("PASS: backward-compatible schema_version=1.0")
+          print("PASS: source provenance fields present")
+          print("PASS: fixed expected-count quality denominator")
+          print("PASS: P01-001 pipeline status generated")
+          print("P01-001 ACCEPTANCE CONTRACT: PASS")
+          PY
