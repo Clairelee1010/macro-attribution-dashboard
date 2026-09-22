@@ -1,53 +1,36 @@
-name: Test Live Market Pipeline
-
+name: P01-001 Adapter Acceptance
 on:
   workflow_dispatch:
-
+  push:
+    branches: [feature/p01-001-data-source-adapters]
+    paths: ["adapters/**","tests/**","update_market_data.py","requirements.txt",".github/workflows/test_market_pipeline.yml"]
 permissions:
-  contents: write
-
+  contents: read
 jobs:
-  test-market-data:
-
+  acceptance:
     runs-on: ubuntu-latest
-
     steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install dependencies
+      - run: pip install -r requirements.txt
+      - name: Deterministic tests
+        run: pytest -q
+      - name: Live adapter pipeline
+        run: python update_market_data.py
+      - name: Validate contract
         run: |
-          python -m pip install --upgrade pip
-          pip install yfinance
-
-      - name: Run live market pipeline
-        run: |
-          python update_market_data.py
-
-      - name: Show generated market data
-        run: |
-          echo "===== LIVE MARKET DATA ====="
-          cat live_market_data.json
-
-          echo "===== PIPELINE STATUS ====="
-          cat pipeline_status.json
-
-      - name: Commit test data
-        run: |
-          git config user.name "market-data-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add live_market_data.json pipeline_status.json
-
-          if git diff --cached --quiet; then
-            echo "No market data changes."
-          else
-            git commit -m "data: update live market data [skip ci]"
-            git push
-          fi
+          python - <<'PY'
+          import json
+          d=json.load(open("live_market_data.json"))
+          expected={"US10Y","DXY","VIX","BTC","ETH"}
+          assert d["schema_version"]=="1.0"
+          assert set(d["metrics"])==expected
+          assert d["data_quality"]["total"]==5
+          for k,v in d["metrics"].items():
+              assert v["status"] in {"FRESH","STALE","MISSING","ERROR"}
+              assert v["source_type"] in {"PRIMARY","FALLBACK","NONE"}
+              print(k,v["status"],v["source_type"],v["source"],v["value"])
+          print("P01-001 ACCEPTANCE CONTRACT: PASS")
+          PY
