@@ -14,6 +14,7 @@ on:
       - 'data.json'
       - 'live_market_data.json'
       - 'raw_market_data.json'
+      - 'normalized_market_data.json'
       - 'pipeline_status.json'
 
 permissions:
@@ -83,6 +84,7 @@ jobs:
               "data.json",
               "live_market_data.json",
               "raw_market_data.json",
+              "normalized_market_data.json",
               "pipeline_status.json",
           ]
 
@@ -115,6 +117,7 @@ jobs:
             data.json \
             live_market_data.json \
             raw_market_data.json \
+            normalized_market_data.json \
             pipeline_status.json
 
           echo ""
@@ -138,6 +141,16 @@ jobs:
           git check-ignore -v raw_market_data.json \
             || echo "PASS: raw_market_data.json is not ignored"
 
+          echo ""
+          echo "=== normalized_market_data.json existence check ==="
+
+          if [ -f normalized_market_data.json ]; then
+            echo "PASS: normalized_market_data.json exists"
+          else
+            echo "FAIL: normalized_market_data.json missing"
+            exit 1
+          fi
+
       # ------------------------------------------------------------
       # 8. Explicitly stage generated artifacts
       #
@@ -151,6 +164,7 @@ jobs:
             data.json \
             live_market_data.json \
             raw_market_data.json \
+            normalized_market_data.json \
             pipeline_status.json
 
           echo "=== Git status after staging ==="
@@ -169,6 +183,17 @@ jobs:
             echo "PASS: raw_market_data.json is already tracked and unchanged"
           else
             echo "FAIL: raw_market_data.json is neither staged nor tracked"
+            exit 1
+          fi
+
+          echo "=== Verify normalized_market_data.json is staged ==="
+
+          if git diff --cached --name-only | grep -Fxq "normalized_market_data.json"; then
+            echo "PASS: normalized_market_data.json is staged"
+          elif git ls-files --error-unmatch normalized_market_data.json >/dev/null 2>&1; then
+            echo "PASS: normalized_market_data.json is already tracked and unchanged"
+          else
+            echo "FAIL: normalized_market_data.json is neither staged nor tracked"
             exit 1
           fi
 
