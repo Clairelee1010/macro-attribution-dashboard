@@ -1,0 +1,379 @@
+name: P01-000D Frontend Acceptance Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/live-market-data
+    paths:
+      - "index.html"
+      - "live_market_data.json"
+      - ".github/workflows/test_frontend.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Start local HTTP server
+        run: |
+          python -m http.server 8000 > server.log 2>&1 &
+          echo $! > server.pid
+          sleep 2
+
+      - name: Verify frontend files are reachable
+        run: |
+          curl --fail http://127.0.0.1:8000/index.html > /dev/null
+          curl --fail http://127.0.0.1:8000/live_market_data.json > /dev/null
+          echo "PASS: index.html and live_market_data.json are reachable"
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Create P01-000D acceptance test
+        run: |
+          cat > frontend_acceptance_test.js <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          const EXPECTED_METRICS = [
+            { key: 'US10Y', valueId: 'live-us10y', statusId: 'status-us10y' },
+            { key: 'DXY',   valueId: 'live-dxy',   statusId: 'status-dxy' },
+            { key: 'VIX',   valueId: 'live-vix',   statusId: 'status-vix' },
+            { key: 'BTC',   valueId: 'live-btc',   statusId: 'status-btc' },
+            { key: 'ETH',   valueId: 'live-eth',   statusId: 'status-eth' }
+          ];
+
+          function fail(message) {
+            throw new Error(`FAIL: ${message}`);
+          }
+
+          (async () => {
+            const browser = await chromium.launch({
+              headless: true
+            });
+
+            const page = await browser.newPage({
+              viewport: { width: 1440, height: 1200 }
+            });
+
+            const criticalErrors = [];
+
+            page.on('pageerror', error => {
+              criticalErrors.push(error.message);
+              console.error('BROWSER PAGE ERROR:', error.message);
+            });
+
+            page.on('console', msg => {
+              console.log(`BROWSER ${msg.type().toUpperCase()}: ${msg.text()}`);
+            });
+
+            console.log('');
+            console.log('==========================================');
+            console.log('P01-000D FINAL ACCEPTANCE TEST');
+            console.log('==========================================');
+
+            const response = await page.goto(
+              'http://127.0.0.1:8000/index.html',
+              {
+                waitUntil: 'networkidle',
+                timeout: 30000
+              }
+            );
+
+            if (!response || !response.ok()) {
+              fail('Dashboard page could not be loaded');
+            }
+
+            console.log('PASS: Dashboard loaded');
+
+            const jsonResponse = await page.request.get(
+              'http://127.0.0.1:8000/live_market_data.json'
+            );
+
+            if (!jsonResponse.ok()) {
+              fail('live_market_data.json could not be loaded');
+            }
+
+            const data = await jsonResponse.json();
+
+            console.log('PASS: live_market_data.json loaded');
+
+            const metrics = data.metrics || data;
+
+            await page.waitForFunction(() => {
+              const el = document.getElementById('live-data-quality');
+              return el &&
+                     el.textContent.trim() !== '--' &&
+                     !el.textContent.includes('Loading');
+            }, null, { timeout: 15000 });
+
+            console.log('');
+            console.log('--- METRIC VALUE TESTS ---');
+
+            for (const metric of EXPECTED_METRICS) {
+              const source = metrics[metric.key];
+
+              if (!source) {
+                fail(`${metric.key} missing from JSON`);
+              }
+
+              const element = page.locator(`#${metric.valueId}`);
+
+              await element.waitFor({
+                state: 'visible',
+                timeout: 10000
+              });
+
+              const dashboardValue =
+                (await element.textContent()).trim();
+
+              if (
+                dashboardValue === '' ||
+                dashboardValue === '--' ||
+                dashboardValue.toUpperCase() === 'N/A'
+              ) {
+                fail(`${metric.key} dashboard value not rendered`);
+              }
+
+              const expectedValue = Number(source.value);
+
+              if (!Number.isFinite(expectedValue)) {
+                fail(`${metric.key} JSON value is invalid`);
+              }
+
+              /*
+               * UI values may include:
+               * %, $, commas, change %, etc.
+               * Therefore compare the first numeric value
+               * displayed with the JSON source value.
+               */
+
+              const match = dashboardValue
+                .replace(/,/g, '')
+                .match(/-?\d+(?:\.\d+)?/);
+
+              if (!match) {
+                fail(`${metric.key} dashboard value is not numeric: ${dashboardValue}`);
+              }
+
+              const renderedNumber = Number(match[0]);
+
+              /*
+               * Dashboard formatting may round values.
+               * Use tolerance based on displayed precision.
+               */
+
+              const tolerance =
+                Math.max(Math.abs(expectedValue) * 0.001, 0.02);
+
+              if (
+                Math.abs(renderedNumber - expectedValue) >
+                tolerance
+              ) {
+                fail(
+                  `${metric.key} mismatch. JSON=${expectedValue}, Dashboard=${dashboardValue}`
+                );
+              }
+
+              console.log(
+                `PASS: ${metric.key} value | JSON=${expectedValue} | UI=${dashboardValue}`
+              );
+            }
+
+            console.log('');
+            console.log('--- SOURCE STATUS TESTS ---');
+
+            let freshCount = 0;
+
+            for (const metric of EXPECTED_METRICS) {
+              const statusText =
+                (await page
+                  .locator(`#${metric.statusId}`)
+                  .textContent())
+                  .trim()
+                  .toUpperCase();
+
+              if (statusText !== 'FRESH') {
+                fail(
+                  `${metric.key} status expected FRESH but received ${statusText}`
+                );
+              }
+
+              freshCount++;
+
+              console.log(
+                `PASS: ${metric.key} status = FRESH`
+              );
+            }
+
+            console.log('');
+            console.log('--- DATA QUALITY TEST ---');
+
+            const qualityText =
+              (await page
+                .locator('#live-data-quality')
+                .textContent())
+                .trim();
+
+            if (!qualityText.includes('100%')) {
+              fail(
+                `Data Quality expected 100%, received ${qualityText}`
+              );
+            }
+
+            if (freshCount !== 5) {
+              fail(
+                `Expected 5 FRESH metrics, received ${freshCount}`
+              );
+            }
+
+            console.log(
+              `PASS: Data Quality = ${qualityText}`
+            );
+
+            console.log('');
+            console.log('--- LAST UPDATED TEST ---');
+
+            const lastUpdated =
+              (await page
+                .locator('#live-last-updated')
+                .textContent())
+                .trim();
+
+            if (
+              !lastUpdated ||
+              lastUpdated.includes('Loading') ||
+              lastUpdated.includes('Unavailable') ||
+              lastUpdated.includes('--')
+            ) {
+              fail(
+                `Last Updated invalid: ${lastUpdated}`
+              );
+            }
+
+            console.log(
+              `PASS: ${lastUpdated}`
+            );
+
+            console.log('');
+            console.log('--- CORE DASHBOARD BINDING ---');
+
+            const coreUS10Y =
+              (await page.locator('#m-us10y').textContent()).trim();
+
+            const coreDXY =
+              (await page.locator('#m-dxy').textContent()).trim();
+
+            const vixCard =
+              (await page.locator('#vix-card-val').textContent())
+                .trim()
+                .replace(/\s+/g, ' ');
+
+            console.log(`CORE US10Y: ${coreUS10Y}`);
+            console.log(`CORE DXY:   ${coreDXY}`);
+            console.log(`VIX CARD:   ${vixCard}`);
+
+            if (coreUS10Y === '4.28%') {
+              fail('Core US10Y still showing hard-coded fallback value');
+            }
+
+            if (coreDXY === '104.2') {
+              fail('Core DXY still showing hard-coded fallback value');
+            }
+
+            if (vixCard.startsWith('17.8')) {
+              fail('VIX card still showing hard-coded fallback value');
+            }
+
+            console.log('PASS: Core dashboard uses live bindings');
+
+            console.log('');
+            console.log('--- LANGUAGE SWITCH TEST ---');
+
+            const vixBefore =
+              (await page.locator('#live-vix').textContent()).trim();
+
+            await page.locator('#lang-en').click();
+
+            await page.waitForTimeout(300);
+
+            const vixAfter =
+              (await page.locator('#live-vix').textContent()).trim();
+
+            if (vixBefore !== vixAfter) {
+              fail(
+                `Language switch changed live VIX value: ${vixBefore} -> ${vixAfter}`
+              );
+            }
+
+            console.log(
+              'PASS: Language switch preserves live market value'
+            );
+
+            await page.screenshot({
+              path: 'p01-000d-acceptance.png',
+              fullPage: true
+            });
+
+            console.log('');
+            console.log('PASS: Screenshot generated');
+
+            if (criticalErrors.length > 0) {
+              fail(
+                `Browser reported ${criticalErrors.length} JavaScript error(s): ${criticalErrors.join(' | ')}`
+              );
+            }
+
+            console.log('');
+            console.log('==========================================');
+            console.log('P01-000D FINAL RESULT: PASS');
+            console.log('5/5 LIVE METRICS VERIFIED');
+            console.log('DATA QUALITY VERIFIED');
+            console.log('FRONTEND LIVE BINDING VERIFIED');
+            console.log('==========================================');
+            console.log('');
+
+            await browser.close();
+          })().catch(async error => {
+            console.error('');
+            console.error('==========================================');
+            console.error('P01-000D FINAL RESULT: FAIL');
+            console.error(error.message);
+            console.error('==========================================');
+            process.exit(1);
+          });
+          EOF
+
+      - name: Run P01-000D frontend acceptance test
+        run: node frontend_acceptance_test.js
+
+      - name: Upload acceptance screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p01-000d-frontend-acceptance
+          path: |
+            p01-000d-acceptance.png
+            server.log
+          if-no-files-found: warn
+          retention-days: 7
