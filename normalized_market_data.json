@@ -1,0 +1,154 @@
+{
+  "schema_version": "3.0",
+  "source_schema_version": "2.0",
+  "generated_at": "2026-09-22T16:46:22.903982+00:00",
+  "expected_metrics": [
+    "US10Y",
+    "DXY",
+    "VIX",
+    "BTC",
+    "ETH"
+  ],
+  "records": [
+    {
+      "metric_id": "US10Y",
+      "canonical_name": "US 10-Year Treasury Yield",
+      "category": "MACRO",
+      "raw": {
+        "value": 4.978,
+        "unit": "%"
+      },
+      "normalized": {
+        "value": 0.04978,
+        "unit": "DECIMAL",
+        "precision": 8
+      },
+      "transformation": {
+        "type": "PERCENT_TO_DECIMAL",
+        "formula": "raw_value / 100",
+        "deterministic": true
+      },
+      "provenance": {
+        "ticker": "^TNX",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "FALLBACK",
+        "observed_at": "2026-09-22T05:00:00+00:00",
+        "fetched_at": "2026-09-22T16:46:22.560767+00:00",
+        "status": "FRESH",
+        "error": "Primary FRED failed; fallback used: 'DATE'"
+      }
+    },
+    {
+      "metric_id": "DXY",
+      "canonical_name": "US Dollar Index",
+      "category": "FX",
+      "raw": {
+        "value": 100.675,
+        "unit": "INDEX"
+      },
+      "normalized": {
+        "value": 100.675,
+        "unit": "INDEX",
+        "precision": 6
+      },
+      "transformation": {
+        "type": "IDENTITY",
+        "formula": "raw_value",
+        "deterministic": true
+      },
+      "provenance": {
+        "ticker": "DX-Y.NYB",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-09-22T04:00:00+00:00",
+        "fetched_at": "2026-09-22T16:46:22.642074+00:00",
+        "status": "FRESH",
+        "error": null
+      }
+    },
+    {
+      "metric_id": "VIX",
+      "canonical_name": "CBOE Volatility Index",
+      "category": "RISK",
+      "raw": {
+        "value": 14.26,
+        "unit": "INDEX"
+      },
+      "normalized": {
+        "value": 14.26,
+        "unit": "INDEX",
+        "precision": 6
+      },
+      "transformation": {
+        "type": "IDENTITY",
+        "formula": "raw_value",
+        "deterministic": true
+      },
+      "provenance": {
+        "ticker": "^VIX",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-09-22T05:00:00+00:00",
+        "fetched_at": "2026-09-22T16:46:22.683913+00:00",
+        "status": "FRESH",
+        "error": null
+      }
+    },
+    {
+      "metric_id": "BTC",
+      "canonical_name": "Bitcoin",
+      "category": "CRYPTO",
+      "raw": {
+        "value": 86273.7579,
+        "unit": "USD"
+      },
+      "normalized": {
+        "value": 86273.7579,
+        "unit": "USD",
+        "precision": 4
+      },
+      "transformation": {
+        "type": "IDENTITY",
+        "formula": "raw_value",
+        "deterministic": true
+      },
+      "provenance": {
+        "ticker": "BTC-USD",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-09-22T16:44:30+00:00",
+        "fetched_at": "2026-09-22T16:46:22.780631+00:00",
+        "status": "FRESH",
+        "error": null
+      }
+    },
+    {
+      "metric_id": "ETH",
+      "canonical_name": "Ethereum",
+      "category": "CRYPTO",
+      "raw": {
+        "value": 2738.6332,
+        "unit": "USD"
+      },
+      "normalized": {
+        "value": 2738.6332,
+        "unit": "USD",
+        "precision": 4
+      },
+      "transformation": {
+        "type": "IDENTITY",
+        "formula": "raw_value",
+        "deterministic": true
+      },
+      "provenance": {
+        "ticker": "ETH-USD",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-09-22T16:44:50+00:00",
+        "fetched_at": "2026-09-22T16:46:22.903250+00:00",
+        "status": "FRESH",
+        "error": null
+      }
+    }
+  ]
+}
