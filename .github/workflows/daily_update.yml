@@ -2,12 +2,18 @@ name: Daily Data Update
 
 on:
   schedule:
-    - cron: '0 1 * * *' # 每天 UTC 01:00（台灣時間早上 9 點）自動執行
-  workflow_dispatch: # 支援在 GitHub 介面上手動一鍵觸發
+    - cron: '0 1 * * *' # UTC 01:00 = Taiwan 09:00
+
+  workflow_dispatch:
+
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - feature/live-market-data
     paths-ignore:
-      - 'data.json' # 重要：防止 Commit data.json 後再次觸發此 Workflow 造成無限迴圈
+      - 'data.json'
+      - 'live_market_data.json'
+      - 'pipeline_status.json'
 
 permissions:
   contents: write
@@ -15,6 +21,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,15 +34,39 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install yfinance; fi
 
-      - name: Run RAG pipeline script
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install yfinance
+          fi
+
+      # Existing dashboard pipeline
+      - name: Run existing dashboard data pipeline
         run: python update_data.py
+
+      # P01-000 automated live market pipeline
+      - name: Run live market data pipeline
+        run: python update_market_data.py
+
+      # Basic output validation
+      - name: Validate generated files
+        run: |
+          test -f data.json
+          test -f live_market_data.json
+          test -f pipeline_status.json
+
+          echo "PASS: data.json generated"
+          echo "PASS: live_market_data.json generated"
+          echo "PASS: pipeline_status.json generated"
 
       - name: Auto Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Auto-update dashboard data.json via RAG Pipeline [skip ci]"
-          file_pattern: data.json
+          commit_message: "🤖 Auto-update dashboard and live market data [skip ci]"
+          file_pattern: |
+            data.json
+            live_market_data.json
+            pipeline_status.json
           git_user_name: "github-actions[bot]"
           git_user_email: "github-actions[bot]@users.noreply.github.com"
