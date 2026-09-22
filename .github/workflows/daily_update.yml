@@ -59,13 +59,10 @@ jobs:
           echo "PASS: live_market_data.json generated"
           echo "PASS: pipeline_status.json generated"
 
-      - name: Auto Commit and Push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "🤖 Auto-update dashboard and live market data [skip ci]"
-          file_pattern: |
-            data.json
-            live_market_data.json
-            pipeline_status.json
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+    -name: Auto Commit and Push changes
+    uses: stefanzweifel/git-auto-commit-action@v5
+    with:
+    commit_message: "🤖 Auto-update dashboard and live market data [skip ci]"
+    file_pattern: "data.json live_market_data.json pipeline_status.json"
+    git_user_name: "github-actions[bot]"
+    git_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
