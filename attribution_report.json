@@ -1,14 +1,14 @@
 {
   "schema_version": "7.0",
   "source_schema_version": "6.0",
-  "generated_at": "2026-09-23T02:58:56.817171+00:00",
+  "generated_at": "2026-09-23T08:42:33.937614+00:00",
   "engine": "P01-007",
   "rules_version": "1.0",
-  "regime": "RISK_OFF",
-  "regime_score": -0.2588,
-  "regime_confidence": 0.43,
-  "attribution_confidence": 0.108,
-  "evidence_agreement": 0.6341,
+  "regime": "NEUTRAL",
+  "regime_score": 0.0909,
+  "regime_confidence": 0.25,
+  "attribution_confidence": 0.1,
+  "evidence_agreement": 0.0,
   "drivers": [
     {
       "metric_id": "VIX",
@@ -18,19 +18,8 @@
       "signal_confidence": 1.0,
       "weight": 1.2,
       "weighted_score": 1.2,
-      "contribution_share": 0.3659,
-      "relation_to_regime": "CONFLICTING"
-    },
-    {
-      "metric_id": "US10Y",
-      "signal_id": "ELEVATED_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_confidence": 0.9,
-      "weight": 1.2,
-      "weighted_score": -1.08,
-      "contribution_share": 0.3293,
-      "relation_to_regime": "SUPPORTING"
+      "contribution_share": 0.5455,
+      "relation_to_regime": "CONTEXT"
     },
     {
       "metric_id": "DXY",
@@ -40,35 +29,13 @@
       "signal_confidence": 1.0,
       "weight": 1.0,
       "weighted_score": -1.0,
-      "contribution_share": 0.3049,
-      "relation_to_regime": "SUPPORTING"
+      "contribution_share": 0.4545,
+      "relation_to_regime": "CONTEXT"
     }
   ],
-  "supporting_evidence": [
-    {
-      "metric_id": "US10Y",
-      "signal_id": "ELEVATED_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_confidence": 0.9,
-      "weight": 1.2,
-      "weighted_score": -1.08,
-      "contribution_share": 0.3293,
-      "relation_to_regime": "SUPPORTING"
-    },
-    {
-      "metric_id": "DXY",
-      "signal_id": "FIRM_DOLLAR",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0,
-      "contribution_share": 0.3049,
-      "relation_to_regime": "SUPPORTING"
-    }
-  ],
-  "conflicting_evidence": [
+  "supporting_evidence": [],
+  "conflicting_evidence": [],
+  "contextual_evidence": [
     {
       "metric_id": "VIX",
       "signal_id": "LOW_VOLATILITY",
@@ -77,12 +44,27 @@
       "signal_confidence": 1.0,
       "weight": 1.2,
       "weighted_score": 1.2,
-      "contribution_share": 0.3659,
-      "relation_to_regime": "CONFLICTING"
+      "contribution_share": 0.5455,
+      "relation_to_regime": "CONTEXT"
+    },
+    {
+      "metric_id": "DXY",
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_confidence": 1.0,
+      "weight": 1.0,
+      "weighted_score": -1.0,
+      "contribution_share": 0.4545,
+      "relation_to_regime": "CONTEXT"
     }
   ],
-  "contextual_evidence": [],
   "excluded": [
+    {
+      "metric_id": "US10Y",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
     {
       "metric_id": "BTC",
       "direction": "UNKNOWN",
@@ -95,13 +77,13 @@
     }
   ],
   "summary": {
-    "eligible_drivers": 3,
-    "reported_drivers": 3,
-    "supporting_drivers": 2,
-    "conflicting_drivers": 1,
-    "contextual_drivers": 0,
-    "excluded_signals": 2,
-    "contribution_share_total": 1.0001
+    "eligible_drivers": 2,
+    "reported_drivers": 2,
+    "supporting_drivers": 0,
+    "conflicting_drivers": 0,
+    "contextual_drivers": 2,
+    "excluded_signals": 3,
+    "contribution_share_total": 1.0
   },
   "semantics": {
     "attribution": "Deterministic evidence attribution describing which eligible signals align with or conflict with the classified market regime. It does not establish causality.",

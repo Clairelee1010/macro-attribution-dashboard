@@ -2,27 +2,28 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-09-23T02:58:56.817171+00:00",
+  "generated_at": "2026-09-23T08:42:33.937614+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
     {
       "metric_id": "US10Y",
-      "signal_id": "ELEVATED_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "confidence": 0.9,
-      "value": 0.04968,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.65,
+      "value": 0.04963,
       "unit": "DECIMAL",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "FALLBACK",
         "quality_reasons": [
+          "STALE_OBSERVATION",
           "FALLBACK_SOURCE_USED"
         ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "DXY",
@@ -30,7 +31,7 @@
       "direction": "RISK_OFF",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 100.661,
+      "value": 100.784,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -46,7 +47,7 @@
       "direction": "RISK_ON",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 14.21,
+      "value": 14.15,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -62,7 +63,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 86472.8238,
+      "value": 86178.6523,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -78,7 +79,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2758.3558,
+      "value": 2745.7151,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -92,9 +93,9 @@
   "summary": {
     "total": 5,
     "risk_on": 1,
-    "risk_off": 2,
+    "risk_off": 1,
     "neutral": 0,
-    "unknown": 2
+    "unknown": 3
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",

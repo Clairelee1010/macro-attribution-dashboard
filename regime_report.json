@@ -1,25 +1,16 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-09-23T02:58:56.817171+00:00",
+  "generated_at": "2026-09-23T08:42:33.937614+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
-  "regime": "RISK_OFF",
-  "score": -0.2588,
-  "confidence": 0.43,
-  "coverage": 0.6,
+  "regime": "NEUTRAL",
+  "score": 0.0909,
+  "confidence": 0.25,
+  "coverage": 0.4,
   "contradiction": true,
   "drivers": [
     {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "ELEVATED_YIELD",
-      "confidence": 0.9,
-      "weight": 1.2,
-      "weighted_score": -1.08
-    },
-    {
       "metric_id": "DXY",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
@@ -38,38 +29,14 @@
       "weighted_score": 1.2
     }
   ],
-  "supporting": [
-    {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "ELEVATED_YIELD",
-      "confidence": 0.9,
-      "weight": 1.2,
-      "weighted_score": -1.08
-    },
-    {
-      "metric_id": "DXY",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "FIRM_DOLLAR",
-      "confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0
-    }
-  ],
-  "contradicting": [
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "signal_id": "LOW_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": 1.2
-    }
-  ],
+  "supporting": [],
+  "contradicting": [],
   "excluded": [
+    {
+      "metric_id": "US10Y",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
     {
       "metric_id": "BTC",
       "direction": "UNKNOWN",
@@ -82,11 +49,11 @@
     }
   ],
   "summary": {
-    "eligible_signals": 3,
-    "excluded_signals": 2,
+    "eligible_signals": 2,
+    "excluded_signals": 3,
     "total_signals": 5,
-    "eligible_weight": 3.4,
-    "weighted_sum": -0.88
+    "eligible_weight": 2.2,
+    "weighted_sum": 0.2
   },
   "semantics": {
     "regime": [
