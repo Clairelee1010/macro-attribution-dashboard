@@ -1,0 +1,96 @@
+name: P01-007 Attribution Engine Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-007-attribution-engine
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify P01-007 repository structure
+        run: |
+          test -f attribution_engine.py
+          test -f attribution_validation.py
+          test -f config/attribution_rules.json
+          test -f schemas/attribution_report.schema.json
+          test -f tests/test_attribution_engine.py
+          echo "PASS: P01-007 repository structure verified"
+
+      - name: Verify Attribution Engine imports
+        run: |
+          python -c "from attribution_engine import build_attribution_report; from attribution_validation import validate_attribution_report; print('PASS: P01-007 imports')"
+
+      - name: Run deterministic tests
+        run: |
+          python -m pytest tests -q
+
+      - name: Run live market pipeline
+        run: |
+          python update_market_data.py
+
+      - name: Validate P01-007 artifacts
+        run: |
+          python -c '
+          import json
+          from pathlib import Path
+
+          required = [
+              "raw_market_data.json",
+              "normalized_market_data.json",
+              "data_quality_report.json",
+              "signal_report.json",
+              "regime_report.json",
+              "attribution_report.json",
+              "pipeline_status.json",
+          ]
+
+          for filename in required:
+              path = Path(filename)
+              if not path.exists():
+                  raise FileNotFoundError(filename)
+
+              json.loads(path.read_text(encoding="utf-8"))
+              print("PASS:", filename)
+
+          attribution = json.loads(
+              Path("attribution_report.json").read_text(encoding="utf-8")
+          )
+
+          assert attribution["schema_version"] == "7.0"
+          assert attribution["engine"] == "P01-007"
+          assert attribution["regime"] in {
+              "RISK_ON",
+              "NEUTRAL",
+              "RISK_OFF",
+              "UNKNOWN",
+          }
+          assert 0 <= attribution["attribution_confidence"] <= 1
+          assert "causality" in attribution["semantics"]["attribution"]
+
+          print("P01-007 ACCEPTANCE CONTRACT: PASS")
+          '

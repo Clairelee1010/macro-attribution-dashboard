@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "minimum_driver_share": 0.05,
+  "confidence": {
+    "contradiction_penalty": 0.15,
+    "unknown_regime_cap": 0.25
+  },
+  "semantics": {
+    "attribution": "Deterministic evidence attribution describing which eligible signals align with or conflict with the classified market regime. It does not establish causality.",
+    "contribution_share": "Relative share of absolute weighted signal evidence among eligible drivers; not causal impact or outcome probability.",
+    "confidence": "Reliability of the attribution evidence given regime confidence, coverage, and agreement; not causal probability.",
+    "recommendation": "The engine does not emit BUY/SELL/LONG/SHORT/PAY/EXECUTE recommendations."
+  }
+}

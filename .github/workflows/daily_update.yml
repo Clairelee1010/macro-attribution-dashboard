@@ -2,20 +2,19 @@ name: Daily Data Update
 
 on:
   schedule:
-    # UTC 01:00 = Taiwan 09:00
-    - cron: '0 1 * * *'
-
+    - cron: '0 1 * * *' # UTC 01:00 = Taiwan 09:00
   workflow_dispatch:
-
   push:
-    branches:
-      - main
+    branches: [main]
     paths-ignore:
       - 'data.json'
       - 'live_market_data.json'
       - 'raw_market_data.json'
       - 'normalized_market_data.json'
       - 'data_quality_report.json'
+      - 'signal_report.json'
+      - 'regime_report.json'
+      - 'attribution_report.json'
       - 'pipeline_status.json'
 
 permissions:
@@ -24,221 +23,45 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # ------------------------------------------------------------
-      # 1. Checkout repository
-      # ------------------------------------------------------------
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # ------------------------------------------------------------
-      # 2. Python runtime
-      # ------------------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-
-      # ------------------------------------------------------------
-      # 3. Install dependencies
-      # ------------------------------------------------------------
+          python-version: '3.11'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            pip install yfinance
-          fi
-
-      # ------------------------------------------------------------
-      # 4. Existing dashboard data pipeline
-      # ------------------------------------------------------------
+          pip install -r requirements.txt
       - name: Run dashboard data pipeline
-        run: |
-          python update_data.py
-
-      # ------------------------------------------------------------
-      # 5. P01-001 / P01-002 market data pipeline
-      #
-      # Generates:
-      # - live_market_data.json
-      # - raw_market_data.json
-      # - pipeline_status.json
-      # ------------------------------------------------------------
-      - name: Run live market data pipeline
-        run: |
-          python update_market_data.py
-
-      # ------------------------------------------------------------
-      # 6. Validate generated JSON artifacts
-      # ------------------------------------------------------------
+        run: python update_data.py
+      - name: Run intelligence pipeline through P01-007
+        run: python update_market_data.py
       - name: Validate generated files
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-
-          required = [
-              "data.json",
-              "live_market_data.json",
-              "raw_market_data.json",
-              "normalized_market_data.json",
-              "data_quality_report.json",
-              "pipeline_status.json",
-          ]
-
-          print("=== P01-004 Generated Artifact Validation ===")
-
+          required=["data.json","live_market_data.json","raw_market_data.json","normalized_market_data.json","data_quality_report.json","signal_report.json","regime_report.json","attribution_report.json","pipeline_status.json"]
           for filename in required:
-              path = Path(filename)
-
-              if not path.exists():
-                  raise FileNotFoundError(
-                      f"Missing generated file: {filename}"
-                  )
-
-              with path.open("r", encoding="utf-8") as f:
-                  json.load(f)
-
+              p=Path(filename)
+              if not p.exists(): raise FileNotFoundError(filename)
+              json.loads(p.read_text(encoding="utf-8"))
               print(f"PASS: {filename}")
-
-          print("PASS: All generated JSON files are valid.")
+          print("PASS: P01-007 production artifacts are valid JSON")
           PY
-
-      # ------------------------------------------------------------
-      # 7. P01-004 diagnostic
-      # ------------------------------------------------------------
-      - name: Diagnose generated artifacts
-        run: |
-          echo "=== Generated files ==="
-
-          ls -la \
-            data.json \
-            live_market_data.json \
-            raw_market_data.json \
-            normalized_market_data.json \
-            data_quality_report.json \
-            pipeline_status.json
-
-          echo ""
-          echo "=== Git status before staging ==="
-
-          git status --short
-
-          echo ""
-          echo "=== raw_market_data.json existence check ==="
-
-          if [ -f raw_market_data.json ]; then
-            echo "PASS: raw_market_data.json exists"
-          else
-            echo "FAIL: raw_market_data.json missing"
-            exit 1
-          fi
-
-          echo ""
-          echo "=== Git ignore check ==="
-
-          git check-ignore -v raw_market_data.json \
-            || echo "PASS: raw_market_data.json is not ignored"
-
-          echo ""
-          echo "=== normalized_market_data.json existence check ==="
-
-          if [ -f normalized_market_data.json ]; then
-            echo "PASS: normalized_market_data.json exists"
-          else
-            echo "FAIL: normalized_market_data.json missing"
-            exit 1
-          fi
-
-          echo ""
-          echo "=== data_quality_report.json existence check ==="
-
-          if [ -f data_quality_report.json ]; then
-            echo "PASS: data_quality_report.json exists"
-          else
-            echo "FAIL: data_quality_report.json missing"
-            exit 1
-          fi
-
-      # ------------------------------------------------------------
-      # 8. Explicitly stage generated artifacts
-      #
-      # Important:
-      # raw_market_data.json is a NEW P01-002 artifact.
-      # Explicit git add guarantees that it is tracked.
-      # ------------------------------------------------------------
       - name: Stage generated artifacts
         run: |
-          git add -- \
-            data.json \
-            live_market_data.json \
-            raw_market_data.json \
-            normalized_market_data.json \
-            data_quality_report.json \
-            pipeline_status.json
-
-          echo "=== Git status after staging ==="
+          git add -- data.json live_market_data.json raw_market_data.json normalized_market_data.json data_quality_report.json signal_report.json regime_report.json attribution_report.json pipeline_status.json
           git status --short
-
-          echo ""
-          echo "=== Staged generated files ==="
-          git diff --cached --name-status
-
-          echo ""
-          echo "=== Verify raw_market_data.json is staged ==="
-
-          if git diff --cached --name-only | grep -Fxq "raw_market_data.json"; then
-            echo "PASS: raw_market_data.json is staged"
-          elif git ls-files --error-unmatch raw_market_data.json >/dev/null 2>&1; then
-            echo "PASS: raw_market_data.json is already tracked and unchanged"
-          else
-            echo "FAIL: raw_market_data.json is neither staged nor tracked"
-            exit 1
-          fi
-
-          echo "=== Verify normalized_market_data.json is staged ==="
-
-          if git diff --cached --name-only | grep -Fxq "normalized_market_data.json"; then
-            echo "PASS: normalized_market_data.json is staged"
-          elif git ls-files --error-unmatch normalized_market_data.json >/dev/null 2>&1; then
-            echo "PASS: normalized_market_data.json is already tracked and unchanged"
-          else
-            echo "FAIL: normalized_market_data.json is neither staged nor tracked"
-            exit 1
-          fi
-
-          echo "=== Verify data_quality_report.json is staged ==="
-
-          if git diff --cached --name-only | grep -Fxq "data_quality_report.json"; then
-            echo "PASS: data_quality_report.json is staged"
-          elif git ls-files --error-unmatch data_quality_report.json >/dev/null 2>&1; then
-            echo "PASS: data_quality_report.json is already tracked and unchanged"
-          else
-            echo "FAIL: data_quality_report.json is neither staged nor tracked"
-            exit 1
-          fi
-
-      # ------------------------------------------------------------
-      # 9. Commit and push generated artifacts
-      # ------------------------------------------------------------
       - name: Commit and push generated artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           if git diff --cached --quiet; then
             echo "No generated data changes to commit."
             exit 0
           fi
-
-          git commit \
-            -m "🤖 Auto-update dashboard and live market data [skip ci]"
-
+          git commit -m "🤖 Auto-update dashboard and intelligence data [skip ci]"
           git push origin HEAD:main
-
-          echo ""
-          echo "PASS: Generated artifacts committed and pushed to main."
