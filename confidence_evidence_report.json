@@ -1,0 +1,72 @@
+{
+  "schema_version": "9.0",
+  "source_schema_version": "8.0",
+  "generated_at": "2026-09-23T23:29:56.408024+00:00",
+  "engine": "P01-009",
+  "rules_version": "1.0",
+  "confidence_score": 0.7356,
+  "confidence_level": "MEDIUM",
+  "evidence_coverage": 0.6,
+  "components": {
+    "data_quality": 1.0,
+    "evidence_coverage": 0.6,
+    "source_reliability": 0.95,
+    "signal_agreement": 1.0,
+    "attribution_support": 0.348,
+    "risk_confidence": 0.2088
+  },
+  "evidence": [
+    {
+      "evidence_id": "DATA_QUALITY",
+      "upstream_engine": "P01-004",
+      "artifact": "data_quality_report.json",
+      "status": "PASS",
+      "value": 1.0
+    },
+    {
+      "evidence_id": "MARKET_REGIME",
+      "upstream_engine": "P01-006",
+      "artifact": "regime_report.json",
+      "status": "RISK_OFF",
+      "value": 0.58
+    },
+    {
+      "evidence_id": "ATTRIBUTION",
+      "upstream_engine": "P01-007",
+      "artifact": "attribution_report.json",
+      "status": "AVAILABLE",
+      "value": 0.348
+    },
+    {
+      "evidence_id": "MARKET_RISK",
+      "upstream_engine": "P01-008",
+      "artifact": "market_risk_report.json",
+      "status": "HIGH",
+      "value": 0.2088
+    }
+  ],
+  "traceability": {
+    "data_quality": "data_quality_report.json",
+    "market_regime": "regime_report.json",
+    "attribution": "attribution_report.json",
+    "market_risk": "market_risk_report.json"
+  },
+  "limitations": [
+    "EXCLUDED_SIGNALS_PRESENT",
+    "FALLBACK_SOURCE_USED",
+    "LIMITED_EVIDENCE_COVERAGE",
+    "LOW_ATTRIBUTION_SUPPORT"
+  ],
+  "summary": {
+    "expected_observations": 5,
+    "eligible_evidence": 3,
+    "missing_or_excluded": 2,
+    "excluded_signals": 2
+  },
+  "semantics": {
+    "confidence_score": "Deterministic reliability score from current data quality, evidence coverage, source provenance, signal agreement, attribution support, and upstream risk confidence. It is not a probability of a future market outcome.",
+    "evidence_coverage": "Share of expected market observations currently represented by eligible downstream evidence; not causal certainty.",
+    "traceability": "Each evidence item identifies its upstream engine and artifact so an analyst can inspect the basis of the assessment.",
+    "recommendation": "The engine does not emit BUY/SELL/LONG/SHORT/PAY/EXECUTE recommendations."
+  }
+}
