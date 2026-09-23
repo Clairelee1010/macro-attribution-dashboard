@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "score": {
+    "base": 50.0,
+    "regime_adjustment": {
+      "RISK_ON": -15.0,
+      "NEUTRAL": 0.0,
+      "RISK_OFF": 20.0,
+      "UNKNOWN": 10.0
+    },
+    "driver_weight": 30.0,
+    "low_confidence_penalty": 10.0,
+    "low_coverage_penalty": 10.0
+  },
+  "levels": {
+    "LOW": {
+      "max_exclusive": 35.0
+    },
+    "MODERATE": {
+      "min_inclusive": 35.0,
+      "max_exclusive": 65.0
+    },
+    "HIGH": {
+      "min_inclusive": 65.0
+    }
+  },
+  "confidence": {
+    "unknown_regime_cap": 0.35
+  },
+  "semantics": {
+    "risk_score": "Deterministic composite assessment from current regime, attributed evidence, coverage, and confidence. Higher values indicate higher assessed market risk.",
+    "risk_level": "Descriptive classification of current assessed market risk; not a forecast of future returns.",
+    "confidence": "Reliability of the risk assessment given upstream evidence and coverage; not probability of a future market outcome.",
+    "recommendation": "The engine does not emit BUY/SELL/LONG/SHORT/PAY/EXECUTE recommendations."
+  }
+}
