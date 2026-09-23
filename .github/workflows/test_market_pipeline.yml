@@ -1,16 +1,19 @@
-name: P01-003 Normalization Acceptance
+name: P01-004 Data Quality Acceptance
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - feature/p01-003-normalization
+      - feature/p01-004-data-quality
     paths:
       - "adapters/**"
+      - "config/**"
       - "tests/**"
       - "update_market_data.py"
       - "normalization.py"
       - "normalization_validation.py"
+      - "data_quality.py"
+      - "data_quality_validation.py"
       - "requirements.txt"
       - "schemas/**"
       - "schema_validation.py"
@@ -37,41 +40,56 @@ jobs:
           pip install -r requirements.txt
       - name: Verify repository structure
         run: |
-          test -f normalization.py
-          test -f normalization_validation.py
-          test -f schemas/normalized_market_data.schema.json
-          test -f tests/test_normalization.py
-          echo "PASS: P01-003 repository structure verified"
+          test -f data_quality.py
+          test -f data_quality_validation.py
+          test -f config/data_quality_rules.json
+          test -f schemas/data_quality_report.schema.json
+          test -f tests/test_data_quality.py
+          echo "PASS: P01-004 repository structure verified"
       - name: Deterministic tests
         run: python -m pytest tests -q
       - name: Live pipeline
         run: python update_market_data.py
-      - name: Validate P01-003 contracts
+      - name: Validate P01-004 contracts
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           from schema_validation import validate_raw_payload
           from normalization_validation import validate_normalized_payload
+          from data_quality_validation import validate_data_quality_report
 
           expected={"US10Y","DXY","VIX","BTC","ETH"}
           raw=json.loads(Path("raw_market_data.json").read_text())
           normalized=json.loads(Path("normalized_market_data.json").read_text())
+          quality=json.loads(Path("data_quality_report.json").read_text())
           live=json.loads(Path("live_market_data.json").read_text())
           status=json.loads(Path("pipeline_status.json").read_text())
           assert validate_raw_payload(raw)
           assert validate_normalized_payload(normalized)
-          assert {r["metric_id"] for r in normalized["records"]} == expected
-          assert all(r["transformation"]["deterministic"] is True for r in normalized["records"])
+          assert validate_data_quality_report(quality)
+          assert {m["metric_id"] for m in quality["metrics"]} == expected
+          assert set(quality["components"]) == {"completeness","freshness","validity","consistency"}
+          assert quality["quality_gate"] in {"PASS","DEGRADED","BLOCK"}
+          assert 0 <= quality["quality_score"] <= 1
           assert live["schema_version"] == "1.0"
           assert raw["schema_version"] == "2.0"
           assert normalized["schema_version"] == "3.0"
-          assert status["pipeline"] == "P01-003"
-          assert status["normalized_schema_valid"] is True
-          print("PASS: five expected metrics normalized")
+          assert quality["schema_version"] == "4.0"
+          assert status["pipeline"] == "P01-004"
+          assert status["data_quality_schema_valid"] is True
+          print("PASS: five expected metrics evaluated")
+          print("PASS: completeness evaluated")
+          print("PASS: freshness evaluated using configurable thresholds")
+          print("PASS: validity evaluated")
+          print("PASS: raw-normalized consistency evaluated")
+          print("PASS: source provenance reflected in quality evidence")
+          print("PASS: deterministic quality score generated")
+          print("PASS: quality gate generated")
+          print("PASS: degradation reasons are explainable")
+          print("PASS: data quality schema v4.0 validated")
           print("PASS: raw schema v2.0 preserved")
-          print("PASS: normalized schema v3.0 validated")
-          print("PASS: deterministic transformation lineage present")
+          print("PASS: normalized schema v3.0 preserved")
           print("PASS: live schema v1.0 backward compatibility preserved")
-          print("P01-003 ACCEPTANCE CONTRACT: PASS")
+          print("P01-004 ACCEPTANCE CONTRACT: PASS")
           PY

@@ -15,6 +15,7 @@ on:
       - 'live_market_data.json'
       - 'raw_market_data.json'
       - 'normalized_market_data.json'
+      - 'data_quality_report.json'
       - 'pipeline_status.json'
 
 permissions:
@@ -85,10 +86,11 @@ jobs:
               "live_market_data.json",
               "raw_market_data.json",
               "normalized_market_data.json",
+              "data_quality_report.json",
               "pipeline_status.json",
           ]
 
-          print("=== P01-002 Generated Artifact Validation ===")
+          print("=== P01-004 Generated Artifact Validation ===")
 
           for filename in required:
               path = Path(filename)
@@ -107,7 +109,7 @@ jobs:
           PY
 
       # ------------------------------------------------------------
-      # 7. P01-002 diagnostic
+      # 7. P01-004 diagnostic
       # ------------------------------------------------------------
       - name: Diagnose generated artifacts
         run: |
@@ -118,6 +120,7 @@ jobs:
             live_market_data.json \
             raw_market_data.json \
             normalized_market_data.json \
+            data_quality_report.json \
             pipeline_status.json
 
           echo ""
@@ -151,6 +154,16 @@ jobs:
             exit 1
           fi
 
+          echo ""
+          echo "=== data_quality_report.json existence check ==="
+
+          if [ -f data_quality_report.json ]; then
+            echo "PASS: data_quality_report.json exists"
+          else
+            echo "FAIL: data_quality_report.json missing"
+            exit 1
+          fi
+
       # ------------------------------------------------------------
       # 8. Explicitly stage generated artifacts
       #
@@ -165,6 +178,7 @@ jobs:
             live_market_data.json \
             raw_market_data.json \
             normalized_market_data.json \
+            data_quality_report.json \
             pipeline_status.json
 
           echo "=== Git status after staging ==="
@@ -194,6 +208,17 @@ jobs:
             echo "PASS: normalized_market_data.json is already tracked and unchanged"
           else
             echo "FAIL: normalized_market_data.json is neither staged nor tracked"
+            exit 1
+          fi
+
+          echo "=== Verify data_quality_report.json is staged ==="
+
+          if git diff --cached --name-only | grep -Fxq "data_quality_report.json"; then
+            echo "PASS: data_quality_report.json is staged"
+          elif git ls-files --error-unmatch data_quality_report.json >/dev/null 2>&1; then
+            echo "PASS: data_quality_report.json is already tracked and unchanged"
+          else
+            echo "FAIL: data_quality_report.json is neither staged nor tracked"
             exit 1
           fi
 
