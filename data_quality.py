@@ -19,8 +19,13 @@ def _finite(value):
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
 
-def load_rules(path=DEFAULT_RULES_PATH):
-    return json.loads(Path(path).read_text(encoding="utf-8"))
+def load_rules(path=None):
+    if path is None:
+        path = Path(__file__).resolve().parent / "config" / "data_quality_rules.json"
+    else:
+        path = Path(path)
+
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _expected_normalized(raw_value, transformation, precision):
