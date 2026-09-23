@@ -1,0 +1,57 @@
+name: P01-006 Market Regime Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-006-market-regime
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Verify P01-006 repository structure
+        run: |
+          test -f market_regime.py
+          test -f regime_validation.py
+          test -f config/regime_rules.json
+          test -f schemas/regime_report.schema.json
+          test -f tests/test_market_regime.py
+          echo "PASS: P01-006 repository structure verified"
+      - name: Run deterministic tests
+        run: python -m pytest tests -q
+      - name: Run live market pipeline
+        run: python update_market_data.py
+      - name: Validate P01-006 artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          required=["raw_market_data.json","normalized_market_data.json","data_quality_report.json","signal_report.json","regime_report.json","pipeline_status.json"]
+          for filename in required:
+              path=Path(filename)
+              if not path.exists(): raise FileNotFoundError(filename)
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"PASS: {filename}")
+          regime=json.loads(Path("regime_report.json").read_text(encoding="utf-8"))
+          assert regime["schema_version"] == "6.0"
+          assert regime["engine"] == "P01-006"
+          assert regime["regime"] in {"RISK_ON","NEUTRAL","RISK_OFF","UNKNOWN"}
+          print("P01-006 ACCEPTANCE CONTRACT: PASS")
+          PY
