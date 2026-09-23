@@ -1,0 +1,161 @@
+name: P01-005 Signal Engine Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-005-signal-engine
+    paths:
+      - 'signal_engine.py'
+      - 'signal_validation.py'
+      - 'signal_report.json'
+      - 'update_market_data.py'
+      - 'config/**'
+      - 'schemas/**'
+      - 'tests/**'
+      - '.github/workflows/test_signal_engine.yml'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'signal_engine.py'
+      - 'signal_validation.py'
+      - 'signal_report.json'
+      - 'update_market_data.py'
+      - 'config/**'
+      - 'schemas/**'
+      - 'tests/**'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+          pip install pytest jsonschema
+
+      - name: Verify P01-005 repository structure
+        run: |
+          test -f signal_engine.py
+          test -f signal_validation.py
+          test -f signal_report.json
+          test -f update_market_data.py
+
+          test -d config
+          test -d schemas
+          test -d tests
+
+          echo "PASS: P01-005 core repository structure verified"
+
+      - name: Verify Signal Engine imports
+        run: |
+          python - <<'PY'
+          import signal_engine
+          import signal_validation
+
+          print("PASS: signal_engine import")
+          print("PASS: signal_validation import")
+          PY
+
+      - name: Run deterministic tests
+        run: |
+          python -m pytest tests -q
+
+      - name: Run live market pipeline
+        run: |
+          python update_market_data.py
+
+      - name: Verify Signal Engine artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required = [
+              "raw_market_data.json",
+              "normalized_market_data.json",
+              "data_quality_report.json",
+              "signal_report.json",
+          ]
+
+          for filename in required:
+              path = Path(filename)
+
+              if not path.exists():
+                  raise FileNotFoundError(
+                      f"Missing P01-005 artifact: {filename}"
+                  )
+
+              with path.open("r", encoding="utf-8") as f:
+                  json.load(f)
+
+              print(f"PASS: {filename}")
+
+          print("PASS: P01-005 artifacts generated and valid JSON")
+          PY
+
+      - name: Validate Signal Report contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("signal_report.json")
+
+          with path.open("r", encoding="utf-8") as f:
+              payload = json.load(f)
+
+          if not isinstance(payload, dict):
+              raise AssertionError(
+                  "signal_report.json must contain a JSON object"
+              )
+
+          if "schema_version" not in payload:
+              raise AssertionError(
+                  "signal_report.json missing schema_version"
+              )
+
+          if "generated_at" not in payload:
+              raise AssertionError(
+                  "signal_report.json missing generated_at"
+              )
+
+          print(
+              "PASS: signal_report.json basic contract verified"
+          )
+          PY
+
+      - name: P01-005 Acceptance Summary
+        run: |
+          echo "========================================"
+          echo "P01-005 SIGNAL ENGINE ACCEPTANCE"
+          echo "========================================"
+          echo "PASS: Repository structure"
+          echo "PASS: Signal Engine imports"
+          echo "PASS: Deterministic tests"
+          echo "PASS: Live pipeline"
+          echo "PASS: Signal artifacts"
+          echo "PASS: Signal report contract"
+          echo ""
+          echo "P01-005 ACCEPTANCE CONTRACT: PASS"
+          echo "========================================"

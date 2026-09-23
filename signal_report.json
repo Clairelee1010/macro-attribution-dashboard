@@ -1,0 +1,103 @@
+{
+  "schema_version": "5.0",
+  "source_schema_version": "3.0",
+  "quality_schema_version": "4.0",
+  "generated_at": "2026-09-23T02:58:56.817171+00:00",
+  "engine": "P01-005",
+  "rules_version": "1.0",
+  "signals": [
+    {
+      "metric_id": "US10Y",
+      "signal_id": "ELEVATED_YIELD",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "confidence": 0.9,
+      "value": 0.04968,
+      "unit": "DECIMAL",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "FALLBACK",
+        "quality_reasons": [
+          "FALLBACK_SOURCE_USED"
+        ]
+      },
+      "reason": null
+    },
+    {
+      "metric_id": "DXY",
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "confidence": 1.0,
+      "value": 100.661,
+      "unit": "INDEX",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "quality_reasons": []
+      },
+      "reason": null
+    },
+    {
+      "metric_id": "VIX",
+      "signal_id": "LOW_VOLATILITY",
+      "direction": "RISK_ON",
+      "strength": "MODERATE",
+      "confidence": 1.0,
+      "value": 14.21,
+      "unit": "INDEX",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "quality_reasons": []
+      },
+      "reason": null
+    },
+    {
+      "metric_id": "BTC",
+      "signal_id": "INSUFFICIENT_HISTORY",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 1.0,
+      "value": 86472.8238,
+      "unit": "USD",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "quality_reasons": []
+      },
+      "reason": "INSUFFICIENT_HISTORY"
+    },
+    {
+      "metric_id": "ETH",
+      "signal_id": "INSUFFICIENT_HISTORY",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 1.0,
+      "value": 2758.3558,
+      "unit": "USD",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "quality_reasons": []
+      },
+      "reason": "INSUFFICIENT_HISTORY"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "risk_on": 1,
+    "risk_off": 2,
+    "neutral": 0,
+    "unknown": 2
+  },
+  "semantics": {
+    "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
+    "recommendation": "Signals are descriptive classifications, not BUY/SELL/LONG/SHORT recommendations."
+  }
+}
