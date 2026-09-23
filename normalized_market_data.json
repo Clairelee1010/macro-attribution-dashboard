@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "source_schema_version": "2.0",
-  "generated_at": "2026-09-23T08:42:33.937614+00:00",
+  "generated_at": "2026-09-23T21:58:35.394888+00:00",
   "expected_metrics": [
     "US10Y",
     "DXY",
@@ -15,11 +15,11 @@
       "canonical_name": "US 10-Year Treasury Yield",
       "category": "MACRO",
       "raw": {
-        "value": 4.963,
+        "value": 5.114,
         "unit": "%"
       },
       "normalized": {
-        "value": 0.04963,
+        "value": 0.05114,
         "unit": "DECIMAL",
         "precision": 8
       },
@@ -32,8 +32,8 @@
         "ticker": "^TNX",
         "source": "Yahoo Finance via yfinance",
         "source_type": "FALLBACK",
-        "observed_at": "2026-09-21T05:00:00+00:00",
-        "fetched_at": "2026-09-23T08:42:33.567332+00:00",
+        "observed_at": "2026-09-23T05:00:00+00:00",
+        "fetched_at": "2026-09-23T21:58:34.688701+00:00",
         "status": "FRESH",
         "error": "Primary FRED failed; fallback used: 'DATE'"
       }
@@ -43,11 +43,11 @@
       "canonical_name": "US Dollar Index",
       "category": "FX",
       "raw": {
-        "value": 100.784,
+        "value": 101.098,
         "unit": "INDEX"
       },
       "normalized": {
-        "value": 100.784,
+        "value": 101.098,
         "unit": "INDEX",
         "precision": 6
       },
@@ -61,7 +61,7 @@
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
         "observed_at": "2026-09-23T04:00:00+00:00",
-        "fetched_at": "2026-09-23T08:42:33.733515+00:00",
+        "fetched_at": "2026-09-23T21:58:35.099070+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -71,11 +71,11 @@
       "canonical_name": "CBOE Volatility Index",
       "category": "RISK",
       "raw": {
-        "value": 14.15,
+        "value": 15.18,
         "unit": "INDEX"
       },
       "normalized": {
-        "value": 14.15,
+        "value": 15.18,
         "unit": "INDEX",
         "precision": 6
       },
@@ -89,7 +89,7 @@
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
         "observed_at": "2026-09-23T05:00:00+00:00",
-        "fetched_at": "2026-09-23T08:42:33.819966+00:00",
+        "fetched_at": "2026-09-23T21:58:35.138093+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -99,11 +99,11 @@
       "canonical_name": "Bitcoin",
       "category": "CRYPTO",
       "raw": {
-        "value": 86178.6523,
+        "value": 84456.0281,
         "unit": "USD"
       },
       "normalized": {
-        "value": 86178.6523,
+        "value": 84456.0281,
         "unit": "USD",
         "precision": 4
       },
@@ -116,8 +116,8 @@
         "ticker": "BTC-USD",
         "source": "CoinGecko Public API",
         "source_type": "PRIMARY",
-        "observed_at": "2026-09-23T08:40:50+00:00",
-        "fetched_at": "2026-09-23T08:42:33.894189+00:00",
+        "observed_at": "2026-09-23T21:56:40+00:00",
+        "fetched_at": "2026-09-23T21:58:35.320423+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -127,11 +127,11 @@
       "canonical_name": "Ethereum",
       "category": "CRYPTO",
       "raw": {
-        "value": 2745.7151,
+        "value": 2678.558,
         "unit": "USD"
       },
       "normalized": {
-        "value": 2745.7151,
+        "value": 2678.558,
         "unit": "USD",
         "precision": 4
       },
@@ -144,8 +144,8 @@
         "ticker": "ETH-USD",
         "source": "CoinGecko Public API",
         "source_type": "PRIMARY",
-        "observed_at": "2026-09-23T08:40:30+00:00",
-        "fetched_at": "2026-09-23T08:42:33.936914+00:00",
+        "observed_at": "2026-09-23T21:56:40+00:00",
+        "fetched_at": "2026-09-23T21:58:35.394048+00:00",
         "status": "FRESH",
         "error": null
       }
