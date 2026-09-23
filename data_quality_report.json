@@ -1,20 +1,20 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-09-23T04:01:45.611086+00:00",
+  "generated_at": "2026-09-23T05:40:19.000888+00:00",
   "rules_version": "1.0",
-  "quality_score": 0.95,
+  "quality_score": 0.9,
   "quality_gate": "PASS",
   "components": {
     "completeness": 1.0,
-    "freshness": 0.8,
+    "freshness": 0.6,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 4,
+    "fresh": 3,
     "valid": 5,
     "consistent": 5
   },
@@ -27,8 +27,8 @@
       "metric_id": "US10Y",
       "available": true,
       "freshness": {
-        "is_fresh": true,
-        "age_hours": 23.0293,
+        "is_fresh": false,
+        "age_hours": 48.6719,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -44,6 +44,7 @@
         "upstream_error": "Primary FRED failed; fallback used: 'DATE'"
       },
       "reasons": [
+        "STALE_OBSERVATION",
         "FALLBACK_SOURCE_USED"
       ]
     },
@@ -51,8 +52,30 @@
       "metric_id": "DXY",
       "available": true,
       "freshness": {
+        "is_fresh": true,
+        "age_hours": 1.6719,
+        "threshold_hours": 36.0
+      },
+      "validity": {
+        "is_valid": true
+      },
+      "consistency": {
+        "is_consistent": true
+      },
+      "source_evidence": {
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "upstream_status": "FRESH",
+        "upstream_error": null
+      },
+      "reasons": []
+    },
+    {
+      "metric_id": "VIX",
+      "available": true,
+      "freshness": {
         "is_fresh": false,
-        "age_hours": 48.0293,
+        "age_hours": 48.6719,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -72,33 +95,11 @@
       ]
     },
     {
-      "metric_id": "VIX",
-      "available": true,
-      "freshness": {
-        "is_fresh": true,
-        "age_hours": 23.0293,
-        "threshold_hours": 36.0
-      },
-      "validity": {
-        "is_valid": true
-      },
-      "consistency": {
-        "is_consistent": true
-      },
-      "source_evidence": {
-        "source": "Yahoo Finance via yfinance",
-        "source_type": "PRIMARY",
-        "upstream_status": "FRESH",
-        "upstream_error": null
-      },
-      "reasons": []
-    },
-    {
       "metric_id": "BTC",
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0432,
+        "age_hours": 0.0358,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -120,7 +121,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0377,
+        "age_hours": 0.0275,
         "threshold_hours": 2.0
       },
       "validity": {
