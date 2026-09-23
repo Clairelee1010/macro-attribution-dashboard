@@ -1,25 +1,26 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-09-23T03:42:19.378262+00:00",
+  "generated_at": "2026-09-23T04:01:45.611086+00:00",
   "rules_version": "1.0",
-  "quality_score": 1.0,
+  "quality_score": 0.95,
   "quality_gate": "PASS",
   "components": {
     "completeness": 1.0,
-    "freshness": 1.0,
+    "freshness": 0.8,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 5,
+    "fresh": 4,
     "valid": 5,
     "consistent": 5
   },
   "degradation_reasons": [
-    "FALLBACK_SOURCE_USED"
+    "FALLBACK_SOURCE_USED",
+    "STALE_OBSERVATION"
   ],
   "metrics": [
     {
@@ -27,7 +28,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 22.7054,
+        "age_hours": 23.0293,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -50,8 +51,8 @@
       "metric_id": "DXY",
       "available": true,
       "freshness": {
-        "is_fresh": true,
-        "age_hours": 23.7054,
+        "is_fresh": false,
+        "age_hours": 48.0293,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -66,14 +67,16 @@
         "upstream_status": "FRESH",
         "upstream_error": null
       },
-      "reasons": []
+      "reasons": [
+        "STALE_OBSERVATION"
+      ]
     },
     {
       "metric_id": "VIX",
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 22.7054,
+        "age_hours": 23.0293,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -95,7 +98,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0304,
+        "age_hours": 0.0432,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -117,7 +120,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0276,
+        "age_hours": 0.0377,
         "threshold_hours": 2.0
       },
       "validity": {
