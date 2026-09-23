@@ -16,6 +16,8 @@ from attribution_engine import build_attribution_report
 from attribution_validation import validate_attribution_report
 from market_risk import build_market_risk_report
 from market_risk_validation import validate_market_risk_report
+from confidence_evidence import build_confidence_evidence_report
+from confidence_evidence_validation import validate_confidence_evidence_report
 EXPECTED_METRICS=("US10Y","DXY","VIX","BTC","ETH")
 
 def err(mid,name,cat,unit,e): return BaseAdapter.result(mid,name,cat,unit,"Unavailable","NONE",status="ERROR",error=str(e))
@@ -95,8 +97,14 @@ def main():
     validate_market_risk_report(market_risk_report)
     Path("market_risk_report.json").write_text(json.dumps(market_risk_report,ensure_ascii=False,indent=2),encoding="utf-8")
 
+    # P01-009 deterministic confidence and evidence layer. It measures support
+    # reliability and preserves traceability; confidence is not outcome probability.
+    confidence_evidence_report=build_confidence_evidence_report(quality_report,regime_report,attribution_report,market_risk_report)
+    validate_confidence_evidence_report(confidence_evidence_report)
+    Path("confidence_evidence_report.json").write_text(json.dumps(confidence_evidence_report,ensure_ascii=False,indent=2),encoding="utf-8")
+
     # Backward-compatible v1.0 contract consumed by the current frontend.
     Path("live_market_data.json").write_text(json.dumps({"schema_version":"1.0","generated_at":done.isoformat(),"metrics":metrics,"data_quality":q},ensure_ascii=False,indent=2),encoding="utf-8")
-    Path("pipeline_status.json").write_text(json.dumps({"pipeline":"P01-008","started_at":start.isoformat(),"completed_at":done.isoformat(),"status":q["status"],"data_quality":q,"expected_metrics":list(EXPECTED_METRICS),"raw_schema_version":"2.0","raw_schema_valid":True,"normalized_schema_version":"3.0","normalized_schema_valid":True,"data_quality_schema_version":"4.0","data_quality_schema_valid":True,"quality_gate":quality_report["quality_gate"],"quality_score":quality_report["quality_score"],"signal_schema_version":"5.0","signal_schema_valid":True,"signal_summary":signal_report["summary"],"regime_schema_version":"6.0","regime_schema_valid":True,"market_regime":regime_report["regime"],"regime_score":regime_report["score"],"regime_confidence":regime_report["confidence"],"attribution_schema_version":"7.0","attribution_schema_valid":True,"attribution_confidence":attribution_report["attribution_confidence"],"attribution_summary":attribution_report["summary"],"market_risk_schema_version":"8.0","market_risk_schema_valid":True,"market_risk_score":market_risk_report["risk_score"],"market_risk_level":market_risk_report["risk_level"],"market_risk_confidence":market_risk_report["confidence"]},ensure_ascii=False,indent=2),encoding="utf-8")
+    Path("pipeline_status.json").write_text(json.dumps({"pipeline":"P01-009","started_at":start.isoformat(),"completed_at":done.isoformat(),"status":q["status"],"data_quality":q,"expected_metrics":list(EXPECTED_METRICS),"raw_schema_version":"2.0","raw_schema_valid":True,"normalized_schema_version":"3.0","normalized_schema_valid":True,"data_quality_schema_version":"4.0","data_quality_schema_valid":True,"quality_gate":quality_report["quality_gate"],"quality_score":quality_report["quality_score"],"signal_schema_version":"5.0","signal_schema_valid":True,"signal_summary":signal_report["summary"],"regime_schema_version":"6.0","regime_schema_valid":True,"market_regime":regime_report["regime"],"regime_score":regime_report["score"],"regime_confidence":regime_report["confidence"],"attribution_schema_version":"7.0","attribution_schema_valid":True,"attribution_confidence":attribution_report["attribution_confidence"],"attribution_summary":attribution_report["summary"],"market_risk_schema_version":"8.0","market_risk_schema_valid":True,"market_risk_score":market_risk_report["risk_score"],"market_risk_level":market_risk_report["risk_level"],"market_risk_confidence":market_risk_report["confidence"],"confidence_evidence_schema_version":"9.0","confidence_evidence_schema_valid":True,"confidence_score":confidence_evidence_report["confidence_score"],"confidence_level":confidence_evidence_report["confidence_level"],"evidence_coverage":confidence_evidence_report["evidence_coverage"]},ensure_ascii=False,indent=2),encoding="utf-8")
     if q["fresh"]==0: raise RuntimeError("No expected metric returned FRESH data.")
 if __name__=="__main__": main()
