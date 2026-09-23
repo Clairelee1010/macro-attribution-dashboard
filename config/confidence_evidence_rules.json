@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "weights": {
+    "data_quality": 0.25,
+    "evidence_coverage": 0.2,
+    "source_reliability": 0.15,
+    "signal_agreement": 0.15,
+    "attribution_support": 0.15,
+    "risk_confidence": 0.1
+  },
+  "source_reliability": {
+    "PRIMARY": 1.0,
+    "FALLBACK": 0.75,
+    "NONE": 0.0
+  },
+  "levels": {
+    "LOW": {
+      "max_exclusive": 0.45
+    },
+    "MEDIUM": {
+      "min_inclusive": 0.45,
+      "max_exclusive": 0.75
+    },
+    "HIGH": {
+      "min_inclusive": 0.75
+    }
+  },
+  "semantics": {
+    "confidence_score": "Deterministic reliability score from current data quality, evidence coverage, source provenance, signal agreement, attribution support, and upstream risk confidence. It is not a probability of a future market outcome.",
+    "evidence_coverage": "Share of expected market observations currently represented by eligible downstream evidence; not causal certainty.",
+    "traceability": "Each evidence item identifies its upstream engine and artifact so an analyst can inspect the basis of the assessment.",
+    "recommendation": "The engine does not emit BUY/SELL/LONG/SHORT/PAY/EXECUTE recommendations."
+  }
+}

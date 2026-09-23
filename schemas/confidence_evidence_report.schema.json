@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_schema_version",
+    "generated_at",
+    "engine",
+    "rules_version",
+    "confidence_score",
+    "confidence_level",
+    "evidence_coverage",
+    "components",
+    "evidence",
+    "traceability",
+    "limitations",
+    "summary",
+    "semantics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "9.0"
+    },
+    "source_schema_version": {
+      "const": "8.0"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "engine": {
+      "const": "P01-009"
+    },
+    "rules_version": {
+      "type": "string"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "confidence_level": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "evidence_coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "components": {
+      "type": "object",
+      "required": [
+        "data_quality",
+        "evidence_coverage",
+        "source_reliability",
+        "signal_agreement",
+        "attribution_support",
+        "risk_confidence"
+      ],
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "upstream_engine",
+          "artifact",
+          "status",
+          "value"
+        ]
+      }
+    },
+    "traceability": {
+      "type": "object"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary": {
+      "type": "object"
+    },
+    "semantics": {
+      "type": "object",
+      "required": [
+        "confidence_score",
+        "evidence_coverage",
+        "traceability",
+        "recommendation"
+      ]
+    }
+  }
+}
