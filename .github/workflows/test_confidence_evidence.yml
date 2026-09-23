@@ -1,0 +1,66 @@
+name: P01-009 Confidence Evidence Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-009-confidence-evidence
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Verify P01-009 repository structure
+        run: |
+          test -f confidence_evidence.py
+          test -f confidence_evidence_validation.py
+          test -f config/confidence_evidence_rules.json
+          test -f schemas/confidence_evidence_report.schema.json
+          test -f tests/test_confidence_evidence.py
+          echo "PASS: P01-009 repository structure verified"
+      - name: Verify Confidence Evidence Engine imports
+        run: |
+          python -c "from confidence_evidence import build_confidence_evidence_report; from confidence_evidence_validation import validate_confidence_evidence_report; print('PASS: P01-009 imports')"
+      - name: Run deterministic tests
+        run: python -m pytest tests -q
+      - name: Run live market pipeline
+        run: python update_market_data.py
+      - name: Validate P01-009 artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          required=["raw_market_data.json","normalized_market_data.json","data_quality_report.json","signal_report.json","regime_report.json","attribution_report.json","market_risk_report.json","confidence_evidence_report.json","pipeline_status.json"]
+          for filename in required:
+              path=Path(filename)
+              if not path.exists(): raise FileNotFoundError(f"Missing P01-009 artifact: {filename}")
+              json.loads(path.read_text(encoding="utf-8"))
+              print(f"PASS: {filename}")
+          report=json.loads(Path("confidence_evidence_report.json").read_text(encoding="utf-8"))
+          assert report["schema_version"]=="9.0"
+          assert report["engine"]=="P01-009"
+          assert report["confidence_level"] in {"LOW","MEDIUM","HIGH"}
+          assert 0 <= report["confidence_score"] <= 1
+          assert 0 <= report["evidence_coverage"] <= 1
+          print("PASS: Confidence Evidence schema_version =", report["schema_version"])
+          print("PASS: Confidence level =", report["confidence_level"])
+          print("PASS: Confidence score =", report["confidence_score"])
+          print("PASS: Evidence coverage =", report["evidence_coverage"])
+          print("P01-009 ACCEPTANCE CONTRACT: PASS")
+          PY
