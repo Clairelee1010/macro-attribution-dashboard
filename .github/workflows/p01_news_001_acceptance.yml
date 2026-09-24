@@ -1,0 +1,43 @@
+name: P01-NEWS-001 Acceptance
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "market_intelligence.py"
+      - "market_intelligence_feed.json"
+      - "schemas/market_intelligence_feed.schema.json"
+      - "index.html"
+      - "tests/test_market_intelligence.py"
+      - ".github/workflows/p01_news_001_acceptance.yml"
+      - ".github/workflows/daily_update.yml"
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Deterministic tests
+        run: pytest -q tests/test_market_intelligence.py
+      - name: Live ingestion smoke test
+        run: python market_intelligence.py
+      - name: Validate schema and product rules
+        run: |
+          python - <<'PY'
+          import json
+          from jsonschema import validate
+          from pathlib import Path
+          feed=json.loads(Path("market_intelligence_feed.json").read_text())
+          schema=json.loads(Path("schemas/market_intelligence_feed.schema.json").read_text())
+          validate(feed,schema)
+          html=Path("index.html").read_text()
+          assert "market_intelligence_feed.json" in html
+          assert "Market & Web3 Intelligence Feed" in html
+          assert "RECOMMENDED US EQUITIES" not in html
+          assert "Soft Robi Execution Log:" not in html
+          print(f"PASS P01-NEWS-001: {len(feed['items'])} current items")
+          PY
