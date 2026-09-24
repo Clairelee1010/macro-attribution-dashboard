@@ -1,0 +1,60 @@
+name: P01 Dashboard v5 Productization Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-dashboard-v5-productization
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install acceptance dependency
+        run: python -m pip install pytest
+
+      - name: Run Dashboard v5 productization tests
+        run: python -m pytest tests/test_dashboard_productization.py -q
+
+      - name: Validate production artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required = [
+              "index.html",
+              "dashboard_data.json",
+              "live_market_data.json",
+          ]
+          for filename in required:
+              path = Path(filename)
+              if not path.exists():
+                  raise FileNotFoundError(filename)
+              print(f"PASS: {filename}")
+
+          for filename in ["dashboard_data.json", "live_market_data.json"]:
+              json.loads(Path(filename).read_text(encoding="utf-8"))
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          assert "Macro & Web3 Risk Intelligence Engine" in html
+          assert "dashboard_data.json" in html
+          assert "live_market_data.json" in html
+          assert "live-provenance" in html
+          assert "P01-010" in html
+          print("P01 DASHBOARD V5 PRODUCTIZATION ACCEPTANCE: PASS")
+          PY
