@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "P01-010 Dashboard Data",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "engine",
+    "generated_at",
+    "executive_summary",
+    "signals",
+    "attribution",
+    "risk_drivers",
+    "evidence",
+    "semantics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "10.0"
+    },
+    "engine": {
+      "const": "P01-010"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "executive_summary": {
+      "type": "object",
+      "required": [
+        "market_regime",
+        "market_risk",
+        "evidence_confidence",
+        "data_quality"
+      ]
+    },
+    "signals": {
+      "type": "array"
+    },
+    "attribution": {
+      "type": "object"
+    },
+    "risk_drivers": {
+      "type": "array"
+    },
+    "protective_factors": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "semantics": {
+      "type": "object"
+    }
+  }
+}
