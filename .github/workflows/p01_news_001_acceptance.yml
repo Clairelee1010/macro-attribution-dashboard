@@ -15,29 +15,35 @@ on:
 jobs:
   acceptance:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - name: Deterministic tests
+      - name: Core deterministic acceptance
         run: pytest -q tests/test_market_intelligence.py
-      - name: Live ingestion smoke test
-        run: python market_intelligence.py
-      - name: Validate schema and product rules
+      - name: Live production ingestion acceptance
+        run: python market_intelligence.py --strict
+      - name: Validate schema and production rules
         run: |
-          python - <<'PY'
+          python - <<'PY2'
           import json
           from jsonschema import validate
           from pathlib import Path
           feed=json.loads(Path("market_intelligence_feed.json").read_text())
           schema=json.loads(Path("schemas/market_intelligence_feed.schema.json").read_text())
           validate(feed,schema)
+          assert feed["status"] == "AVAILABLE", feed["status"]
+          assert len(feed["items"]) >= 1, "Production feed must contain at least one current item"
+          assert any(s.get("status") == "OK" for s in feed["sources"]), "At least one live source must be available"
+          assert all(i.get("freshness") in {"FRESH","STALE"} for i in feed["items"])
+          assert all(str(i.get("url","")).startswith("http") for i in feed["items"])
           html=Path("index.html").read_text()
           assert "market_intelligence_feed.json" in html
           assert "Market & Web3 Intelligence Feed" in html
           assert "RECOMMENDED US EQUITIES" not in html
           assert "Soft Robi Execution Log:" not in html
-          print(f"PASS P01-NEWS-001: {len(feed['items'])} current items")
-          PY
+          print(f"PASS LIVE PRODUCTION: {len(feed['items'])} items")
+          PY2
