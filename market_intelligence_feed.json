@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-004",
-  "generated_at": "2026-09-24T07:49:06.699840Z",
+  "generated_at": "2026-09-24T07:52:31.725219Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -49,7 +49,7 @@
     {
       "source": "MEXC",
       "status": "OK",
-      "items": 3,
+      "items": 5,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -66,8 +66,8 @@
     },
     {
       "source": "NEWS:WEB3_RWA",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,37 +103,7 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,12 +113,37 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -168,7 +163,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -178,7 +178,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -312,6 +312,41 @@
       ],
       "primary_topic": "STABLECOIN",
       "why_it_matters": "Stablecoin developments can affect payment rails, on-chain liquidity, and institutional adoption.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC"
+      ]
+    },
+    {
+      "id": "NEWS-899203388CAF",
+      "title": "Solana Blockchain Development Company: Services, Use Cases, and How to Choose - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPS2NwX3BCY2pJd3o0YW9DUWkxWHMzNmFUSlFhekRvWUJMdTNlU3hMdDByRGlvSF85bVl4M0tDWEl6RVU5VFAzd0FrSEpmQmZQbnROSUVVaTl6OTVEZGNiRERLRFVKNTJDZ0p1VUk2SmxnbHZWRXN5ejFLYzJta01INm1Rc1ZqNjBYUlJ1aE1SeW5YUWFTMnRoS3dGX29mcnNCMkhCeHF3S3MwQXEwNXVFTg?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "EXCHANGE"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
       "linked_p01_context": [
         "BTC",
         "ETH",
@@ -494,6 +529,39 @@
         "P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-23D5135F2B37",
+      "title": "What is Pharos Network (PROS Coin)? A Deep Dive into Pharos Network's RealFi Layer-1 Ecosystem - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPV2hGb0l3UmdMaU1vM2tJUXY5bG12MndtdTFIYXpRWURHUjVQeEZTdUNTN2VzdVdUOFdFbkQ0VS1tOUo5NVJtckpnNDlGT09jWVI0UE93em9qSFRFbXJIS1paSDhrSWM2MTdaNTBSa0tzRFlacUpVNTBJeDQ3cWRvSnhRWTRoZFdrTTBhRVRpUXhJVzlWSUR0NDdTWG12UzlLVExUT2NkMkFibGxMQ0xVeHZxV0QxMGcxUTRZMGFqX0t3ZDc1amc?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 48,
+      "priority": "LOW",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH"
       ]
     }
   ],
