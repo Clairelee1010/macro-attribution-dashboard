@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-004",
-  "generated_at": "2026-09-24T07:47:24.391032Z",
+  "generated_at": "2026-09-24T07:48:21.004583Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -84,8 +84,8 @@
     },
     {
       "source": "TSMC",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,44 +103,44 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=blockchain+web3+tokenization+real+world+assets+RWA+stablecoin+DeFi&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='a"
-    },
-    {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Federal+Reserve+Treasury+inflation+CPI+PCE+markets+crypto+blockchain&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host="
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Taiwan+TSMC+market+semiconductor+blockchain+crypto&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.gdeltproject."
-    },
-    {
-      "source": "US Treasury",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atreasury.gov%29+%28treasury+yield+financial+markets+digital+assets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSCon"
-    },
-    {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Asec.gov%29+%28crypto+digital+asset+token+securities+blockchain%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnect"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Binance",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abinance.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPS"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
+      "source": "SEC",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Afederalreserve.gov%29+%28interest+rate+monetary+policy+inflation+liquidity+markets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeou"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "OKX",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Aokx.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConn"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Coinbase",
@@ -153,14 +153,14 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "MEXC",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atsmc.com%29+%28semiconductor+AI+market+technology%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnection(host='api"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Circle",
@@ -178,15 +178,15 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
   ],
   "items": [
     {
-      "id": "NEWS-FB42617A3A3F",
-      "title": "Remarks by Deputy Secretary of the Treasury Francis Brooke before the Treasury Market Conference - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-0C89CEED761F",
+      "title": "Remarks by Deputy Secretary of the Treasury Francis Brooke before the Treasury Market Conference - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE41Vl9vdlFlakNRRWhYZ3V5Mmh0dmptQXdQV0xNRmk3MXI0Y2pWMnFXUUdjMUVMbnVYX3Mxa05faGhycHFva05ZdnZjeDA1a3dtRGpyd2hFZmZhUVVnY2ZlZ0Jwbw?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -220,8 +220,45 @@
       ]
     },
     {
-      "id": "NEWS-E8008BDE8F3F",
-      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-3348EF7FD0D9",
+      "title": "AI Forward Deployed Engineer Job Details - TSMC",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNkpYTm1fdFRTcllyYmpLZDNOdWRzSkttcko4WXhoZHhmSUFJNTRTS3pWcVJ2NTlGZVJyXy1lUWRPSXpxZ2Z3cGFDYnJXc0FyMnVFOVh2bkltR2hZSzZjaWZ6OGMwOXFGbnA0dmk1MDM2RTl1cFNWaUZuRW9XYi11SzFReWRlTVlpVmVubUxHbEN5amM?oc=5",
+      "domain": "news.google.com",
+      "source_name": "TSMC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-18T03:56:15Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "TW_MARKET"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 83,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-D3168C52DAA4",
+      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE01cXo3bFh5b3FkNGpWWHA4MXlvTDdkV0FGcWZWTVVwQUJabHotRm5Rck80ZXZmNkgyN3Z3WUdoeXRGT3NOVnJMNmpHUWVZejBkUDMtY3BxRnYyQnR1dEhCVjdB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
