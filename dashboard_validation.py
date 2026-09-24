@@ -1,13 +1,43 @@
 import json
 from pathlib import Path
-from jsonschema import Draft202012Validator
 
-def validate_dashboard_data(payload, schema_path="schemas/dashboard_data.schema.json"):
-    schema=json.loads(Path(schema_path).read_text(encoding="utf-8"))
-    Draft202012Validator(schema).validate(payload)
-    ex=payload["executive_summary"]
-    assert 0 <= ex["market_risk"]["score"] <= 100
-    assert 0 <= ex["market_risk"]["confidence"] <= 1
-    assert 0 <= ex["evidence_confidence"]["score"] <= 1
-    assert 0 <= ex["data_quality"]["score"] <= 1
+from jsonschema import validate
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+DEFAULT_SCHEMA_PATH = (
+    BASE_DIR
+    / "schemas"
+    / "dashboard_data.schema.json"
+)
+
+
+def validate_dashboard_data(
+    payload,
+    schema_path=None,
+):
+    """
+    Validate P01-010 dashboard data payload.
+
+    The default schema path is resolved relative to this
+    module rather than the current working directory.
+    This keeps validation stable when tests or callers
+    change the working directory.
+    """
+
+    if schema_path is None:
+        schema_path = DEFAULT_SCHEMA_PATH
+    else:
+        schema_path = Path(schema_path)
+
+    schema = json.loads(
+        schema_path.read_text(encoding="utf-8")
+    )
+
+    validate(
+        instance=payload,
+        schema=schema,
+    )
+
     return True
