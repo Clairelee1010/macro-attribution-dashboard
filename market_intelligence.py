@@ -43,7 +43,7 @@ GDELT_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 GOOGLE_RSS_ENDPOINT = "https://news.google.com/rss/search"
 
 SCHEMA_VERSION = "1.0"
-ENGINE = "P01-NEWS-004"
+ENGINE = "P01-NEWS-005"
 
 REQUEST_TIMEOUT = 5
 MAX_WORKERS = 8
@@ -723,6 +723,72 @@ def apply_ranking(article):
 
 
 # ============================================================
+# P01-NEWS-005 Bilingual Intelligence Layer
+# ============================================================
+
+INTELLIGENCE_I18N = {
+    "US_MACRO": {
+        "summary_en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "summary_zh": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。",
+        "why_en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "why_zh": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。",
+    },
+    "WEB3_RWA": {
+        "summary_en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
+        "summary_zh": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。",
+        "why_en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
+        "why_zh": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。",
+    },
+    "STABLECOIN": {
+        "summary_en": "This development is relevant to stablecoin infrastructure, payment rails, and on-chain liquidity.",
+        "summary_zh": "此事件與穩定幣基礎設施、支付軌道及鏈上流動性相關。",
+        "why_en": "Stablecoin developments can affect payment infrastructure, on-chain liquidity, settlement, and institutional adoption.",
+        "why_zh": "穩定幣發展可能影響支付基礎設施、鏈上流動性、結算方式與機構採用。",
+    },
+    "DEFI": {
+        "summary_en": "This development is relevant to DeFi liquidity, credit conditions, and protocol risk.",
+        "summary_zh": "此事件與 DeFi 流動性、信用條件及協議風險相關。",
+        "why_en": "DeFi developments can affect on-chain liquidity, credit availability, and protocol-level risk conditions.",
+        "why_zh": "DeFi 發展可能影響鏈上流動性、信用供給與協議層級的風險環境。",
+    },
+    "AGENTIC_AI": {
+        "summary_en": "This development is relevant to agentic finance, autonomous authorization, and machine-payment infrastructure.",
+        "summary_zh": "此事件與 Agentic Finance、自主授權及機器支付基礎設施相關。",
+        "why_en": "Agentic finance can change how software agents request authorization, purchase services, and interact with payment infrastructure.",
+        "why_zh": "Agentic Finance 可能改變軟體代理取得授權、購買服務及與支付基礎設施互動的方式。",
+    },
+    "EXCHANGE": {
+        "summary_en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "summary_zh": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。",
+        "why_en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "why_zh": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。",
+    },
+    "TW_MARKET": {
+        "summary_en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "summary_zh": "此事件與台灣股市、半導體產業及跨市場風險環境相關。",
+        "why_en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "why_zh": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。",
+    },
+}
+
+
+def build_bilingual_intelligence(topics):
+    """Return deterministic bilingual intelligence text without altering source titles."""
+    primary = topics[0] if topics else "WEB3_RWA"
+    content = INTELLIGENCE_I18N.get(primary, INTELLIGENCE_I18N["WEB3_RWA"])
+    return {
+        "intelligence_summary": {
+            "en": content["summary_en"],
+            "zh-TW": content["summary_zh"],
+        },
+        "why_it_matters_i18n": {
+            "en": content["why_en"],
+            "zh-TW": content["why_zh"],
+        },
+    }
+
+
+# ============================================================
 # Article Normalization
 # ============================================================
 
@@ -770,6 +836,8 @@ def normalize_article(
         published,
         now,
     )
+
+    bilingual = build_bilingual_intelligence(topics)
 
     article = {
         "id":
@@ -822,6 +890,12 @@ def normalize_article(
 
         "why_it_matters":
             build_context(topics),
+
+        "intelligence_summary":
+            bilingual["intelligence_summary"],
+
+        "why_it_matters_i18n":
+            bilingual["why_it_matters_i18n"],
 
         "linked_p01_context":
             linked_context(topics),
@@ -1272,6 +1346,11 @@ def fetch_feed():
                     "not causal proof."
                 ),
 
+                (
+                    "Bilingual intelligence summaries are deterministic "
+                    "context labels; original source titles are preserved."
+                ),
+
                 "No investment recommendation.",
             ],
         },
@@ -1322,6 +1401,8 @@ def validate_feed(feed):
             "relevance_score",
             "priority",
             "ranking_reasons",
+            "intelligence_summary",
+            "why_it_matters_i18n",
         ):
             assert k in x, k
 
@@ -1364,6 +1445,16 @@ def validate_feed(feed):
             x["ranking_reasons"],
             list,
         )
+
+        for field in (
+            "intelligence_summary",
+            "why_it_matters_i18n",
+        ):
+            assert isinstance(x[field], dict)
+            assert isinstance(x[field].get("en"), str)
+            assert isinstance(x[field].get("zh-TW"), str)
+            assert x[field]["en"].strip()
+            assert x[field]["zh-TW"].strip()
 
 
 # ============================================================
