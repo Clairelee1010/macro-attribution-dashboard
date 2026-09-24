@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "engine": "P01-NEWS-001",
+  "generated_at": "2026-09-24T00:00:00Z",
+  "status": "UNAVAILABLE",
+  "sources": [],
+  "errors": [
+    {
+      "source": "bootstrap",
+      "error": "Run market_intelligence.py or Daily Data Update to populate current intelligence."
+    }
+  ],
+  "items": [],
+  "social_adapters": {
+    "X": "NOT_CONFIGURED",
+    "Threads": "PHASE_2"
+  },
+  "methodology": {
+    "source_hierarchy": [
+      "OFFICIAL_COMPANY_SOURCE",
+      "NEWS_SOURCE",
+      "SOCIAL_SIGNAL"
+    ],
+    "freshness": {
+      "FRESH": "<=36h",
+      "STALE": "<=7d",
+      "ARCHIVED": ">7d"
+    },
+    "principles": [
+      "Source provenance is explicit.",
+      "First-party announcements are not independent verification.",
+      "News-to-market matching is contextual association, not causal proof.",
+      "No investment recommendation."
+    ]
+  }
+}
