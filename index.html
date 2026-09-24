@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macro Attribution & Cross-Market Dashboard</title>
+    <title>Macro & Web3 Risk Intelligence Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
@@ -30,7 +30,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro & Web3 Risk Intelligence Engine</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v5.0 · P01-010</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-001</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -53,12 +53,12 @@
     <!-- 📊 頁首四大統計數據 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">ACTIVE INTELLIGENCE COUNT</div><span class="data-badge data-prototype">PROTOTYPE</span></div>
+            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">CURRENT FEED ITEMS</div><span class="data-badge data-generated">GENERATED</span></div>
             <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">0</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">BULLISH SIGNALS RATIO</div><span class="data-badge data-prototype">PROTOTYPE</span></div>
-            <div id="meta-bullish-val" class="text-3xl font-bold text-emerald-600 font-mono">0%</div>
+            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">OFFICIAL SOURCE SHARE</div><span class="data-badge data-generated">GENERATED</span></div>
+            <div id="meta-bullish-val" class="text-3xl font-bold text-indigo-600 font-mono">--</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-rose-50/20 border-rose-100">
             <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
@@ -215,24 +215,29 @@
     </div>
 
     <!-- 📢 VIX 通報 Banner -->
-    <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">
-        【2026.09 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著 Q3 財報季展望明朗及 Fed 進入政策寬鬆期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。
-    </div>
+    <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">Live VIX context loading…</div>
 
     <!-- 📑 TAB 頁籤切換 -->
     <div class="flex border-b border-stone-200 space-x-8 text-sm font-semibold text-stone-500 overflow-x-auto">
         <button id="tab-us_macro" onclick="switchTab('us_macro')" class="pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 whitespace-nowrap">
-            <span>🇺🇸</span> US Macro & Fed Policy
+            <span>🇺🇸</span> US Macro Intelligence
         </button>
         <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
-            <span>🌐</span> Web3 Finance & RWA Node
+            <span>🌐</span> Web3 / RWA Intelligence
         </button>
         <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
-            <span>💻</span> TW Market & Policy Driver
+            <span>💻</span> Taiwan Market Intelligence
         </button>
     </div>
 
-    <!-- 📰 新聞卡片容器 -->
+    <!-- 📰 P01-NEWS-001 Market Intelligence Feed -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div>
+            <div id="feed-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">📰 Market & Web3 Intelligence Feed</div>
+            <div id="feed-subtitle" class="text-[10px] text-stone-400 mt-1">Current source metadata · provenance-aware · no investment recommendation</div>
+        </div>
+        <div class="flex items-center gap-2"><span id="feed-state" class="data-badge data-generated">LOADING</span><span id="feed-updated" class="text-[10px] text-stone-400 font-mono">--</span></div>
+    </div>
     <div id="news-container" class="space-y-6"></div>
 
     <!-- 🤖 浮動 AI 助理按鈕 -->
@@ -530,159 +535,62 @@
             if (metrics.rwa_tvl) document.getElementById('m-rwatvl').innerText = metrics.rwa_tvl;
         }
 
+        let marketIntelligenceFeed = null;
+
         function calculateOverallStats() {
-            const tabs = ['us_macro', 'web3_crypto', 'tw_stocks'];
-            let total = 0;
-            let bullishCount = 0;
+            const items = marketIntelligenceFeed?.items || [];
+            document.getElementById('meta-total-val').innerText = items.length;
+            const official = items.filter(x => x.source_type === 'OFFICIAL_COMPANY_SOURCE').length;
+            document.getElementById('meta-bullish-val').innerText = items.length ? `${Math.round(official / items.length * 100)}%` : '--';
+        }
 
-            tabs.forEach(tab => {
-                const list = marketData[tab] || [];
-                total += list.length;
-                list.forEach(item => {
-                    const sentiment = (item.sentiment || item.ai_sentiment || '').toLowerCase();
-                    if (sentiment === 'bullish' || sentiment === '看多') {
-                        bullishCount++;
-                    }
-                });
-            });
-
-            document.getElementById('meta-total-val').innerText = total;
-            const ratio = total > 0 ? Math.round((bullishCount / total) * 100) : 0;
-            document.getElementById('meta-bullish-val').innerText = `${ratio}%`;
+        function tabMatches(item, tab) {
+            const topics = item.topics || [];
+            if (tab === 'us_macro') return topics.includes('US_MACRO');
+            if (tab === 'tw_stocks') return topics.includes('TW_MARKET');
+            return topics.some(t => ['WEB3_RWA','STABLECOIN','DEFI','AGENTIC_AI','EXCHANGE'].includes(t));
         }
 
         function renderActiveTab() {
             const container = document.getElementById('news-container');
+            if (!container) return;
             container.innerHTML = '';
-
-            const list = marketData[activeTab] || [];
-
-            if (list.length === 0) {
-                const emptyMsg = currentLang === 'zh' ? '此分區尚無最新情報資料' : 'No intelligence data available in this section yet.';
-                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${emptyMsg}</div>`;
+            if (!marketIntelligenceFeed || marketIntelligenceFeed.status !== 'AVAILABLE') {
+                const msg = currentLang === 'zh' ? '目前無可驗證的最新情報；系統不會以舊 Prototype 內容替代。' : 'Current verified intelligence is unavailable; stale prototype content is not substituted.';
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
                 return;
             }
-
-            list.forEach((item, index) => {
-                const rankText = item.top_rank || `TOP ${index + 1}`;
-                const titleText = currentLang === 'zh' ? (item.title_zh || item.title || '無標題新聞') : (item.title_en || item.title || 'Untitled News');
-                const sentiment = item.sentiment || item.ai_sentiment || 'Bullish';
-                const volatility = item.vol_multiplier || item.volatility || '1.1x';
-                const source = item.source || 'RAG Intelligence Engine';
-
-                const twRec = item.recommended_groups_tw || item.recommended_tw || null;
-                const twRisk = item.high_risk_groups_tw || item.high_risk_tw || null;
-                const usRec = item.recommended_groups_us || item.recommended_us || null;
-                const usRisk = item.high_risk_groups_us || item.high_risk_us || null;
-
-                const hasStockData = twRec || twRisk || usRec || usRisk;
-
-                const card = document.createElement('div');
-                card.className = "soft-card rounded-2xl p-6 space-y-5 transition-all hover:shadow-md";
-                
-                let stockMatrixHtml = '';
-                if (hasStockData) {
-                    const recTwTitle = currentLang === 'zh' ? '推薦台股標的' : 'RECOMMENDED TW SECTORS';
-                    const riskTwTitle = currentLang === 'zh' ? '高風險台股標的' : 'HIGH-RISK TW SECTORS';
-                    const recUsTitle = currentLang === 'zh' ? '推薦美股標的' : 'RECOMMENDED US EQUITIES';
-                    const riskUsTitle = currentLang === 'zh' ? '高風險美股標的' : 'HIGH-RISK US EQUITIES';
-
-                    stockMatrixHtml = `
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
-                            <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
-                                ${twRec && twRec.length > 0 ? `
-                                <div>
-                                    <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> ${recTwTitle}
-                                    </div>
-                                    <ul class="space-y-1 text-stone-700">
-                                        ${twRec.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
-                                    </ul>
-                                </div>` : ''}
-                                ${twRisk && twRisk.length > 0 ? `
-                                <div class="${twRec && twRec.length > 0 ? 'pt-2 border-t border-emerald-100/80' : ''}">
-                                    <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> ${riskTwTitle}
-                                    </div>
-                                    <ul class="space-y-1 text-stone-700">
-                                        ${twRisk.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
-                                    </ul>
-                                </div>` : ''}
-                            </div>
-
-                            <div class="bg-emerald-50/40 border border-emerald-100/80 rounded-2xl p-4 space-y-3">
-                                ${usRec && usRec.length > 0 ? `
-                                <div>
-                                    <div class="font-bold text-emerald-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> ${recUsTitle}
-                                    </div>
-                                    <ul class="space-y-1 text-stone-700">
-                                        ${usRec.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
-                                    </ul>
-                                </div>` : ''}
-                                ${usRisk && usRisk.length > 0 ? `
-                                <div class="${usRec && usRec.length > 0 ? 'pt-2 border-t border-emerald-100/80' : ''}">
-                                    <div class="font-bold text-rose-800 flex items-center gap-1 mb-1.5">
-                                        <span class="h-2 w-2 rounded-full bg-rose-500"></span> ${riskUsTitle}
-                                    </div>
-                                    <ul class="space-y-1 text-stone-700">
-                                        ${usRisk.map(r => `<li>· <strong>${escapeHtml(currentLang === 'zh' ? (r.name_zh || r.name) : (r.name_en || r.name))}</strong> <span class="text-stone-400">(${escapeHtml(currentLang === 'zh' ? (r.reason_zh || r.reason) : (r.reason_en || r.reason))})</span></li>`).join('')}
-                                    </ul>
-                                </div>` : ''}
-                            </div>
-                        </div>
-                    `;
-                }
-
-                const macroText = currentLang === 'zh' ? (item.macro_attribution_zh || item.macro_attribution || item.summary || '') : (item.macro_attribution_en || item.macro_attribution || item.summary || '');
-                const spilloverText = currentLang === 'zh' ? (item.tw_spillover_effect_zh || item.spillover_attribution || item.ai_analysis || '') : (item.tw_spillover_effect_en || item.spillover_attribution || item.ai_analysis || '');
-                const rwaMetricText = currentLang === 'zh' ? (item.rwa_flow_metric_zh || item.rwa_metric || '') : (item.rwa_flow_metric_en || item.rwa_metric || '');
-                const executionLogText = item.agent_action_log || item.execution_log || '[NODE_01] Risk Index Stabilized.';
-
+            const list = (marketIntelligenceFeed.items || []).filter(x => tabMatches(x, activeTab) && ['FRESH','STALE'].includes(x.freshness)).slice(0, 12);
+            if (!list.length) {
+                const msg = currentLang === 'zh' ? '此分區目前沒有符合 freshness 規則的情報。' : 'No intelligence in this section currently meets freshness rules.';
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
+                return;
+            }
+            list.forEach(item => {
+                const official = item.source_type === 'OFFICIAL_COMPANY_SOURCE';
+                const sourceBadge = official ? 'OFFICIAL' : (item.source_type === 'SOCIAL_SIGNAL' ? 'SOCIAL' : 'NEWS');
+                const freshnessClass = item.freshness === 'FRESH' ? 'status-fresh' : 'status-stale';
+                const topic = (item.primary_topic || item.topics?.[0] || 'WEB3_RWA').replaceAll('_',' ');
+                const why = item.why_it_matters || '';
+                const linked = (item.linked_p01_context || []).join(' · ') || '--';
+                const evidenceNote = item.evidence_note || '';
+                const published = item.published_at ? new Date(item.published_at).toLocaleString(currentLang === 'zh' ? 'zh-TW' : 'en-US') : (currentLang === 'zh' ? '時間未知' : 'Time unavailable');
+                const card = document.createElement('article');
+                card.className = 'soft-card rounded-2xl p-5 md:p-6 space-y-4 transition-all hover:shadow-md';
                 card.innerHTML = `
-                    <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
-                        <span class="bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded font-semibold border border-amber-200/50">${escapeHtml(sentiment)}</span>
-                        <span class="text-stone-400">Volatility: <strong class="text-stone-700">${escapeHtml(volatility)}</strong></span>
-                        <span class="text-stone-300">|</span>
-                        <span class="text-stone-400">Source: <strong class="text-rose-800">${escapeHtml(source)}</strong></span>
+                    <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono">
+                        <span class="data-badge ${official ? 'data-generated' : 'data-live'}">${sourceBadge}</span>
+                        <span class="font-bold ${freshnessClass}">${escapeHtml(item.freshness)}</span>
+                        <span class="text-stone-300">|</span><span class="text-stone-500">${escapeHtml(item.source_name)}</span>
+                        <span class="text-stone-300">|</span><span class="text-stone-400">${escapeHtml(published)}</span>
                     </div>
-
-                    <h2 class="text-lg font-bold text-stone-900 leading-snug border-l-4 border-[#c05656] pl-3">
-                        ${escapeHtml(rankText)} · ${escapeHtml(titleText)}
-                    </h2>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-stone-600 pt-1">
-                        <div class="space-y-1.5">
-                            <div class="font-bold text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
-                                🌐 MACRO & CRYPTO CYCLE ATTRIBUTION
-                            </div>
-                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
-                                ${escapeHtml(macroText)}
-                            </p>
-                        </div>
-                        <div class="space-y-1.5">
-                            <div class="font-bold text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
-                                💻 CROSS-MARKET CAPITAL SPILLOVER
-                            </div>
-                            <p class="leading-relaxed text-stone-600 bg-stone-50/50 p-3 rounded-xl border border-stone-100">
-                                ${escapeHtml(spilloverText)}
-                            </p>
-                        </div>
+                    <div><div class="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1">${escapeHtml(topic)}</div><h2 class="text-lg font-bold text-stone-900 leading-snug">${escapeHtml(item.title)}</h2></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3"><div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${currentLang==='zh'?'為什麼重要':'Why it matters'}</div><div class="text-stone-600 leading-relaxed">${escapeHtml(why)}</div></div>
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3"><div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${currentLang==='zh'?'Linked P01 Context':'Linked P01 Context'}</div><div class="text-stone-600 font-mono">${escapeHtml(linked)}</div></div>
                     </div>
-
-                    <div class="bg-stone-50 rounded-xl p-3 text-xs font-mono text-stone-600 space-y-1 border border-stone-200/60">
-                        <div class="flex items-center gap-2">
-                            <span>📊 RWA On-Chain Metric:</span>
-                            <span class="font-semibold text-stone-800">${escapeHtml(rwaMetricText)}</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-stone-500">
-                            <span>🤖 Soft Robi Execution Log:</span>
-                            <span>${escapeHtml(executionLogText)}</span>
-                        </div>
-                    </div>
-
-                    ${stockMatrixHtml}
-                `;
+                    <div class="text-[10px] text-stone-500 border-t border-stone-100 pt-3 space-y-1"><div><strong>Evidence:</strong> ${escapeHtml(evidenceNote)}</div><div><strong>${currentLang==='zh'?'限制':'Limitation'}:</strong> ${escapeHtml(item.limitations || '')}</div></div>
+                    <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="inline-flex text-xs font-bold text-[#c05656] hover:underline">${currentLang==='zh'?'查看原始來源 →':'View original source →'}</a>`;
                 container.appendChild(card);
             });
         }
@@ -999,6 +907,24 @@
             catch(e) { console.error('P01-010 dashboard data unavailable:',e); const s=document.getElementById('v5-data-state'); if(s){s.innerText='UNAVAILABLE';s.className='data-badge data-prototype';} document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
         }
 
+        async function loadMarketIntelligenceFeed() {
+            const state=document.getElementById('feed-state'), updated=document.getElementById('feed-updated');
+            try {
+                const r=await fetch('./market_intelligence_feed.json?ts='+Date.now(),{cache:'no-store'});
+                if(!r.ok) throw new Error(`HTTP ${r.status}`);
+                const d=await r.json(); marketIntelligenceFeed=d;
+                if(d.status !== 'AVAILABLE') throw new Error('feed unavailable');
+                state.innerText='CURRENT'; state.className='data-badge data-live';
+                const dt=d.generated_at?new Date(d.generated_at):null; updated.innerText=dt&&!isNaN(dt)?`${currentLang==='zh'?'更新':'Updated'}: ${dt.toLocaleString()}`:'--';
+                calculateOverallStats(); renderActiveTab();
+            } catch(e) {
+                console.error('P01-NEWS-001 unavailable:',e); marketIntelligenceFeed={status:'UNAVAILABLE',items:[]};
+                state.innerText='UNAVAILABLE'; state.className='data-badge data-prototype';
+                updated.innerText=currentLang==='zh'?'不顯示過期 Prototype 情報':'Stale prototype intelligence is not shown';
+                calculateOverallStats(); renderActiveTab();
+            }
+        }
+
         async function loadLiveMarketData() {
             try {
                 const response = await fetch('./live_market_data.json?ts=' + Date.now(), {
@@ -1045,6 +971,7 @@
             renderActiveTab();
             loadLiveMarketData();
             loadDashboardV5();
+            loadMarketIntelligenceFeed();
         };
     </script>
 </body>
