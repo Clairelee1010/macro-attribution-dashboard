@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-001",
-  "generated_at": "2026-09-24T04:04:28.518540Z",
+  "generated_at": "2026-09-24T06:45:10.290103Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -43,7 +43,7 @@
     {
       "source": "MEXC",
       "status": "OK",
-      "items": 4,
+      "items": 3,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -78,27 +78,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
+      "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -108,17 +93,32 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -159,32 +159,6 @@
       "id": "NEWS-245F47004A01",
       "title": "CLARITY Act Momentum Triggers FOMO: A New Era of Crypto Market Regulation Arrives - MEXC",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlhra0RiRUo0VU5KUTNoNlRWMEFpc2NaM2Y2dkQyZEJBM29yM09mdVpCbVI3ZTJZRmRNYVRSM01iQ2ZZMDFKWnpCY2o2MmcxbVlZOVdaSHVEYWVLUFVGdXFiY2V5S044R0RRZ2h2Q25VR2pfZF9MSDVfUWFxVkM2V3VVOERpdHVyMXBtUnBsNDJCcXI5eFV5NlRUMmp1aGUwZS1QWmFreEJuOVA5N05ScldlZ3hmQS04?oc=5",
-      "domain": "news.google.com",
-      "source_name": "MEXC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-21T07:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "EXCHANGE"
-      ],
-      "primary_topic": "EXCHANGE",
-      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
-    },
-    {
-      "id": "NEWS-23D5135F2B37",
-      "title": "What is Pharos Network (PROS Coin)? A Deep Dive into Pharos Network's RealFi Layer-1 Ecosystem - MEXC",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPV2hGb0l3UmdMaU1vM2tJUXY5bG12MndtdTFIYXpRWURHUjVQeEZTdUNTN2VzdVdUOFdFbkQ0VS1tOUo5NVJtckpnNDlGT09jWVI0UE93em9qSFRFbXJIS1paSDhrSWM2MTdaNTBSa0tzRFlacUpVNTBJeDQ3cWRvSnhRWTRoZFdrTTBhRVRpUXhJVzlWSUR0NDdTWG12UzlLVExUT2NkMkFibGxMQ0xVeHZxV0QxMGcxUTRZMGFqX0t3ZDc1amc?oc=5",
       "domain": "news.google.com",
       "source_name": "MEXC",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
