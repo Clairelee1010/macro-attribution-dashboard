@@ -550,46 +550,168 @@
             return topics.some(t => ['WEB3_RWA','STABLECOIN','DEFI','AGENTIC_AI','EXCHANGE'].includes(t));
         }
 
+        function translateNewsValue(value, kind) {
+            const zh = currentLang === 'zh';
+            const maps = {
+                freshness: {
+                    FRESH: zh ? '最新' : 'FRESH',
+                    STALE: zh ? '較舊資訊' : 'STALE',
+                    ERROR: zh ? '錯誤' : 'ERROR',
+                    MISSING: zh ? '缺少資料' : 'MISSING'
+                },
+                source: {
+                    OFFICIAL_COMPANY_SOURCE: zh ? '官方來源' : 'OFFICIAL',
+                    SOCIAL_SIGNAL: zh ? '社群訊號' : 'SOCIAL',
+                    NEWS_SOURCE: zh ? '新聞來源' : 'NEWS'
+                },
+                topic: {
+                    US_MACRO: zh ? '美國總經' : 'US MACRO',
+                    TW_MARKET: zh ? '台灣市場' : 'TAIWAN MARKET',
+                    WEB3_RWA: zh ? 'Web3 / RWA' : 'WEB3 / RWA',
+                    STABLECOIN: zh ? '穩定幣' : 'STABLECOIN',
+                    DEFI: zh ? 'DeFi' : 'DEFI',
+                    AGENTIC_AI: zh ? '代理式 AI' : 'AGENTIC AI',
+                    EXCHANGE: zh ? '交易所' : 'EXCHANGE'
+                }
+            };
+            return maps[kind]?.[value] || String(value || '').replaceAll('_', ' ');
+        }
+
+        function zhNewsText(item, field) {
+            // Prefer bilingual fields if the feed supplies them in the future.
+            const direct = item?.[`${field}_zh`] || item?.[`${field}_zh_tw`] || item?.[`${field}_zh_TW`];
+            if (direct) return direct;
+
+            const source = item?.source_name || '';
+            const title = item?.title || '';
+
+            // Safe UI translations for repeated generated explanatory text.
+            if (field === 'why_it_matters') {
+                const topic = item?.primary_topic || item?.topics?.[0] || '';
+                const map = {
+                    EXCHANGE: '交易所相關發展可能影響市場准入、流動性、合規與基礎設施。',
+                    WEB3_RWA: 'Web3 與 RWA 發展可能影響鏈上資金流、機構採用、流動性與市場基礎設施。',
+                    STABLECOIN: '穩定幣相關發展可能影響鏈上流動性、支付、跨境結算與市場風險。',
+                    DEFI: 'DeFi 發展可能影響鏈上流動性、資本效率、協議風險與市場結構。',
+                    AGENTIC_AI: 'Agentic AI 發展可能影響自動化決策、交易工作流、風險控制與 Web3 基礎設施。',
+                    US_MACRO: '美國總經事件可能影響利率、美元、風險偏好與跨市場資金流。',
+                    TW_MARKET: '台灣市場事件可能影響台美股連動、外資籌碼、匯率與科技供應鏈。'
+                };
+                return map[topic] || item?.why_it_matters || '';
+            }
+
+            if (field === 'evidence_note') {
+                if (item?.source_type === 'OFFICIAL_COMPANY_SOURCE') return '公司官方發布；視為第一方證據，仍應搭配其他來源交叉驗證。';
+                if (item?.source_type === 'SOCIAL_SIGNAL') return '社群來源訊號；屬輔助性證據，需搭配其他可靠來源驗證。';
+                return '新聞或公開來源資訊；應搭配來源時間、內容與其他證據交叉驗證。';
+            }
+
+            if (field === 'limitations') {
+                return '與 P01 指標的關聯不代表因果關係，也不構成投資建議。';
+            }
+
+            // Do not fabricate translations of source article titles.
+            if (field === 'title') return title;
+
+            return item?.[field] || '';
+        }
+
         function renderActiveTab() {
             const container = document.getElementById('news-container');
             if (!container) return;
             container.innerHTML = '';
+
+            const zh = currentLang === 'zh';
+
+            // Keep surrounding feed UI synchronized with the language switch.
+            const feedTitle = document.getElementById('feed-title');
+            const feedSubtitle = document.getElementById('feed-subtitle');
+            if (feedTitle) feedTitle.innerText = zh ? '📰 市場與 Web3 情報動態' : '📰 Market & Web3 Intelligence Feed';
+            if (feedSubtitle) feedSubtitle.innerText = zh
+                ? '即時來源中繼資料 · 可追溯來源 · 不構成投資建議'
+                : 'Current source metadata · provenance-aware · no investment recommendation';
+
+            const tabLabels = {
+                us_macro: zh ? '🇺🇸 美國總經情報' : '🇺🇸 US Macro Intelligence',
+                web3_crypto: zh ? '🌐 Web3 / RWA 情報' : '🌐 Web3 / RWA Intelligence',
+                tw_stocks: zh ? '💻 台灣市場情報' : '💻 Taiwan Market Intelligence'
+            };
+            Object.entries(tabLabels).forEach(([key, label]) => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (btn) btn.innerHTML = label;
+            });
+
             if (!marketIntelligenceFeed || marketIntelligenceFeed.status !== 'AVAILABLE') {
-                const msg = currentLang === 'zh' ? '目前無可驗證的最新情報；系統不會以舊 Prototype 內容替代。' : 'Current verified intelligence is unavailable; stale prototype content is not substituted.';
+                const msg = zh ? '目前無可驗證的最新情報；系統不會以舊 Prototype 內容替代。' : 'Current verified intelligence is unavailable; stale prototype content is not substituted.';
                 container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
                 return;
             }
-            const list = (marketIntelligenceFeed.items || []).filter(x => tabMatches(x, activeTab) && ['FRESH','STALE'].includes(x.freshness)).slice(0, 12);
+
+            const list = (marketIntelligenceFeed.items || [])
+                .filter(x => tabMatches(x, activeTab) && ['FRESH','STALE'].includes(x.freshness))
+                .slice(0, 12);
+
             if (!list.length) {
-                const msg = currentLang === 'zh' ? '此分區目前沒有符合 freshness 規則的情報。' : 'No intelligence in this section currently meets freshness rules.';
+                const msg = zh ? '此分區目前沒有符合新鮮度規則的情報。' : 'No intelligence in this section currently meets freshness rules.';
                 container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
                 return;
             }
+
             list.forEach(item => {
                 const official = item.source_type === 'OFFICIAL_COMPANY_SOURCE';
-                const sourceBadge = official ? 'OFFICIAL' : (item.source_type === 'SOCIAL_SIGNAL' ? 'SOCIAL' : 'NEWS');
+                const sourceBadge = translateNewsValue(item.source_type, 'source');
                 const freshnessClass = item.freshness === 'FRESH' ? 'status-fresh' : 'status-stale';
-                const topic = (item.primary_topic || item.topics?.[0] || 'WEB3_RWA').replaceAll('_',' ');
-                const why = item.why_it_matters || '';
-                const linked = (item.linked_p01_context || []).join(' · ') || '--';
-                const evidenceNote = item.evidence_note || '';
-                const published = item.published_at ? new Date(item.published_at).toLocaleString(currentLang === 'zh' ? 'zh-TW' : 'en-US') : (currentLang === 'zh' ? '時間未知' : 'Time unavailable');
+                const freshnessLabel = translateNewsValue(item.freshness, 'freshness');
+                const rawTopic = item.primary_topic || item.topics?.[0] || 'WEB3_RWA';
+                const topic = translateNewsValue(rawTopic, 'topic');
+                const why = zh ? zhNewsText(item, 'why_it_matters') : (item.why_it_matters_en || item.why_it_matters || '');
+                const evidenceNote = zh ? zhNewsText(item, 'evidence_note') : (item.evidence_note_en || item.evidence_note || '');
+                const limitation = zh ? zhNewsText(item, 'limitations') : (item.limitations_en || item.limitations || '');
+                const displayTitle = zh ? zhNewsText(item, 'title') : (item.title_en || item.title || '');
+                const originalTitle = item.title || '';
+                const linked = (item.linked_p01_context || []).map(x => {
+                    if (!zh) return x;
+                    const linkedMap = {
+                        MARKET_REGIME: '市場狀態',
+                        EVIDENCE_CONFIDENCE: '證據可信度',
+                        MARKET_RISK: '市場風險',
+                        DATA_QUALITY: '資料品質'
+                    };
+                    return linkedMap[x] || x;
+                }).join(' · ') || '--';
+                const published = item.published_at
+                    ? new Date(item.published_at).toLocaleString(zh ? 'zh-TW' : 'en-US')
+                    : (zh ? '時間未知' : 'Time unavailable');
+
                 const card = document.createElement('article');
                 card.className = 'soft-card rounded-2xl p-5 md:p-6 space-y-4 transition-all hover:shadow-md';
                 card.innerHTML = `
                     <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono">
-                        <span class="data-badge ${official ? 'data-generated' : 'data-live'}">${sourceBadge}</span>
-                        <span class="font-bold ${freshnessClass}">${escapeHtml(item.freshness)}</span>
+                        <span class="data-badge ${official ? 'data-generated' : 'data-live'}">${escapeHtml(sourceBadge)}</span>
+                        <span class="font-bold ${freshnessClass}">${escapeHtml(freshnessLabel)}</span>
                         <span class="text-stone-300">|</span><span class="text-stone-500">${escapeHtml(item.source_name)}</span>
                         <span class="text-stone-300">|</span><span class="text-stone-400">${escapeHtml(published)}</span>
                     </div>
-                    <div><div class="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1">${escapeHtml(topic)}</div><h2 class="text-lg font-bold text-stone-900 leading-snug">${escapeHtml(item.title)}</h2></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3"><div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${currentLang==='zh'?'為什麼重要':'Why it matters'}</div><div class="text-stone-600 leading-relaxed">${escapeHtml(why)}</div></div>
-                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3"><div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${currentLang==='zh'?'Linked P01 Context':'Linked P01 Context'}</div><div class="text-stone-600 font-mono">${escapeHtml(linked)}</div></div>
+                    <div>
+                        <div class="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1">${escapeHtml(topic)}</div>
+                        <h2 class="text-lg font-bold text-stone-900 leading-snug">${escapeHtml(displayTitle)}</h2>
+                        ${zh && displayTitle !== originalTitle ? `<div class="text-[10px] text-stone-400 mt-1">原文：${escapeHtml(originalTitle)}</div>` : ''}
                     </div>
-                    <div class="text-[10px] text-stone-500 border-t border-stone-100 pt-3 space-y-1"><div><strong>Evidence:</strong> ${escapeHtml(evidenceNote)}</div><div><strong>${currentLang==='zh'?'限制':'Limitation'}:</strong> ${escapeHtml(item.limitations || '')}</div></div>
-                    <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="inline-flex text-xs font-bold text-[#c05656] hover:underline">${currentLang==='zh'?'查看原始來源 →':'View original source →'}</a>`;
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '為什麼重要' : 'Why it matters'}</div>
+                            <div class="text-stone-600 leading-relaxed">${escapeHtml(why)}</div>
+                        </div>
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '關聯 P01 指標' : 'Linked P01 Context'}</div>
+                            <div class="text-stone-600 font-mono">${escapeHtml(linked)}</div>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-stone-500 border-t border-stone-100 pt-3 space-y-1">
+                        <div><strong>${zh ? '證據' : 'Evidence'}:</strong> ${escapeHtml(evidenceNote)}</div>
+                        <div><strong>${zh ? '限制' : 'Limitation'}:</strong> ${escapeHtml(limitation)}</div>
+                    </div>
+                    <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="inline-flex text-xs font-bold text-[#c05656] hover:underline">${zh ? '查看原始來源 →' : 'View original source →'}</a>`;
                 container.appendChild(card);
             });
         }
@@ -690,6 +812,13 @@
             document.getElementById('data-semantics-live').innerText = semantics.live;
             document.getElementById('data-semantics-generated').innerText = semantics.generated;
             document.getElementById('data-semantics-prototype').innerText = semantics.prototype;
+            if (marketIntelligenceFeed?.status === 'AVAILABLE') {
+                const state = document.getElementById('feed-state');
+                if (state) state.innerText = isZh ? '目前資料' : 'CURRENT';
+                const dt = marketIntelligenceFeed.generated_at ? new Date(marketIntelligenceFeed.generated_at) : null;
+                const updated = document.getElementById('feed-updated');
+                if (updated && dt && !isNaN(dt)) updated.innerText = `${isZh ? '更新' : 'Updated'}: ${dt.toLocaleString(isZh ? 'zh-TW' : 'en-US')}`;
+            }
             renderActiveTab();
             renderDashboardV5();
         }
