@@ -29,7 +29,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro & Web3 Risk Intelligence Engine</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-002</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-005</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -664,11 +664,33 @@
                 const freshnessLabel = translateNewsValue(item.freshness, 'freshness');
                 const rawTopic = item.primary_topic || item.topics?.[0] || 'WEB3_RWA';
                 const topic = translateNewsValue(rawTopic, 'topic');
-                const why = zh ? zhNewsText(item, 'why_it_matters') : (item.why_it_matters_en || item.why_it_matters || '');
+                const summary = zh
+                    ? (item.intelligence_summary?.['zh-TW'] || item.intelligence_summary?.zh || '')
+                    : (item.intelligence_summary?.en || '');
+                const why = zh
+                    ? (item.why_it_matters_i18n?.['zh-TW'] || item.why_it_matters_i18n?.zh || zhNewsText(item, 'why_it_matters'))
+                    : (item.why_it_matters_i18n?.en || item.why_it_matters_en || item.why_it_matters || '');
                 const evidenceNote = zh ? zhNewsText(item, 'evidence_note') : (item.evidence_note_en || item.evidence_note || '');
                 const limitation = zh ? zhNewsText(item, 'limitations') : (item.limitations_en || item.limitations || '');
-                const displayTitle = zh ? zhNewsText(item, 'title') : (item.title_en || item.title || '');
-                const originalTitle = item.title || '';
+                // Preserve the original source title in both languages for provenance.
+                const displayTitle = item.title || '';
+                const priority = item.priority || 'LOW';
+                const relevanceScore = Number.isFinite(Number(item.relevance_score)) ? Number(item.relevance_score) : 0;
+                const priorityLabel = zh ? ({HIGH:'高', MEDIUM:'中', LOW:'低'}[priority] || priority) : priority;
+                const reasonMapZh = {
+                    AUTHORITATIVE_SOURCE: '權威來源',
+                    OFFICIAL_SOURCE: '官方來源',
+                    NEWS_SOURCE: '新聞來源',
+                    FRESH: '最新',
+                    STALE: '較舊資訊',
+                    STRONG_P01_CONTEXT_MATCH: '高度符合 P01 情境',
+                    P01_CONTEXT_MATCH: '符合 P01 情境',
+                    CORE_TOPIC: '核心主題',
+                    HIGH_MARKET_IMPACT: '高市場影響',
+                    MARKET_IMPACT: '市場影響',
+                    MARKET_RELEVANT: '市場相關'
+                };
+                const rankingReasons = (item.ranking_reasons || []).map(x => zh ? (reasonMapZh[x] || x.replaceAll('_', ' ')) : x.replaceAll('_', ' '));
                 const linked = (item.linked_p01_context || []).map(x => {
                     if (!zh) return x;
                     const linkedMap = {
@@ -689,15 +711,20 @@
                     <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono">
                         <span class="data-badge ${official ? 'data-generated' : 'data-live'}">${escapeHtml(sourceBadge)}</span>
                         <span class="font-bold ${freshnessClass}">${escapeHtml(freshnessLabel)}</span>
+                        <span class="data-badge ${priority === 'HIGH' ? 'data-prototype' : 'data-generated'}">${zh ? '優先級' : 'PRIORITY'} · ${escapeHtml(priorityLabel)}</span>
+                        <span class="data-badge data-generated">${zh ? '相關度' : 'RELEVANCE'} · ${escapeHtml(relevanceScore)}/100</span>
                         <span class="text-stone-300">|</span><span class="text-stone-500">${escapeHtml(item.source_name)}</span>
                         <span class="text-stone-300">|</span><span class="text-stone-400">${escapeHtml(published)}</span>
                     </div>
                     <div>
                         <div class="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1">${escapeHtml(topic)}</div>
                         <h2 class="text-lg font-bold text-stone-900 leading-snug">${escapeHtml(displayTitle)}</h2>
-                        ${zh && displayTitle !== originalTitle ? `<div class="text-[10px] text-stone-400 mt-1">原文：${escapeHtml(originalTitle)}</div>` : ''}
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                        <div class="bg-indigo-50/40 border border-indigo-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '情報摘要' : 'Intelligence Summary'}</div>
+                            <div class="text-stone-600 leading-relaxed">${escapeHtml(summary || (zh ? '目前沒有可用摘要。' : 'No summary available.'))}</div>
+                        </div>
                         <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3">
                             <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '為什麼重要' : 'Why it matters'}</div>
                             <div class="text-stone-600 leading-relaxed">${escapeHtml(why)}</div>
@@ -706,6 +733,9 @@
                             <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '關聯 P01 指標' : 'Linked P01 Context'}</div>
                             <div class="text-stone-600 font-mono">${escapeHtml(linked)}</div>
                         </div>
+                    </div>
+                    <div class="text-[10px] text-stone-500 bg-stone-50/50 border border-stone-100 rounded-xl px-3 py-2">
+                        <strong>${zh ? '排序依據' : 'Ranking reasons'}:</strong> ${escapeHtml(rankingReasons.join(' · ') || '--')}
                     </div>
                     <div class="text-[10px] text-stone-500 border-t border-stone-100 pt-3 space-y-1">
                         <div><strong>${zh ? '證據' : 'Evidence'}:</strong> ${escapeHtml(evidenceNote)}</div>
