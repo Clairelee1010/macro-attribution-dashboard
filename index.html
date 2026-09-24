@@ -10,6 +10,17 @@
         body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
         .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); }
         .drawer-transition { transition: transform 0.3s ease-in-out; }
+        .data-badge { display:inline-flex; align-items:center; gap:.3rem; padding:.15rem .45rem; border-radius:9999px; font-size:9px; font-weight:700; letter-spacing:.04em; }
+        .data-live { background:#ecfdf5; color:#047857; border:1px solid #a7f3d0; }
+        .data-generated { background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe; }
+        .data-prototype { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
+        .status-fresh { color:#059669; }
+        .status-stale { color:#d97706; }
+        .status-error, .status-missing { color:#e11d48; }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            #intelligence-v5 { scroll-margin-top: 1rem; }
+        }
     </style>
 </head>
 <body class="p-4 md:p-6 max-w-7xl mx-auto space-y-6 relative min-h-screen">
@@ -18,7 +29,7 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200/80 pb-4">
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
-            <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro Attribution & Cross-Market Dashboard</h1>
+            <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro & Web3 Risk Intelligence Engine</h1>
             <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v5.0 · P01-010</span>
         </div>
         <div class="flex items-center gap-3">
@@ -27,24 +38,31 @@
                 <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition-all">EN</button>
             </div>
             <div class="flex items-center gap-2 bg-white border border-stone-200 px-3 py-1.5 rounded-full shadow-sm text-xs text-stone-600 font-mono">
-                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">2026.09 Top 5 Matrix Active</span>
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">Production Intelligence Pipeline</span>
             </div>
         </div>
+    </div>
+
+    <div id="data-semantics-note" class="soft-card rounded-xl px-4 py-3 text-[11px] text-stone-600 flex flex-wrap items-center gap-2">
+        <span class="font-bold" id="data-semantics-title">Data semantics:</span>
+        <span class="data-badge data-live">LIVE</span><span id="data-semantics-live">automated market feed</span>
+        <span class="data-badge data-generated">GENERATED</span><span id="data-semantics-generated">deterministic intelligence output</span>
+        <span class="data-badge data-prototype">PROTOTYPE</span><span id="data-semantics-prototype">illustrative content, not current market evidence</span>
     </div>
 
     <!-- 📊 頁首四大統計數據 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">ACTIVE INTELLIGENCE COUNT</div>
+            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">ACTIVE INTELLIGENCE COUNT</div><span class="data-badge data-prototype">PROTOTYPE</span></div>
             <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">0</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">BULLISH SIGNALS RATIO</div>
+            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">BULLISH SIGNALS RATIO</div><span class="data-badge data-prototype">PROTOTYPE</span></div>
             <div id="meta-bullish-val" class="text-3xl font-bold text-emerald-600 font-mono">0%</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-rose-50/20 border-rose-100">
             <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
-                🔥 VIX VOLATILITY TRACKING
+                🔥 VIX VOLATILITY TRACKING <span class="data-badge data-live ml-1">LIVE</span>
             </div>
             <div id="vix-card-val" class="text-xl font-bold text-rose-900 font-mono mt-1">
                 17.8 <span class="text-xs text-rose-700 font-normal" id="vix-desc">(Risk-On & Bullish Convergence)</span>
@@ -52,7 +70,7 @@
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-amber-50/20 border-amber-100">
             <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1">
-                📊 AGENTIC RWA NET FLOWS
+                📊 AGENTIC RWA NET FLOWS <span class="data-badge data-prototype ml-1">PROTOTYPE</span>
             </div>
             <div class="text-xl font-bold text-amber-900 font-mono mt-1">+$52.4M</div>
         </div>
@@ -65,7 +83,7 @@
                 <div id="v5-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">🧠 Intelligence Engine · Executive View</div>
                 <div id="v5-subtitle" class="text-[11px] text-stone-400 mt-1">Evidence-driven market context · deterministic core · explainable output</div>
             </div>
-            <div id="v5-updated" class="text-[10px] text-stone-400 font-mono">Loading intelligence…</div>
+            <div class="flex flex-wrap items-center gap-2"><span id="v5-data-state" class="data-badge data-generated">GENERATED</span><div id="v5-updated" class="text-[10px] text-stone-400 font-mono">Loading intelligence…</div></div>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
             <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-regime" class="text-[10px] text-stone-400 uppercase">Market Regime</div><div id="v5-regime" class="text-lg font-bold mt-1">--</div><div id="v5-regime-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
@@ -86,7 +104,7 @@
     <!-- 🎯 核心監控指標矩陣 -->
     <div class="space-y-2">
         <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2" id="label-core-matrix">
-            📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)
+            📌 核心監控指標矩陣 (CORE METRIC SPECTRUM) · LIVE + PROTOTYPE
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -160,7 +178,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
                 <div class="text-xs font-bold text-stone-700 uppercase tracking-wider">📡 Market Data Status</div>
-                <div id="live-last-updated" class="text-[10px] text-stone-400 mt-1">Last Updated: Loading...</div>
+                <div id="live-last-updated" class="text-[10px] text-stone-400 mt-1">Last Updated: Loading...</div><div id="live-provenance" class="text-[9px] text-stone-400 mt-1">Source provenance: loading…</div>
             </div>
             <div class="flex items-center gap-2 text-xs">
                 <span class="text-stone-500">Data Quality</span>
@@ -689,9 +707,9 @@
             document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
 
             if (isZh) {
-                document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
-                document.getElementById('status-tag').innerText = "2026.09 Top 5 Matrix Active";
-                document.getElementById('label-core-matrix').innerText = "📌 核心監控指標矩陣 (CORE METRIC SPECTRUM)";
+                document.getElementById('header-title').innerText = "Macro & Web3 Risk Intelligence Engine";
+                document.getElementById('status-tag').innerText = isZh ? "Production Intelligence Pipeline" : "Production Intelligence Pipeline";
+                document.getElementById('label-core-matrix').innerText = "📌 核心監控指標矩陣 (CORE METRIC SPECTRUM) · LIVE + PROTOTYPE";
                 document.getElementById('label-macro-group').innerText = "1. 🌐 總經與利率流動性 (Macro)";
                 document.getElementById('label-chips-group').innerText = "2. 💻 美台股連動與籌碼 (Chips)";
                 document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 金融與 RWA (On-Chain)";
@@ -718,8 +736,8 @@
                 document.getElementById('robi-input').placeholder = "輸入您的總經或市場疑問...";
                 document.getElementById('robi-send-btn').innerText = "發送";
             } else {
-                document.getElementById('header-title').innerText = "Macro Attribution & Cross-Market Dashboard";
-                document.getElementById('status-tag').innerText = "2026.09 Top 5 Matrix Active";
+                document.getElementById('header-title').innerText = "Macro & Web3 Risk Intelligence Engine";
+                document.getElementById('status-tag').innerText = isZh ? "Production Intelligence Pipeline" : "Production Intelligence Pipeline";
                 document.getElementById('label-core-matrix').innerText = "📌 CORE METRIC SPECTRUM";
                 document.getElementById('label-macro-group').innerText = "1. 🌐 Macro & Rates Liquidity";
                 document.getElementById('label-chips-group').innerText = "2. 💻 TW & US Equity Chips";
@@ -747,6 +765,24 @@
                 document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
                 document.getElementById('robi-send-btn').innerText = "Send";
             }
+            const semantics = {
+                zh: {
+                    title: '資料語意：',
+                    live: '自動化市場資料',
+                    generated: 'Deterministic Intelligence 輸出',
+                    prototype: '示意內容，不視為當前市場證據'
+                },
+                en: {
+                    title: 'Data semantics:',
+                    live: 'automated market feed',
+                    generated: 'deterministic intelligence output',
+                    prototype: 'illustrative content, not current market evidence'
+                }
+            }[lang];
+            document.getElementById('data-semantics-title').innerText = semantics.title;
+            document.getElementById('data-semantics-live').innerText = semantics.live;
+            document.getElementById('data-semantics-generated').innerText = semantics.generated;
+            document.getElementById('data-semantics-prototype').innerText = semantics.prototype;
             renderActiveTab();
             renderDashboardV5();
         }
@@ -829,9 +865,10 @@
                 statusEl.innerText = status;
                 statusEl.className =
                     `text-[9px] mt-1 font-bold ${
-                        status === 'FRESH' ? 'text-emerald-600' :
-                        status === 'STALE' ? 'text-amber-600' :
-                        'text-rose-600'
+                        status === 'FRESH' ? 'status-fresh' :
+                        status === 'STALE' ? 'status-stale' :
+                        status === 'MISSING' ? 'status-missing' :
+                        'status-error'
                     }`;
             }
         }
@@ -905,6 +942,15 @@
                 .map(value => new Date(value))
                 .filter(value => !Number.isNaN(value.getTime()));
 
+            const provenanceEl = document.getElementById('live-provenance');
+            if (provenanceEl) {
+                const sourceNames = [...new Set(items.map(item => item.source).filter(Boolean))];
+                const fallbackCount = items.filter(item => item.source_type === 'FALLBACK').length;
+                provenanceEl.innerText = sourceNames.length
+                    ? `Sources: ${sourceNames.join(' · ')}${fallbackCount ? ` · ${fallbackCount} fallback route${fallbackCount > 1 ? 's' : ''}` : ''}`
+                    : 'Sources: unavailable';
+            }
+
             const lastUpdatedEl = document.getElementById('live-last-updated');
             if (lastUpdatedEl) {
                 if (timestamps.length) {
@@ -920,6 +966,8 @@
         function renderDashboardV5() {
             const d=dashboardV5Snapshot; const zh=currentLang==='zh';
             if (!d) return;
+            const stateEl=document.getElementById('v5-data-state');
+            if(stateEl){ stateEl.innerText='GENERATED'; stateEl.className='data-badge data-generated'; }
             const ex=d.executive_summary||{}, regime=ex.market_regime||{}, risk=ex.market_risk||{}, conf=ex.evidence_confidence||{}, quality=ex.data_quality||{};
             document.getElementById('v5-title').innerText=zh?'🧠 Intelligence Engine · 決策摘要':'🧠 Intelligence Engine · Executive View';
             document.getElementById('v5-subtitle').innerText=zh?'證據驅動市場脈絡 · Deterministic Core · Explainable Output':'Evidence-driven market context · deterministic core · explainable output';
@@ -948,7 +996,7 @@
         }
         async function loadDashboardV5() {
             try { const r=await fetch('./dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); console.log('P01-010 dashboard data loaded'); }
-            catch(e) { console.error('P01-010 dashboard data unavailable:',e); document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
+            catch(e) { console.error('P01-010 dashboard data unavailable:',e); const s=document.getElementById('v5-data-state'); if(s){s.innerText='UNAVAILABLE';s.className='data-badge data-prototype';} document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
         }
 
         async function loadLiveMarketData() {
@@ -993,6 +1041,7 @@
         window.onload = function() {
             updateMetricsDisplay(marketData.metrics);
             calculateOverallStats();
+            changeLang(currentLang);
             renderActiveTab();
             loadLiveMarketData();
             loadDashboardV5();
