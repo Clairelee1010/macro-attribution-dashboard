@@ -1,0 +1,59 @@
+name: P01-010 Dashboard v5 Acceptance
+
+on:
+  push:
+    branches:
+      - feature/p01-010-dashboard-v5
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Verify P01-010 repository structure
+        run: |
+          test -f dashboard_builder.py
+          test -f dashboard_validation.py
+          test -f schemas/dashboard_data.schema.json
+          test -f tests/test_dashboard.py
+          test -f index.html
+          echo "PASS: P01-010 repository structure verified"
+      - name: Run deterministic tests
+        run: python -m pytest tests -q
+      - name: Run full intelligence pipeline
+        run: python update_market_data.py
+      - name: Validate P01-010 artifacts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from dashboard_validation import validate_dashboard_data
+          required=["dashboard_data.json","confidence_evidence_report.json","market_risk_report.json","pipeline_status.json"]
+          for f in required:
+              assert Path(f).exists(), f"Missing P01-010 artifact: {f}"
+              json.loads(Path(f).read_text(encoding="utf-8"))
+              print(f"PASS: {f}")
+          d=json.loads(Path("dashboard_data.json").read_text(encoding="utf-8"))
+          validate_dashboard_data(d)
+          assert d["schema_version"]=="10.0"
+          assert d["engine"]=="P01-010"
+          print("PASS: Dashboard schema_version =", d["schema_version"])
+          print("PASS: Market Regime =", d["executive_summary"]["market_regime"]["value"])
+          print("PASS: Market Risk =", d["executive_summary"]["market_risk"]["level"])
+          print("PASS: Evidence Confidence =", d["executive_summary"]["evidence_confidence"]["level"])
+          print("P01-010 ACCEPTANCE CONTRACT: PASS")
+          PY

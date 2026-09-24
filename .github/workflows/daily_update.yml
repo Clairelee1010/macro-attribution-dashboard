@@ -17,6 +17,7 @@ on:
       - 'attribution_report.json'
       - 'market_risk_report.json'
       - 'confidence_evidence_report.json'
+      - 'dashboard_data.json'
       - 'pipeline_status.json'
 
 permissions:
@@ -45,17 +46,17 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          required=["data.json","live_market_data.json","raw_market_data.json","normalized_market_data.json","data_quality_report.json","signal_report.json","regime_report.json","attribution_report.json","market_risk_report.json","confidence_evidence_report.json","pipeline_status.json"]
+          required=["data.json","live_market_data.json","raw_market_data.json","normalized_market_data.json","data_quality_report.json","signal_report.json","regime_report.json","attribution_report.json","market_risk_report.json","confidence_evidence_report.json","dashboard_data.json","pipeline_status.json"]
           for filename in required:
               p=Path(filename)
               if not p.exists(): raise FileNotFoundError(filename)
               json.loads(p.read_text(encoding="utf-8"))
               print(f"PASS: {filename}")
-          print("PASS: P01-009 production artifacts are valid JSON")
+          print("PASS: P01-010 production artifacts are valid JSON")
           PY
       - name: Stage generated artifacts
         run: |
-          git add -- data.json live_market_data.json raw_market_data.json normalized_market_data.json data_quality_report.json signal_report.json regime_report.json attribution_report.json market_risk_report.json confidence_evidence_report.json pipeline_status.json
+          git add -- data.json live_market_data.json raw_market_data.json normalized_market_data.json data_quality_report.json signal_report.json regime_report.json attribution_report.json market_risk_report.json confidence_evidence_report.json dashboard_data.json pipeline_status.json
           git status --short
       - name: Commit and push generated artifacts
         run: |
