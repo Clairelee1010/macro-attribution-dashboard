@@ -43,7 +43,7 @@ GDELT_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 GOOGLE_RSS_ENDPOINT = "https://news.google.com/rss/search"
 
 SCHEMA_VERSION = "1.0"
-ENGINE = "P01-NEWS-003"
+ENGINE = "P01-NEWS-004"
 
 REQUEST_TIMEOUT = 5
 MAX_WORKERS = 8
@@ -601,6 +601,128 @@ def linked_context(topics):
 
 
 # ============================================================
+# P01-NEWS-004 Intelligence Ranking
+# ============================================================
+
+HIGH_IMPACT_KEYWORDS = {
+    "federal reserve",
+    "fed",
+    "interest rate",
+    "rate cut",
+    "rate hike",
+    "inflation",
+    "cpi",
+    "pce",
+    "treasury",
+    "yield",
+    "sec",
+    "regulation",
+    "tokenization",
+    "tokenized",
+    "stablecoin",
+    "rwa",
+    "bitcoin",
+    "btc",
+    "ethereum",
+    "eth",
+    "tsmc",
+    "semiconductor",
+}
+
+AUTHORITATIVE_SOURCES = {
+    "Federal Reserve",
+    "SEC",
+    "US Treasury",
+    "TWSE",
+    "TSMC",
+}
+
+def calculate_relevance(article):
+    """Deterministic and explainable P01-NEWS-004 relevance scoring."""
+    score = 15
+    reasons = []
+
+    source_type = article.get("source_type")
+    source_name = article.get("source_name") or ""
+    freshness_status = article.get("freshness")
+    linked = article.get("linked_p01_context") or []
+    topics = article.get("topics") or []
+    title = (article.get("title") or "").lower()
+
+    # 1. Source authority: max 20
+    if source_name in AUTHORITATIVE_SOURCES:
+        score += 20
+        reasons.append("AUTHORITATIVE_SOURCE")
+    elif source_type == "OFFICIAL_COMPANY_SOURCE":
+        score += 15
+        reasons.append("OFFICIAL_SOURCE")
+    elif source_type == "NEWS_SOURCE":
+        score += 5
+        reasons.append("NEWS_SOURCE")
+
+    # 2. Freshness: max 20
+    if freshness_status == "FRESH":
+        score += 20
+        reasons.append("FRESH")
+    elif freshness_status == "STALE":
+        score += 8
+        reasons.append("STALE")
+
+    # 3. P01 context relevance: max 20
+    if len(linked) >= 4:
+        score += 20
+        reasons.append("STRONG_P01_CONTEXT_MATCH")
+    elif len(linked) >= 2:
+        score += 12
+        reasons.append("P01_CONTEXT_MATCH")
+
+    # 4. Core topic relevance: max 10
+    important_topics = {
+        "US_MACRO",
+        "WEB3_RWA",
+        "STABLECOIN",
+        "TW_MARKET",
+    }
+    if any(topic in important_topics for topic in topics):
+        score += 10
+        reasons.append("CORE_TOPIC")
+
+    # 5. Market-impact keywords: max 15
+    keyword_hits = sum(
+        1 for keyword in HIGH_IMPACT_KEYWORDS if keyword in title
+    )
+    if keyword_hits >= 3:
+        score += 15
+        reasons.append("HIGH_MARKET_IMPACT")
+    elif keyword_hits == 2:
+        score += 10
+        reasons.append("MARKET_IMPACT")
+    elif keyword_hits == 1:
+        score += 5
+        reasons.append("MARKET_RELEVANT")
+
+    score = min(score, 100)
+
+    if score >= 75:
+        priority = "HIGH"
+    elif score >= 50:
+        priority = "MEDIUM"
+    else:
+        priority = "LOW"
+
+    return score, priority, reasons
+
+
+def apply_ranking(article):
+    """Attach deterministic explainable ranking metadata."""
+    score, priority, reasons = calculate_relevance(article)
+    article["relevance_score"] = score
+    article["priority"] = priority
+    article["ranking_reasons"] = reasons
+    return article
+
+
+# ============================================================
 # Article Normalization
 # ============================================================
 
@@ -649,7 +771,7 @@ def normalize_article(
         now,
     )
 
-    return {
+    article = {
         "id":
             item_id(url, title),
 
@@ -722,6 +844,8 @@ def normalize_article(
                 "an investment recommendation."
             ),
     }
+
+    return apply_ranking(article)
 
 
 # ============================================================
@@ -1056,15 +1180,17 @@ def fetch_feed():
                 )
 
     # --------------------------------------------------------
-    # Deduplicate + Sort
+    # P01-NEWS-004
+    # Deduplicate + Intelligence Ranking
     # --------------------------------------------------------
 
     items = sorted(
         dedupe(items),
         key=lambda x: (
+            x.get("relevance_score", 0),
+            x.get("freshness") == "FRESH",
+            x.get("source_type") == "OFFICIAL_COMPANY_SOURCE",
             x.get("published_at") or "",
-            x["source_type"]
-            == "OFFICIAL_COMPANY_SOURCE",
         ),
         reverse=True,
     )[:90]
@@ -1193,6 +1319,9 @@ def validate_feed(feed):
             "topics",
             "linked_p01_context",
             "limitations",
+            "relevance_score",
+            "priority",
+            "ranking_reasons",
         ):
             assert k in x, k
 
@@ -1220,6 +1349,20 @@ def validate_feed(feed):
                 "http://",
                 "https://",
             )
+        )
+
+        assert isinstance(x["relevance_score"], int)
+        assert 0 <= x["relevance_score"] <= 100
+
+        assert x["priority"] in {
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+        }
+
+        assert isinstance(
+            x["ranking_reasons"],
+            list,
         )
 
 
