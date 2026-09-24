@@ -1,16 +1,263 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-001",
-  "generated_at": "2026-09-24T00:00:00Z",
-  "status": "UNAVAILABLE",
-  "sources": [],
-  "errors": [
+  "generated_at": "2026-09-24T03:54:10.445686Z",
+  "status": "AVAILABLE",
+  "sources": [
     {
-      "source": "bootstrap",
-      "error": "Run market_intelligence.py or Daily Data Update to populate current intelligence."
+      "source": "Binance",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "Bitget",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "Bybit",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "Circle",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "Coinbase",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "Gate",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "MEXC",
+      "status": "OK",
+      "items": 4,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
+      "status": "OK",
+      "items": 1,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "NEWS:US_MACRO",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
+      "status": "OK",
+      "items": 1,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "OKX",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
     }
   ],
-  "items": [],
+  "errors": [
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bitget",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    }
+  ],
+  "items": [
+    {
+      "id": "NEWS-881A090494C2",
+      "title": "What Is POLYMARKET Pre-IPO Futures? A Beginner’s Guide to Trading Polymarket Before a Potential IPO - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQS2c3bzRxLURKWk9jOGE3ajdLZWx3QjVENmNJNUYxekNXR3Roc05SanRlNlpNYlg2UHpNZ2N0b3ZWeFhjYURpRUxGLTd3a1JaNmZFQ1N5QUsyZlpHamd5S2dtUV9QT1VyZHFrSjdCX202T01XdUhvMVFZMk1Talg1UTI2c2s5SkhoN3Y5UlBCV0JRdW5XUFNpcTRHYW1uN1NoVnRHYlUwVDZTTERzNzVzTHNPdzA4Vnh5WVd0V3kxcmVITHpFcFdzNWdqaXVfWVU?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-22T05:33:28Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-245F47004A01",
+      "title": "CLARITY Act Momentum Triggers FOMO: A New Era of Crypto Market Regulation Arrives - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlhra0RiRUo0VU5KUTNoNlRWMEFpc2NaM2Y2dkQyZEJBM29yM09mdVpCbVI3ZTJZRmRNYVRSM01iQ2ZZMDFKWnpCY2o2MmcxbVlZOVdaSHVEYWVLUFVGdXFiY2V5S044R0RRZ2h2Q25VR2pfZF9MSDVfUWFxVkM2V3VVOERpdHVyMXBtUnBsNDJCcXI5eFV5NlRUMmp1aGUwZS1QWmFreEJuOVA5N05ScldlZ3hmQS04?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-23D5135F2B37",
+      "title": "What is Pharos Network (PROS Coin)? A Deep Dive into Pharos Network's RealFi Layer-1 Ecosystem - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPV2hGb0l3UmdMaU1vM2tJUXY5bG12MndtdTFIYXpRWURHUjVQeEZTdUNTN2VzdVdUOFdFbkQ0VS1tOUo5NVJtckpnNDlGT09jWVI0UE93em9qSFRFbXJIS1paSDhrSWM2MTdaNTBSa0tzRFlacUpVNTBJeDQ3cWRvSnhRWTRoZFdrTTBhRVRpUXhJVzlWSUR0NDdTWG12UzlLVExUT2NkMkFibGxMQ0xVeHZxV0QxMGcxUTRZMGFqX0t3ZDc1amc?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-1E99B80B0131",
+      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Britannica",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-19T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-6BF190693CD0",
+      "title": "CoinEx Shuts Down: What Happens to CoinEx Token (CET)? Buyback & Withdrawal Guide - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0zRVFWNHpXOFM4dXhRVHdSYU5ZMjBEWWNNQ0QxaHRpaXJlRkpaaE9kNFNfTl9PR0dwMGEtZDY0ZHM0dlN3aXN2dVN5amRMZEJWcElwODU1a19Uc1RyZUtvQzdZMXdidTNWcW8yM0NlVVVqdC1h?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-18T08:10:17Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    }
+  ],
   "social_adapters": {
     "X": "NOT_CONFIGURED",
     "Threads": "PHASE_2"
@@ -20,6 +267,10 @@
       "OFFICIAL_COMPANY_SOURCE",
       "NEWS_SOURCE",
       "SOCIAL_SIGNAL"
+    ],
+    "providers": [
+      "GDELT_DOC_2.0",
+      "GOOGLE_NEWS_RSS_FALLBACK"
     ],
     "freshness": {
       "FRESH": "<=36h",
