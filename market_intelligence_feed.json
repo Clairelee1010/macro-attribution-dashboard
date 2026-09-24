@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "engine": "P01-NEWS-001",
-  "generated_at": "2026-09-24T07:17:00.163184Z",
+  "engine": "P01-NEWS-003",
+  "generated_at": "2026-09-24T07:28:02.238989Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -35,6 +35,12 @@
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
+      "source": "Federal Reserve",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
       "source": "Gate",
       "status": "UNAVAILABLE",
       "items": 0,
@@ -43,7 +49,7 @@
     {
       "source": "MEXC",
       "status": "OK",
-      "items": 4,
+      "items": 5,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -69,21 +75,35 @@
       "status": "UNAVAILABLE",
       "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "SEC",
+      "status": "OK",
+      "items": 1,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "TSMC",
+      "status": "OK",
+      "items": 1,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "TWSE",
+      "status": "UNAVAILABLE",
+      "items": 0,
+      "provider": "GOOGLE_NEWS_RSS"
+    },
+    {
+      "source": "US Treasury",
+      "status": "OK",
+      "items": 2,
+      "provider": "GOOGLE_NEWS_RSS"
     }
   ],
   "errors": [
     {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:US_MACRO",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -98,12 +118,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
+      "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -113,7 +133,32 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -126,9 +171,45 @@
       "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TSMC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
   ],
   "items": [
+    {
+      "id": "NEWS-0C89CEED761F",
+      "title": "Remarks by Deputy Secretary of the Treasury Francis Brooke before the Treasury Market Conference - treasury.gov",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE41Vl9vdlFlakNRRWhYZ3V5Mmh0dmptQXdQV0xNRmk3MXI0Y2pWMnFXUUdjMUVMbnVYX3Mxa05faGhycHFva05ZdnZjeDA1a3dtRGpyd2hFZmZhUVVnY2ZlZ0Jwbw?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-22T15:05:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
     {
       "id": "NEWS-881A090494C2",
       "title": "What Is POLYMARKET Pre-IPO Futures? A Beginner’s Guide to Trading Polymarket Before a Potential IPO - MEXC",
@@ -146,6 +227,33 @@
       ],
       "primary_topic": "EXCHANGE",
       "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-899203388CAF",
+      "title": "Solana Blockchain Development Company: Services, Use Cases, and How to Choose - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPS2NwX3BCY2pJd3o0YW9DUWkxWHMzNmFUSlFhekRvWUJMdTNlU3hMdDByRGlvSF85bVl4M0tDWEl6RVU5VFAzd0FrSEpmQmZQbnROSUVVaTl6OTVEZGNiRERLRFVKNTJDZ0p1VUk2SmxnbHZWRXN5ejFLYzJta01INm1Rc1ZqNjBYUlJ1aE1SeW5YUWFTMnRoS3dGX29mcnNCMkhCeHF3S3MwQXEwNXVFTg?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "EXCHANGE"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
       "linked_p01_context": [
         "BTC",
         "ETH",
@@ -240,6 +348,90 @@
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-18T08:10:17Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-3348EF7FD0D9",
+      "title": "AI Forward Deployed Engineer Job Details - TSMC",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNkpYTm1fdFRTcllyYmpLZDNOdWRzSkttcko4WXhoZHhmSUFJNTRTS3pWcVJ2NTlGZVJyXy1lUWRPSXpxZ2Z3cGFDYnJXc0FyMnVFOVh2bkltR2hZSzZjaWZ6OGMwOXFGbnA0dmk1MDM2RTl1cFNWaUZuRW9XYi11SzFReWRlTVlpVmVubUxHbEN5amM?oc=5",
+      "domain": "news.google.com",
+      "source_name": "TSMC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-18T03:56:15Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "TW_MARKET"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-D3168C52DAA4",
+      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime - treasury.gov",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE01cXo3bFh5b3FkNGpWWHA4MXlvTDdkV0FGcWZWTVVwQUJabHotRm5Rck80ZXZmNkgyN3Z3WUdoeXRGT3NOVnJMNmpHUWVZejBkUDMtY3BxRnYyQnR1dEhCVjdB?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-17T18:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO",
+        "EXCHANGE"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK",
+        "BTC",
+        "ETH",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-335A0AE0E9DB",
+      "title": "SECURITIES AND EXCHANGE COMMISSION [Release No. 34-106402; File No. 4-927] Order Granting Temporary Conditional Exemptive Relief - SEC.gov",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9Id1hGZ3hFSnMzWkdnMkRsLUZRc0NMV29WMW5RMmRKaVJoMGl0V3lEZVMyeExWMUt2eDJETTdPdUw0dkprVDVvZ2lnTnduTU1zb3BHWklzanpzbWtNYTBHaFNsblc2NU5YMlZR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "SEC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-17T16:38:03Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
