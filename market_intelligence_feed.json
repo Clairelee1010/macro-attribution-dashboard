@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-003",
-  "generated_at": "2026-09-24T07:28:02.238989Z",
+  "generated_at": "2026-09-24T07:29:03.077791Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -60,14 +60,14 @@
     },
     {
       "source": "NEWS:US_MACRO",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:WEB3_RWA",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,12 +103,7 @@
   ],
   "errors": [
     {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -118,7 +113,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,7 +133,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,22 +143,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "TWSE",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -173,11 +178,6 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -185,8 +185,8 @@
   ],
   "items": [
     {
-      "id": "NEWS-0C89CEED761F",
-      "title": "Remarks by Deputy Secretary of the Treasury Francis Brooke before the Treasury Market Conference - treasury.gov",
+      "id": "NEWS-FB42617A3A3F",
+      "title": "Remarks by Deputy Secretary of the Treasury Francis Brooke before the Treasury Market Conference - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE41Vl9vdlFlakNRRWhYZ3V5Mmh0dmptQXdQV0xNRmk3MXI0Y2pWMnFXUUdjMUVMbnVYX3Mxa05faGhycHFva05ZdnZjeDA1a3dtRGpyd2hFZmZhUVVnY2ZlZ0Jwbw?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -208,6 +208,32 @@
         "MARKET_RISK"
       ],
       "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
+    },
+    {
+      "id": "NEWS-C5F437E40BC9",
+      "title": "Will the Fed Rate Hike and High Oil Prices Push Bitcoin Lower? - Programming Insider",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPWll6Q2FiUTlpMTlFcUJzNUNGdXdSNFQ0YXpRNDNQel9Db3NjY2owT2hkWGVRcTk5Uy1wcHNST0dYcW5wX010T1lfWlhjT2R0NjNwSDRFRXpvMlN4X19rOXpyYmpIVjY3Q1ZqMzEwRi03WERtNXV5REljVFRGNnMxN0p0NkRHVDVrZXFOWjFPMU1mWHQ4RXVIdQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Programming Insider",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-22T13:53:38Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
     },
     {
@@ -295,7 +321,7 @@
       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPV2hGb0l3UmdMaU1vM2tJUXY5bG12MndtdTFIYXpRWURHUjVQeEZTdUNTN2VzdVdUOFdFbkQ0VS1tOUo5NVJtckpnNDlGT09jWVI0UE93em9qSFRFbXJIS1paSDhrSWM2MTdaNTBSa0tzRFlacUpVNTBJeDQ3cWRvSnhRWTRoZFdrTTBhRVRpUXhJVzlWSUR0NDdTWG12UzlLVExUT2NkMkFibGxMQ0xVeHZxV0QxMGcxUTRZMGFqX0t3ZDc1amc?oc=5",
       "domain": "news.google.com",
       "source_name": "MEXC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-21T07:00:00Z",
       "freshness": "STALE",
@@ -312,7 +338,7 @@
         "MARKET_REGIME",
         "EVIDENCE_CONFIDENCE"
       ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
     },
     {
@@ -394,8 +420,8 @@
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation."
     },
     {
-      "id": "NEWS-D3168C52DAA4",
-      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime - treasury.gov",
+      "id": "NEWS-E8008BDE8F3F",
+      "title": "Operation Economic Outcast Disrupts Digital Asset Exchange Enabling the Iranian Regime - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE01cXo3bFh5b3FkNGpWWHA4MXlvTDdkV0FGcWZWTVVwQUJabHotRm5Rck80ZXZmNkgyN3Z3WUdoeXRGT3NOVnJMNmpHUWVZejBkUDMtY3BxRnYyQnR1dEhCVjdB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
