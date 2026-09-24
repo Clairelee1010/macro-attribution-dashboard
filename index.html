@@ -19,7 +19,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro Attribution & Cross-Market Dashboard</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v4.6 · P01-000D</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">Soft Robi v5.0 · P01-010</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -57,6 +57,31 @@
             <div class="text-xl font-bold text-amber-900 font-mono mt-1">+$52.4M</div>
         </div>
     </div>
+
+    <!-- 🧠 P01-010 Executive Intelligence -->
+    <section id="intelligence-v5" class="soft-card rounded-2xl p-4 md:p-5 space-y-4 border-l-4 border-l-indigo-500">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
+            <div>
+                <div id="v5-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">🧠 Intelligence Engine · Executive View</div>
+                <div id="v5-subtitle" class="text-[11px] text-stone-400 mt-1">Evidence-driven market context · deterministic core · explainable output</div>
+            </div>
+            <div id="v5-updated" class="text-[10px] text-stone-400 font-mono">Loading intelligence…</div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-regime" class="text-[10px] text-stone-400 uppercase">Market Regime</div><div id="v5-regime" class="text-lg font-bold mt-1">--</div><div id="v5-regime-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-risk" class="text-[10px] text-stone-400 uppercase">Market Risk</div><div id="v5-risk" class="text-lg font-bold mt-1">--</div><div id="v5-risk-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-confidence" class="text-[10px] text-stone-400 uppercase">Evidence Confidence</div><div id="v5-confidence" class="text-lg font-bold mt-1">--</div><div id="v5-confidence-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-quality" class="text-[10px] text-stone-400 uppercase">Data Quality</div><div id="v5-quality" class="text-lg font-bold mt-1">--</div><div id="v5-quality-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100 col-span-2 lg:col-span-1"><div id="v5-lbl-coverage" class="text-[10px] text-stone-400 uppercase">Evidence Coverage</div><div id="v5-coverage" class="text-lg font-bold mt-1">--</div><div id="v5-coverage-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+        </div>
+        <div id="v5-interpretation" class="text-xs text-stone-600 bg-indigo-50/40 border border-indigo-100 rounded-xl p-3">Loading validated intelligence…</div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-signals-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Market Signals</div><div id="v5-signals" class="space-y-2 text-xs"></div></div>
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-drivers-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Attribution & Risk Drivers</div><div id="v5-drivers" class="space-y-2 text-xs"></div></div>
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-evidence-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Evidence & Limitations</div><div id="v5-evidence" class="space-y-2 text-xs"></div></div>
+        </div>
+        <div id="v5-disclaimer" class="text-[10px] text-stone-400">Risk ≠ confidence. Attribution describes evidence alignment, not causal proof. No investment recommendation.</div>
+    </section>
 
     <!-- 🎯 核心監控指標矩陣 -->
     <div class="space-y-2">
@@ -467,6 +492,7 @@
 
         let activeTab = "us_macro";
         let currentLang = "zh";
+        let dashboardV5Snapshot = null;
 
         function escapeHtml(str) {
             if (!str) return '';
@@ -722,6 +748,7 @@
                 document.getElementById('robi-send-btn').innerText = "Send";
             }
             renderActiveTab();
+            renderDashboardV5();
         }
 
         function toggleRobiDrawer() {
@@ -889,6 +916,41 @@
             }
         }
 
+        function pct(v) { return Number.isFinite(Number(v)) ? `${(Number(v)*100).toFixed(1)}%` : '--'; }
+        function renderDashboardV5() {
+            const d=dashboardV5Snapshot; const zh=currentLang==='zh';
+            if (!d) return;
+            const ex=d.executive_summary||{}, regime=ex.market_regime||{}, risk=ex.market_risk||{}, conf=ex.evidence_confidence||{}, quality=ex.data_quality||{};
+            document.getElementById('v5-title').innerText=zh?'🧠 Intelligence Engine · 決策摘要':'🧠 Intelligence Engine · Executive View';
+            document.getElementById('v5-subtitle').innerText=zh?'證據驅動市場脈絡 · Deterministic Core · Explainable Output':'Evidence-driven market context · deterministic core · explainable output';
+            document.getElementById('v5-lbl-regime').innerText=zh?'市場環境':'Market Regime';
+            document.getElementById('v5-lbl-risk').innerText=zh?'市場風險':'Market Risk';
+            document.getElementById('v5-lbl-confidence').innerText=zh?'證據信心':'Evidence Confidence';
+            document.getElementById('v5-lbl-quality').innerText=zh?'資料品質':'Data Quality';
+            document.getElementById('v5-lbl-coverage').innerText=zh?'證據覆蓋率':'Evidence Coverage';
+            document.getElementById('v5-regime').innerText=regime.value||'--'; document.getElementById('v5-regime-meta').innerText=`score ${Number(regime.score||0).toFixed(2)} · ${pct(regime.confidence)}`;
+            document.getElementById('v5-risk').innerText=`${risk.level||'--'} · ${risk.score ?? '--'}/100`; document.getElementById('v5-risk-meta').innerText=`assessment confidence ${pct(risk.confidence)}`;
+            document.getElementById('v5-confidence').innerText=`${conf.level||'--'} · ${pct(conf.score)}`; document.getElementById('v5-confidence-meta').innerText=zh?'可靠度，不是市場機率':'reliability, not market probability';
+            document.getElementById('v5-quality').innerText=`${quality.gate||'--'} · ${pct(quality.score)}`; document.getElementById('v5-quality-meta').innerText=quality.counts?`${quality.counts.available}/${quality.counts.expected} available`:'--';
+            document.getElementById('v5-coverage').innerText=pct(conf.coverage); document.getElementById('v5-coverage-meta').innerText=zh?'可用下游證據':'eligible downstream evidence';
+            const highRisk=risk.level==='HIGH', lowConf=Number(conf.score)<0.5;
+            document.getElementById('v5-interpretation').innerText = zh ? (highRisk&&lowConf?'目前風險評估偏高，但可用證據的支持信心有限；應將風險強度與證據可靠度分開解讀。':`目前市場環境為 ${regime.value||'UNKNOWN'}，風險層級 ${risk.level||'UNKNOWN'}；證據信心為 ${conf.level||'UNKNOWN'}。`) : (highRisk&&lowConf?'Elevated risk assessment with limited supporting evidence confidence. Risk intensity and evidence reliability should be interpreted separately.':`Current regime is ${regime.value||'UNKNOWN'} with ${risk.level||'UNKNOWN'} assessed risk and ${conf.level||'UNKNOWN'} evidence confidence.`);
+            const sig=(d.signals||[]).map(x=>`<div class="flex justify-between gap-2"><span class="font-mono font-semibold">${escapeHtml(x.metric_id)}</span><span>${escapeHtml(x.signal_id)} · ${escapeHtml(x.direction)}</span></div>`).join('');
+            document.getElementById('v5-signals').innerHTML=sig||`<span class="text-stone-400">${zh?'無可用訊號':'No eligible signals'}</span>`;
+            const drv=(d.risk_drivers||[]).map(x=>`<div class="flex justify-between gap-2"><span>${escapeHtml(x.metric_id)} · ${escapeHtml(x.signal_id)}</span><span class="font-mono">${pct(x.contribution_share)}</span></div>`).join('');
+            document.getElementById('v5-drivers').innerHTML=drv||`<span class="text-stone-400">${zh?'無主要風險驅動因子':'No primary risk drivers'}</span>`;
+            const ev=d.evidence||{}, items=(ev.items||[]).map(x=>`<div class="flex justify-between gap-2"><span>${escapeHtml(x.evidence_id)}</span><span class="font-mono">${escapeHtml(String(x.status))}</span></div>`).join('');
+            const limits=(ev.limitations||[]).length?`<div class="pt-2 mt-2 border-t border-stone-100 text-amber-700">${zh?'限制':'Limitations'}: ${(ev.limitations||[]).map(escapeHtml).join(', ')}</div>`:'';
+            document.getElementById('v5-evidence').innerHTML=(items||`<span class="text-stone-400">${zh?'無證據資料':'No evidence data'}</span>`)+limits;
+            document.getElementById('v5-signals-title').innerText=zh?'市場訊號':'Market Signals'; document.getElementById('v5-drivers-title').innerText=zh?'歸因與風險驅動':'Attribution & Risk Drivers'; document.getElementById('v5-evidence-title').innerText=zh?'證據與限制':'Evidence & Limitations';
+            document.getElementById('v5-disclaimer').innerText=zh?'Risk ≠ Confidence。歸因代表證據一致性，不代表因果證明；本系統不提供投資建議。':'Risk ≠ confidence. Attribution describes evidence alignment, not causal proof. No investment recommendation.';
+            const dt=d.generated_at?new Date(d.generated_at):null; document.getElementById('v5-updated').innerText=dt&&!isNaN(dt)?`${zh?'更新':'Updated'}: ${dt.toLocaleString()}`:(zh?'更新時間不可用':'Updated: unavailable');
+        }
+        async function loadDashboardV5() {
+            try { const r=await fetch('./dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); console.log('P01-010 dashboard data loaded'); }
+            catch(e) { console.error('P01-010 dashboard data unavailable:',e); document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
+        }
+
         async function loadLiveMarketData() {
             try {
                 const response = await fetch('./live_market_data.json?ts=' + Date.now(), {
@@ -933,6 +995,7 @@
             calculateOverallStats();
             renderActiveTab();
             loadLiveMarketData();
+            loadDashboardV5();
         };
     </script>
 </body>
