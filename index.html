@@ -29,7 +29,7 @@
         <div class="flex items-center gap-3">
             <span class="text-2xl">🌸</span>
             <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Macro & Web3 Risk Intelligence Engine</h1>
-            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-001</span>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-002</span>
         </div>
         <div class="flex items-center gap-3">
             <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
@@ -52,15 +52,15 @@
     <!-- 📊 頁首四大統計數據 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">CURRENT FEED ITEMS</div><span class="data-badge data-generated">GENERATED</span></div>
+            <div class="flex items-center justify-between gap-2"><div id="lbl-current-feed-items" class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">CURRENT FEED ITEMS</div><span class="data-badge data-generated">GENERATED</span></div>
             <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">0</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1">
-            <div class="flex items-center justify-between gap-2"><div class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">OFFICIAL SOURCE SHARE</div><span class="data-badge data-generated">GENERATED</span></div>
+            <div class="flex items-center justify-between gap-2"><div id="lbl-official-source-share" class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">OFFICIAL SOURCE SHARE</div><span class="data-badge data-generated">GENERATED</span></div>
             <div id="meta-bullish-val" class="text-3xl font-bold text-indigo-600 font-mono">--</div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-rose-50/20 border-rose-100">
-            <div class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
+            <div id="lbl-vix-tracking" class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
                 🔥 VIX VOLATILITY TRACKING <span class="data-badge data-live ml-1">LIVE</span>
             </div>
             <div id="vix-card-val" class="text-xl font-bold text-rose-900 font-mono mt-1">
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="soft-card rounded-2xl p-4 space-y-1 bg-amber-50/20 border-amber-100">
-            <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1">
+            <div id="lbl-agentic-rwa" class="text-[11px] font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1">
                 📊 AGENTIC RWA NET FLOWS <span class="data-badge data-prototype ml-1">PROTOTYPE</span>
             </div>
             <div class="text-xl font-bold text-amber-900 font-mono mt-1">+$52.4M</div>
@@ -176,11 +176,11 @@
     <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-cyan-500">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-                <div class="text-xs font-bold text-stone-700 uppercase tracking-wider">📡 Market Data Status</div>
+                <div id="live-status-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">📡 Market Data Status</div>
                 <div id="live-last-updated" class="text-[10px] text-stone-400 mt-1">Last Updated: Loading...</div><div id="live-provenance" class="text-[9px] text-stone-400 mt-1">Source provenance: loading…</div>
             </div>
             <div class="flex items-center gap-2 text-xs">
-                <span class="text-stone-500">Data Quality</span>
+                <span id="live-quality-label" class="text-stone-500">Data Quality</span>
                 <span id="live-data-quality" class="font-bold font-mono text-stone-800">--</span>
             </div>
         </div>
@@ -753,9 +753,9 @@
                 document.getElementById('lbl-rwatvl').innerText = "RWA 美債";
                 document.getElementById('vix-banner').innerText = marketData.global_vix.insight_zh;
                 document.getElementById('vix-desc').innerText =
-                    marketData.global_vix.live_change_text
-                        ? `(${marketData.global_vix.live_change_text})`
-                        : "(Loading live VIX...)";
+                    marketData.global_vix.live_change_text_zh
+                        ? `(${marketData.global_vix.live_change_text_zh})`
+                        : "（正在載入即時 VIX…）";
                 document.getElementById('robi-btn-text').innerText = "呼叫 Robi 助理";
                 document.getElementById('robi-welcome-title').innerText = "👋 你好，我是 Robi！";
                 document.getElementById('robi-welcome-desc').innerText = "我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。";
@@ -782,8 +782,8 @@
                 document.getElementById('lbl-rwatvl').innerText = "RWA Treasuries";
                 document.getElementById('vix-banner').innerText = marketData.global_vix.insight_en;
                 document.getElementById('vix-desc').innerText =
-                    marketData.global_vix.live_change_text
-                        ? `(${marketData.global_vix.live_change_text})`
+                    marketData.global_vix.live_change_text_en
+                        ? `(${marketData.global_vix.live_change_text_en})`
                         : "(Loading live VIX...)";
                 document.getElementById('robi-btn-text').innerText = "Call Robi Copilot";
                 document.getElementById('robi-welcome-title').innerText = "👋 Hello, I am Robi!";
@@ -793,6 +793,19 @@
                 document.getElementById('q-txt-2').innerText = "Evaluate TSM ADR premium and foreign futures short pressure";
                 document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
                 document.getElementById('robi-send-btn').innerText = "Send";
+            }
+            document.documentElement.lang = isZh ? 'zh-TW' : 'en';
+            document.getElementById('lbl-current-feed-items').innerText = isZh ? '目前情報筆數' : 'CURRENT FEED ITEMS';
+            document.getElementById('lbl-official-source-share').innerText = isZh ? '官方來源占比' : 'OFFICIAL SOURCE SHARE';
+            document.getElementById('lbl-vix-tracking').childNodes[0].nodeValue = isZh ? '🔥 VIX 波動追蹤 ' : '🔥 VIX VOLATILITY TRACKING ';
+            document.getElementById('lbl-agentic-rwa').childNodes[0].nodeValue = isZh ? '📊 AGENTIC RWA 淨流量 ' : '📊 AGENTIC RWA NET FLOWS ';
+            document.getElementById('live-status-title').innerText = isZh ? '📡 市場資料狀態' : '📡 Market Data Status';
+            document.getElementById('live-quality-label').innerText = isZh ? '資料品質' : 'Data Quality';
+            if (liveMarketSnapshot) {
+                const metrics = liveMarketSnapshot.metrics || {};
+                ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH'].forEach(metricId => renderSourceStatus(metricId, metrics[metricId]));
+                renderPipelineQuality(liveMarketSnapshot);
+                if (metrics.VIX) renderLiveVix(metrics.VIX);
             }
             const semantics = {
                 zh: {
@@ -890,6 +903,15 @@
             return String(value);
         }
 
+        function localizedMetricStatus(status) {
+            const mapZh = { FRESH: '最新', STALE: '較舊', ERROR: '錯誤', MISSING: '缺少資料', LOADING: '載入中' };
+            return currentLang === 'zh' ? (mapZh[status] || status) : status;
+        }
+
+        function formatLocalDate(date) {
+            return date.toLocaleString(currentLang === 'zh' ? 'zh-TW' : 'en-US');
+        }
+
         function renderSourceStatus(metricId, metric) {
             const id = metricId.toLowerCase();
             const valueEl = document.getElementById(`live-${id}`);
@@ -898,7 +920,7 @@
 
             if (statusEl) {
                 const status = metric?.status || 'MISSING';
-                statusEl.innerText = status;
+                statusEl.innerText = localizedMetricStatus(status);
                 statusEl.className =
                     `text-[9px] mt-1 font-bold ${
                         status === 'FRESH' ? 'status-fresh' :
@@ -932,15 +954,17 @@
             const liveVix = Number(vix.value);
             marketData.global_vix.value = liveVix;
 
-            const changeText = vix.change_pct !== null && vix.change_pct !== undefined
-                ? `${Number(vix.change_pct) >= 0 ? '+' : ''}${Number(vix.change_pct).toFixed(2)}% vs previous close`
-                : 'Live';
+            const changePct = vix.change_pct !== null && vix.change_pct !== undefined ? Number(vix.change_pct) : null;
+            const signedChange = changePct !== null ? `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%` : null;
+            const changeTextZh = signedChange ? `${signedChange}，相較前一收盤` : '即時資料';
+            const changeTextEn = signedChange ? `${signedChange} vs previous close` : 'Live';
 
-            marketData.global_vix.live_change_text = changeText;
+            marketData.global_vix.live_change_text_zh = changeTextZh;
+            marketData.global_vix.live_change_text_en = changeTextEn;
             marketData.global_vix.insight_zh =
-                `【Live VIX 市場監控】目前 VIX 為 ${liveVix.toFixed(2)}（${changeText}）。此數值來自自動市場資料管線；歸因敘事將於後續 Intelligence Engine 產生。`;
+                `【Live VIX 市場監控】目前 VIX 為 ${liveVix.toFixed(2)}（${changeTextZh}）。此數值來自自動化市場資料管線；歸因敘事將由後續 Intelligence Engine 產生。`;
             marketData.global_vix.insight_en =
-                `[Live VIX Monitoring] Current VIX is ${liveVix.toFixed(2)} (${changeText}). This value comes from the automated market-data pipeline; attribution narrative will be generated by the later Intelligence Engine.`;
+                `[Live VIX Monitoring] Current VIX is ${liveVix.toFixed(2)} (${changeTextEn}). This value comes from the automated market-data pipeline; attribution narrative will be generated by the later Intelligence Engine.`;
 
             const vixCard = document.getElementById('vix-card-val');
             if (vixCard) {
@@ -950,7 +974,7 @@
             }
 
             const vixDesc = document.getElementById('vix-desc');
-            if (vixDesc) vixDesc.innerText = `(${changeText})`;
+            if (vixDesc) vixDesc.innerText = `(${currentLang === 'zh' ? changeTextZh : changeTextEn})`;
 
             const vixBanner = document.getElementById('vix-banner');
             if (vixBanner) {
@@ -983,17 +1007,17 @@
                 const sourceNames = [...new Set(items.map(item => item.source).filter(Boolean))];
                 const fallbackCount = items.filter(item => item.source_type === 'FALLBACK').length;
                 provenanceEl.innerText = sourceNames.length
-                    ? `Sources: ${sourceNames.join(' · ')}${fallbackCount ? ` · ${fallbackCount} fallback route${fallbackCount > 1 ? 's' : ''}` : ''}`
-                    : 'Sources: unavailable';
+                    ? `${currentLang === 'zh' ? '來源' : 'Sources'}: ${sourceNames.join(' · ')}${fallbackCount ? ` · ${fallbackCount} ${currentLang === 'zh' ? '個備援來源' : `fallback route${fallbackCount > 1 ? 's' : ''}`}` : ''}`
+                    : (currentLang === 'zh' ? '來源：無法取得' : 'Sources: unavailable');
             }
 
             const lastUpdatedEl = document.getElementById('live-last-updated');
             if (lastUpdatedEl) {
                 if (timestamps.length) {
                     const latest = new Date(Math.max(...timestamps.map(d => d.getTime())));
-                    lastUpdatedEl.innerText = `Last Updated: ${latest.toLocaleString()}`;
+                    lastUpdatedEl.innerText = `${currentLang === 'zh' ? '最後更新' : 'Last Updated'}: ${formatLocalDate(latest)}`;
                 } else {
-                    lastUpdatedEl.innerText = 'Last Updated: unavailable';
+                    lastUpdatedEl.innerText = currentLang === 'zh' ? '最後更新：無法取得' : 'Last Updated: unavailable';
                 }
             }
         }
@@ -1028,7 +1052,7 @@
             document.getElementById('v5-evidence').innerHTML=(items||`<span class="text-stone-400">${zh?'無證據資料':'No evidence data'}</span>`)+limits;
             document.getElementById('v5-signals-title').innerText=zh?'市場訊號':'Market Signals'; document.getElementById('v5-drivers-title').innerText=zh?'歸因與風險驅動':'Attribution & Risk Drivers'; document.getElementById('v5-evidence-title').innerText=zh?'證據與限制':'Evidence & Limitations';
             document.getElementById('v5-disclaimer').innerText=zh?'Risk ≠ Confidence。歸因代表證據一致性，不代表因果證明；本系統不提供投資建議。':'Risk ≠ confidence. Attribution describes evidence alignment, not causal proof. No investment recommendation.';
-            const dt=d.generated_at?new Date(d.generated_at):null; document.getElementById('v5-updated').innerText=dt&&!isNaN(dt)?`${zh?'更新':'Updated'}: ${dt.toLocaleString()}`:(zh?'更新時間不可用':'Updated: unavailable');
+            const dt=d.generated_at?new Date(d.generated_at):null; document.getElementById('v5-updated').innerText=dt&&!isNaN(dt)?`${zh?'更新':'Updated'}: ${dt.toLocaleString(zh ? 'zh-TW' : 'en-US')}`:(zh?'更新時間不可用':'Updated: unavailable');
         }
         async function loadDashboardV5() {
             try { const r=await fetch('./dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); console.log('P01-010 dashboard data loaded'); }
@@ -1079,7 +1103,7 @@
                 ['us10y', 'dxy', 'vix', 'btc', 'eth'].forEach(id => {
                     const statusEl = document.getElementById(`status-${id}`);
                     if (statusEl) {
-                        statusEl.innerText = 'ERROR';
+                        statusEl.innerText = currentLang === 'zh' ? '錯誤' : 'ERROR';
                         statusEl.className = 'text-[9px] mt-1 font-bold text-rose-600';
                     }
                 });
@@ -1088,7 +1112,7 @@
                 if (qualityEl) qualityEl.innerText = 'ERROR';
 
                 const updatedEl = document.getElementById('live-last-updated');
-                if (updatedEl) updatedEl.innerText = 'Last Updated: data unavailable';
+                if (updatedEl) updatedEl.innerText = currentLang === 'zh' ? '最後更新：資料無法取得' : 'Last Updated: data unavailable';
             }
         }
 
