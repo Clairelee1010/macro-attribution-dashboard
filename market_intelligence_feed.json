@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-25T17:56:33.398376Z",
+  "generated_at": "2026-09-25T18:00:19.208588Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -61,7 +61,7 @@
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -108,12 +108,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "SEC",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
+      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -123,7 +123,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "US Treasury",
+      "source": "SEC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -138,12 +143,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,17 +168,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -178,7 +178,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -268,6 +268,49 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-C5F437E40BC9",
+      "title": "Will the Fed Rate Hike and High Oil Prices Push Bitcoin Lower? - Programming Insider",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPWll6Q2FiUTlpMTlFcUJzNUNGdXdSNFQ0YXpRNDNQel9Db3NjY2owT2hkWGVRcTk5Uy1wcHNST0dYcW5wX010T1lfWlhjT2R0NjNwSDRFRXpvMlN4X19rOXpyYmpIVjY3Q1ZqMzEwRi03WERtNXV5REljVFRGNnMxN0p0NkRHVDVrZXFOWjFPMU1mWHQ4RXVIdQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Programming Insider",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-22T13:53:38Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 73,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "HIGH_MARKET_IMPACT"
       ]
     },
     {
