@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "discrepancy.schema.json",
+  "title": "P02 Cross-Market Discrepancy",
+  "type": "object",
+  "required": [
+    "signal_id",
+    "canonical_event_id",
+    "market_probabilities",
+    "raw_discrepancy_pp",
+    "comparability",
+    "evidence_confidence",
+    "attention",
+    "trust_status",
+    "execution_allowed",
+    "reasons",
+    "limitations"
+  ],
+  "properties": {
+    "signal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "market_probabilities": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "venue",
+          "probability"
+        ],
+        "properties": {
+          "venue": {
+            "type": "string"
+          },
+          "probability": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "raw_discrepancy_pp": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "comparability": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "NOT_COMPARABLE"
+      ]
+    },
+    "evidence_confidence": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ]
+    },
+    "attention": {
+      "type": "string",
+      "enum": [
+        "HIGH_ATTENTION",
+        "MEDIUM_ATTENTION",
+        "LOW_ATTENTION",
+        "SUPPRESSED"
+      ]
+    },
+    "trust_status": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "WATCH",
+        "ELEVATED",
+        "CRITICAL",
+        "UNKNOWN"
+      ]
+    },
+    "execution_allowed": {
+      "const": false
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

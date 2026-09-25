@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "security_event.schema.json",
+  "title": "P02 Trust & Security Event",
+  "type": "object",
+  "required": [
+    "venue",
+    "event_type",
+    "root_cause_status",
+    "status",
+    "freshness",
+    "evidence_state"
+  ],
+  "properties": {
+    "venue": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "SECURITY_INCIDENT",
+        "SERVICE_DISRUPTION",
+        "CUSTODY_EVENT",
+        "SMART_CONTRACT_EVENT",
+        "OTHER"
+      ]
+    },
+    "detected_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "reported_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "affected_service": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "estimated_impact_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "withdrawal_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "custody_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "root_cause_status": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "INVESTIGATING",
+        "CONFIRMED"
+      ]
+    },
+    "official_source": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "WATCH",
+        "ELEVATED",
+        "CRITICAL",
+        "UNKNOWN"
+      ]
+    },
+    "freshness": {
+      "type": "string",
+      "enum": [
+        "FRESH",
+        "STALE",
+        "HISTORICAL",
+        "UNKNOWN"
+      ]
+    },
+    "evidence_state": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL_CONFIRMED",
+        "MULTI_SOURCE_REPORTED",
+        "UNVERIFIED",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
