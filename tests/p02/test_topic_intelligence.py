@@ -28,6 +28,24 @@ def test_dynamic_top20_and_cap():
     out=build_top_predictions({"markets":rows},{"markets":[]},20,5)
     assert len(out["predictions"])==20
     assert out["predictions"][0]["rank"]==1
-    assert out["ranking_method"]=="DETERMINISTIC_RELEVANCE_V2"
+    assert out["ranking_method"]=="DETERMINISTIC_RELEVANCE_V3_QUALITY_GATED"
     assert all("category" in x and "trending_score" in x for x in out["predictions"])
     assert max(out["category_counts"].values()) <= 5
+
+
+def test_quality_gate_rejects_parlay_and_zero_information():
+    good = market(1, "Will Bitcoin reach $100k?", volume=50000, liq=20000, p=.55)
+    parlay = market(2, "yes USA,yes France,yes Netherlands,yes Over 1.5 goals scored", venue="kalshi", volume=0, liq=0, p=0)
+    out = build_top_predictions({"markets":[good]},{"markets":[parlay]},20,5)
+    assert len(out["predictions"]) == 1
+    assert out["predictions"][0]["question"] == good["question"]
+    assert out["quality_policy"] == "UP_TO_20_NO_FORCED_FILL"
+
+def test_no_forced_fill_beyond_category_cap():
+    rows=[market(i,f"Will candidate {i} win the presidential election?",volume=100000-i,liq=10000,p=.2) for i in range(12)]
+    out=build_top_predictions({"markets":rows},{"markets":[]},20,5)
+    assert len(out["predictions"]) == 5
+    assert out["category_counts"]["politics"] == 5
+
+def test_pete_hegseth_is_politics():
+    assert category_for("Will Pete Hegseth win the 2028 US Presidential Election?")["key"] == "politics"
