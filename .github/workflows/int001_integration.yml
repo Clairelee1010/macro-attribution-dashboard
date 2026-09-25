@@ -1,0 +1,29 @@
+name: INT-001 P01 x P02 Integration
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["P02 Dynamic Prediction Intelligence"]
+    types: [completed]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Test INT-001
+        run: python -m pip install pytest && pytest -q tests/integration/test_int001.py
+      - name: Build integrated intelligence
+        run: python integration/integration_engine.py
+      - name: Commit integration payload
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/integration/intelligence_overview.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update INT-001 integrated intelligence"
+          git pull --rebase origin main
+          git push origin HEAD:main
