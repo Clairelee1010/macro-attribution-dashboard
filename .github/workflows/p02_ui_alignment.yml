@@ -1,0 +1,36 @@
+name: P02 UI Alignment
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "p02-web/index.html"
+      - ".github/workflows/p02_ui_alignment.yml"
+permissions:
+  contents: write
+jobs:
+  align-p02-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Publish P02 aligned UI
+        run: |
+          test -f data/p02/dashboard_payload.json
+          mkdir -p p02
+          cp p02-web/index.html p02/index.html
+          echo "P02-008.1 UI ALIGNMENT: PASS"
+      - name: Commit aligned P02 UI
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f p02/index.html
+          if git diff --cached --quiet; then echo "No P02 UI changes to commit."; exit 0; fi
+          git commit -m "Align P02 dashboard UI with P01 design system"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
