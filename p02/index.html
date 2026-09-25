@@ -1,89 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>P02 — Market Intelligence</title>
+<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>P02 — Cross-Market Prediction Intelligence</title>
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e8edf7;background:#07111f}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#122642 0,#07111f 42%);min-height:100vh}
-.wrap{max-width:1180px;margin:auto;padding:28px 20px 60px}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;flex-wrap:wrap}
-.eyebrow{color:#8fb7ff;font-weight:700;letter-spacing:.08em}.title{font-size:clamp(30px,5vw,54px);margin:8px 0}.sub{color:#a9b7ca;max-width:760px;line-height:1.6}
-.controls{display:flex;gap:8px}.btn,.tab{border:1px solid #294361;background:#0d1d31;color:#dce7f7;padding:10px 14px;border-radius:12px;cursor:pointer}
-.btn.active,.tab.active{background:#173b67;border-color:#4b8de2}.badge{display:inline-block;margin-top:12px;padding:7px 10px;border:1px solid #315176;border-radius:999px;color:#9fc5ff}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:28px 0}.card{background:rgba(13,29,49,.9);border:1px solid #213b59;border-radius:16px;padding:18px}
-.metric{grid-column:span 2}.metric b{display:block;font-size:28px;margin-top:8px}.label{color:#91a5bc;font-size:13px}.section{margin-top:22px}
-.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.panel{display:none}.panel.active{display:block}
-.signal{margin-bottom:12px}.row{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.prob{font-size:24px;font-weight:800}.muted{color:#93a6bc}.pill{padding:5px 9px;border-radius:999px;background:#132b48;border:1px solid #2c527d;font-size:12px}
-.notice{border-left:3px solid #567ba7;padding-left:12px;color:#a9b7ca;line-height:1.6}.empty{text-align:center;padding:34px;color:#91a5bc}
-.footer{margin-top:30px;color:#70859d;font-size:13px;line-height:1.6}
-@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.metric{grid-column:span 1}}@media(max-width:520px){.grid{grid-template-columns:1fr}.metric{grid-column:span 1}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top">
-    <div>
-      <div class="eyebrow">🌸 P02 · PREDICT / COMPARE</div>
-      <h1 class="title" data-en="Market Intelligence" data-zh="市場情報">Market Intelligence</h1>
-      <div class="sub" data-en="Cross-market prediction intelligence with evidence, comparability, P01 macro context, and trust/security guardrails." data-zh="跨市場預測情報：整合證據、可比較性、P01 宏觀脈絡，以及信任／資安防護層。">Cross-market prediction intelligence with evidence, comparability, P01 macro context, and trust/security guardrails.</div>
-      <span class="badge">P02-008 · Intelligence Dashboard</span>
-    </div>
-    <div class="controls"><button class="btn active" id="en">EN</button><button class="btn" id="zh">中文</button></div>
-  </div>
-
-  <div class="grid" id="metrics"></div>
-
-  <div class="section">
-    <div class="tabs">
-      <button class="tab active" data-tab="prediction" data-en="Prediction Markets" data-zh="預測市場">Prediction Markets</button>
-      <button class="tab" data-tab="trust" data-en="Trust & Security" data-zh="信任與資安">Trust & Security</button>
-    </div>
-    <div class="panel active" id="prediction"></div>
-    <div class="panel" id="trust"></div>
-  </div>
-
-  <div class="footer" data-en="Research and portfolio prototype. Market-implied probabilities are observations, not forecasts. Discrepancies are not arbitrage recommendations. Execution is disabled." data-zh="研究與作品集原型。市場隱含機率是觀察值，不是預測；市場分歧不代表套利建議；執行功能已停用。">Research and portfolio prototype. Market-implied probabilities are observations, not forecasts. Discrepancies are not arbitrage recommendations. Execution is disabled.</div>
-</div>
+:root{font-family:Inter,"Noto Sans TC",system-ui,sans-serif;--bg:#fbfaf8;--card:#fff;--line:#ebe8e3;--text:#172033;--muted:#8b8f98;--blue:#5865f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}.wrap{max-width:1480px;margin:auto;padding:18px 30px 55px}.header{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding-bottom:15px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:650}.flower{font-size:27px}.ver{background:#bd6262;color:#fff;border-radius:999px;padding:6px 11px;font-size:12px}.actions{display:flex;gap:7px;align-items:center}.lang,.tab{border:0;background:transparent;padding:9px 13px;border-radius:999px;cursor:pointer}.lang.active{background:#fff;box-shadow:0 2px 10px #0000000d;font-weight:700}.pipe{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-size:12px}.hero{padding:27px 0 18px}.eyebrow{color:var(--blue);font-weight:750;letter-spacing:.06em}.hero h1{font-size:34px;margin:8px 0}.hero p{margin:0;color:#777;line-height:1.6}.legend,.card,.engine{background:#fff;border:1px solid var(--line);box-shadow:0 2px 8px #00000007}.legend{border-radius:14px;padding:14px 18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.tag{font-size:11px;border:1px solid;border-radius:999px;padding:4px 8px}.live{color:#187a5a;background:#effaf5;border-color:#bfe8d6}.generated{color:#4b50c7;background:#f3f5ff;border-color:#cfd4ff}.evidence{color:#756173;background:#f7f2f7;border-color:#e3d8e3}.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin:28px 0}.card{border-radius:17px;padding:20px}.metric{min-height:120px}.label{color:var(--muted);font-size:14px}.metric b{display:block;font-size:29px;margin:13px 0 7px}.engine{border-left:5px solid #6670ff;border-radius:20px;padding:24px}.engine-head{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.engine-title{font-weight:750}.sub{color:#9a9ca3;margin-top:5px}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.summary{background:#f8f8f7;border-radius:14px;padding:17px}.summary span{display:block;color:#999;font-size:13px}.summary b{display:block;font-size:20px;margin-top:9px}.message{background:#f7f8ff;border:1px solid #dfe3ff;border-radius:12px;padding:14px;color:#535d7b;line-height:1.6}.section-title{margin:28px 0 13px;font-weight:700}.tabs{display:flex;gap:9px;margin-bottom:14px}.tab{border:1px solid #d8dce6;background:#fff;border-radius:11px}.tab.active{background:#eef2ff;border-color:#aab6ff;color:#3448c5}.panel{display:none}.panel.active{display:block}.empty{text-align:center;padding:35px;color:#888}.row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.prob{font-size:26px;font-weight:750}.pill{font-size:12px;padding:5px 9px;border:1px solid #d5d9e7;border-radius:999px;background:#f7f8fb}.notice{border-left:3px solid #7a86dc;padding-left:12px;color:#747986;line-height:1.6}.footer{margin-top:28px;border-top:1px solid var(--line);padding-top:18px;color:#999;font-size:13px;line-height:1.6}@media(max-width:1050px){.metrics{grid-template-columns:repeat(3,1fr)}.summary-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.wrap{padding:15px}.brand{font-size:17px}.pipe{display:none}.metrics{grid-template-columns:1fr 1fr}.summary-grid{grid-template-columns:1fr}}@media(max-width:430px){.metrics{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<header class="header"><div class="brand"><span class="flower">🌸</span><span data-en="Cross-Market Prediction Intelligence" data-zh="跨市場預測情報引擎">跨市場預測情報引擎</span><span class="ver">P02 v0.8 · MVP</span></div><div class="actions"><button id="zh" class="lang active">中文</button><button id="en" class="lang">EN</button><span class="pipe">🔴 Intelligence Pipeline</span></div></header>
+<section class="hero"><div class="eyebrow">P02 · PREDICT / COMPARE</div><h1 data-en="Market Intelligence" data-zh="跨市場預測情報">跨市場預測情報</h1><p data-en="Compare how prediction markets price the same events, with evidence, comparability, P01 macro context, and trust/security guardrails." data-zh="比較不同預測市場如何定價同一事件，同時保留證據、可比較性、P01 宏觀脈絡與信任／資安防護層。">比較不同預測市場如何定價同一事件，同時保留證據、可比較性、P01 宏觀脈絡與信任／資安防護層。</p></section>
+<div class="legend"><b data-en="Data semantics:" data-zh="資料語意：">資料語意：</b><span class="tag live">LIVE</span><span data-en="Automated venue data" data-zh="自動化市場資料">自動化市場資料</span><span class="tag generated">GENERATED</span><span data-en="Deterministic intelligence output" data-zh="Deterministic Intelligence 輸出">Deterministic Intelligence 輸出</span><span class="tag evidence">EVIDENCE</span><span data-en="Trust status from available evidence" data-zh="依可取得證據呈現信任狀態">依可取得證據呈現信任狀態</span></div>
+<div id="metrics" class="metrics"></div>
+<section class="engine"><div class="engine-head"><div><div class="engine-title">🧠 <span data-en="PREDICTION INTELLIGENCE · Decision Summary" data-zh="PREDICTION INTELLIGENCE · 決策摘要">PREDICTION INTELLIGENCE · 決策摘要</span></div><div class="sub" data-en="Evidence-driven comparison · Deterministic Core · No execution" data-zh="證據驅動比較 · Deterministic Core · 不執行交易">證據驅動比較 · Deterministic Core · 不執行交易</div></div><span class="tag generated">GENERATED</span></div><div id="summary" class="summary-grid"></div><div id="decisionMessage" class="message"></div></section>
+<div class="section-title">📊 <span data-en="Cross-Market Intelligence" data-zh="跨市場情報">跨市場情報</span></div><div class="tabs"><button class="tab active" data-tab="prediction" data-en="Prediction Markets" data-zh="預測市場">預測市場</button><button class="tab" data-tab="trust" data-en="Trust & Security" data-zh="信任與資安">信任與資安</button></div><div id="prediction" class="panel active"></div><div id="trust" class="panel"></div>
+<div class="footer" data-en="Research and portfolio prototype. Market-implied probabilities are observations, not forecasts. Discrepancies are not arbitrage recommendations. Trust status is not a safety guarantee. Execution is disabled." data-zh="研究與作品集原型。市場隱含機率是觀察值，不是預測；市場分歧不代表套利建議；信任狀態並非安全保證；執行功能已停用。">研究與作品集原型。市場隱含機率是觀察值，不是預測；市場分歧不代表套利建議；信任狀態並非安全保證；執行功能已停用。</div></div>
 <script>
-let DATA=null, LANG="en";
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function txt(en,zh){return LANG==="zh"?zh:en}
-function renderMetrics(){
- const s=DATA.summary;
- const items=[
-  [txt("Polymarket Markets","Polymarket 市場"),s.polymarket_markets],
-  [txt("Kalshi Markets","Kalshi 市場"),s.kalshi_markets],
-  [txt("Matched Events","已配對事件"),s.matched_events],
-  [txt("Discrepancy Signals","分歧訊號"),s.discrepancy_signals],
-  [txt("P01 Context","P01 脈絡"),s.p01_context_available?"LIVE":"UNAVAILABLE"],
-  [txt("Trust Status","信任狀態"),s.trust_status]
- ];
- $("#metrics").innerHTML=items.map(x=>`<div class="card metric"><span class="label">${esc(x[0])}</span><b>${esc(x[1])}</b></div>`).join("");
-}
-function renderPrediction(){
- const sigs=DATA.discrepancies||[];
- if(!sigs.length){$("#prediction").innerHTML=`<div class="card empty">${txt("No comparable cross-venue events were matched in the current sample. The system does not invent matches.","目前樣本沒有找到足夠可比較的跨平台事件；系統不會為了產生結果而硬配對。")}</div>`;return}
- $("#prediction").innerHTML=sigs.slice(0,12).map(s=>{
-   const p=Object.fromEntries((s.market_probabilities||[]).map(x=>[x.venue,x.probability]));
-   return `<div class="card signal"><div class="row"><div><div class="label">${esc(s.canonical_event_id)}</div><div class="prob">${Math.round((p.polymarket||0)*100)}% <span class="muted">vs</span> ${Math.round((p.kalshi||0)*100)}%</div></div><div><span class="pill">${esc(s.attention)}</span></div></div><p>${txt("Probability gap","機率差距")}: <b>${esc(s.raw_discrepancy_pp)} pp</b> · ${txt("Comparability","可比較性")}: <b>${esc(s.comparability)}</b> · ${txt("Evidence","證據信心")}: <b>${esc(s.evidence_confidence)}</b></p><div class="notice">${txt("Market-implied probability only. Discrepancy does not prove arbitrage or the future outcome.","僅代表市場隱含機率。分歧不代表套利，也不證明未來結果。")}</div></div>`
- }).join("");
-}
-function renderTrust(){
- const t=DATA.trust_security||{};
- const events=DATA.security_events||[];
- let h=`<div class="card"><div class="row"><div><span class="label">${txt("Current Trust Status","目前信任狀態")}</span><div class="prob">${esc(t.status||"UNKNOWN")}</div></div><div><span class="pill">${esc(t.event_count||0)} ${txt("events","事件")}</span></div></div><p class="notice">${txt("UNKNOWN does not mean safe. Trust status is evidence-based and is not a safety guarantee.","UNKNOWN 不代表安全。信任狀態依據可取得的證據，並非安全保證。")}</p></div>`;
- if(events.length) h+=events.slice(0,10).map(e=>`<div class="card signal"><b>${esc(e.venue)}</b> · ${esc(e.event_type)} <span class="pill">${esc(e.status)}</span><p>${esc(e.evidence_state)}</p></div>`).join("");
- $("#trust").innerHTML=h;
-}
-function localize(){
- document.querySelectorAll("[data-en]").forEach(el=>el.textContent=el.dataset[LANG]);
- renderMetrics();renderPrediction();renderTrust();
-}
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab,.panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("#"+b.dataset.tab).classList.add("active")});
-$("#en").onclick=()=>{LANG="en";$("#en").classList.add("active");$("#zh").classList.remove("active");localize()};
-$("#zh").onclick=()=>{LANG="zh";$("#zh").classList.add("active");$("#en").classList.remove("active");localize()};
-fetch("../data/p02/dashboard_payload.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>{DATA=d;localize()}).catch(e=>{$("#metrics").innerHTML=`<div class="card metric">Dashboard data unavailable: ${esc(e.message)}</div>`});
-</script>
-</body></html>
+let DATA=null,LANG="zh";const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),t=(en,zh)=>LANG==="zh"?zh:en;
+function metric(l,v,s,c){return `<div class="card metric"><span class="label">${l}</span><b>${esc(v)}</b><span class="tag ${c}">${s}</span></div>`}
+function renderMetrics(){const s=DATA.summary;$("#metrics").innerHTML=[metric(t("Polymarket Markets","Polymarket 市場"),s.polymarket_markets,"LIVE","live"),metric(t("Kalshi Markets","Kalshi 市場"),s.kalshi_markets,"LIVE","live"),metric(t("Matched Events","已配對事件"),s.matched_events,"GENERATED","generated"),metric(t("Discrepancy Signals","分歧訊號"),s.discrepancy_signals,"GENERATED","generated"),metric(t("P01 Context","P01 脈絡"),s.p01_context_available?"LIVE":"UNAVAILABLE","LIVE","live"),metric(t("Trust Status","信任狀態"),s.trust_status,"EVIDENCE","evidence")].join("")}
+function renderSummary(){const s=DATA.summary;$("#summary").innerHTML=[[t("Market Coverage","市場覆蓋"),s.polymarket_markets+s.kalshi_markets+" Markets"],[t("Matched Events","可比較事件"),s.matched_events],[t("Evidence Signals","證據訊號"),s.discrepancy_signals],[t("Trust Status","信任狀態"),s.trust_status]].map(x=>`<div class="summary"><span>${esc(x[0])}</span><b>${esc(x[1])}</b></div>`).join("");$("#decisionMessage").textContent=s.matched_events===0?t("No sufficiently comparable cross-venue events were found in the current sample. The system does not force a match to manufacture a signal.","目前樣本沒有找到足夠可比較的跨平台事件。系統不會為了產生訊號而強制配對。"):t("Comparable cross-venue events are available for discrepancy analysis.","目前已有可比較的跨平台事件，可進一步檢視市場分歧。")}
+function renderPrediction(){const a=DATA.discrepancies||[];if(!a.length){$("#prediction").innerHTML=`<div class="card empty">${t("No comparable events detected. Comparability and evidence guardrails are working as designed.","目前沒有偵測到可比較事件。可比較性與證據防護規則正依設計運作。")}</div>`;return}$("#prediction").innerHTML=a.slice(0,12).map(s=>{const p=Object.fromEntries((s.market_probabilities||[]).map(x=>[x.venue,x.probability]));return `<div class="card"><div class="row"><div><div class="label">${esc(s.canonical_event_id)}</div><div class="prob">${Math.round((p.polymarket||0)*100)}% vs ${Math.round((p.kalshi||0)*100)}%</div></div><span class="pill">${esc(s.attention)}</span></div><p>${t("Probability gap","機率差距")}: <b>${esc(s.raw_discrepancy_pp)} pp</b> · ${t("Comparability","可比較性")}: <b>${esc(s.comparability)}</b> · ${t("Evidence","證據信心")}: <b>${esc(s.evidence_confidence)}</b></p><div class="notice">${t("Market-implied probability only. Discrepancy does not prove arbitrage or the future outcome.","僅代表市場隱含機率。分歧不代表套利，也不證明未來結果。")}</div></div>`}).join("")}
+function renderTrust(){const r=DATA.trust_security||{},a=DATA.security_events||[];let h=`<div class="card"><div class="row"><div><div class="label">${t("Current Trust Status","目前信任狀態")}</div><div class="prob">${esc(r.status||"UNKNOWN")}</div></div><span class="pill">${esc(r.event_count||0)} ${t("events","事件")}</span></div><p class="notice">${t("UNKNOWN does not mean safe. Trust status reflects available evidence and is not a safety guarantee.","UNKNOWN 不代表安全。信任狀態依據目前可取得的證據，並非安全保證。")}</p></div>`;if(a.length)h+=a.slice(0,10).map(e=>`<div class="card"><b>${esc(e.venue)}</b> · ${esc(e.event_type)} <span class="pill">${esc(e.status)}</span><p>${esc(e.evidence_state)}</p></div>`).join("");$("#trust").innerHTML=h}
+function localize(){document.querySelectorAll("[data-en]").forEach(e=>e.textContent=e.dataset[LANG]);renderMetrics();renderSummary();renderPrediction();renderTrust()}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab,.panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("#"+b.dataset.tab).classList.add("active")});$("#zh").onclick=()=>{LANG="zh";$("#zh").classList.add("active");$("#en").classList.remove("active");localize()};$("#en").onclick=()=>{LANG="en";$("#en").classList.add("active");$("#zh").classList.remove("active");localize()};
+fetch("../data/p02/dashboard_payload.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(Error(r.status))).then(d=>{DATA=d;localize()}).catch(e=>$("#metrics").innerHTML=`<div class="card">Dashboard data unavailable: ${esc(e.message)}</div>`);
+</script></body></html>
