@@ -40,10 +40,13 @@ jobs:
           import json
           d=json.load(open('data/p02/dashboard_payload.json',encoding='utf-8'))
           t=d['topic_intelligence']
-          assert 0 < len(t['predictions']) <= 20
+          assert 0 <= len(t['predictions']) <= 20
           assert all('question' in x and 'category' in x for x in t['predictions'])
+          assert t.get('quality_policy') == 'UP_TO_20_NO_FORCED_FILL'
+          assert max(t.get('category_counts', {'none': 0}).values(), default=0) <= 5
+          assert all(x.get('trending_score', 0) > 0 for x in t['predictions'])
           assert d['execution_allowed'] is False
-          print('P02-010.1 DYNAMIC TOP 20: PASS')
+          print('P02-010.3 QUALITY-GATED PREDICTION INTELLIGENCE: PASS')
           print('Ranked predictions:', len(t['predictions']))
           print('Categories:', t['category_counts'])
           PY
