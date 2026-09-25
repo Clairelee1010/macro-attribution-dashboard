@@ -25,11 +25,11 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip requests jsonschema pytest
       - name: Test topic intelligence
-        run: pytest -q tests/p02/test_topic_intelligence.py tests/p02/test_category_discovery.py tests/p02/test_polymarket_adapter.py tests/p02/test_kalshi_adapter.py tests/p02/test_batch_b.py
+        run: pytest -q tests/p02/test_topic_intelligence.py tests/p02/test_category_discovery.py tests/p02/test_venue_pagination.py tests/p02/test_polymarket_adapter.py tests/p02/test_kalshi_adapter.py tests/p02/test_batch_b.py
       - name: Refresh live prediction markets
         run: |
-          python p02/adapters/polymarket_adapter.py --limit 500
-          python p02/adapters/kalshi_adapter.py --limit 1000
+          python p02/adapters/polymarket_adapter.py --limit 1000
+          python p02/adapters/kalshi_adapter.py --limit 3000
       - name: Run category-aware discovery
         run: python p02/run_category_discovery.py
 
@@ -49,7 +49,7 @@ jobs:
           assert max(t.get('category_counts', {'none': 0}).values(), default=0) <= 5
           assert all(x.get('trending_score', 0) > 0 for x in t['predictions'])
           assert d['execution_allowed'] is False
-          print('P02-010.4 CATEGORY-AWARE MARKET DISCOVERY: PASS')
+          print('P02-010.5 VENUE-SPECIFIC PAGINATED DISCOVERY: PASS')
           print('Ranked predictions:', len(t['predictions']))
           print('Categories:', t['category_counts'])
           PY
