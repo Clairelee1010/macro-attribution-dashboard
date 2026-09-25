@@ -2,7 +2,7 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-09-25T16:26:23.814564+00:00",
+  "generated_at": "2026-09-25T16:27:09.321102+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
@@ -30,7 +30,7 @@
       "direction": "RISK_OFF",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 100.94,
+      "value": 100.937,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -42,11 +42,11 @@
     },
     {
       "metric_id": "VIX",
-      "signal_id": "LOW_VOLATILITY",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
+      "signal_id": "NORMAL_VOLATILITY",
+      "direction": "NEUTRAL",
+      "strength": "WEAK",
       "confidence": 1.0,
-      "value": 14.99,
+      "value": 15.03,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -62,7 +62,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 83965.7367,
+      "value": 83973.4956,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -78,7 +78,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2688.4474,
+      "value": 2688.7175,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -91,9 +91,9 @@
   ],
   "summary": {
     "total": 5,
-    "risk_on": 1,
+    "risk_on": 0,
     "risk_off": 2,
-    "neutral": 0,
+    "neutral": 1,
     "unknown": 2
   },
   "semantics": {
