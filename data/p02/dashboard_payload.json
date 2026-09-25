@@ -1,7 +1,7 @@
 {
   "product": "P02",
   "version": "P02-010.3",
-  "generated_at": "2026-09-25T17:48:51.960138Z",
+  "generated_at": "2026-09-25T17:49:54.983349Z",
   "execution_allowed": false,
   "summary": {
     "polymarket_markets": 100,
@@ -13,12 +13,13 @@
   },
   "topic_intelligence": {
     "ranking_method": "DETERMINISTIC_RELEVANCE_V3_QUALITY_GATED",
-    "top_n": 5,
+    "top_n": 6,
     "requested_top_n": 20,
     "quality_policy": "UP_TO_20_NO_FORCED_FILL",
     "category_cap": 5,
     "category_counts": {
-      "politics": 5
+      "politics": 5,
+      "other": 1
     },
     "predictions": [
       {
@@ -28,10 +29,10 @@
         "outcome": "YES",
         "implied_probability": 0.0015,
         "volume_usd": 679938.3259999998,
-        "liquidity_usd": 931836.05742,
+        "liquidity_usd": 933687.46769,
         "market_close_time": "2028-11-07",
         "source_url": "https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination",
-        "retrieved_at": "2026-09-25T17:29:56.789437Z",
+        "retrieved_at": "2026-09-25T17:49:54.285484Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -39,7 +40,7 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 98.89,
+        "trending_score": 98.9,
         "rank": 1
       },
       {
@@ -49,10 +50,10 @@
         "outcome": "YES",
         "implied_probability": 0.0075,
         "volume_usd": 112344.342223,
-        "liquidity_usd": 672243.04567,
+        "liquidity_usd": 672802.62667,
         "market_close_time": "2029-01-21",
         "source_url": "https://polymarket.com/market/will-james-talarico-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-09-25T17:29:56.789437Z",
+        "retrieved_at": "2026-09-25T17:49:54.285484Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -70,10 +71,10 @@
         "outcome": "YES",
         "implied_probability": 0.0005,
         "volume_usd": 108784.335,
-        "liquidity_usd": 538898.11507,
+        "liquidity_usd": 539664.96403,
         "market_close_time": "2028-11-07",
         "source_url": "https://polymarket.com/market/will-chris-van-hollen-win-the-2028-democratic-presidential-nomination",
-        "retrieved_at": "2026-09-25T17:29:56.789437Z",
+        "retrieved_at": "2026-09-25T17:49:54.285484Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -90,11 +91,11 @@
         "question": "Putin out as President of Russia by December 31, 2026?",
         "outcome": "YES",
         "implied_probability": 0.0435,
-        "volume_usd": 50526.01405399999,
-        "liquidity_usd": 755739.15696,
+        "volume_usd": 50526.014054,
+        "liquidity_usd": 755140.80058,
         "market_close_time": "2027-01-01",
         "source_url": "https://polymarket.com/market/putin-out-before-2027-346",
-        "retrieved_at": "2026-09-25T17:29:56.789437Z",
+        "retrieved_at": "2026-09-25T17:49:54.285484Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -111,11 +112,11 @@
         "question": "Xi Jinping out before 2027?",
         "outcome": "YES",
         "implied_probability": 0.0425,
-        "volume_usd": 29498.056185000005,
-        "liquidity_usd": 496385.09023,
+        "volume_usd": 29497.486185,
+        "liquidity_usd": 494916.43604,
         "market_close_time": "2027-01-01",
         "source_url": "https://polymarket.com/market/xi-jinping-out-before-2027",
-        "retrieved_at": "2026-09-25T17:29:56.789437Z",
+        "retrieved_at": "2026-09-25T17:49:54.285484Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -123,8 +124,29 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 89.81,
+        "trending_score": 89.8,
         "rank": 5
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S20261F5B7FC102C-DDD0C02D805",
+        "venue": "kalshi",
+        "question": "yes Target Price: $83,802.22,yes $120.75 or above",
+        "outcome": "YES",
+        "implied_probability": 0.262,
+        "volume_usd": 0.0,
+        "liquidity_usd": 18.14,
+        "market_close_time": "2026-09-25T18:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20261F5B7FC102C-DDD0C02D805",
+        "retrieved_at": "2026-09-25T17:49:54.580020Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 40.34,
+        "rank": 6
       }
     ]
   },
