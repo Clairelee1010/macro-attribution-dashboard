@@ -28,11 +28,17 @@ def main():
     secdoc=load(data/"security_events.json",{"events":[]})
     events=secdoc.get("events",[])
     trust=aggregate_trust(events)
-    topic_intelligence=build_top_predictions(poly, kalshi, limit=20, per_category_cap=5)
+    discovery=load(data/"category_discovery.json",{"markets":[]})
+    if discovery.get("markets"):
+        topic_poly={"markets":[m for m in discovery["markets"] if m.get("venue")=="polymarket"]}
+        topic_kalshi={"markets":[m for m in discovery["markets"] if m.get("venue")=="kalshi"]}
+    else:
+        topic_poly, topic_kalshi = poly, kalshi
+    topic_intelligence=build_top_predictions(topic_poly, topic_kalshi, limit=20, per_category_cap=5)
 
     payload={
         "product":"P02",
-        "version":"P02-010.3",
+        "version":"P02-010.4",
         "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "execution_allowed":False,
         "summary":{
