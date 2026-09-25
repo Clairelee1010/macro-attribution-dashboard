@@ -1,0 +1,27 @@
+name: P02 Foundation Validation
+
+on:
+  push:
+    paths:
+      - "p02/**"
+      - "tests/p02/**"
+      - ".github/workflows/p02_foundation.yml"
+  pull_request:
+    paths:
+      - "p02/**"
+      - "tests/p02/**"
+
+jobs:
+  validate-p02-foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: python -m pip install --upgrade pip jsonschema pytest
+      - name: Validate P02 fixtures
+        run: python p02/validate_p02.py
+      - name: Run P02 tests
+        run: pytest -q tests/p02
