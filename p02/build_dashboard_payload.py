@@ -35,10 +35,14 @@ def main():
     else:
         topic_poly, topic_kalshi = poly, kalshi
     topic_intelligence=build_top_predictions(topic_poly, topic_kalshi, limit=20, per_category_cap=5)
+    # Product-facing distinction: discovery coverage is not the same as Top-20 selection.
+    # category_discovery.json already records the deterministic discovery pool.
+    topic_intelligence["discovery_category_counts"] = discovery.get("category_counts", {})
+    topic_intelligence["discovery_candidate_count"] = discovery.get("selected_count", len(discovery.get("markets", [])))
 
     payload={
         "product":"P02",
-        "version":"P02-010.4",
+        "version":"P02-v1.0",
         "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "execution_allowed":False,
         "summary":{
