@@ -1,34 +1,35 @@
-P02-010.1 — Dynamic Top 20 Prediction Intelligence
+INT-003 — Integrated Intelligence Dashboard
 
-Upload every file in this package to the SAME path in the repository.
+Upload these files to the SAME paths in the repository root:
 
-New files:
-- p02/topic_intelligence.py
-- tests/p02/test_topic_intelligence.py
-- .github/workflows/p02_prediction_intelligence.yml
-- P02-010.1-README.md
+integration/dashboard_payload.py
+tests/integration/test_int003.py
+.github/workflows/int003_integrated_dashboard.yml
+data/integration/dashboard_payload.json
+intelligence/index.html
+INT-003-README.md
 
-Replace existing files:
-- p02/build_dashboard_payload.py
-- p02/index.html
-- p02-web/index.html
-- .github/workflows/p02_polymarket.yml
-- .github/workflows/p02_kalshi.yml
+Recommended commit message:
+Add INT-003 integrated intelligence dashboard
 
-Recommended commit:
-Add P02 dynamic Top 20 prediction intelligence
+Then go to GitHub Actions and run:
+INT-003 Integrated Intelligence Dashboard
 
-Then run:
-Actions > P02 Dynamic Prediction Intelligence > Run workflow
+Expected final summary:
+P01 Context Loaded          PASS
+P02 Predictions Loaded      PASS
+INT-002 Intelligence Loaded PASS
+Relationship Rendering      PASS
+Evidence Rendering          PASS
+Political Guardrail         PASS
+Execution                   DISABLED
+INT-003: PASS
 
-Expected:
-P02-010.1 DYNAMIC TOP 20: PASS
+After GitHub Pages refreshes, open:
+/intelligence/
 
-The workflow refreshes a wider live source pool, classifies topics, builds the dynamic Top 20, rebuilds dashboard_payload.json, republishes p02/index.html, and commits generated outputs.
-
-Important semantics:
-- Top 20 = P02 deterministic curated ranking, not official venue ranking.
-- Probability = market-implied observation, not P02 forecast.
-- Political entries are market observations only.
-- Cross-market matcher/discrepancy logic is unchanged.
-- Execution remains disabled.
+Notes:
+- INT-003 is read-only.
+- It does not change P01/P02 core logic.
+- It consumes INT-001 + INT-002 outputs.
+- Political contracts remain venue observations only and NOT_APPLICABLE to P01 directional inference.
