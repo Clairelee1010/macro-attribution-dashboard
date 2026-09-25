@@ -134,27 +134,24 @@ def normalize_market(market: dict[str, Any], retrieved_at: datetime) -> dict[str
 
 
 def fetch_active_markets(limit: int = DEFAULT_LIMIT, timeout: int = 20) -> list[dict[str, Any]]:
-    limit = max(1, min(int(limit), 100))
+    target = max(1, min(int(limit), 2000))
     url = f"{GAMMA_BASE_URL}/markets/keyset"
-    response = requests.get(
-        url,
-        params={"closed": "false", "limit": limit},
-        headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
-        timeout=timeout,
-    )
-    response.raise_for_status()
-    payload = response.json()
-
-    if isinstance(payload, dict):
-        markets = payload.get("markets", [])
-    elif isinstance(payload, list):
-        markets = payload
-    else:
-        raise ValueError("Unexpected Polymarket response type")
-
-    if not isinstance(markets, list):
-        raise ValueError("Polymarket response does not contain a markets list")
-    return [m for m in markets if isinstance(m, dict)]
+    markets, cursor, seen = [], None, set()
+    while len(markets) < target:
+        params = {"closed": "false", "limit": min(100, target-len(markets))}
+        if cursor: params["next_cursor"] = cursor
+        response=requests.get(url,params=params,headers={"User-Agent":USER_AGENT,"Accept":"application/json"},timeout=timeout)
+        response.raise_for_status(); payload=response.json()
+        if isinstance(payload,dict):
+            page=payload.get("markets",payload.get("data",[]))
+            nxt=payload.get("next_cursor") or payload.get("nextCursor") or payload.get("cursor")
+        elif isinstance(payload,list): page,nxt=payload,None
+        else: raise ValueError("Unexpected Polymarket response type")
+        if not isinstance(page,list): raise ValueError("Polymarket response does not contain a markets list")
+        valid=[m for m in page if isinstance(m,dict)]; markets.extend(valid)
+        if not valid or not nxt or str(nxt) in seen: break
+        seen.add(str(nxt)); cursor=str(nxt)
+    return markets[:target]
 
 
 def validate_records(records: list[dict[str, Any]], schema_path: Path) -> list[str]:

@@ -129,19 +129,20 @@ def normalize_market(market: dict[str, Any], retrieved_at: datetime) -> dict[str
 
 
 def fetch_open_markets(limit: int = DEFAULT_LIMIT, timeout: int = 20) -> list[dict[str, Any]]:
-    limit = max(1, min(int(limit), 1000))
-    response = requests.get(
-        f"{BASE_URL}/markets",
-        params={"status": "open", "limit": limit},
-        headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
-        timeout=timeout,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    markets = payload.get("markets", []) if isinstance(payload, dict) else []
-    if not isinstance(markets, list):
-        raise ValueError("Kalshi response does not contain a markets list")
-    return [m for m in markets if isinstance(m, dict)]
+    target = max(1, min(int(limit), 5000))
+    markets, cursor, seen = [], None, set()
+    while len(markets) < target:
+        params={"status":"open","limit":min(1000,target-len(markets))}
+        if cursor: params["cursor"]=cursor
+        response=requests.get(f"{BASE_URL}/markets",params=params,headers={"User-Agent":USER_AGENT,"Accept":"application/json"},timeout=timeout)
+        response.raise_for_status(); payload=response.json()
+        page=payload.get("markets",[]) if isinstance(payload,dict) else []
+        if not isinstance(page,list): raise ValueError("Kalshi response does not contain a markets list")
+        valid=[m for m in page if isinstance(m,dict)]; markets.extend(valid)
+        nxt=payload.get("cursor") if isinstance(payload,dict) else None
+        if not valid or not nxt or str(nxt) in seen: break
+        seen.add(str(nxt)); cursor=str(nxt)
+    return markets[:target]
 
 
 def validate_records(records: list[dict[str, Any]], schema_path: Path) -> list[str]:
