@@ -1,13 +1,13 @@
 {
   "schema_version": "8.0",
   "source_schema_version": "7.0",
-  "generated_at": "2026-09-25T16:37:25.580673+00:00",
+  "generated_at": "2026-09-25T16:55:07.969129+00:00",
   "engine": "P01-008",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
-  "risk_score": 100,
+  "risk_score": 92.8,
   "risk_level": "HIGH",
-  "confidence": 0.2088,
+  "confidence": 0.0648,
   "evidence_coverage": 0.6,
   "risk_drivers": [
     {
@@ -15,21 +15,31 @@
       "signal_id": "VERY_HIGH_YIELD",
       "direction": "RISK_OFF",
       "strength": "STRONG",
-      "contribution_share": 0.6183,
+      "contribution_share": 0.4241,
       "signal_confidence": 0.9,
-      "risk_impact": 16.6941
+      "risk_impact": 11.4507
     },
     {
       "metric_id": "DXY",
       "signal_id": "FIRM_DOLLAR",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
-      "contribution_share": 0.3817,
+      "contribution_share": 0.2618,
       "signal_confidence": 1.0,
-      "risk_impact": 11.451
+      "risk_impact": 7.854
     }
   ],
-  "protective_factors": [],
+  "protective_factors": [
+    {
+      "metric_id": "VIX",
+      "signal_id": "LOW_VOLATILITY",
+      "direction": "RISK_ON",
+      "strength": "MODERATE",
+      "contribution_share": 0.3141,
+      "signal_confidence": 1.0,
+      "risk_impact": 9.423
+    }
+  ],
   "excluded": [
     {
       "metric_id": "BTC",
@@ -44,7 +54,7 @@
   ],
   "summary": {
     "risk_driver_count": 2,
-    "protective_factor_count": 0,
+    "protective_factor_count": 1,
     "eligible_drivers": 3,
     "excluded_signals": 2
   },

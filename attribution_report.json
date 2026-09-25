@@ -1,14 +1,14 @@
 {
   "schema_version": "7.0",
   "source_schema_version": "6.0",
-  "generated_at": "2026-09-25T16:37:25.580673+00:00",
+  "generated_at": "2026-09-25T16:55:07.969129+00:00",
   "engine": "P01-007",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
-  "regime_score": -0.7706,
-  "regime_confidence": 0.58,
-  "attribution_confidence": 0.348,
-  "evidence_agreement": 1.0,
+  "regime_score": -0.355,
+  "regime_confidence": 0.43,
+  "attribution_confidence": 0.108,
+  "evidence_agreement": 0.6859,
   "drivers": [
     {
       "metric_id": "US10Y",
@@ -18,8 +18,19 @@
       "signal_confidence": 0.9,
       "weight": 1.8,
       "weighted_score": -1.62,
-      "contribution_share": 0.6183,
+      "contribution_share": 0.4241,
       "relation_to_regime": "SUPPORTING"
+    },
+    {
+      "metric_id": "VIX",
+      "signal_id": "LOW_VOLATILITY",
+      "direction": "RISK_ON",
+      "strength": "MODERATE",
+      "signal_confidence": 1.0,
+      "weight": 1.2,
+      "weighted_score": 1.2,
+      "contribution_share": 0.3141,
+      "relation_to_regime": "CONFLICTING"
     },
     {
       "metric_id": "DXY",
@@ -29,7 +40,7 @@
       "signal_confidence": 1.0,
       "weight": 1.0,
       "weighted_score": -1.0,
-      "contribution_share": 0.3817,
+      "contribution_share": 0.2618,
       "relation_to_regime": "SUPPORTING"
     }
   ],
@@ -42,7 +53,7 @@
       "signal_confidence": 0.9,
       "weight": 1.8,
       "weighted_score": -1.62,
-      "contribution_share": 0.6183,
+      "contribution_share": 0.4241,
       "relation_to_regime": "SUPPORTING"
     },
     {
@@ -53,11 +64,23 @@
       "signal_confidence": 1.0,
       "weight": 1.0,
       "weighted_score": -1.0,
-      "contribution_share": 0.3817,
+      "contribution_share": 0.2618,
       "relation_to_regime": "SUPPORTING"
     }
   ],
-  "conflicting_evidence": [],
+  "conflicting_evidence": [
+    {
+      "metric_id": "VIX",
+      "signal_id": "LOW_VOLATILITY",
+      "direction": "RISK_ON",
+      "strength": "MODERATE",
+      "signal_confidence": 1.0,
+      "weight": 1.2,
+      "weighted_score": 1.2,
+      "contribution_share": 0.3141,
+      "relation_to_regime": "CONFLICTING"
+    }
+  ],
   "contextual_evidence": [],
   "excluded": [
     {
@@ -73,9 +96,9 @@
   ],
   "summary": {
     "eligible_drivers": 3,
-    "reported_drivers": 2,
+    "reported_drivers": 3,
     "supporting_drivers": 2,
-    "conflicting_drivers": 0,
+    "conflicting_drivers": 1,
     "contextual_drivers": 0,
     "excluded_signals": 2,
     "contribution_share_total": 1.0
