@@ -1,14 +1,14 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-09-25T16:55:57.741596+00:00",
+  "generated_at": "2026-09-25T16:56:38.989809+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
-  "score": -0.355,
-  "confidence": 0.43,
+  "score": -0.7706,
+  "confidence": 0.58,
   "coverage": 0.6,
-  "contradiction": true,
+  "contradiction": false,
   "drivers": [
     {
       "metric_id": "US10Y",
@@ -30,12 +30,12 @@
     },
     {
       "metric_id": "VIX",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "signal_id": "LOW_VOLATILITY",
+      "direction": "NEUTRAL",
+      "strength": "WEAK",
+      "signal_id": "NORMAL_VOLATILITY",
       "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": 1.2
+      "weight": 0.6,
+      "weighted_score": 0.0
     }
   ],
   "supporting": [
@@ -58,17 +58,7 @@
       "weighted_score": -1.0
     }
   ],
-  "contradicting": [
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "signal_id": "LOW_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": 1.2
-    }
-  ],
+  "contradicting": [],
   "excluded": [
     {
       "metric_id": "BTC",
@@ -85,8 +75,8 @@
     "eligible_signals": 3,
     "excluded_signals": 2,
     "total_signals": 5,
-    "eligible_weight": 4.0,
-    "weighted_sum": -1.42
+    "eligible_weight": 3.4,
+    "weighted_sum": -2.62
   },
   "semantics": {
     "regime": [
