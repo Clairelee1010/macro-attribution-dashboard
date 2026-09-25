@@ -432,22 +432,43 @@ News Intelligence
 
 Status: P01 v1.0
 
-P02 — PREDICT / COMPARE 🔜
+P02 — PREDICT / COMPARE ✅
 Tokenized Market & Prediction Intelligence
 
-Planned exploration areas include:
+Production capabilities:
 
-Tokenized U.S. equities
-24/7 market structure
-Prediction markets
-Polymarket / Kalshi intelligence
-Implied probability
-Liquidity analysis
-Cross-market discrepancies
+Prediction-market adapters for Polymarket and Kalshi
+Normalized market contracts and source provenance
+Canonical event matching with comparability guardrails
+Cross-market discrepancy intelligence
+P01 macro-context bridge
+Trust & Security evidence layer
+Bilingual intelligence dashboard
+Historical snapshots and deterministic change intelligence
+Production acceptance gate
+
+Product semantics:
+
+Market-implied probability is an observation, not a forecast.
+Same headline does not necessarily mean the same contract.
+Discrepancy does not prove arbitrage.
+UNKNOWN trust status does not mean safe.
+P01 context is supporting evidence, not causal proof.
+Execution is disabled.
+
+Status: P02 v1.0 — PRODUCTION / FROZEN
+
+Post-v1.0 extension roadmap:
+
+Tokenized Market Intelligence
+Tokenized U.S. equities / RWA
+24/7 price-discovery analysis
 Crypto / stablecoin yield intelligence
+Risk-adjusted APY comparison
+Exchange / counterparty / security intelligence
 
-The objective is to explore how always-on markets may change price discovery
-and cross-market intelligence.
+These extensions remain part of the portfolio roadmap but are outside the
+frozen P02 v1.0 production scope.
 
 P03 — ACT 🔜
 AI Agent Wallet + x402
