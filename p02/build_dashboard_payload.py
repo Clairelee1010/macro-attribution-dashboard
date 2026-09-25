@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from p02.trust_security import aggregate_trust
+from p02.topic_intelligence import build_top_predictions
 
 def load(path, default):
     try:
@@ -27,10 +28,11 @@ def main():
     secdoc=load(data/"security_events.json",{"events":[]})
     events=secdoc.get("events",[])
     trust=aggregate_trust(events)
+    topic_intelligence=build_top_predictions(poly, kalshi, limit=20, per_category_cap=5)
 
     payload={
         "product":"P02",
-        "version":"P02-008",
+        "version":"P02-010.1",
         "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "execution_allowed":False,
         "summary":{
@@ -41,6 +43,7 @@ def main():
             "p01_context_available":bool(context.get("available")),
             "trust_status":trust["status"],
         },
+        "topic_intelligence":topic_intelligence,
         "trust_security":trust,
         "security_events":events,
         "canonical_events":canonical.get("events",[]),
