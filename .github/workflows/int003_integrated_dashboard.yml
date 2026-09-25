@@ -1,0 +1,166 @@
+name: INT-003 Integrated Intelligence Dashboard
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "integration/**"
+      - "tests/integration/**"
+      - "config/integration_context_rules.json"
+      - "data/integration/intelligence_overview.json"
+      - "data/integration/context_intelligence.json"
+      - "intelligence/index.html"
+      - "INT-003-README.md"
+      - ".github/workflows/int003_integrated_dashboard.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: int003-integrated-dashboard
+  cancel-in-progress: false
+
+jobs:
+  integrated-dashboard:
+    name: integrated-dashboard
+    runs-on: ubuntu-latest
+
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Test INT-001 / INT-002 / INT-003
+        run: |
+          echo "=========================================="
+          echo "INT-003 INTEGRATION TEST"
+          echo "=========================================="
+          python -m pytest -q \
+            tests/integration/test_int001.py \
+            tests/integration/test_int002.py \
+            tests/integration/test_int003.py
+
+      - name: Build INT-001 input
+        run: |
+          echo "=========================================="
+          echo "BUILD INT-001 INPUT"
+          echo "=========================================="
+          python integration/integration_engine.py
+          test -f data/integration/intelligence_overview.json
+
+      - name: Build INT-002 context intelligence
+        run: |
+          echo "=========================================="
+          echo "BUILD INT-002 CONTEXT INTELLIGENCE"
+          echo "=========================================="
+          python integration/context_intelligence_engine.py
+          test -f data/integration/context_intelligence.json
+
+      - name: Build INT-003 dashboard payload
+        run: |
+          echo "=========================================="
+          echo "BUILD INT-003 DASHBOARD PAYLOAD"
+          echo "=========================================="
+          python integration/dashboard_payload.py
+          test -f data/integration/dashboard_payload.json
+
+      - name: Validate INT-003 output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/integration/dashboard_payload.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          if data.get("version") != "INT-003":
+              raise SystemExit("INT-003 validation failed: invalid version")
+          if data.get("execution_allowed") is not False:
+              raise SystemExit("INT-003 validation failed: execution must be disabled")
+
+          cards = data.get("cards")
+          if not isinstance(cards, list):
+              raise SystemExit("INT-003 validation failed: cards must be a list")
+
+          allowed = {
+              "SUPPORTED_CONTEXT",
+              "MIXED_CONTEXT",
+              "DIVERGENT_CONTEXT",
+              "INSUFFICIENT_EVIDENCE",
+              "NOT_APPLICABLE",
+          }
+
+          for i, card in enumerate(cards, start=1):
+              if card.get("relationship") not in allowed:
+                  raise SystemExit(f"INT-003 invalid relationship at card #{i}")
+              if card.get("execution_allowed") is not False:
+                  raise SystemExit(f"INT-003 execution enabled at card #{i}")
+              category = (card.get("category") or {}).get("key")
+              if category == "politics" and card.get("relationship") != "NOT_APPLICABLE":
+                  raise SystemExit(f"INT-003 political guardrail failed at card #{i}")
+
+          print("INT-003 INTEGRATED INTELLIGENCE DASHBOARD: PASS")
+          print("Dashboard cards:", len(cards))
+          print("Political Guardrail: PASS")
+          print("Execution: DISABLED")
+          PY
+
+      - name: Commit INT-003 intelligence
+        run: |
+          echo "=========================================="
+          echo "COMMIT INT-003 INTELLIGENCE"
+          echo "=========================================="
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/integration/intelligence_overview.json \
+            data/integration/context_intelligence.json \
+            data/integration/dashboard_payload.json
+
+          if git diff --cached --quiet; then
+            echo "No INT-003 intelligence changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update INT-003 integrated intelligence"
+          git fetch origin main
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: INT-003 acceptance summary
+        if: success()
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "INT-003 INTEGRATED INTELLIGENCE DASHBOARD"
+          echo "=========================================="
+          echo "P01 Context Loaded          PASS"
+          echo "P02 Predictions Loaded      PASS"
+          echo "INT-002 Intelligence Loaded PASS"
+          echo "Relationship Rendering      PASS"
+          echo "Evidence Rendering          PASS"
+          echo "Political Guardrail         PASS"
+          echo "Execution                   DISABLED"
+          echo "------------------------------------------"
+          echo "INT-003: PASS"
+          echo "=========================================="
