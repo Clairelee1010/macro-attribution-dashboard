@@ -1,23 +1,23 @@
 {
   "schema_version": "10.0",
   "engine": "P01-010",
-  "generated_at": "2026-09-25T17:48:22.550377+00:00",
+  "generated_at": "2026-09-25T17:49:07.337473+00:00",
   "executive_summary": {
     "market_regime": {
       "value": "RISK_OFF",
-      "score": -0.355,
-      "confidence": 0.43,
+      "score": -0.7706,
+      "confidence": 0.58,
       "coverage": 0.6
     },
     "market_risk": {
       "level": "HIGH",
-      "score": 92.8,
-      "confidence": 0.0648,
+      "score": 100,
+      "confidence": 0.2088,
       "evidence_coverage": 0.6
     },
     "evidence_confidence": {
       "level": "MEDIUM",
-      "score": 0.6381,
+      "score": 0.7356,
       "coverage": 0.6
     },
     "data_quality": {
@@ -39,7 +39,7 @@
       "direction": "RISK_OFF",
       "strength": "STRONG",
       "confidence": 0.9,
-      "value": 0.05198,
+      "value": 0.052,
       "unit": "DECIMAL",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -57,7 +57,7 @@
       "direction": "RISK_OFF",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 101.069,
+      "value": 101.064,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -69,11 +69,11 @@
     },
     {
       "metric_id": "VIX",
-      "signal_id": "LOW_VOLATILITY",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
+      "signal_id": "NORMAL_VOLATILITY",
+      "direction": "NEUTRAL",
+      "strength": "WEAK",
       "confidence": 1.0,
-      "value": 14.99,
+      "value": 15.02,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -89,7 +89,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 83763.7128,
+      "value": 83742.2438,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -105,7 +105,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2683.8957,
+      "value": 2683.6582,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -118,14 +118,14 @@
   ],
   "signal_summary": {
     "total": 5,
-    "risk_on": 1,
+    "risk_on": 0,
     "risk_off": 2,
-    "neutral": 0,
+    "neutral": 1,
     "unknown": 2
   },
   "attribution": {
-    "confidence": 0.108,
-    "agreement": 0.6859,
+    "confidence": 0.348,
+    "agreement": 1.0,
     "drivers": [
       {
         "metric_id": "US10Y",
@@ -135,19 +135,8 @@
         "signal_confidence": 0.9,
         "weight": 1.8,
         "weighted_score": -1.62,
-        "contribution_share": 0.4241,
+        "contribution_share": 0.6183,
         "relation_to_regime": "SUPPORTING"
-      },
-      {
-        "metric_id": "VIX",
-        "signal_id": "LOW_VOLATILITY",
-        "direction": "RISK_ON",
-        "strength": "MODERATE",
-        "signal_confidence": 1.0,
-        "weight": 1.2,
-        "weighted_score": 1.2,
-        "contribution_share": 0.3141,
-        "relation_to_regime": "CONFLICTING"
       },
       {
         "metric_id": "DXY",
@@ -157,7 +146,7 @@
         "signal_confidence": 1.0,
         "weight": 1.0,
         "weighted_score": -1.0,
-        "contribution_share": 0.2618,
+        "contribution_share": 0.3817,
         "relation_to_regime": "SUPPORTING"
       }
     ],
@@ -180,31 +169,21 @@
       "signal_id": "VERY_HIGH_YIELD",
       "direction": "RISK_OFF",
       "strength": "STRONG",
-      "contribution_share": 0.4241,
+      "contribution_share": 0.6183,
       "signal_confidence": 0.9,
-      "risk_impact": 11.4507
+      "risk_impact": 16.6941
     },
     {
       "metric_id": "DXY",
       "signal_id": "FIRM_DOLLAR",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
-      "contribution_share": 0.2618,
+      "contribution_share": 0.3817,
       "signal_confidence": 1.0,
-      "risk_impact": 7.854
+      "risk_impact": 11.451
     }
   ],
-  "protective_factors": [
-    {
-      "metric_id": "VIX",
-      "signal_id": "LOW_VOLATILITY",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "contribution_share": 0.3141,
-      "signal_confidence": 1.0,
-      "risk_impact": 9.423
-    }
-  ],
+  "protective_factors": [],
   "evidence": {
     "items": [
       {
@@ -219,21 +198,21 @@
         "upstream_engine": "P01-006",
         "artifact": "regime_report.json",
         "status": "RISK_OFF",
-        "value": 0.43
+        "value": 0.58
       },
       {
         "evidence_id": "ATTRIBUTION",
         "upstream_engine": "P01-007",
         "artifact": "attribution_report.json",
         "status": "AVAILABLE",
-        "value": 0.108
+        "value": 0.348
       },
       {
         "evidence_id": "MARKET_RISK",
         "upstream_engine": "P01-008",
         "artifact": "market_risk_report.json",
         "status": "HIGH",
-        "value": 0.0648
+        "value": 0.2088
       }
     ],
     "limitations": [
