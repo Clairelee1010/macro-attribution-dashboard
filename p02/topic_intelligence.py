@@ -108,8 +108,37 @@ def _num(x: Any) -> float:
         return 0.0
 
 def _is_low_information(question: str) -> bool:
-    q = question.strip().lower()
-    return (q.startswith("yes ") and q.count(",yes ") >= 3) or len(q) > 300
+    """Reject unreadable multi-leg/parlay-style titles from Trending intelligence.
+
+    These may be valid venue contracts, but they are poor human-facing
+    intelligence topics. P02 keeps them in raw venue data; it only excludes
+    them from the curated Trending view.
+    """
+    q = " ".join(str(question or "").strip().lower().split())
+    legs = q.count(",yes ") + q.count(",no ")
+    starts_leg = q.startswith("yes ") or q.startswith("no ")
+    sports_combo_terms = len(re.findall(
+        r"\b(?:points? scored|goals? scored|wins? by over|wins? by more than|"
+        r"rushing yards?|receiving yards?|passing yards?)\b", q
+    ))
+    return (
+        len(q) > 240
+        or (starts_leg and legs >= 2)
+        or sports_combo_terms >= 3
+    )
+
+def _has_usable_market_observation(m: dict[str, Any]) -> bool:
+    """Quality gate for the human-facing Trending list."""
+    p = m.get("implied_probability")
+    try:
+        p = float(p)
+    except (TypeError, ValueError):
+        return False
+    if not (0 < p < 1):
+        return False
+    # Require at least one activity/liquidity signal so zero-information
+    # contracts do not enter Trending merely to fill a quota.
+    return _num(m.get("volume_usd")) > 0 or _num(m.get("liquidity_usd")) > 0
 
 def score_market(m: dict[str, Any]) -> float:
     volume = _num(m.get("volume_usd"))
@@ -130,7 +159,7 @@ def build_top_predictions(poly: dict, kalshi: dict, limit: int = 20, per_categor
     for doc in (poly, kalshi):
         for m in doc.get("markets", []):
             q = str(m.get("question") or "").strip()
-            if not q:
+            if not q or _is_low_information(q) or not _has_usable_market_observation(m):
                 continue
             cat = category_for(q)
             rows.append({
@@ -165,23 +194,14 @@ def build_top_predictions(poly: dict, kalshi: dict, limit: int = 20, per_categor
         if len(selected) >= limit:
             break
 
-    # If fewer than limit remain after the diversity pass, fill by score while
-    # keeping the ranking transparent. The initial Top-20 pass still prevents
-    # one category from crowding out all others when diverse candidates exist.
-    ids = {r["event_id"] for r in selected}
-    for row in rows:
-        if len(selected) >= limit:
-            break
-        if row["event_id"] not in ids:
-            selected.append(row)
-            ids.add(row["event_id"])
-
     for i, row in enumerate(selected, 1):
         row["rank"] = i
 
     return {
-        "ranking_method": "DETERMINISTIC_RELEVANCE_V2",
+        "ranking_method": "DETERMINISTIC_RELEVANCE_V3_QUALITY_GATED",
         "top_n": len(selected),
+        "requested_top_n": limit,
+        "quality_policy": "UP_TO_20_NO_FORCED_FILL",
         "category_cap": per_category_cap,
         "category_counts": dict(Counter(r["category"]["key"] for r in selected)),
         "predictions": selected,

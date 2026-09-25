@@ -32,7 +32,7 @@ def main():
 
     payload={
         "product":"P02",
-        "version":"P02-010.1",
+        "version":"P02-010.3",
         "generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),
         "execution_allowed":False,
         "summary":{
