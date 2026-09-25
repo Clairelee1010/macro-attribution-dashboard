@@ -1,19 +1,19 @@
 {
   "schema_version": "9.0",
   "source_schema_version": "8.0",
-  "generated_at": "2026-09-25T17:29:25.179253+00:00",
+  "generated_at": "2026-09-25T17:30:16.562333+00:00",
   "engine": "P01-009",
   "rules_version": "1.0",
-  "confidence_score": 0.7356,
+  "confidence_score": 0.6381,
   "confidence_level": "MEDIUM",
   "evidence_coverage": 0.6,
   "components": {
     "data_quality": 1.0,
     "evidence_coverage": 0.6,
     "source_reliability": 0.95,
-    "signal_agreement": 1.0,
-    "attribution_support": 0.348,
-    "risk_confidence": 0.2088
+    "signal_agreement": 0.6859,
+    "attribution_support": 0.108,
+    "risk_confidence": 0.0648
   },
   "evidence": [
     {
@@ -28,21 +28,21 @@
       "upstream_engine": "P01-006",
       "artifact": "regime_report.json",
       "status": "RISK_OFF",
-      "value": 0.58
+      "value": 0.43
     },
     {
       "evidence_id": "ATTRIBUTION",
       "upstream_engine": "P01-007",
       "artifact": "attribution_report.json",
       "status": "AVAILABLE",
-      "value": 0.348
+      "value": 0.108
     },
     {
       "evidence_id": "MARKET_RISK",
       "upstream_engine": "P01-008",
       "artifact": "market_risk_report.json",
       "status": "HIGH",
-      "value": 0.2088
+      "value": 0.0648
     }
   ],
   "traceability": {
