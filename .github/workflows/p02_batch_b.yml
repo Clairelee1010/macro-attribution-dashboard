@@ -1,0 +1,61 @@
+name: P02 Batch B Dashboard
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "p02/trust_security.py"
+      - "p02/build_dashboard_payload.py"
+      - "p02-web/index.html"
+      - "tests/p02/test_batch_b.py"
+      - ".github/workflows/p02_batch_b.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  p02-batch-b:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install --upgrade pip pytest
+      - name: Run Batch B tests
+        run: pytest -q tests/p02/test_batch_b.py
+      - name: Verify Batch A inputs
+        run: |
+          test -f data/p02/polymarket_markets.json
+          test -f data/p02/kalshi_markets.json
+          test -f data/p02/canonical_events.json
+          test -f data/p02/discrepancies.json
+          test -f data/p02/p01_context.json
+          echo "PASS Batch A inputs"
+      - name: Build P02-007 008 payload
+        run: python p02/build_dashboard_payload.py
+      - name: Publish P02 page at /p02/
+        run: |
+          mkdir -p p02
+          cp p02-web/index.html p02/index.html
+          echo "PASS p02/index.html"
+      - name: Commit Batch B output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/p02/dashboard_payload.json p02/index.html
+          if git diff --cached --quiet; then
+            echo "No Batch B output changes to commit."
+            exit 0
+          fi
+          git commit -m "Update P02 trust intelligence and dashboard"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
