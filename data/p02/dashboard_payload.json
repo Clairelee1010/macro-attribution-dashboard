@@ -1,15 +1,448 @@
 {
   "product": "P02",
-  "version": "P02-008",
-  "generated_at": "2026-09-25T16:55:35.650580Z",
+  "version": "P02-010.1",
+  "generated_at": "2026-09-25T17:15:38.056295Z",
   "execution_allowed": false,
   "summary": {
-    "polymarket_markets": 20,
-    "kalshi_markets": 20,
+    "polymarket_markets": 100,
+    "kalshi_markets": 500,
     "matched_events": 0,
     "discrepancy_signals": 0,
     "p01_context_available": true,
     "trust_status": "UNKNOWN"
+  },
+  "topic_intelligence": {
+    "ranking_method": "DETERMINISTIC_RELEVANCE_V1",
+    "top_n": 20,
+    "category_cap": 5,
+    "category_counts": {
+      "politics": 5,
+      "crypto": 5,
+      "sports": 5,
+      "other": 5
+    },
+    "predictions": [
+      {
+        "event_id": "POLYMARKET:559704",
+        "venue": "polymarket",
+        "question": "Will Mitch Landrieu win the 2028 Democratic presidential nomination?",
+        "outcome": "YES",
+        "implied_probability": 0.0015,
+        "volume_usd": 679938.3259999998,
+        "liquidity_usd": 934381.60952,
+        "market_close_time": "2028-11-07",
+        "source_url": "https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 98.9,
+        "rank": 1
+      },
+      {
+        "event_id": "POLYMARKET:561262",
+        "venue": "polymarket",
+        "question": "Will James Talarico win the 2028 US Presidential Election?",
+        "outcome": "YES",
+        "implied_probability": 0.0075,
+        "volume_usd": 112344.342223,
+        "liquidity_usd": 672322.97567,
+        "market_close_time": "2029-01-21",
+        "source_url": "https://polymarket.com/market/will-james-talarico-win-the-2028-us-presidential-election",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 93.74,
+        "rank": 2
+      },
+      {
+        "event_id": "POLYMARKET:559703",
+        "venue": "polymarket",
+        "question": "Will Chris Van Hollen win the 2028 Democratic presidential nomination?",
+        "outcome": "YES",
+        "implied_probability": 0.0005,
+        "volume_usd": 108784.335,
+        "liquidity_usd": 540347.78551,
+        "market_close_time": "2028-11-07",
+        "source_url": "https://polymarket.com/market/will-chris-van-hollen-win-the-2028-democratic-presidential-nomination",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 93.27,
+        "rank": 3
+      },
+      {
+        "event_id": "POLYMARKET:560317",
+        "venue": "polymarket",
+        "question": "Putin out as President of Russia by December 31, 2026?",
+        "outcome": "YES",
+        "implied_probability": 0.0435,
+        "volume_usd": 50526.01405399999,
+        "liquidity_usd": 750504.14422,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/putin-out-before-2027-346",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 91.92,
+        "rank": 4
+      },
+      {
+        "event_id": "POLYMARKET:559651",
+        "venue": "polymarket",
+        "question": "Xi Jinping out before 2027?",
+        "outcome": "YES",
+        "implied_probability": 0.0425,
+        "volume_usd": 29482.956185,
+        "liquidity_usd": 496254.22809,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/xi-jinping-out-before-2027",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 89.8,
+        "rank": 5
+      },
+      {
+        "event_id": "POLYMARKET:561264",
+        "venue": "polymarket",
+        "question": "Will Pete Hegseth win the 2028 US Presidential Election?",
+        "outcome": "YES",
+        "implied_probability": 0.0005,
+        "volume_usd": null,
+        "liquidity_usd": 1338617.63102,
+        "market_close_time": "2029-01-21",
+        "source_url": "https://polymarket.com/market/will-pete-hegseth-win-the-2028-us-presidential-election",
+        "retrieved_at": "2026-09-25T17:15:14.864324Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 65.0,
+        "rank": 6
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026F9D3345C0A5-C34CF86F24B",
+        "venue": "kalshi",
+        "question": "yes Philadelphia,no Over 2.5 goals scored,no Over 2.5 goals scored,yes Over 1.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-28T22:40:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026F9D3345C0A5-C34CF86F24B",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "sports",
+          "zh": "體育",
+          "en": "Sports"
+        },
+        "trending_score": 30.0,
+        "rank": 7
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026EC0F0656C70-9AF110F64C4",
+        "venue": "kalshi",
+        "question": "no Over 3.5 goals scored,yes Tie,no Over 3.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-27T16:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026EC0F0656C70-9AF110F64C4",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "sports",
+          "zh": "體育",
+          "en": "Sports"
+        },
+        "trending_score": 30.0,
+        "rank": 8
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026FAE5831E6CE-D28DCBB0718",
+        "venue": "kalshi",
+        "question": "yes Italy,yes Over 2.5 goals scored,no Over 3.5 goals scored,yes Over 2.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-28T18:45:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026FAE5831E6CE-D28DCBB0718",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "sports",
+          "zh": "體育",
+          "en": "Sports"
+        },
+        "trending_score": 30.0,
+        "rank": 9
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S20263CA1040FEFD-6BB6A203582",
+        "venue": "kalshi",
+        "question": "no Gambia wins by more than 2.5 goals,no Malawi wins by more than 2.5 goals,no Nigeria wins by more than 2.5 goals,no Rwanda wins by more than 3.5 goals,no Togo wins by more than 2.5 goals,no Over 4.5 goals scored,no Over 4.5 goals scored,no Over 6.5 goals scored,no Over 3.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-27T16:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20263CA1040FEFD-6BB6A203582",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "sports",
+          "zh": "體育",
+          "en": "Sports"
+        },
+        "trending_score": 30.0,
+        "rank": 10
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S20264A14565B4B5-E65BCAA8033",
+        "venue": "kalshi",
+        "question": "no Madagascar,yes Morocco wins by more than 1.5 goals,no Grenada,yes Girona,yes Milwaukee,yes Houston,yes Over 5.5 runs scored,no Northern Ireland,yes Montenegro,yes France,yes Iceland,yes Switzerland,yes Slovakia,yes Over 1.5 goals scored,yes Over 1.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-29T01:40:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20264A14565B4B5-E65BCAA8033",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "sports",
+          "zh": "體育",
+          "en": "Sports"
+        },
+        "trending_score": 30.0,
+        "rank": 11
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026EE546EDC9C1-B7320663607",
+        "venue": "kalshi",
+        "question": "no Madagascar,yes Morocco wins by more than 1.5 goals,no Grenada,yes Girona,yes Over 5.5 runs scored,no Northern Ireland,yes Montenegro,no Tie,yes France,no Tie,yes Spain,yes Switzerland,yes Finland,yes Slovakia,yes Denmark,yes Netherlands,yes Over 1.5 goals scored,yes Over 1.5 goals scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-29T16:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026EE546EDC9C1-B7320663607",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 30.0,
+        "rank": 12
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026CE441F67738-AFA12BB4280",
+        "venue": "kalshi",
+        "question": "no Bryce Young: 275+,yes Josh Allen: 225+,yes Kyler Murray: 200+,yes Derrick Henry: 90+,yes David Montgomery: 50+,yes Kenneth Walker III: 85+,yes De'Von Achane: 60+,yes KC Chiefs over 21.5 points scored,no TB Buccaneers over 31.5 points scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-29T20:25:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026CE441F67738-AFA12BB4280",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 30.0,
+        "rank": 13
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S202650E6B81C43B-77B694AEB50",
+        "venue": "kalshi",
+        "question": "yes Chicago WS,yes Miguel Vargas: 1+,yes Shohei Ohtani: 1+",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-29T02:15:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S202650E6B81C43B-77B694AEB50",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 25.0,
+        "rank": 14
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S20266327C938273-941742D1F71",
+        "venue": "kalshi",
+        "question": "no Somalia,no South Sudan,no Madagascar,yes Rwanda,no Burundi,no Guadeloupe,yes Armenia,no Northern Ireland,no Tie,no Tie,yes Montenegro,yes Poland,yes Sweden,yes France",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-27T19:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20266327C938273-941742D1F71",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 25.0,
+        "rank": 15
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026BA17104804E-C729D7F26FD",
+        "venue": "kalshi",
+        "question": "yes Sean Daryabeigi,yes Boston,no Over 8.5 runs scored",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-10-09T16:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026BA17104804E-C729D7F26FD",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 25.0,
+        "rank": 16
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S202679ACE67E4A8-0E5AF00ACE7",
+        "venue": "kalshi",
+        "question": "yes William Jansen,yes Mia Pohankova",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-10-09T16:00:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S202679ACE67E4A8-0E5AF00ACE7",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 25.0,
+        "rank": 17
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026D50D2C6D385-0BEDBFB446B",
+        "venue": "kalshi",
+        "question": "no Over 6.5 runs scored,yes Over 6.5 runs scored,yes Over 7.5 runs scored,yes Over 6.5 runs scored,yes Army wins by over 3.5 points",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-28T22:40:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026D50D2C6D385-0BEDBFB446B",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "other",
+          "zh": "其他",
+          "en": "Other"
+        },
+        "trending_score": 25.0,
+        "rank": 18
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026AAA0D384A4A-39F31959F5A",
+        "venue": "kalshi",
+        "question": "yes Dalton Schultz: 50+,yes Rashee Rice: 60+,yes Romeo Doubs: 50+,yes Garrett Wilson: 60+,yes Jaxon Smith-Njigba: 70+,yes Derrick Henry: 90+,yes Quinshon Judkins: 60+,yes Chase Brown: 60+,yes Kenneth Walker III: 85+,yes Kyren Williams: 70+,yes Ashton Jeanty: 70+,yes Rhamondre Stevenson: 40+,yes Breece Hall: 70+,yes Cam Skattebo: 60+",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-09-30T00:20:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026AAA0D384A4A-39F31959F5A",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 0,
+        "rank": 19
+      },
+      {
+        "event_id": "KALSHI:KXMVECROSSCATEGORY0-S2026CF8AE72B8C8-BCBDEAF40CD",
+        "venue": "kalshi",
+        "question": "yes San Francisco,yes Carolina,yes New Orleans,yes Philadelphia,yes Kenneth Walker III: 85+",
+        "outcome": "YES",
+        "implied_probability": 0.0,
+        "volume_usd": 0.0,
+        "liquidity_usd": 0.0,
+        "market_close_time": "2026-10-01T00:15:00Z",
+        "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY0-S2026CF8AE72B8C8-BCBDEAF40CD",
+        "retrieved_at": "2026-09-25T17:15:14.354177Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 0,
+        "rank": 20
+      }
+    ]
   },
   "trust_security": {
     "status": "UNKNOWN",
