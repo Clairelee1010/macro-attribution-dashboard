@@ -37,7 +37,7 @@ jobs:
         run: pytest -q tests/p02/test_kalshi_adapter.py
 
       - name: Fetch and normalize live Kalshi data
-        run: python p02/adapters/kalshi_adapter.py --limit 20
+        run: python p02/adapters/kalshi_adapter.py --limit 500
 
       - name: Validate generated market records
         run: |

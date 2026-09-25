@@ -39,7 +39,7 @@ jobs:
         run: pytest -q tests/p02/test_polymarket_adapter.py
 
       - name: Fetch and normalize live Polymarket data
-        run: python p02/adapters/polymarket_adapter.py --limit 20
+        run: python p02/adapters/polymarket_adapter.py --limit 100
 
       - name: Validate generated market records
         run: |

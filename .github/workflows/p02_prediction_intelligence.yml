@@ -1,0 +1,63 @@
+name: P02 Dynamic Prediction Intelligence
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p02-prediction-intelligence
+  cancel-in-progress: false
+
+jobs:
+  update-prediction-intelligence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip requests jsonschema pytest
+      - name: Test topic intelligence
+        run: pytest -q tests/p02/test_topic_intelligence.py tests/p02/test_polymarket_adapter.py tests/p02/test_kalshi_adapter.py tests/p02/test_batch_b.py
+      - name: Refresh live prediction markets
+        run: |
+          python p02/adapters/polymarket_adapter.py --limit 100
+          python p02/adapters/kalshi_adapter.py --limit 500
+      - name: Build dynamic Top 20 payload
+        run: python p02/build_dashboard_payload.py
+      - name: Publish P02 dashboard
+        run: cp p02-web/index.html p02/index.html
+      - name: Validate Top 20
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/p02/dashboard_payload.json',encoding='utf-8'))
+          t=d['topic_intelligence']
+          assert 0 < len(t['predictions']) <= 20
+          assert all('question' in x and 'category' in x for x in t['predictions'])
+          assert d['execution_allowed'] is False
+          print('P02-010.1 DYNAMIC TOP 20: PASS')
+          print('Ranked predictions:', len(t['predictions']))
+          print('Categories:', t['category_counts'])
+          PY
+      - name: Commit refreshed intelligence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/p02/polymarket_markets.json data/p02/kalshi_markets.json data/p02/dashboard_payload.json p02/index.html
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "Update P02 dynamic prediction intelligence"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
