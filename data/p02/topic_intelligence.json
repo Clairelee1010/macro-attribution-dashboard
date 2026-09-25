@@ -1,11 +1,12 @@
 {
   "ranking_method": "DETERMINISTIC_RELEVANCE_V3_QUALITY_GATED",
-  "top_n": 5,
+  "top_n": 10,
   "requested_top_n": 20,
   "quality_policy": "UP_TO_20_NO_FORCED_FILL",
   "category_cap": 5,
   "category_counts": {
-    "politics": 5
+    "politics": 5,
+    "other": 5
   },
   "predictions": [
     {
@@ -15,10 +16,10 @@
       "outcome": "YES",
       "implied_probability": 0.0015,
       "volume_usd": 679938.3259999998,
-      "liquidity_usd": 934000.86387,
+      "liquidity_usd": 934719.7414,
       "market_close_time": "2028-11-07",
       "source_url": "https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination",
-      "retrieved_at": "2026-09-25T18:00:54.272845Z",
+      "retrieved_at": "2026-09-25T18:09:22.546626Z",
       "freshness": "FRESH",
       "data_quality": "PASS",
       "category": {
@@ -36,10 +37,10 @@
       "outcome": "YES",
       "implied_probability": 0.0075,
       "volume_usd": 112344.342223,
-      "liquidity_usd": 669460.61167,
+      "liquidity_usd": 673886.73767,
       "market_close_time": "2029-01-21",
       "source_url": "https://polymarket.com/market/will-james-talarico-win-the-2028-us-presidential-election",
-      "retrieved_at": "2026-09-25T18:00:54.272845Z",
+      "retrieved_at": "2026-09-25T18:09:22.546626Z",
       "freshness": "FRESH",
       "data_quality": "PASS",
       "category": {
@@ -47,7 +48,7 @@
         "zh": "政治",
         "en": "Politics"
       },
-      "trending_score": 93.74,
+      "trending_score": 93.75,
       "rank": 2
     },
     {
@@ -57,10 +58,10 @@
       "outcome": "YES",
       "implied_probability": 0.0005,
       "volume_usd": 108784.335,
-      "liquidity_usd": 539949.8118,
+      "liquidity_usd": 542910.24206,
       "market_close_time": "2028-11-07",
       "source_url": "https://polymarket.com/market/will-chris-van-hollen-win-the-2028-democratic-presidential-nomination",
-      "retrieved_at": "2026-09-25T18:00:54.272845Z",
+      "retrieved_at": "2026-09-25T18:09:22.546626Z",
       "freshness": "FRESH",
       "data_quality": "PASS",
       "category": {
@@ -68,7 +69,7 @@
         "zh": "政治",
         "en": "Politics"
       },
-      "trending_score": 93.26,
+      "trending_score": 93.27,
       "rank": 3
     },
     {
@@ -78,10 +79,10 @@
       "outcome": "YES",
       "implied_probability": 0.0435,
       "volume_usd": 50574.01405399999,
-      "liquidity_usd": 755385.148,
+      "liquidity_usd": 755620.032,
       "market_close_time": "2027-01-01",
       "source_url": "https://polymarket.com/market/putin-out-before-2027-346",
-      "retrieved_at": "2026-09-25T18:00:54.272845Z",
+      "retrieved_at": "2026-09-25T18:09:22.546626Z",
       "freshness": "FRESH",
       "data_quality": "PASS",
       "category": {
@@ -93,16 +94,16 @@
       "rank": 4
     },
     {
-      "event_id": "POLYMARKET:559651",
+      "event_id": "POLYMARKET:561229",
       "venue": "polymarket",
-      "question": "Xi Jinping out before 2027?",
+      "question": "Will JD Vance win the 2028 US Presidential Election?",
       "outcome": "YES",
-      "implied_probability": 0.0425,
-      "volume_usd": 29497.486185,
-      "liquidity_usd": 496695.2013,
-      "market_close_time": "2027-01-01",
-      "source_url": "https://polymarket.com/market/xi-jinping-out-before-2027",
-      "retrieved_at": "2026-09-25T18:00:54.272845Z",
+      "implied_probability": 0.2095,
+      "volume_usd": 29684.019160000003,
+      "liquidity_usd": 492444.6132,
+      "market_close_time": "2028-11-07",
+      "source_url": "https://polymarket.com/market/will-jd-vance-win-the-2028-us-presidential-election",
+      "retrieved_at": "2026-09-25T18:09:22.546626Z",
       "freshness": "FRESH",
       "data_quality": "PASS",
       "category": {
@@ -112,6 +113,111 @@
       },
       "trending_score": 89.81,
       "rank": 5
+    },
+    {
+      "event_id": "KALSHI:KXMVECROSSCATEGORY-S20266A8BED7ACB3-6242147000D",
+      "venue": "kalshi",
+      "question": "yes Anthony Volpe: 1+,yes Ben Rice: 1+",
+      "outcome": "YES",
+      "implied_probability": 0.014,
+      "volume_usd": 0.0,
+      "liquidity_usd": 133.33,
+      "market_close_time": "2026-09-28T20:05:00Z",
+      "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20266A8BED7ACB3-6242147000D",
+      "retrieved_at": "2026-09-25T18:09:22.951601Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "other",
+        "zh": "其他",
+        "en": "Other"
+      },
+      "trending_score": 43.87,
+      "rank": 6
+    },
+    {
+      "event_id": "KALSHI:KXMVECROSSCATEGORY-S20266A8BED7ACB3-5BA9B75814D",
+      "venue": "kalshi",
+      "question": "yes Amed Rosario: 1+,yes Ben Rice: 1+",
+      "outcome": "YES",
+      "implied_probability": 0.017,
+      "volume_usd": 0.0,
+      "liquidity_usd": 109.89,
+      "market_close_time": "2026-09-28T20:05:00Z",
+      "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20266A8BED7ACB3-5BA9B75814D",
+      "retrieved_at": "2026-09-25T18:09:22.951601Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "other",
+        "zh": "其他",
+        "en": "Other"
+      },
+      "trending_score": 43.52,
+      "rank": 7
+    },
+    {
+      "event_id": "KALSHI:KXMVECROSSCATEGORY-S202696E94462EB4-F62C7BA5BD9",
+      "venue": "kalshi",
+      "question": "no Target Price: $3.24758,no Target Price: $64.271",
+      "outcome": "YES",
+      "implied_probability": 0.137,
+      "volume_usd": 0.0,
+      "liquidity_usd": 68.82,
+      "market_close_time": "2026-09-25T18:15:00Z",
+      "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S202696E94462EB4-F62C7BA5BD9",
+      "retrieved_at": "2026-09-25T18:09:22.951601Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "other",
+        "zh": "其他",
+        "en": "Other"
+      },
+      "trending_score": 42.68,
+      "rank": 8
+    },
+    {
+      "event_id": "KALSHI:KXMVECROSSCATEGORY-S2026D3F7D5A9F57-9C65E5BE76F",
+      "venue": "kalshi",
+      "question": "yes Chicago,yes Team USA",
+      "outcome": "YES",
+      "implied_probability": 0.456,
+      "volume_usd": 0.0,
+      "liquidity_usd": 21.12,
+      "market_close_time": "2026-10-11T14:00:00Z",
+      "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S2026D3F7D5A9F57-9C65E5BE76F",
+      "retrieved_at": "2026-09-25T18:09:22.951601Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "other",
+        "zh": "其他",
+        "en": "Other"
+      },
+      "trending_score": 40.6,
+      "rank": 9
+    },
+    {
+      "event_id": "KALSHI:KXMVECROSSCATEGORY-S20268C3368D8788-58B5353E1BD",
+      "venue": "kalshi",
+      "question": "no Over 5.5 runs in the first 5 innings,no Houston wins by over 3.5 runs",
+      "outcome": "YES",
+      "implied_probability": 0.47,
+      "volume_usd": 0.0,
+      "liquidity_usd": 6.15,
+      "market_close_time": "2026-09-29T02:15:00Z",
+      "source_url": "https://kalshi.com/markets/KXMVECROSSCATEGORY-S20268C3368D8788-58B5353E1BD",
+      "retrieved_at": "2026-09-25T18:09:22.951601Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "other",
+        "zh": "其他",
+        "en": "Other"
+      },
+      "trending_score": 38.56,
+      "rank": 10
     }
   ]
 }
