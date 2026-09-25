@@ -1,0 +1,269 @@
+{
+  "bridge_version": "P02-006",
+  "mode": "READ_ONLY",
+  "p01_modified": false,
+  "available": true,
+  "regime_report": {
+    "schema_version": "6.0",
+    "source_schema_version": "5.0",
+    "generated_at": "2026-09-25T11:27:16.862337+00:00",
+    "engine": "P01-006",
+    "rules_version": "1.0",
+    "regime": "RISK_OFF",
+    "score": -0.7706,
+    "confidence": 0.58,
+    "coverage": 0.6,
+    "contradiction": false,
+    "drivers": [
+      {
+        "metric_id": "US10Y",
+        "direction": "RISK_OFF",
+        "strength": "STRONG",
+        "signal_id": "VERY_HIGH_YIELD",
+        "confidence": 0.9,
+        "weight": 1.8,
+        "weighted_score": -1.62
+      },
+      {
+        "metric_id": "DXY",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "signal_id": "FIRM_DOLLAR",
+        "confidence": 1.0,
+        "weight": 1.0,
+        "weighted_score": -1.0
+      },
+      {
+        "metric_id": "VIX",
+        "direction": "NEUTRAL",
+        "strength": "WEAK",
+        "signal_id": "NORMAL_VOLATILITY",
+        "confidence": 1.0,
+        "weight": 0.6,
+        "weighted_score": 0.0
+      }
+    ],
+    "supporting": [
+      {
+        "metric_id": "US10Y",
+        "direction": "RISK_OFF",
+        "strength": "STRONG",
+        "signal_id": "VERY_HIGH_YIELD",
+        "confidence": 0.9,
+        "weight": 1.8,
+        "weighted_score": -1.62
+      },
+      {
+        "metric_id": "DXY",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "signal_id": "FIRM_DOLLAR",
+        "confidence": 1.0,
+        "weight": 1.0,
+        "weighted_score": -1.0
+      }
+    ],
+    "contradicting": [],
+    "excluded": [
+      {
+        "metric_id": "BTC",
+        "direction": "UNKNOWN",
+        "reason": "INSUFFICIENT_HISTORY"
+      },
+      {
+        "metric_id": "ETH",
+        "direction": "UNKNOWN",
+        "reason": "INSUFFICIENT_HISTORY"
+      }
+    ],
+    "summary": {
+      "eligible_signals": 3,
+      "excluded_signals": 2,
+      "total_signals": 5,
+      "eligible_weight": 3.4,
+      "weighted_sum": -2.62
+    },
+    "semantics": {
+      "regime": [
+        "RISK_ON",
+        "NEUTRAL",
+        "RISK_OFF",
+        "UNKNOWN"
+      ],
+      "score": "Deterministic cross-signal balance from -1 (risk-off) to +1 (risk-on); not outcome probability.",
+      "confidence": "Evidence reliability for regime classification; not probability of a market outcome."
+    }
+  },
+  "signal_report": {
+    "schema_version": "5.0",
+    "source_schema_version": "3.0",
+    "quality_schema_version": "4.0",
+    "generated_at": "2026-09-25T11:27:16.862337+00:00",
+    "engine": "P01-005",
+    "rules_version": "1.0",
+    "signals": [
+      {
+        "metric_id": "US10Y",
+        "signal_id": "VERY_HIGH_YIELD",
+        "direction": "RISK_OFF",
+        "strength": "STRONG",
+        "confidence": 0.9,
+        "value": 0.05162,
+        "unit": "DECIMAL",
+        "evidence": {
+          "data_quality_gate": "PASS",
+          "source": "Yahoo Finance via yfinance",
+          "source_type": "FALLBACK",
+          "quality_reasons": [
+            "FALLBACK_SOURCE_USED"
+          ]
+        },
+        "reason": null
+      },
+      {
+        "metric_id": "DXY",
+        "signal_id": "FIRM_DOLLAR",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "confidence": 1.0,
+        "value": 100.958,
+        "unit": "INDEX",
+        "evidence": {
+          "data_quality_gate": "PASS",
+          "source": "Yahoo Finance via yfinance",
+          "source_type": "PRIMARY",
+          "quality_reasons": []
+        },
+        "reason": null
+      },
+      {
+        "metric_id": "VIX",
+        "signal_id": "NORMAL_VOLATILITY",
+        "direction": "NEUTRAL",
+        "strength": "WEAK",
+        "confidence": 1.0,
+        "value": 15.17,
+        "unit": "INDEX",
+        "evidence": {
+          "data_quality_gate": "PASS",
+          "source": "Yahoo Finance via yfinance",
+          "source_type": "PRIMARY",
+          "quality_reasons": []
+        },
+        "reason": null
+      },
+      {
+        "metric_id": "BTC",
+        "signal_id": "INSUFFICIENT_HISTORY",
+        "direction": "UNKNOWN",
+        "strength": "UNKNOWN",
+        "confidence": 1.0,
+        "value": 84897.8604,
+        "unit": "USD",
+        "evidence": {
+          "data_quality_gate": "PASS",
+          "source": "CoinGecko Public API",
+          "source_type": "PRIMARY",
+          "quality_reasons": []
+        },
+        "reason": "INSUFFICIENT_HISTORY"
+      },
+      {
+        "metric_id": "ETH",
+        "signal_id": "INSUFFICIENT_HISTORY",
+        "direction": "UNKNOWN",
+        "strength": "UNKNOWN",
+        "confidence": 1.0,
+        "value": 2725.0266,
+        "unit": "USD",
+        "evidence": {
+          "data_quality_gate": "PASS",
+          "source": "CoinGecko Public API",
+          "source_type": "PRIMARY",
+          "quality_reasons": []
+        },
+        "reason": "INSUFFICIENT_HISTORY"
+      }
+    ],
+    "summary": {
+      "total": 5,
+      "risk_on": 0,
+      "risk_off": 2,
+      "neutral": 1,
+      "unknown": 2
+    },
+    "semantics": {
+      "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
+      "recommendation": "Signals are descriptive classifications, not BUY/SELL/LONG/SHORT recommendations."
+    }
+  },
+  "pipeline_status": {
+    "pipeline": "P01-010",
+    "started_at": "2026-09-25T11:27:13.141538+00:00",
+    "completed_at": "2026-09-25T11:27:16.862337+00:00",
+    "status": "SUCCESS",
+    "data_quality": {
+      "total": 5,
+      "fresh": 5,
+      "stale": 0,
+      "missing": 0,
+      "error": 0,
+      "score": 1.0,
+      "status": "SUCCESS"
+    },
+    "expected_metrics": [
+      "US10Y",
+      "DXY",
+      "VIX",
+      "BTC",
+      "ETH"
+    ],
+    "raw_schema_version": "2.0",
+    "raw_schema_valid": true,
+    "normalized_schema_version": "3.0",
+    "normalized_schema_valid": true,
+    "data_quality_schema_version": "4.0",
+    "data_quality_schema_valid": true,
+    "quality_gate": "PASS",
+    "quality_score": 1.0,
+    "signal_schema_version": "5.0",
+    "signal_schema_valid": true,
+    "signal_summary": {
+      "total": 5,
+      "risk_on": 0,
+      "risk_off": 2,
+      "neutral": 1,
+      "unknown": 2
+    },
+    "regime_schema_version": "6.0",
+    "regime_schema_valid": true,
+    "market_regime": "RISK_OFF",
+    "regime_score": -0.7706,
+    "regime_confidence": 0.58,
+    "attribution_schema_version": "7.0",
+    "attribution_schema_valid": true,
+    "attribution_confidence": 0.348,
+    "attribution_summary": {
+      "eligible_drivers": 3,
+      "reported_drivers": 2,
+      "supporting_drivers": 2,
+      "conflicting_drivers": 0,
+      "contextual_drivers": 0,
+      "excluded_signals": 2,
+      "contribution_share_total": 1.0
+    },
+    "market_risk_schema_version": "8.0",
+    "market_risk_schema_valid": true,
+    "market_risk_score": 100,
+    "market_risk_level": "HIGH",
+    "market_risk_confidence": 0.2088,
+    "confidence_evidence_schema_version": "9.0",
+    "confidence_evidence_schema_valid": true,
+    "confidence_score": 0.7356,
+    "confidence_level": "MEDIUM",
+    "evidence_coverage": 0.6,
+    "dashboard_schema_version": "10.0",
+    "dashboard_schema_valid": true
+  },
+  "interpretation_rule": "P01 context is supporting evidence, not causal proof."
+}
