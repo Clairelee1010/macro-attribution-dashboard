@@ -1,0 +1,31 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intelligence Platform · P01 × P02</title>
+<style>
+:root{font-family:Inter,"Noto Sans TC",system-ui,sans-serif;color:#101828;background:#fbfaf8}*{box-sizing:border-box}
+body{margin:0}.wrap{max-width:1280px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e7e4df;padding-bottom:14px}
+.brand{font-weight:800;font-size:22px}.badge,.pill{border:1px solid #d9dce8;border-radius:999px;padding:6px 10px;font-size:12px;background:#fff}.badge{background:#686cff;color:#fff;border:0}
+h1{font-size:34px;margin:30px 0 6px}.sub{color:#667085}.flow{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;gap:12px;align-items:stretch;margin:26px 0}
+.card{background:#fff;border:1px solid #e7e4df;border-radius:18px;padding:20px;box-shadow:0 4px 16px #10182808}.arrow{display:flex;align-items:center;justify-content:center;font-size:30px;color:#686cff}
+.kicker{color:#686cff;font-weight:800;font-size:13px}.big{font-size:28px;font-weight:850;margin:8px 0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#f8f8f7;border-radius:14px;padding:14px}.label{color:#7b8190;font-size:12px}.value{font-size:22px;font-weight:800;margin-top:6px}
+.section{margin-top:28px}.prediction{display:grid;grid-template-columns:56px 1fr 120px 180px;gap:14px;align-items:center;border-top:1px solid #eee;padding:14px 0}.prob{font-size:22px;font-weight:850}.muted{color:#7b8190;font-size:12px}.status{font-size:12px;border-radius:999px;padding:5px 8px;background:#f2f4ff;color:#5558d9;width:max-content}
+.links a{color:#4c50d8;text-decoration:none;margin-left:14px}@media(max-width:850px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.grid{grid-template-columns:1fr 1fr}.prediction{grid-template-columns:42px 1fr}.prediction>:nth-child(n+3){grid-column:2}}
+</style></head><body><div class="wrap">
+<div class="top"><div class="brand">🌸 Intelligence Platform <span class="badge">INT-001 · FOUNDATION</span></div><div class="links"><a href="../index.html">P01</a><a href="../p02/">P02</a></div></div>
+<h1>P01 × P02 整合情報中心</h1><div class="sub">UNDERSTAND → PREDICT / COMPARE → CONTEXTUALIZE。保留證據邊界，不把市場機率當成預測，也不把宏觀脈絡當成因果證明。</div>
+<div class="flow">
+<div class="card"><div class="kicker">P01 · UNDERSTAND</div><div class="big">Macro / Risk Context</div><div id="p01mini" class="muted">Loading…</div></div><div class="arrow">→</div>
+<div class="card"><div class="kicker">P02 · PREDICT / COMPARE</div><div class="big">Market Expectations</div><div id="p02mini" class="muted">Loading…</div></div><div class="arrow">→</div>
+<div class="card"><div class="kicker">INT-001 · CONTEXTUALIZE</div><div class="big">Integrated Intelligence</div><div class="muted">Context link + evidence boundary + traceable relationship state</div></div>
+</div>
+<div class="section"><h2>Executive Intelligence</h2><div class="grid" id="metrics"></div></div>
+<div class="section card"><h2>Prediction Markets × P01 Context</h2><div class="muted">市場隱含機率是 venue observation；INT-001 Foundation 不自行判定 Fed、選舉或資產未來結果。</div><div id="predictions"></div></div>
+</div><script>
+const pct=x=>x==null?"—":Math.round(x*1000)/10+"%"; const prob=x=>x==null?"—":x<.01?"<1%":Math.round(x*100)+"%";
+fetch("../data/integration/intelligence_overview.json?ts="+Date.now()).then(r=>r.json()).then(d=>{
+ document.querySelector("#p01mini").textContent=`Regime ${d.p01.regime} · Risk ${d.p01.risk_level} · Evidence ${d.p01.evidence_confidence}`;
+ document.querySelector("#p02mini").textContent=`${d.p02.ranked_predictions} ranked markets · ${d.p02.market_coverage} venue records`;
+ const ms=[["Market Regime",d.p01.regime],["Market Risk",d.p01.risk_level+" · "+d.p01.risk_score],["Evidence Confidence",d.p01.evidence_confidence+" · "+pct(d.p01.evidence_confidence_score)],["P02 Trending",d.p02.ranked_predictions]];
+ document.querySelector("#metrics").innerHTML=ms.map(x=>`<div class="metric"><div class="label">${x[0]}</div><div class="value">${x[1]}</div></div>`).join("");
+ document.querySelector("#predictions").innerHTML=d.integrated_intelligence.slice(0,20).map(x=>`<div class="prediction"><div class="muted">#${x.rank}</div><div><b>${x.question}</b><div class="muted">${x.category?.zh||x.category?.en||""} · ${x.venue}</div></div><div class="prob">${prob(x.implied_probability)}</div><div><div class="status">${x.context_link}</div><div class="muted" style="margin-top:6px">${x.relationship}</div></div></div>`).join("");
+}).catch(e=>document.querySelector("#predictions").textContent="Integration payload unavailable: "+e);
+</script></body></html>
