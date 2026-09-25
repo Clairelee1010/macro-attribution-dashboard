@@ -1,0 +1,63 @@
+name: INT-002 Context Alignment & Divergence
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["INT-001 P01 x P02 Integration"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: int002-context-intelligence
+  cancel-in-progress: false
+
+jobs:
+  context-intelligence:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test INT-002
+        run: python -m pip install --upgrade pip pytest && pytest -q tests/integration/test_int001.py tests/integration/test_int002.py
+      - name: Build INT-001 input
+        run: python integration/integration_engine.py
+      - name: Build INT-002 context intelligence
+        run: python -m integration.context_intelligence_engine
+      - name: Validate INT-002 output
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/integration/context_intelligence.json',encoding='utf-8'))
+          assert d['version']=='INT-002'
+          assert d['execution_allowed'] is False
+          assert d['input']['predictions_evaluated'] <= 20
+          allowed={'SUPPORTED_CONTEXT','MIXED_CONTEXT','DIVERGENT_CONTEXT','INSUFFICIENT_EVIDENCE','NOT_APPLICABLE'}
+          assert all(x['relationship'] in allowed for x in d['context_intelligence'])
+          assert all(x['execution_allowed'] is False for x in d['context_intelligence'])
+          assert all(x['relationship']=='NOT_APPLICABLE' for x in d['context_intelligence'] if (x.get('category') or {}).get('key')=='politics')
+          print('INT-002 CONTEXT ALIGNMENT & DIVERGENCE: PASS')
+          print('Predictions Evaluated:', d['input']['predictions_evaluated'])
+          print('Relationship Counts:', d['relationship_counts'])
+          print('Execution: DISABLED')
+          PY
+      - name: Commit INT-002 intelligence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/integration/intelligence_overview.json data/integration/context_intelligence.json
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "Add INT-002 context alignment intelligence"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1
