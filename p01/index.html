@@ -1,0 +1,1173 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market & Web3 Intelligence Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #fcfbf9; color: #2c3e50; font-family: system-ui, -apple-system, sans-serif; }
+        .soft-card { background-color: #ffffff; border: 1px solid #f0eae1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02); }
+        .drawer-transition { transition: transform 0.3s ease-in-out; }
+        .data-badge { display:inline-flex; align-items:center; gap:.3rem; padding:.15rem .45rem; border-radius:9999px; font-size:9px; font-weight:700; letter-spacing:.04em; }
+        .data-live { background:#ecfdf5; color:#047857; border:1px solid #a7f3d0; }
+        .data-generated { background:#eef2ff; color:#4338ca; border:1px solid #c7d2fe; }
+        .data-prototype { background:#fffbeb; color:#b45309; border:1px solid #fde68a; }
+        .status-fresh { color:#059669; }
+        .status-stale { color:#d97706; }
+        .status-error, .status-missing { color:#e11d48; }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            #intelligence-v5 { scroll-margin-top: 1rem; }
+        }
+    
+        /* PLATFORM-001 v2: shared navigation + restrained typography */
+        .platform-nav{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin-bottom:.9rem;font-size:.78rem;color:#78716c}
+        .platform-nav a,.platform-nav .coming{padding:.38rem .68rem;border-radius:9999px;text-decoration:none;color:inherit;border:1px solid transparent;font-weight:500}
+        .platform-nav a:hover{background:#fff;border-color:#e7e5e4;color:#44403c}
+        .platform-nav a.active{background:#f5f3ff;color:#4f46e5;border-color:#ddd6fe}
+        .platform-nav .coming{color:#a8a29e}
+        #header-title{font-weight:600!important}
+</style>
+</head>
+<body class="p-4 md:p-6 max-w-7xl mx-auto space-y-6 relative min-h-screen">
+    <nav class="platform-nav" aria-label="Platform navigation">
+      <a href="../">首頁</a><a class="active" href="./">P01</a><a href="../p02/">P02</a><a href="../intelligence/">整合情報</a><span class="coming">P03 · Coming Soon</span>
+    </nav>
+
+
+    <!-- 🌸 頁首 HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200/80 pb-4">
+        <div class="flex items-center gap-3">
+            <span class="text-2xl">🌸</span>
+            <h1 class="text-xl font-bold text-stone-800 tracking-tight" id="header-title">Stock Market & Web3 Intelligence Hub</h1>
+            <span class="bg-[#c05656] text-white text-xs px-2.5 py-1 rounded-full font-semibold">P01 v1.0 · NEWS-005</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="bg-stone-100 p-1 rounded-xl flex gap-1 text-xs font-semibold">
+                <button id="lang-zh" onclick="changeLang('zh')" class="px-3 py-1 rounded-lg bg-white text-stone-800 shadow-sm transition-all">中文</button>
+                <button id="lang-en" onclick="changeLang('en')" class="px-3 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition-all">EN</button>
+            </div>
+            <div class="flex items-center gap-2 bg-white border border-stone-200 px-3 py-1.5 rounded-full shadow-sm text-xs text-stone-600 font-mono">
+                <span class="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span> <span id="status-tag">Production Intelligence Pipeline</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="data-semantics-note" class="soft-card rounded-xl px-4 py-3 text-[11px] text-stone-600 flex flex-wrap items-center gap-2">
+        <span class="font-bold" id="data-semantics-title">Data semantics:</span>
+        <span class="data-badge data-live">LIVE</span><span id="data-semantics-live">automated market feed</span>
+        <span class="data-badge data-generated">GENERATED</span><span id="data-semantics-generated">deterministic intelligence output</span>
+        <span class="data-badge data-prototype">PROTOTYPE</span><span id="data-semantics-prototype">illustrative content, not current market evidence</span>
+    </div>
+
+    <!-- 📊 頁首四大統計數據 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="soft-card rounded-2xl p-4 space-y-1">
+            <div class="flex items-center justify-between gap-2"><div id="lbl-current-feed-items" class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">CURRENT FEED ITEMS</div><span class="data-badge data-generated">GENERATED</span></div>
+            <div id="meta-total-val" class="text-3xl font-bold text-stone-800 font-mono">0</div>
+        </div>
+        <div class="soft-card rounded-2xl p-4 space-y-1">
+            <div class="flex items-center justify-between gap-2"><div id="lbl-official-source-share" class="text-[11px] font-bold text-stone-400 uppercase tracking-wider">OFFICIAL SOURCE SHARE</div><span class="data-badge data-generated">GENERATED</span></div>
+            <div id="meta-bullish-val" class="text-3xl font-bold text-indigo-600 font-mono">--</div>
+        </div>
+        <div class="soft-card rounded-2xl p-4 space-y-1 bg-rose-50/20 border-rose-100">
+            <div id="lbl-vix-tracking" class="text-[11px] font-bold text-rose-700 uppercase tracking-wider flex items-center gap-1">
+                🔥 VIX VOLATILITY TRACKING <span class="data-badge data-live ml-1">LIVE</span>
+            </div>
+            <div id="vix-card-val" class="text-xl font-bold text-rose-900 font-mono mt-1">
+                17.8 <span class="text-xs text-rose-700 font-normal" id="vix-desc">(Risk-On & Bullish Convergence)</span>
+            </div>
+        </div>
+        <div class="soft-card rounded-2xl p-4 space-y-1 bg-amber-50/20 border-amber-100">
+            <div id="lbl-agentic-rwa" class="text-[11px] font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1">
+                📊 AGENTIC RWA NET FLOWS <span class="data-badge data-prototype ml-1">PROTOTYPE</span>
+            </div>
+            <div class="text-xl font-bold text-amber-900 font-mono mt-1">+$52.4M</div>
+        </div>
+    </div>
+
+    <!-- 🧠 P01-010 Executive Intelligence -->
+    <section id="intelligence-v5" class="soft-card rounded-2xl p-4 md:p-5 space-y-4 border-l-4 border-l-indigo-500">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
+            <div>
+                <div id="v5-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">🧠 Intelligence Engine · Executive View</div>
+                <div id="v5-subtitle" class="text-[11px] text-stone-400 mt-1">Evidence-driven market context · deterministic core · explainable output</div>
+            </div>
+            <div class="flex flex-wrap items-center gap-2"><span id="v5-data-state" class="data-badge data-generated">GENERATED</span><div id="v5-updated" class="text-[10px] text-stone-400 font-mono">Loading intelligence…</div></div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-regime" class="text-[10px] text-stone-400 uppercase">Market Regime</div><div id="v5-regime" class="text-lg font-bold mt-1">--</div><div id="v5-regime-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-risk" class="text-[10px] text-stone-400 uppercase">Market Risk</div><div id="v5-risk" class="text-lg font-bold mt-1">--</div><div id="v5-risk-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-confidence" class="text-[10px] text-stone-400 uppercase">Evidence Confidence</div><div id="v5-confidence" class="text-lg font-bold mt-1">--</div><div id="v5-confidence-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100"><div id="v5-lbl-quality" class="text-[10px] text-stone-400 uppercase">Data Quality</div><div id="v5-quality" class="text-lg font-bold mt-1">--</div><div id="v5-quality-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+            <div class="bg-stone-50 rounded-xl p-3 border border-stone-100 col-span-2 lg:col-span-1"><div id="v5-lbl-coverage" class="text-[10px] text-stone-400 uppercase">Evidence Coverage</div><div id="v5-coverage" class="text-lg font-bold mt-1">--</div><div id="v5-coverage-meta" class="text-[10px] text-stone-400 font-mono">--</div></div>
+        </div>
+        <div id="v5-interpretation" class="text-xs text-stone-600 bg-indigo-50/40 border border-indigo-100 rounded-xl p-3">Loading validated intelligence…</div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-signals-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Market Signals</div><div id="v5-signals" class="space-y-2 text-xs"></div></div>
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-drivers-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Attribution & Risk Drivers</div><div id="v5-drivers" class="space-y-2 text-xs"></div></div>
+            <div class="bg-white rounded-xl border border-stone-100 p-3"><div id="v5-evidence-title" class="text-[11px] font-bold text-stone-500 uppercase mb-2">Evidence & Limitations</div><div id="v5-evidence" class="space-y-2 text-xs"></div></div>
+        </div>
+        <div id="v5-disclaimer" class="text-[10px] text-stone-400">Risk ≠ confidence. Attribution describes evidence alignment, not causal proof. No investment recommendation.</div>
+    </section>
+
+    <!-- 🎯 核心監控指標矩陣 -->
+    <div class="space-y-2">
+        <div class="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-2" id="label-core-matrix">
+            📌 核心監控指標矩陣 (CORE METRIC SPECTRUM) · LIVE + PROTOTYPE
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-blue-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span id="label-macro-group">1. 🌐 總經與利率流動性 (Macro)</span>
+                    <span class="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-mono font-bold">Rates & Liquidity</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-us10y">美債 10Y</div>
+                        <div id="m-us10y" class="text-xs font-bold text-stone-800 mt-0.5">4.28%</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-dxy">美元 DXY</div>
+                        <div id="m-dxy" class="text-xs font-bold text-stone-800 mt-0.5">104.2</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-move">MOVE 債基</div>
+                        <div id="m-move" class="text-xs font-bold text-emerald-600 mt-0.5">98.5</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-emerald-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span id="label-chips-group">2. 💻 美台股連動與籌碼 (Chips)</span>
+                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-mono font-bold">TW & US Equity</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-tsm">TSM 溢價</div>
+                        <div id="m-tsm" class="text-xs font-bold text-emerald-600 mt-0.5">+14.2%</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-futures">外資期貨</div>
+                        <div id="m-futures" class="text-xs font-bold text-rose-600 mt-0.5">-12.8K</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-usdtwd">USD/TWD</div>
+                        <div id="m-usdtwd" class="text-xs font-bold text-stone-800 mt-0.5">32.45</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="soft-card rounded-2xl p-4 space-y-2.5 border-l-4 border-l-purple-500">
+                <div class="text-xs font-bold text-stone-700 flex justify-between items-center border-b border-stone-100 pb-2">
+                    <span id="label-crypto-group">3. 🌐 Web3 金融與 RWA (On-Chain)</span>
+                    <span class="text-[10px] bg-purple-50 text-purple-700 px-2 py-0.5 rounded font-mono font-bold">Crypto Capital</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 text-center font-mono">
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-cryptofg">Crypto 恐慌</div>
+                        <div id="m-cryptofg" class="text-xs font-bold text-emerald-600 mt-0.5">68</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-stablecoin">穩定幣市值</div>
+                        <div id="m-stablecoin" class="text-xs font-bold text-stone-800 mt-0.5">$162B</div>
+                    </div>
+                    <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                        <div class="text-[10px] text-stone-400 font-sans" id="lbl-rwatvl">RWA 美債</div>
+                        <div id="m-rwatvl" class="text-xs font-bold text-purple-600 mt-0.5">$2.4B</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📡 P01-000D Market Data Status -->
+    <div class="soft-card rounded-2xl p-4 space-y-3 border-l-4 border-l-cyan-500">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+                <div id="live-status-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">📡 Market Data Status</div>
+                <div id="live-last-updated" class="text-[10px] text-stone-400 mt-1">Last Updated: Loading...</div><div id="live-provenance" class="text-[9px] text-stone-400 mt-1">Source provenance: loading…</div>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+                <span id="live-quality-label" class="text-stone-500">Data Quality</span>
+                <span id="live-data-quality" class="font-bold font-mono text-stone-800">--</span>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-center font-mono">
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">US10Y</div>
+                <div id="live-us10y" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-us10y" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">DXY</div>
+                <div id="live-dxy" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-dxy" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">VIX</div>
+                <div id="live-vix" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-vix" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">BTC</div>
+                <div id="live-btc" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-btc" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+            <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                <div class="text-[10px] text-stone-400">ETH</div>
+                <div id="live-eth" class="text-xs font-bold text-stone-800 mt-0.5">--</div>
+                <div id="status-eth" class="text-[9px] text-stone-400 mt-1">LOADING</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📢 VIX 通報 Banner -->
+    <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">Live VIX context loading…</div>
+
+    <!-- 📑 TAB 頁籤切換 -->
+    <div class="flex border-b border-stone-200 space-x-8 text-sm font-semibold text-stone-500 overflow-x-auto">
+        <button id="tab-us_macro" onclick="switchTab('us_macro')" class="pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 whitespace-nowrap">
+            <span>🇺🇸</span> US Macro Intelligence
+        </button>
+        <button id="tab-web3_crypto" onclick="switchTab('web3_crypto')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
+            <span>🌐</span> Web3 / RWA Intelligence
+        </button>
+        <button id="tab-tw_stocks" onclick="switchTab('tw_stocks')" class="pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 whitespace-nowrap">
+            <span>💻</span> Taiwan Market Intelligence
+        </button>
+    </div>
+
+    <!-- 📰 P01-NEWS-001 Market Intelligence Feed -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div>
+            <div id="feed-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">📰 Market & Web3 Intelligence Feed</div>
+            <div id="feed-subtitle" class="text-[10px] text-stone-400 mt-1">Current source metadata · provenance-aware · no investment recommendation</div>
+        </div>
+        <div class="flex items-center gap-2"><span id="feed-state" class="data-badge data-generated">LOADING</span><span id="feed-updated" class="text-[10px] text-stone-400 font-mono">--</span></div>
+    </div>
+    <div id="news-container" class="space-y-6"></div>
+
+    <!-- 🤖 浮動 AI 助理按鈕 -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button onclick="toggleRobiDrawer()" class="bg-[#c05656] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-lg hover:bg-[#a84444] hover:shadow-xl transition-all flex items-center gap-2">
+            🤖 <span id="robi-btn-text">呼叫 Robi 助理</span>
+        </button>
+    </div>
+
+    <!-- 🤖 ROBI AI 助理邊欄抽屜 -->
+    <div id="robi-drawer-overlay" onclick="toggleRobiDrawer()" class="fixed inset-0 bg-stone-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="robi-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full drawer-transition p-6 flex flex-col space-y-4">
+        <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🤖</span>
+                <div>
+                    <h3 class="font-bold text-stone-800 text-sm">Soft Robi Copilot</h3>
+                    <p class="text-[10px] text-stone-400">Cross-Market Macro RAG Engine</p>
+                </div>
+            </div>
+            <button onclick="toggleRobiDrawer()" class="text-stone-400 hover:text-stone-700 text-lg">✕</button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto space-y-3 text-xs">
+            <div class="bg-stone-50 p-3 rounded-xl border border-stone-100 space-y-1">
+                <div class="font-semibold text-stone-700" id="robi-welcome-title">👋 你好，我是 Robi！</div>
+                <p class="text-stone-500 leading-relaxed" id="robi-welcome-desc">我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。</p>
+            </div>
+            
+            <div class="space-y-2 pt-2">
+                <div class="text-[10px] font-bold text-stone-400 uppercase tracking-wider" id="robi-quick-title">熱門分析指令：</div>
+                <button onclick="sendQuickQuery(currentLang === 'zh' ? '分析當前 Fed 利率變動對 RWA 美債流向的影響' : 'Analyze the current impact of Fed rate changes on RWA Treasury flows')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 <span id="q-txt-1">分析 Fed 利率對 RWA 資金流向的影響</span>
+                </button>
+                <button onclick="sendQuickQuery(currentLang === 'zh' ? '評估台積電 (2330) ADR 溢價率與外資期貨空單對大盤的承壓' : 'Evaluate TSM ADR premium and foreign futures short pressure')" class="w-full text-left bg-stone-50 hover:bg-rose-50/50 hover:border-rose-200 border border-stone-200/80 p-2.5 rounded-xl transition-all text-stone-700">
+                    💡 <span id="q-txt-2">評估台積電 ADR 溢價與外資期貨佈局</span>
+                </button>
+            </div>
+
+            <div id="chat-messages" class="space-y-2 pt-2"></div>
+        </div>
+
+        <div class="border-t border-stone-100 pt-3 flex gap-2">
+            <input id="robi-input" type="text" placeholder="輸入您的總經或市場疑問..." class="flex-1 bg-stone-50 border border-stone-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#c05656]">
+            <button onclick="handleSendMessage()" id="robi-send-btn" class="bg-[#c05656] text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-[#a84444] transition-all">發送</button>
+        </div>
+    </div>
+
+    <script>
+        let marketData = {
+            "global_vix": {
+                "value": 17.8,
+                "status_zh": "Risk-On & Bullish Convergence",
+                "status_en": "Risk-On & Bullish Convergence",
+                "insight_zh": "【2026.09 VIX 跨境聯動歸因】VIX 恐慌指數穩定於 17.8。隨著 Q3 財報季展望明朗及 Fed 進入政策寬鬆期，資本流向轉趨穩健，多頭節點與實質 AI 基礎建設題材全面共振。",
+                "insight_en": "[2026.09 VIX Cross-Market Attribution] VIX volatility index stabilized at 17.8. As Q3 earnings outlook clears and the Fed enters easing, capital flows turn robust."
+            },
+            "metrics": {
+                "us10y": "4.28%",
+                "dxy": "104.2",
+                "move": "98.5",
+                "tsm_premium": "+14.2%",
+                "futures_oi": "-12.8K",
+                "usdtwd": "32.45",
+                "crypto_fg": "68",
+                "stablecoin_cap": "$162B",
+                "rwa_tvl": "$2.4B"
+            },
+            "us_macro": [
+                {
+                    "top_rank": "TOP 1",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "Fed 利率政策進入降息循環，通膨降溫確立軟著陸路徑",
+                    "title_en": "Fed Rate Policy Enters Easing Cycle, Cooling Inflation Confirms Soft Landing Path",
+                    "macro_attribution_zh": "核心 PCE 年增率持續向 2% 靠攏，聯準會主席釋放寬息訊號，帶動美債殖利率回落，資金重回風險資產與高成長科技股。",
+                    "macro_attribution_en": "Core PCE approaches 2%, Fed signals rate easing, driving Treasury yields down and capital back into risk assets.",
+                    "tw_spillover_effect_zh": "外資買盤回補權值股，台幣匯率轉趨穩定，電子零組件與半導體供應鏈評價面獲得修復。",
+                    "tw_spillover_effect_en": "Foreign buyers repurchase large caps, NTD stabilizes, and semiconductor supply chain valuations recover.",
+                    "rwa_flow_metric_zh": "+$52.4M 鏈上機構流動性流入",
+                    "rwa_flow_metric_en": "+$52.4M On-Chain Institutional Liquidity Inflow",
+                    "agent_action_log": "[NODE_01] US Macro Risk Index Stabilized at 17.8.",
+                    "recommended_groups_tw": [
+                        { "name_zh": "台積電 (2330)", "name_en": "TSMC (2330)", "reason_zh": "權值穩定與外資回補", "reason_en": "Weight stability & foreign buyback" },
+                        { "name_zh": "聯發科 (2454)", "name_en": "MediaTek (2454)", "reason_zh": "IC 設計估值修復", "reason_en": "IC design valuation recovery" }
+                    ],
+                    "recommended_groups_us": [
+                        { "name_zh": "NVIDIA (NVDA)", "name_en": "NVIDIA (NVDA)", "reason_zh": "AI 基礎建設需求強勁", "reason_en": "Strong AI infrastructure demand" },
+                        { "name_zh": "Microsoft (MSFT)", "name_en": "Microsoft (MSFT)", "reason_zh": "企業端雲端與 AI 變現穩健", "reason_en": "Robust enterprise cloud & AI monetization" }
+                    ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Neutral",
+                    "volatility": "1.2x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國 Q3 就業數據呈現溫和降溫，勞動市場未見硬著陸風險",
+                    "title_en": "US Q3 Employment Data Shows Moderate Cooling, No Hard Landing Risks",
+                    "macro_attribution_zh": "非農就業人數增幅貼近預期，薪資成長率放緩有助於減輕通膨黏著性，降低 Fed 激進緊縮的必要性。",
+                    "macro_attribution_en": "Non-farm payrolls match expectations, wage growth slowing helps reduce sticky inflation and lowers aggressive tightening needs.",
+                    "tw_spillover_effect_zh": "總經不確定性降低，出口導向廠商對下半年接單能見度維持樂觀。",
+                    "tw_spillover_effect_en": "Macro uncertainty drops, export-oriented firms maintain positive visibility on H2 orders.",
+                    "rwa_flow_metric_zh": "+$22.1M 短端美債池穩定流入",
+                    "rwa_flow_metric_en": "+$22.1M Short-Term Treasury Pool Inflow"
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Bullish",
+                    "volatility": "1.0x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國公債殖利率曲線陡峭化，長天期資金配置需求升溫",
+                    "title_en": "US Treasury Yield Curve Steapens, Long-Term Capital Allocation Demand Rises",
+                    "macro_attribution_zh": "隨著貨幣政策轉向，長短端利差收窄並逐步正常化，激發機構法人對優質固定收益與代幣化美債的強烈配置意願。",
+                    "macro_attribution_en": "With monetary policy shifting, yield spread normalizes, stimulating institutional appetite for fixed income and tokenized Treasuries.",
+                    "tw_spillover_effect_zh": "金融壽險業資產評價壓力減輕，隱含獲利結構改善。",
+                    "tw_spillover_effect_en": "Financial life insurance asset valuation pressure eases, improving earnings structure."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "美國核心服務業 PMI 超越預期，內需韌性支撐全球經濟",
+                    "title_en": "US Core Services PMI Exceeds Expectations, Domestic Resilience Supports Global Economy",
+                    "macro_attribution_zh": "服務業擴張速度超乎預期，顯示終端消費者購買力依然強勁，有助於支撐跨國跨業跨市場的營收表現。",
+                    "macro_attribution_en": "Services expansion outpaces expectations, showing resilient consumer purchasing power supporting cross-border revenues.",
+                    "tw_spillover_effect_zh": "航運及跨境物流需求保持平穩，旺季效應逐步顯現。",
+                    "tw_spillover_effect_en": "Shipping and cross-border logistics demand remain steady as peak season kicks in."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Neutral",
+                    "volatility": "1.3x",
+                    "source": "US Fed & Macro RAG",
+                    "title_zh": "全球地緣政治供應鏈重組，美中科技與關鍵金屬博弈持續",
+                    "title_en": "Global Geopolitical Supply Chain Restructuring, US-China Tech and Critical Metals Games Continue",
+                    "macro_attribution_zh": "跨國企業加速進行供應鏈「去風險化 (De-risking)」佈局，產能分散至東南亞與美洲本土。",
+                    "macro_attribution_en": "Multinational corporations accelerate supply chain de-risking, dispersing production to Southeast Asia and Americas.",
+                    "tw_spillover_effect_zh": "台灣廠商業者受惠於東南亞 Solution Room 落地與全球在地化製造訂單。",
+                    "tw_spillover_effect_en": "Taiwanese manufacturers benefit from Southeast Asian Solution Room deployments and localization."
+                }
+            ],
+            "web3_crypto": [
+                {
+                    "top_rank": "TOP 1",
+                    "sentiment": "Bullish",
+                    "volatility": "1.3x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "RWA 代幣化規模突破 24 億美元，機構級美債收益率吸引鏈上資金",
+                    "title_en": "RWA Tokenization Exceeds $2.4B, Institutional Treasury Yields Attract On-Chain Capital",
+                    "macro_attribution_zh": "現實世界資產 (RWA) 結合帳戶抽象與美債收益協議，推動穩定幣流動性在 DeFi 協議中的深度整合。",
+                    "macro_attribution_en": "Real-World Assets (RWA) integrating account abstraction and Treasury yield protocols drive deep stablecoin liquidity across DeFi.",
+                    "tw_spillover_effect_zh": "台灣金融科技與區塊鏈基礎建設團隊加速與國際合規協議對接，開拓新型態 Web3 資本路徑。",
+                    "tw_spillover_effect_en": "Taiwanese fintech and blockchain teams accelerate integration with global compliance protocols to open new Web3 capital pathways.",
+                    "rwa_flow_metric_zh": "+$18.5M RWA Protocol Net Inflow",
+                    "rwa_flow_metric_en": "+$18.5M RWA Protocol Net Inflow",
+                    "agent_action_log": "[NODE_02] On-chain RWA TVL synchronized successfully.",
+                    "recommended_groups_us": [
+                        { "name_zh": "Aave V3 Protocol", "name_en": "Aave V3 Protocol", "reason_zh": "借貸與流動性池規模擴大", "reason_en": "Expanding lending & liquidity pool scale" }
+                    ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "Agentic Finance 智慧代理協議起飛，AI 結合 Web3 交易自動化升溫",
+                    "title_en": "Agentic Finance Protocols Take Off, AI Combined With Web3 Trading Automation Rises",
+                    "macro_attribution_zh": "藉由 LangGraph 與 Model Context Protocol 架構，鏈上智慧代理能自動執行跨鏈套利與 KYC 合規審查。",
+                    "macro_attribution_en": "Through LangGraph and MCP architectures, on-chain smart agents automatically execute cross-chain arbitrage and KYC compliance audits.",
+                    "tw_spillover_effect_zh": "吸引國內軟體工程與 AI 開發者投入金融科技自動化專案研發。",
+                    "tw_spillover_effect_en": "Attracts domestic software and AI developers into fintech automation project R&D."
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Neutral",
+                    "volatility": "1.4x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "以太坊 Layer 2 生態全面擴容，Base 與 Sepolia 測試網活躍度激增",
+                    "title_en": "Ethereum Layer 2 Ecosystem Expands, Base and Sepolia Testnet Activity Surges",
+                    "macro_attribution_zh": "帳戶抽象化 (Account Abstraction) 技術普及，降低用戶使用 Web3 應用的門檻，鏈上活躍地址創新高。",
+                    "macro_attribution_en": "Account abstraction tech adoption lowers Web3 onboarding barriers, hitting record active on-chain addresses.",
+                    "tw_spillover_effect_en": "Drives developer adoption of gasless transaction infrastructure."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.5x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "穩定幣總市值突破 1,620 億美元，跨鏈流動性迎來爆發點",
+                    "title_en": "Total Stablecoin Market Cap Exceeds $162B, Cross-Chain Liquidity Reaches Inflection Point",
+                    "macro_attribution_zh": "高收益穩定幣與合規美元代幣成為全球跨境匯款與鏈上避險的核心載體。",
+                    "macro_attribution_en": "High-yield stablecoins and compliant dollar tokens become core vehicles for cross-border settlement and hedging."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Neutral",
+                    "volatility": "1.2x",
+                    "source": "Web3 RAG & On-Chain Node",
+                    "title_zh": "全球虛擬資產監管框架（MiCA 等）落地，合規性成機構資金入場關鍵",
+                    "title_en": "Global Crypto Regulatory Frameworks (MiCA) Take Effect, Compliance Becomes Key for Institutions",
+                    "macro_attribution_zh": "去中心化金融逐步向完全合規化轉型，防制洗錢與 KYC 代理驗證成為標配。",
+                    "macro_attribution_en": "DeFi transitions toward full compliance, making AML and KYC agent verification standard requirements."
+                }
+            ],
+            "tw_stocks": [
+                {
+                    "top_rank": "TOP 1",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台積電法說會釋放正向展望，AI 伺服器供應鏈動能強勁",
+                    "title_en": "TSMC Briefing Releases Positive Outlook, AI Server Supply Chain Momentum Remains Strong",
+                    "macro_attribution_zh": "全球高效能運算 (HPC) 與先進封裝產能持續吃緊，推動台系供應鏈營收與毛利率同步上揚。",
+                    "macro_attribution_en": "Global High-Performance Computing (HPC) and advanced packaging capacity remain tight, boosting Taiwanese supply chain revenue and margins.",
+                    "tw_spillover_effect_zh": "散熱、機殼及 PCB 等 AI 概念族群受惠於資金外溢，成交比重顯著回溫。",
+                    "tw_spillover_effect_en": "AI-related sectors like cooling, chassis, and PCBs benefit from capital spillover with rebounding trading volume share.",
+                    "rwa_flow_metric_zh": "+$31.2M 供應鏈資金點火",
+                    "rwa_flow_metric_en": "+$31.2M Supply Chain Capital Ignition",
+                    "agent_action_log": "[NODE_03] Taiwan Semiconductor Sector Matrix Updated.",
+                    "recommended_groups_tw": [
+                        { "name_zh": "鴻海 (2317)", "name_en": "Hon Hai (2317)", "reason_zh": "AI 伺服器代工訂單滿載", "reason_en": "Full capacity in AI server ODM" },
+                        { "name_zh": "廣達 (2382)", "name_en": "Quanta (2382)", "reason_zh": "雲端大廠資本支出受惠", "reason_en": "Beneficiary of hyperscaler CapEx" }
+                    ]
+                },
+                {
+                    "top_rank": "TOP 2",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台美半導體產業鏈深化合作，車用與光學儀器製造商迎來轉單",
+                    "title_en": "US-Taiwan Semiconductor Supply Chain Deepening Cooperation, Automotive & Optical Makers Benefit",
+                    "macro_attribution_zh": "系統軟硬體整合與 AIoT 平台需求擴增，促使台灣精密製造與光學儀器供應商拓展跨國專案。",
+                    "macro_attribution_en": "System HW-SW integration and AIoT platform demand expansion drive Taiwanese precision manufacturing to expand global projects.",
+                    "tw_spillover_effect_zh": "工業自動化與智慧工廠解決方案供應商訂單能見度延伸至 2027 年。",
+                    "tw_spillover_effect_en": "Industrial automation and smart factory solution vendors extend order visibility into 2027."
+                },
+                {
+                    "top_rank": "TOP 3",
+                    "sentiment": "Neutral",
+                    "volatility": "1.3x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "外資期貨淨空單與台積電 ADR 溢價震盪，權值股進入區間整理",
+                    "title_en": "Foreign Futures Net Shorts and TSM ADR Premium Fluctuating, Large Caps Enter Consolidation",
+                    "macro_attribution_zh": "國際資金在期現貨之間進行短線對沖佈局，台股加權指數於歷史高點附近量縮驚驚漲。",
+                    "macro_attribution_en": "International capital conducts short-term hedging between futures and cash markets; TAIEX consolidates near historical highs.",
+                    "tw_spillover_effect_zh": "中小型題材股與生技、綠能概念輪動表現。",
+                    "tw_spillover_effect_en": "Small-to-mid cap themed stocks, biotech, and green energy sectors take turns outperforming."
+                },
+                {
+                    "top_rank": "TOP 4",
+                    "sentiment": "Bullish",
+                    "volatility": "1.1x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "AI 伺服器水冷散熱技術標準底定，相關零組件廠出貨放量",
+                    "title_en": "AI Server Liquid Cooling Standards Settled, Related Component Makers Ramp Up Shipments",
+                    "macro_attribution_zh": "資料中心高功耗需求帶動散熱架構由氣冷全面轉向液冷，台廠供應鏈成為全球軍備競賽贏家。",
+                    "macro_attribution_en": "High power consumption in data centers drives cooling architectures from air to liquid, making Taiwanese suppliers global winners.",
+                    "tw_spillover_effect_zh": "散熱模組與管線接頭廠商營收月增率續創佳績。",
+                    "tw_spillover_effect_en": "Cooling module and fitting makers post continued MoM revenue growth records."
+                },
+                {
+                    "top_rank": "TOP 5",
+                    "sentiment": "Bullish",
+                    "volatility": "1.2x",
+                    "source": "TW Market Intelligence",
+                    "title_zh": "台灣金融科技法規逐步放寬，純網銀與 Web3 創新實驗室加速推動",
+                    "title_en": "Taiwan Fintech Regulations Relaxing, Pure Digital Banks and Web3 Innovation Labs Accelerate",
+                    "macro_attribution_zh": "金管會推動金融創新實驗，鼓勵金融機構與科技團隊合作開發數位資產應用。",
+                    "macro_attribution_en": "FSC promotes financial innovation experiments, encouraging institutions and tech teams to develop digital asset apps."
+                }
+            ]
+        };
+
+        let activeTab = "us_macro";
+        let currentLang = "zh";
+        let dashboardV5Snapshot = null;
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        function updateMetricsDisplay(metrics) {
+            if (!metrics) return;
+            if (metrics.us10y) document.getElementById('m-us10y').innerText = metrics.us10y;
+            if (metrics.dxy) document.getElementById('m-dxy').innerText = metrics.dxy;
+            if (metrics.move) document.getElementById('m-move').innerText = metrics.move;
+            if (metrics.tsm_premium) document.getElementById('m-tsm').innerText = metrics.tsm_premium;
+            if (metrics.futures_oi) document.getElementById('m-futures').innerText = metrics.futures_oi;
+            if (metrics.usdtwd) document.getElementById('m-usdtwd').innerText = metrics.usdtwd;
+            if (metrics.crypto_fg) document.getElementById('m-cryptofg').innerText = metrics.crypto_fg;
+            if (metrics.stablecoin_cap) document.getElementById('m-stablecoin').innerText = metrics.stablecoin_cap;
+            if (metrics.rwa_tvl) document.getElementById('m-rwatvl').innerText = metrics.rwa_tvl;
+        }
+
+        let marketIntelligenceFeed = null;
+
+        function calculateOverallStats() {
+            const items = marketIntelligenceFeed?.items || [];
+            document.getElementById('meta-total-val').innerText = items.length;
+            const official = items.filter(x => x.source_type === 'OFFICIAL_COMPANY_SOURCE').length;
+            document.getElementById('meta-bullish-val').innerText = items.length ? `${Math.round(official / items.length * 100)}%` : '--';
+        }
+
+        function tabMatches(item, tab) {
+            const topics = item.topics || [];
+            if (tab === 'us_macro') return topics.includes('US_MACRO');
+            if (tab === 'tw_stocks') return topics.includes('TW_MARKET');
+            return topics.some(t => ['WEB3_RWA','STABLECOIN','DEFI','AGENTIC_AI','EXCHANGE'].includes(t));
+        }
+
+        function translateNewsValue(value, kind) {
+            const zh = currentLang === 'zh';
+            const maps = {
+                freshness: {
+                    FRESH: zh ? '最新' : 'FRESH',
+                    STALE: zh ? '較舊資訊' : 'STALE',
+                    ERROR: zh ? '錯誤' : 'ERROR',
+                    MISSING: zh ? '缺少資料' : 'MISSING'
+                },
+                source: {
+                    OFFICIAL_COMPANY_SOURCE: zh ? '官方來源' : 'OFFICIAL',
+                    SOCIAL_SIGNAL: zh ? '社群訊號' : 'SOCIAL',
+                    NEWS_SOURCE: zh ? '新聞來源' : 'NEWS'
+                },
+                topic: {
+                    US_MACRO: zh ? '美國總經' : 'US MACRO',
+                    TW_MARKET: zh ? '台灣市場' : 'TAIWAN MARKET',
+                    WEB3_RWA: zh ? 'Web3 / RWA' : 'WEB3 / RWA',
+                    STABLECOIN: zh ? '穩定幣' : 'STABLECOIN',
+                    DEFI: zh ? 'DeFi' : 'DEFI',
+                    AGENTIC_AI: zh ? '代理式 AI' : 'AGENTIC AI',
+                    EXCHANGE: zh ? '交易所' : 'EXCHANGE'
+                }
+            };
+            return maps[kind]?.[value] || String(value || '').replaceAll('_', ' ');
+        }
+
+        function zhNewsText(item, field) {
+            // Prefer bilingual fields if the feed supplies them in the future.
+            const direct = item?.[`${field}_zh`] || item?.[`${field}_zh_tw`] || item?.[`${field}_zh_TW`];
+            if (direct) return direct;
+
+            const source = item?.source_name || '';
+            const title = item?.title || '';
+
+            // Safe UI translations for repeated generated explanatory text.
+            if (field === 'why_it_matters') {
+                const topic = item?.primary_topic || item?.topics?.[0] || '';
+                const map = {
+                    EXCHANGE: '交易所相關發展可能影響市場准入、流動性、合規與基礎設施。',
+                    WEB3_RWA: 'Web3 與 RWA 發展可能影響鏈上資金流、機構採用、流動性與市場基礎設施。',
+                    STABLECOIN: '穩定幣相關發展可能影響鏈上流動性、支付、跨境結算與市場風險。',
+                    DEFI: 'DeFi 發展可能影響鏈上流動性、資本效率、協議風險與市場結構。',
+                    AGENTIC_AI: 'Agentic AI 發展可能影響自動化決策、交易工作流、風險控制與 Web3 基礎設施。',
+                    US_MACRO: '美國總經事件可能影響利率、美元、風險偏好與跨市場資金流。',
+                    TW_MARKET: '台灣市場事件可能影響台美股連動、外資籌碼、匯率與科技供應鏈。'
+                };
+                return map[topic] || item?.why_it_matters || '';
+            }
+
+            if (field === 'evidence_note') {
+                if (item?.source_type === 'OFFICIAL_COMPANY_SOURCE') return '公司官方發布；視為第一方證據，仍應搭配其他來源交叉驗證。';
+                if (item?.source_type === 'SOCIAL_SIGNAL') return '社群來源訊號；屬輔助性證據，需搭配其他可靠來源驗證。';
+                return '新聞或公開來源資訊；應搭配來源時間、內容與其他證據交叉驗證。';
+            }
+
+            if (field === 'limitations') {
+                return '與 P01 指標的關聯不代表因果關係，也不構成投資建議。';
+            }
+
+            // Do not fabricate translations of source article titles.
+            if (field === 'title') return title;
+
+            return item?.[field] || '';
+        }
+
+        function renderActiveTab() {
+            const container = document.getElementById('news-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const zh = currentLang === 'zh';
+
+            // Keep surrounding feed UI synchronized with the language switch.
+            const feedTitle = document.getElementById('feed-title');
+            const feedSubtitle = document.getElementById('feed-subtitle');
+            if (feedTitle) feedTitle.innerText = zh ? '📰 市場與 Web3 情報動態' : '📰 Market & Web3 Intelligence Feed';
+            if (feedSubtitle) feedSubtitle.innerText = zh
+                ? '即時來源中繼資料 · 可追溯來源 · 不構成投資建議'
+                : 'Current source metadata · provenance-aware · no investment recommendation';
+
+            const tabLabels = {
+                us_macro: zh ? '🇺🇸 美國總經情報' : '🇺🇸 US Macro Intelligence',
+                web3_crypto: zh ? '🌐 Web3 / RWA 情報' : '🌐 Web3 / RWA Intelligence',
+                tw_stocks: zh ? '💻 台灣市場情報' : '💻 Taiwan Market Intelligence'
+            };
+            Object.entries(tabLabels).forEach(([key, label]) => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (btn) btn.innerHTML = label;
+            });
+
+            if (!marketIntelligenceFeed || marketIntelligenceFeed.status !== 'AVAILABLE') {
+                const msg = zh ? '目前無可驗證的最新情報；系統不會以舊 Prototype 內容替代。' : 'Current verified intelligence is unavailable; stale prototype content is not substituted.';
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
+                return;
+            }
+
+            const list = (marketIntelligenceFeed.items || [])
+                .filter(x => tabMatches(x, activeTab) && ['FRESH','STALE'].includes(x.freshness))
+                .slice(0, 12);
+
+            if (!list.length) {
+                const msg = zh ? '此分區目前沒有符合新鮮度規則的情報。' : 'No intelligence in this section currently meets freshness rules.';
+                container.innerHTML = `<div class="soft-card rounded-2xl text-stone-400 text-center py-16 text-xs">${msg}</div>`;
+                return;
+            }
+
+            list.forEach(item => {
+                const official = item.source_type === 'OFFICIAL_COMPANY_SOURCE';
+                const sourceBadge = translateNewsValue(item.source_type, 'source');
+                const freshnessClass = item.freshness === 'FRESH' ? 'status-fresh' : 'status-stale';
+                const freshnessLabel = translateNewsValue(item.freshness, 'freshness');
+                const rawTopic = item.primary_topic || item.topics?.[0] || 'WEB3_RWA';
+                const topic = translateNewsValue(rawTopic, 'topic');
+                const summary = zh
+                    ? (item.intelligence_summary?.['zh-TW'] || item.intelligence_summary?.zh || '')
+                    : (item.intelligence_summary?.en || '');
+                const why = zh
+                    ? (item.why_it_matters_i18n?.['zh-TW'] || item.why_it_matters_i18n?.zh || zhNewsText(item, 'why_it_matters'))
+                    : (item.why_it_matters_i18n?.en || item.why_it_matters_en || item.why_it_matters || '');
+                const evidenceNote = zh ? zhNewsText(item, 'evidence_note') : (item.evidence_note_en || item.evidence_note || '');
+                const limitation = zh ? zhNewsText(item, 'limitations') : (item.limitations_en || item.limitations || '');
+                // Preserve the original source title in both languages for provenance.
+                const displayTitle = item.title || '';
+                const priority = item.priority || 'LOW';
+                const relevanceScore = Number.isFinite(Number(item.relevance_score)) ? Number(item.relevance_score) : 0;
+                const priorityLabel = zh ? ({HIGH:'高', MEDIUM:'中', LOW:'低'}[priority] || priority) : priority;
+                const reasonMapZh = {
+                    AUTHORITATIVE_SOURCE: '權威來源',
+                    OFFICIAL_SOURCE: '官方來源',
+                    NEWS_SOURCE: '新聞來源',
+                    FRESH: '最新',
+                    STALE: '較舊資訊',
+                    STRONG_P01_CONTEXT_MATCH: '高度符合 P01 情境',
+                    P01_CONTEXT_MATCH: '符合 P01 情境',
+                    CORE_TOPIC: '核心主題',
+                    HIGH_MARKET_IMPACT: '高市場影響',
+                    MARKET_IMPACT: '市場影響',
+                    MARKET_RELEVANT: '市場相關'
+                };
+                const rankingReasons = (item.ranking_reasons || []).map(x => zh ? (reasonMapZh[x] || x.replaceAll('_', ' ')) : x.replaceAll('_', ' '));
+                const linked = (item.linked_p01_context || []).map(x => {
+                    if (!zh) return x;
+                    const linkedMap = {
+                        MARKET_REGIME: '市場狀態',
+                        EVIDENCE_CONFIDENCE: '證據可信度',
+                        MARKET_RISK: '市場風險',
+                        DATA_QUALITY: '資料品質'
+                    };
+                    return linkedMap[x] || x;
+                }).join(' · ') || '--';
+                const published = item.published_at
+                    ? new Date(item.published_at).toLocaleString(zh ? 'zh-TW' : 'en-US')
+                    : (zh ? '時間未知' : 'Time unavailable');
+
+                const card = document.createElement('article');
+                card.className = 'soft-card rounded-2xl p-5 md:p-6 space-y-4 transition-all hover:shadow-md';
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center gap-2 text-[10px] font-mono">
+                        <span class="data-badge ${official ? 'data-generated' : 'data-live'}">${escapeHtml(sourceBadge)}</span>
+                        <span class="font-bold ${freshnessClass}">${escapeHtml(freshnessLabel)}</span>
+                        <span class="data-badge ${priority === 'HIGH' ? 'data-prototype' : 'data-generated'}">${zh ? '優先級' : 'PRIORITY'} · ${escapeHtml(priorityLabel)}</span>
+                        <span class="data-badge data-generated">${zh ? '相關度' : 'RELEVANCE'} · ${escapeHtml(relevanceScore)}/100</span>
+                        <span class="text-stone-300">|</span><span class="text-stone-500">${escapeHtml(item.source_name)}</span>
+                        <span class="text-stone-300">|</span><span class="text-stone-400">${escapeHtml(published)}</span>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-bold text-rose-700 uppercase tracking-wider mb-1">${escapeHtml(topic)}</div>
+                        <h2 class="text-lg font-bold text-stone-900 leading-snug">${escapeHtml(displayTitle)}</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                        <div class="bg-indigo-50/40 border border-indigo-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '情報摘要' : 'Intelligence Summary'}</div>
+                            <div class="text-stone-600 leading-relaxed">${escapeHtml(summary || (zh ? '目前沒有可用摘要。' : 'No summary available.'))}</div>
+                        </div>
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '為什麼重要' : 'Why it matters'}</div>
+                            <div class="text-stone-600 leading-relaxed">${escapeHtml(why)}</div>
+                        </div>
+                        <div class="bg-stone-50/70 border border-stone-100 rounded-xl p-3">
+                            <div class="font-bold text-stone-500 uppercase text-[10px] mb-1">${zh ? '關聯 P01 指標' : 'Linked P01 Context'}</div>
+                            <div class="text-stone-600 font-mono">${escapeHtml(linked)}</div>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-stone-500 bg-stone-50/50 border border-stone-100 rounded-xl px-3 py-2">
+                        <strong>${zh ? '排序依據' : 'Ranking reasons'}:</strong> ${escapeHtml(rankingReasons.join(' · ') || '--')}
+                    </div>
+                    <div class="text-[10px] text-stone-500 border-t border-stone-100 pt-3 space-y-1">
+                        <div><strong>${zh ? '證據' : 'Evidence'}:</strong> ${escapeHtml(evidenceNote)}</div>
+                        <div><strong>${zh ? '限制' : 'Limitation'}:</strong> ${escapeHtml(limitation)}</div>
+                    </div>
+                    <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="inline-flex text-xs font-bold text-[#c05656] hover:underline">${zh ? '查看原始來源 →' : 'View original source →'}</a>`;
+                container.appendChild(card);
+            });
+        }
+
+        function switchTab(tabKey) {
+            activeTab = tabKey;
+            ["us_macro", "web3_crypto", "tw_stocks"].forEach(key => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (key === activeTab) {
+                    btn.className = "pb-3 border-b-2 text-[#c05656] border-[#c05656] flex items-center gap-1 font-bold whitespace-nowrap";
+                } else {
+                    btn.className = "pb-3 border-b-2 border-transparent hover:text-stone-800 flex items-center gap-1 font-semibold whitespace-nowrap";
+                }
+            });
+            renderActiveTab();
+        }
+
+        function changeLang(lang) {
+            currentLang = lang;
+            const isZh = lang === 'zh';
+            document.getElementById('lang-zh').className = `px-3 py-1 rounded-lg transition-all ${isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
+            document.getElementById('lang-en').className = `px-3 py-1 rounded-lg transition-all ${!isZh ? 'bg-white text-stone-800 shadow-sm font-bold' : 'text-stone-500'}`;
+
+            if (isZh) {
+                document.getElementById('header-title').innerText = "股市 / Web3 資訊情報站";
+                document.getElementById('status-tag').innerText = isZh ? "Production Intelligence Pipeline" : "Production Intelligence Pipeline";
+                document.getElementById('label-core-matrix').innerText = "📌 核心監控指標矩陣 (CORE METRIC SPECTRUM) · LIVE + PROTOTYPE";
+                document.getElementById('label-macro-group').innerText = "1. 🌐 總經與利率流動性 (Macro)";
+                document.getElementById('label-chips-group').innerText = "2. 💻 美台股連動與籌碼 (Chips)";
+                document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 金融與 RWA (On-Chain)";
+                document.getElementById('lbl-us10y').innerText = "美債 10Y";
+                document.getElementById('lbl-dxy').innerText = "美元 DXY";
+                document.getElementById('lbl-move').innerText = "MOVE 債基";
+                document.getElementById('lbl-tsm').innerText = "TSM 溢價";
+                document.getElementById('lbl-futures').innerText = "外資期貨";
+                document.getElementById('lbl-usdtwd').innerText = "USD/TWD";
+                document.getElementById('lbl-cryptofg').innerText = "Crypto 恐慌";
+                document.getElementById('lbl-stablecoin').innerText = "穩定幣市值";
+                document.getElementById('lbl-rwatvl').innerText = "RWA 美債";
+                document.getElementById('vix-banner').innerText = marketData.global_vix.insight_zh;
+                document.getElementById('vix-desc').innerText =
+                    marketData.global_vix.live_change_text_zh
+                        ? `(${marketData.global_vix.live_change_text_zh})`
+                        : "（正在載入即時 VIX…）";
+                document.getElementById('robi-btn-text').innerText = "呼叫 Robi 助理";
+                document.getElementById('robi-welcome-title').innerText = "👋 你好，我是 Robi！";
+                document.getElementById('robi-welcome-desc').innerText = "我可以為您深入剖析 Fed 利率歸因、鏈上 RWA 美債資金流動，或是台美股 AI 供應鏈的外溢效應。";
+                document.getElementById('robi-quick-title').innerText = "熱門分析指令：";
+                document.getElementById('q-txt-1').innerText = "分析 Fed 利率對 RWA 資金流向的影響";
+                document.getElementById('q-txt-2').innerText = "評估台積電 ADR 溢價與外資期貨佈局";
+                document.getElementById('robi-input').placeholder = "輸入您的總經或市場疑問...";
+                document.getElementById('robi-send-btn').innerText = "發送";
+            } else {
+                document.getElementById('header-title').innerText = "Stock Market & Web3 Intelligence Hub";
+                document.getElementById('status-tag').innerText = isZh ? "Production Intelligence Pipeline" : "Production Intelligence Pipeline";
+                document.getElementById('label-core-matrix').innerText = "📌 CORE METRIC SPECTRUM";
+                document.getElementById('label-macro-group').innerText = "1. 🌐 Macro & Rates Liquidity";
+                document.getElementById('label-chips-group').innerText = "2. 💻 TW & US Equity Chips";
+                document.getElementById('label-crypto-group').innerText = "3. 🌐 Web3 Finance & RWA";
+                document.getElementById('lbl-us10y').innerText = "US 10Y";
+                document.getElementById('lbl-dxy').innerText = "DXY";
+                document.getElementById('lbl-move').innerText = "MOVE Index";
+                document.getElementById('lbl-tsm').innerText = "TSM Premium";
+                document.getElementById('lbl-futures').innerText = "Foreign Futures";
+                document.getElementById('lbl-usdtwd').innerText = "USD/TWD";
+                document.getElementById('lbl-cryptofg').innerText = "Crypto F&G";
+                document.getElementById('lbl-stablecoin').innerText = "Stablecoin Cap";
+                document.getElementById('lbl-rwatvl').innerText = "RWA Treasuries";
+                document.getElementById('vix-banner').innerText = marketData.global_vix.insight_en;
+                document.getElementById('vix-desc').innerText =
+                    marketData.global_vix.live_change_text_en
+                        ? `(${marketData.global_vix.live_change_text_en})`
+                        : "(Loading live VIX...)";
+                document.getElementById('robi-btn-text').innerText = "Call Robi Copilot";
+                document.getElementById('robi-welcome-title').innerText = "👋 Hello, I am Robi!";
+                document.getElementById('robi-welcome-desc').innerText = "I can analyze Fed rate attributions, on-chain RWA Treasury flows, and AI supply chain spillovers for you.";
+                document.getElementById('robi-quick-title').innerText = "Quick Analysis Commands:";
+                document.getElementById('q-txt-1').innerText = "Analyze the current impact of Fed rate changes on RWA Treasury flows";
+                document.getElementById('q-txt-2').innerText = "Evaluate TSM ADR premium and foreign futures short pressure";
+                document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
+                document.getElementById('robi-send-btn').innerText = "Send";
+            }
+            document.documentElement.lang = isZh ? 'zh-TW' : 'en';
+            document.getElementById('lbl-current-feed-items').innerText = isZh ? '目前情報筆數' : 'CURRENT FEED ITEMS';
+            document.getElementById('lbl-official-source-share').innerText = isZh ? '官方來源占比' : 'OFFICIAL SOURCE SHARE';
+            document.getElementById('lbl-vix-tracking').childNodes[0].nodeValue = isZh ? '🔥 VIX 波動追蹤 ' : '🔥 VIX VOLATILITY TRACKING ';
+            document.getElementById('lbl-agentic-rwa').childNodes[0].nodeValue = isZh ? '📊 AGENTIC RWA 淨流量 ' : '📊 AGENTIC RWA NET FLOWS ';
+            document.getElementById('live-status-title').innerText = isZh ? '📡 市場資料狀態' : '📡 Market Data Status';
+            document.getElementById('live-quality-label').innerText = isZh ? '資料品質' : 'Data Quality';
+            if (liveMarketSnapshot) {
+                const metrics = liveMarketSnapshot.metrics || {};
+                ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH'].forEach(metricId => renderSourceStatus(metricId, metrics[metricId]));
+                renderPipelineQuality(liveMarketSnapshot);
+                if (metrics.VIX) renderLiveVix(metrics.VIX);
+            }
+            const semantics = {
+                zh: {
+                    title: '資料語意：',
+                    live: '自動化市場資料',
+                    generated: 'Deterministic Intelligence 輸出',
+                    prototype: '示意內容，不視為當前市場證據'
+                },
+                en: {
+                    title: 'Data semantics:',
+                    live: 'automated market feed',
+                    generated: 'deterministic intelligence output',
+                    prototype: 'illustrative content, not current market evidence'
+                }
+            }[lang];
+            document.getElementById('data-semantics-title').innerText = semantics.title;
+            document.getElementById('data-semantics-live').innerText = semantics.live;
+            document.getElementById('data-semantics-generated').innerText = semantics.generated;
+            document.getElementById('data-semantics-prototype').innerText = semantics.prototype;
+            if (marketIntelligenceFeed?.status === 'AVAILABLE') {
+                const state = document.getElementById('feed-state');
+                if (state) state.innerText = isZh ? '目前資料' : 'CURRENT';
+                const dt = marketIntelligenceFeed.generated_at ? new Date(marketIntelligenceFeed.generated_at) : null;
+                const updated = document.getElementById('feed-updated');
+                if (updated && dt && !isNaN(dt)) updated.innerText = `${isZh ? '更新' : 'Updated'}: ${dt.toLocaleString(isZh ? 'zh-TW' : 'en-US')}`;
+            }
+            renderActiveTab();
+            renderDashboardV5();
+        }
+
+        function toggleRobiDrawer() {
+            const drawer = document.getElementById('robi-drawer');
+            const overlay = document.getElementById('robi-drawer-overlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            } else {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                drawer.classList.remove('translate-x-full');
+            }
+        }
+
+        function appendChatMessage(sender, text) {
+            const chatMessages = document.getElementById('chat-messages');
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 rounded-2xl text-xs space-y-1 ${sender === 'user' ? 'bg-rose-50 border border-rose-100 text-rose-900 ml-4' : 'bg-stone-100 text-stone-800 mr-4'}`;
+            bubble.innerHTML = `<div class="font-bold text-[10px] uppercase tracking-wider text-stone-400">${sender === 'user' ? 'You' : 'Soft Robi'}</div><div>${escapeHtml(text)}</div>`;
+            chatMessages.appendChild(bubble);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendQuickQuery(queryText) {
+            appendChatMessage('user', queryText);
+            setTimeout(() => {
+                const reply = currentLang === 'zh' 
+                    ? `[RAG 歸因分析] 針對「${queryText}」，目前 Live VIX 為 ${Number(marketData.global_vix.value).toFixed(2)}。其餘 RWA 與跨市場歸因仍屬目前原型資料，後續將接入結構化 Intelligence Engine。`
+                    : `[RAG Attribution] Regarding "${queryText}", current Live VIX is ${Number(marketData.global_vix.value).toFixed(2)}. RWA and cross-market attribution remain prototype data until the structured Intelligence Engine is connected.`;
+                appendChatMessage('robi', reply);
+            }, 600);
+        }
+
+        function handleSendMessage() {
+            const input = document.getElementById('robi-input');
+            const val = input.value.trim();
+            if (!val) return;
+            input.value = '';
+            appendChatMessage('user', val);
+            setTimeout(() => {
+                const reply = currentLang === 'zh'
+                    ? `[AI Copilot 應答] 收到您的查詢：「${val}」。系統已調用跨市場向量資料庫，指標顯示總體流動性保持中性偏多，AI 基礎建設題材維持高度共振。`
+                    : `[AI Copilot Reply] Received your query: "${val}". Cross-market vector DB queried: overall liquidity remains neutral-to-bullish with high resonance in AI infrastructure.`;
+                appendChatMessage('robi', reply);
+            }, 600);
+        }
+
+        // ============================================================
+        // P01-000D — Multi-Metric Live Market Data Frontend Binding
+        // ============================================================
+        let liveMarketSnapshot = null;
+
+        function formatLiveValue(metricId, metric) {
+            if (!metric || metric.value === null || metric.value === undefined) return '--';
+            const value = Number(metric.value);
+            if (!Number.isFinite(value)) return '--';
+
+            if (metricId === 'US10Y') return `${value.toFixed(3)}%`;
+            if (metricId === 'DXY' || metricId === 'VIX') return value.toFixed(2);
+            if (metricId === 'BTC' || metricId === 'ETH') {
+                return `$${value.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            }
+            return String(value);
+        }
+
+        function localizedMetricStatus(status) {
+            const mapZh = { FRESH: '最新', STALE: '較舊', ERROR: '錯誤', MISSING: '缺少資料', LOADING: '載入中' };
+            return currentLang === 'zh' ? (mapZh[status] || status) : status;
+        }
+
+        function formatLocalDate(date) {
+            return date.toLocaleString(currentLang === 'zh' ? 'zh-TW' : 'en-US');
+        }
+
+        function renderSourceStatus(metricId, metric) {
+            const id = metricId.toLowerCase();
+            const valueEl = document.getElementById(`live-${id}`);
+            const statusEl = document.getElementById(`status-${id}`);
+            if (valueEl) valueEl.innerText = formatLiveValue(metricId, metric);
+
+            if (statusEl) {
+                const status = metric?.status || 'MISSING';
+                statusEl.innerText = localizedMetricStatus(status);
+                statusEl.className =
+                    `text-[9px] mt-1 font-bold ${
+                        status === 'FRESH' ? 'status-fresh' :
+                        status === 'STALE' ? 'status-stale' :
+                        status === 'MISSING' ? 'status-missing' :
+                        'status-error'
+                    }`;
+            }
+        }
+
+        function syncLiveMetricToCore(metricId, metric) {
+            if (!metric || metric.status !== 'FRESH' || metric.value === null) return;
+            const formatted = formatLiveValue(metricId, metric);
+
+            if (metricId === 'US10Y') {
+                marketData.metrics.us10y = formatted;
+                const el = document.getElementById('m-us10y');
+                if (el) el.innerText = formatted;
+            }
+
+            if (metricId === 'DXY') {
+                marketData.metrics.dxy = formatted;
+                const el = document.getElementById('m-dxy');
+                if (el) el.innerText = formatted;
+            }
+        }
+
+        function renderLiveVix(vix) {
+            if (!vix || vix.status !== 'FRESH' || vix.value === null) return;
+
+            const liveVix = Number(vix.value);
+            marketData.global_vix.value = liveVix;
+
+            const changePct = vix.change_pct !== null && vix.change_pct !== undefined ? Number(vix.change_pct) : null;
+            const signedChange = changePct !== null ? `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%` : null;
+            const changeTextZh = signedChange ? `${signedChange}，相較前一收盤` : '即時資料';
+            const changeTextEn = signedChange ? `${signedChange} vs previous close` : 'Live';
+
+            marketData.global_vix.live_change_text_zh = changeTextZh;
+            marketData.global_vix.live_change_text_en = changeTextEn;
+            marketData.global_vix.insight_zh =
+                `【Live VIX 市場監控】目前 VIX 為 ${liveVix.toFixed(2)}（${changeTextZh}）。此數值來自自動化市場資料管線；歸因敘事將由後續 Intelligence Engine 產生。`;
+            marketData.global_vix.insight_en =
+                `[Live VIX Monitoring] Current VIX is ${liveVix.toFixed(2)} (${changeTextEn}). This value comes from the automated market-data pipeline; attribution narrative will be generated by the later Intelligence Engine.`;
+
+            const vixCard = document.getElementById('vix-card-val');
+            if (vixCard) {
+                const textNode = Array.from(vixCard.childNodes)
+                    .find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = `${liveVix.toFixed(2)} `;
+            }
+
+            const vixDesc = document.getElementById('vix-desc');
+            if (vixDesc) vixDesc.innerText = `(${currentLang === 'zh' ? changeTextZh : changeTextEn})`;
+
+            const vixBanner = document.getElementById('vix-banner');
+            if (vixBanner) {
+                vixBanner.innerText = currentLang === 'zh'
+                    ? marketData.global_vix.insight_zh
+                    : marketData.global_vix.insight_en;
+            }
+        }
+
+        function renderPipelineQuality(data) {
+            const metrics = data?.metrics || {};
+            const items = ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH']
+                .map(key => metrics[key])
+                .filter(Boolean);
+
+            const freshCount = items.filter(item => item.status === 'FRESH').length;
+            const quality = items.length ? Math.round((freshCount / items.length) * 100) : 0;
+
+            const qualityEl = document.getElementById('live-data-quality');
+            if (qualityEl) qualityEl.innerText = `${quality}% (${freshCount}/${items.length})`;
+
+            const timestamps = items
+                .map(item => item.fetched_at)
+                .filter(Boolean)
+                .map(value => new Date(value))
+                .filter(value => !Number.isNaN(value.getTime()));
+
+            const provenanceEl = document.getElementById('live-provenance');
+            if (provenanceEl) {
+                const sourceNames = [...new Set(items.map(item => item.source).filter(Boolean))];
+                const fallbackCount = items.filter(item => item.source_type === 'FALLBACK').length;
+                provenanceEl.innerText = sourceNames.length
+                    ? `${currentLang === 'zh' ? '來源' : 'Sources'}: ${sourceNames.join(' · ')}${fallbackCount ? ` · ${fallbackCount} ${currentLang === 'zh' ? '個備援來源' : `fallback route${fallbackCount > 1 ? 's' : ''}`}` : ''}`
+                    : (currentLang === 'zh' ? '來源：無法取得' : 'Sources: unavailable');
+            }
+
+            const lastUpdatedEl = document.getElementById('live-last-updated');
+            if (lastUpdatedEl) {
+                if (timestamps.length) {
+                    const latest = new Date(Math.max(...timestamps.map(d => d.getTime())));
+                    lastUpdatedEl.innerText = `${currentLang === 'zh' ? '最後更新' : 'Last Updated'}: ${formatLocalDate(latest)}`;
+                } else {
+                    lastUpdatedEl.innerText = currentLang === 'zh' ? '最後更新：無法取得' : 'Last Updated: unavailable';
+                }
+            }
+        }
+
+        function pct(v) { return Number.isFinite(Number(v)) ? `${(Number(v)*100).toFixed(1)}%` : '--'; }
+        function renderDashboardV5() {
+            const d=dashboardV5Snapshot; const zh=currentLang==='zh';
+            if (!d) return;
+            const stateEl=document.getElementById('v5-data-state');
+            if(stateEl){ stateEl.innerText='GENERATED'; stateEl.className='data-badge data-generated'; }
+            const ex=d.executive_summary||{}, regime=ex.market_regime||{}, risk=ex.market_risk||{}, conf=ex.evidence_confidence||{}, quality=ex.data_quality||{};
+            document.getElementById('v5-title').innerText=zh?'🧠 Intelligence Engine · 決策摘要':'🧠 Intelligence Engine · Executive View';
+            document.getElementById('v5-subtitle').innerText=zh?'證據驅動市場脈絡 · Deterministic Core · Explainable Output':'Evidence-driven market context · deterministic core · explainable output';
+            document.getElementById('v5-lbl-regime').innerText=zh?'市場環境':'Market Regime';
+            document.getElementById('v5-lbl-risk').innerText=zh?'市場風險':'Market Risk';
+            document.getElementById('v5-lbl-confidence').innerText=zh?'證據信心':'Evidence Confidence';
+            document.getElementById('v5-lbl-quality').innerText=zh?'資料品質':'Data Quality';
+            document.getElementById('v5-lbl-coverage').innerText=zh?'證據覆蓋率':'Evidence Coverage';
+            document.getElementById('v5-regime').innerText=regime.value||'--'; document.getElementById('v5-regime-meta').innerText=`score ${Number(regime.score||0).toFixed(2)} · ${pct(regime.confidence)}`;
+            document.getElementById('v5-risk').innerText=`${risk.level||'--'} · ${risk.score ?? '--'}/100`; document.getElementById('v5-risk-meta').innerText=`assessment confidence ${pct(risk.confidence)}`;
+            document.getElementById('v5-confidence').innerText=`${conf.level||'--'} · ${pct(conf.score)}`; document.getElementById('v5-confidence-meta').innerText=zh?'可靠度，不是市場機率':'reliability, not market probability';
+            document.getElementById('v5-quality').innerText=`${quality.gate||'--'} · ${pct(quality.score)}`; document.getElementById('v5-quality-meta').innerText=quality.counts?`${quality.counts.available}/${quality.counts.expected} available`:'--';
+            document.getElementById('v5-coverage').innerText=pct(conf.coverage); document.getElementById('v5-coverage-meta').innerText=zh?'可用下游證據':'eligible downstream evidence';
+            const highRisk=risk.level==='HIGH', lowConf=Number(conf.score)<0.5;
+            document.getElementById('v5-interpretation').innerText = zh ? (highRisk&&lowConf?'目前風險評估偏高，但可用證據的支持信心有限；應將風險強度與證據可靠度分開解讀。':`目前市場環境為 ${regime.value||'UNKNOWN'}，風險層級 ${risk.level||'UNKNOWN'}；證據信心為 ${conf.level||'UNKNOWN'}。`) : (highRisk&&lowConf?'Elevated risk assessment with limited supporting evidence confidence. Risk intensity and evidence reliability should be interpreted separately.':`Current regime is ${regime.value||'UNKNOWN'} with ${risk.level||'UNKNOWN'} assessed risk and ${conf.level||'UNKNOWN'} evidence confidence.`);
+            const sig=(d.signals||[]).map(x=>`<div class="flex justify-between gap-2"><span class="font-mono font-semibold">${escapeHtml(x.metric_id)}</span><span>${escapeHtml(x.signal_id)} · ${escapeHtml(x.direction)}</span></div>`).join('');
+            document.getElementById('v5-signals').innerHTML=sig||`<span class="text-stone-400">${zh?'無可用訊號':'No eligible signals'}</span>`;
+            const drv=(d.risk_drivers||[]).map(x=>`<div class="flex justify-between gap-2"><span>${escapeHtml(x.metric_id)} · ${escapeHtml(x.signal_id)}</span><span class="font-mono">${pct(x.contribution_share)}</span></div>`).join('');
+            document.getElementById('v5-drivers').innerHTML=drv||`<span class="text-stone-400">${zh?'無主要風險驅動因子':'No primary risk drivers'}</span>`;
+            const ev=d.evidence||{}, items=(ev.items||[]).map(x=>`<div class="flex justify-between gap-2"><span>${escapeHtml(x.evidence_id)}</span><span class="font-mono">${escapeHtml(String(x.status))}</span></div>`).join('');
+            const limits=(ev.limitations||[]).length?`<div class="pt-2 mt-2 border-t border-stone-100 text-amber-700">${zh?'限制':'Limitations'}: ${(ev.limitations||[]).map(escapeHtml).join(', ')}</div>`:'';
+            document.getElementById('v5-evidence').innerHTML=(items||`<span class="text-stone-400">${zh?'無證據資料':'No evidence data'}</span>`)+limits;
+            document.getElementById('v5-signals-title').innerText=zh?'市場訊號':'Market Signals'; document.getElementById('v5-drivers-title').innerText=zh?'歸因與風險驅動':'Attribution & Risk Drivers'; document.getElementById('v5-evidence-title').innerText=zh?'證據與限制':'Evidence & Limitations';
+            document.getElementById('v5-disclaimer').innerText=zh?'Risk ≠ Confidence。歸因代表證據一致性，不代表因果證明；本系統不提供投資建議。':'Risk ≠ confidence. Attribution describes evidence alignment, not causal proof. No investment recommendation.';
+            const dt=d.generated_at?new Date(d.generated_at):null; document.getElementById('v5-updated').innerText=dt&&!isNaN(dt)?`${zh?'更新':'Updated'}: ${dt.toLocaleString(zh ? 'zh-TW' : 'en-US')}`:(zh?'更新時間不可用':'Updated: unavailable');
+        }
+        async function loadDashboardV5() {
+            try { const r=await fetch('../dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); console.log('P01-010 dashboard data loaded'); }
+            catch(e) { console.error('P01-010 dashboard data unavailable:',e); const s=document.getElementById('v5-data-state'); if(s){s.innerText='UNAVAILABLE';s.className='data-badge data-prototype';} document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
+        }
+
+        async function loadMarketIntelligenceFeed() {
+            const state=document.getElementById('feed-state'), updated=document.getElementById('feed-updated');
+            try {
+                const r=await fetch('../market_intelligence_feed.json?ts='+Date.now(),{cache:'no-store'});
+                if(!r.ok) throw new Error(`HTTP ${r.status}`);
+                const d=await r.json(); marketIntelligenceFeed=d;
+                if(d.status !== 'AVAILABLE') throw new Error('feed unavailable');
+                state.innerText='CURRENT'; state.className='data-badge data-live';
+                const dt=d.generated_at?new Date(d.generated_at):null; updated.innerText=dt&&!isNaN(dt)?`${currentLang==='zh'?'更新':'Updated'}: ${dt.toLocaleString()}`:'--';
+                calculateOverallStats(); renderActiveTab();
+            } catch(e) {
+                console.error('P01-NEWS-001 unavailable:',e); marketIntelligenceFeed={status:'UNAVAILABLE',items:[]};
+                state.innerText='UNAVAILABLE'; state.className='data-badge data-prototype';
+                updated.innerText=currentLang==='zh'?'不顯示過期 Prototype 情報':'Stale prototype intelligence is not shown';
+                calculateOverallStats(); renderActiveTab();
+            }
+        }
+
+        async function loadLiveMarketData() {
+            try {
+                const response = await fetch('../live_market_data.json?ts=' + Date.now(), {
+                    cache: 'no-store'
+                });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const data = await response.json();
+                liveMarketSnapshot = data;
+
+                const metrics = data?.metrics || {};
+                ['US10Y', 'DXY', 'VIX', 'BTC', 'ETH'].forEach(metricId => {
+                    renderSourceStatus(metricId, metrics[metricId]);
+                    syncLiveMetricToCore(metricId, metrics[metricId]);
+                });
+
+                renderLiveVix(metrics.VIX);
+                renderPipelineQuality(data);
+
+                console.log('P01-000D live market data loaded:', metrics);
+            } catch (error) {
+                console.error('Live market data loading failed:', error);
+
+                ['us10y', 'dxy', 'vix', 'btc', 'eth'].forEach(id => {
+                    const statusEl = document.getElementById(`status-${id}`);
+                    if (statusEl) {
+                        statusEl.innerText = currentLang === 'zh' ? '錯誤' : 'ERROR';
+                        statusEl.className = 'text-[9px] mt-1 font-bold text-rose-600';
+                    }
+                });
+
+                const qualityEl = document.getElementById('live-data-quality');
+                if (qualityEl) qualityEl.innerText = 'ERROR';
+
+                const updatedEl = document.getElementById('live-last-updated');
+                if (updatedEl) updatedEl.innerText = currentLang === 'zh' ? '最後更新：資料無法取得' : 'Last Updated: data unavailable';
+            }
+        }
+
+        window.onload = function() {
+            updateMetricsDisplay(marketData.metrics);
+            calculateOverallStats();
+            changeLang(currentLang);
+            renderActiveTab();
+            loadLiveMarketData();
+            loadDashboardV5();
+            loadMarketIntelligenceFeed();
+        };
+    </script>
+</body>
+</html>
