@@ -49,6 +49,24 @@
 .topic-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.topic-filter{border:1px solid #d8dce6;background:#fff;border-radius:999px;padding:7px 11px;font-size:12px;cursor:pointer}.topic-filter.active{background:#eef2ff;border-color:#aab6ff;color:#3448c5}.prediction-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.prediction-card{padding:16px}.prediction-rank{font-size:12px;color:#888}.prediction-q{font-size:15px;font-weight:700;line-height:1.45;margin:8px 0 12px}.prediction-meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.prediction-prob{font-size:26px;font-weight:750}.small{font-size:11px;color:#92949a}.coverage{margin-top:16px}.coverage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.coverage-item{background:#f8f8f7;border-radius:12px;padding:12px}.coverage-item span{display:block;color:#999;font-size:11px}.coverage-item b{display:block;margin-top:5px;font-size:15px}@media(max-width:760px){.prediction-list{grid-template-columns:1fr}.coverage-grid{grid-template-columns:1fr 1fr}}
 </style>
 
+
+<style id="design-001-p01-alignment">
+/* DESIGN-001 — P01 Visual System Alignment. UI-only; no data or intelligence logic changes. */
+:root{--bg:#fcfbf9;--card:#fff;--line:#f0eae1;--text:#2c3e50;--muted:#7c818b;--blue:#6366f1}
+body{background:var(--bg);color:var(--text);font-weight:400}
+.header{border-bottom-color:var(--line)}
+.brand{font-weight:500;letter-spacing:-.01em}.eyebrow{font-weight:500;letter-spacing:.055em}
+.hero h1{font-weight:500;letter-spacing:-.018em}.hero p{color:#7c818b}
+.legend,.card,.engine{border-color:var(--line);box-shadow:0 2px 6px rgba(0,0,0,.02)}
+.card{border-radius:16px}.engine{border-left:3px solid #818cf8;border-radius:18px}
+.engine-title,.section-title,.prediction-q,.question{font-weight:500}
+.metric b,.summary b,.prediction-prob,.prob{font-weight:500}
+.lang.active,.tab.active{font-weight:500}
+.label,.sub,.muted{color:#858992}
+.pill,.tab,.pipe{border-color:#e8e3dc}
+.platform-nav{color:#78716c}.platform-nav a,.platform-nav .coming{font-weight:400}
+.platform-nav a.active{font-weight:500;background:#f5f3ff;color:#4f46e5;border-color:#ddd6fe}
+</style>
 </head><body><div class="wrap"><nav class="platform-nav" aria-label="Platform navigation"><a href="../">首頁</a><a href="../p01/">P01</a><a class="active" href="./">P02</a><a href="../intelligence/">整合情報</a><span class="coming">P03 · Coming Soon</span></nav>
 <header class="header"><div class="brand"><span class="flower">🌸</span><span data-en="Cross-Market Prediction Intelligence" data-zh="跨市場預測情報引擎">跨市場預測情報引擎</span><span class="ver">P02 v1.0 · PRODUCTION</span></div><div class="actions"><button id="zh" class="lang active">中文</button><button id="en" class="lang">EN</button><span class="pipe">🔴 Intelligence Pipeline</span></div></header>
 <section class="hero"><div class="eyebrow">P02 · PREDICT / COMPARE</div><h1 data-en="Market Intelligence" data-zh="跨市場預測情報">跨市場預測情報</h1><p data-en="Compare how prediction markets price the same events, with evidence, comparability, P01 macro context, and trust/security guardrails." data-zh="比較不同預測市場如何定價同一事件，同時保留證據、可比較性、P01 宏觀脈絡與信任／資安防護層。">比較不同預測市場如何定價同一事件，同時保留證據、可比較性、P01 宏觀脈絡與信任／資安防護層。</p></section>
