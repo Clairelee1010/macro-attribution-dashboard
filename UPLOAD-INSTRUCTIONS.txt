@@ -1,35 +1,15 @@
-INT-003 — Integrated Intelligence Dashboard
+PLATFORM-001 v2 upload instructions
 
-Upload these files to the SAME paths in the repository root:
+Upload these files/folders to the repository root, preserving paths:
+- index.html
+- p01/index.html
+- p02/index.html
+- intelligence/index.html
+- tests/platform/test_platform001.py
+- .github/workflows/platform001_unified_home.yml
+- PLATFORM-001-README.md
 
-integration/dashboard_payload.py
-tests/integration/test_int003.py
-.github/workflows/int003_integrated_dashboard.yml
-data/integration/dashboard_payload.json
-intelligence/index.html
-INT-003-README.md
+Commit message:
+Add PLATFORM-001 v2 unified home and light typography
 
-Recommended commit message:
-Add INT-003 integrated intelligence dashboard
-
-Then go to GitHub Actions and run:
-INT-003 Integrated Intelligence Dashboard
-
-Expected final summary:
-P01 Context Loaded          PASS
-P02 Predictions Loaded      PASS
-INT-002 Intelligence Loaded PASS
-Relationship Rendering      PASS
-Evidence Rendering          PASS
-Political Guardrail         PASS
-Execution                   DISABLED
-INT-003: PASS
-
-After GitHub Pages refreshes, open:
-/intelligence/
-
-Notes:
-- INT-003 is read-only.
-- It does not change P01/P02 core logic.
-- It consumes INT-001 + INT-002 outputs.
-- Political contracts remain venue observations only and NOT_APPLICABLE to P01 directional inference.
+Then run GitHub Actions -> PLATFORM-001 Unified Home & Navigation -> Run workflow -> main.
