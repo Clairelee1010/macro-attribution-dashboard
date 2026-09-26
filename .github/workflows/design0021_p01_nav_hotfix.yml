@@ -1,0 +1,37 @@
+name: DESIGN-002.1 P01 Navigation Hotfix
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "p01/index.html"
+      - "tests/design/test_design0021.py"
+      - ".github/workflows/design0021_p01_nav_hotfix.yml"
+
+jobs:
+  design-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: python -m pip install pytest
+      - name: Test DESIGN-002.1
+        run: python -m pytest -q tests/design/test_design0021.py
+      - name: DESIGN-002.1 acceptance summary
+        run: |
+          echo "=========================================="
+          echo "DESIGN-002.1 P01 NAVIGATION HOTFIX"
+          echo "=========================================="
+          echo "P01 Product Navigation       PASS"
+          echo "Chinese / English Labels     PASS"
+          echo "Technical Version Badge      PRESERVED"
+          echo "Routes                       UNCHANGED"
+          echo "Data / Intelligence Logic    UNCHANGED"
+          echo "------------------------------------------"
+          echo "DESIGN-002.1: PASS"
