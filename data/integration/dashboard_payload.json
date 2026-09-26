@@ -1,7 +1,7 @@
 {
   "product": "Integrated Market Intelligence",
   "version": "INT-003",
-  "generated_at": "2026-09-25T19:03:39.542484+00:00",
+  "generated_at": "2026-09-26T00:54:29.961305+00:00",
   "execution_allowed": false,
   "architecture": {
     "p01": "UNDERSTAND",
@@ -19,7 +19,7 @@
     "p01_evidence_confidence": "MEDIUM",
     "p01_evidence_confidence_score": 0.6381,
     "p01_evidence_coverage": 0.6,
-    "p02_market_coverage": 4876,
+    "p02_market_coverage": 5003,
     "p02_ranked_predictions": 20,
     "p02_matched_events": 0,
     "p02_discrepancy_signals": 0,
@@ -71,7 +71,7 @@
         "en": "Politics"
       },
       "market_implied_probability": 0.0015,
-      "trending_score": 98.88,
+      "trending_score": 98.9,
       "scenario": "UNMAPPED",
       "relationship": "NOT_APPLICABLE",
       "p01_evidence": [],
@@ -91,7 +91,7 @@
         "en": "Macro & Rates"
       },
       "market_implied_probability": 0.0045,
-      "trending_score": 95.82,
+      "trending_score": 95.9,
       "scenario": "RATE_CUT",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -115,39 +115,6 @@
     },
     {
       "activity_rank": 3,
-      "event_id": "POLYMARKET:2589813",
-      "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
-      "venue": "polymarket",
-      "category": {
-        "key": "macro",
-        "zh": "總經／利率",
-        "en": "Macro & Rates"
-      },
-      "market_implied_probability": 0.625,
-      "trending_score": 94.37,
-      "scenario": "RATE_HIKE",
-      "relationship": "SUPPORTED_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "US10Y",
-          "signal_id": "VERY_HIGH_YIELD",
-          "direction": "RISK_OFF",
-          "strength": "STRONG"
-        },
-        {
-          "metric_id": "DXY",
-          "signal_id": "FIRM_DOLLAR",
-          "direction": "RISK_OFF",
-          "strength": "MODERATE"
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.6381,
-      "explanation": "The contract scenario (RATE_HIKE) is directionally consistent with current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this is context consistency, not causal proof or a forecast.",
-      "execution_allowed": false
-    },
-    {
-      "activity_rank": 4,
       "event_id": "POLYMARKET:2589810",
       "question": "Will the Fed decrease interest rates by 50+ bps after the October 2026 meeting?",
       "venue": "polymarket",
@@ -157,7 +124,7 @@
         "en": "Macro & Rates"
       },
       "market_implied_probability": 0.0025,
-      "trending_score": 94.31,
+      "trending_score": 94.37,
       "scenario": "RATE_CUT",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -180,7 +147,7 @@
       "execution_allowed": false
     },
     {
-      "activity_rank": 5,
+      "activity_rank": 4,
       "event_id": "POLYMARKET:2589814",
       "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
       "venue": "polymarket",
@@ -190,7 +157,40 @@
         "en": "Macro & Rates"
       },
       "market_implied_probability": 0.0085,
-      "trending_score": 94.3,
+      "trending_score": 94.25,
+      "scenario": "RATE_HIKE",
+      "relationship": "SUPPORTED_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "US10Y",
+          "signal_id": "VERY_HIGH_YIELD",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "metric_id": "DXY",
+          "signal_id": "FIRM_DOLLAR",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.6381,
+      "explanation": "The contract scenario (RATE_HIKE) is directionally consistent with current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this is context consistency, not causal proof or a forecast.",
+      "execution_allowed": false
+    },
+    {
+      "activity_rank": 5,
+      "event_id": "POLYMARKET:2589813",
+      "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+      "venue": "polymarket",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "market_implied_probability": 0.625,
+      "trending_score": 94.25,
       "scenario": "RATE_HIKE",
       "relationship": "SUPPORTED_CONTEXT",
       "p01_evidence": [
@@ -214,41 +214,8 @@
     },
     {
       "activity_rank": 6,
-      "event_id": "KALSHI:KXBTC2026200-27JAN01-200000",
-      "question": "Will Bitcoin be above $200000 by Jan 1, 2027 at 11:59PM ET?",
-      "venue": "kalshi",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "market_implied_probability": 0.03,
-      "trending_score": 94.22,
-      "scenario": "CRYPTO_UPSIDE",
-      "relationship": "DIVERGENT_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.6381,
-      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
-      "execution_allowed": false
-    },
-    {
-      "activity_rank": 7,
-      "event_id": "POLYMARKET:559688",
-      "question": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
+      "event_id": "POLYMARKET:561268",
+      "question": "Will Elissa Slotkin win the 2028 US Presidential Election?",
       "venue": "polymarket",
       "category": {
         "key": "politics",
@@ -256,7 +223,7 @@
         "en": "Politics"
       },
       "market_implied_probability": 0.0005,
-      "trending_score": 93.86,
+      "trending_score": 94.1,
       "scenario": "UNMAPPED",
       "relationship": "NOT_APPLICABLE",
       "p01_evidence": [],
@@ -266,7 +233,7 @@
       "execution_allowed": false
     },
     {
-      "activity_rank": 8,
+      "activity_rank": 7,
       "event_id": "POLYMARKET:2589812",
       "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
       "venue": "polymarket",
@@ -276,7 +243,7 @@
         "en": "Macro & Rates"
       },
       "market_implied_probability": 0.365,
-      "trending_score": 93.29,
+      "trending_score": 94.07,
       "scenario": "RATE_HOLD",
       "relationship": "MIXED_CONTEXT",
       "p01_evidence": [
@@ -299,40 +266,27 @@
       "execution_allowed": false
     },
     {
-      "activity_rank": 9,
-      "event_id": "POLYMARKET:4052431",
-      "question": "Will Bitcoin dip to $65,000 in September?",
+      "activity_rank": 8,
+      "event_id": "POLYMARKET:559688",
+      "question": "Will Andrew Yang win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
       "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
       },
-      "market_implied_probability": 0.0025,
-      "trending_score": 89.3,
-      "scenario": "CRYPTO_DOWNSIDE",
-      "relationship": "SUPPORTED_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
+      "market_implied_probability": 0.0005,
+      "trending_score": 93.86,
+      "scenario": "UNMAPPED",
+      "relationship": "NOT_APPLICABLE",
+      "p01_evidence": [],
       "p01_evidence_confidence": "MEDIUM",
       "p01_evidence_confidence_score": 0.6381,
-      "explanation": "The crypto scenario (CRYPTO_DOWNSIDE) is directionally consistent with the broad P01 regime (RISK_OFF); asset-specific P01 evidence remains limited.",
+      "explanation": "Candidate-specific political outcomes are intentionally not inferred from P01 macro context; the venue probability remains a market-implied observation only.",
       "execution_allowed": false
     },
     {
-      "activity_rank": 10,
+      "activity_rank": 9,
       "event_id": "POLYMARKET:4052417",
       "question": "Will Bitcoin reach $90,000 in September?",
       "venue": "polymarket",
@@ -341,8 +295,8 @@
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "market_implied_probability": 0.0875,
-      "trending_score": 89.06,
+      "market_implied_probability": 0.0855,
+      "trending_score": 89.44,
       "scenario": "CRYPTO_UPSIDE",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -365,6 +319,39 @@
       "execution_allowed": false
     },
     {
+      "activity_rank": 10,
+      "event_id": "POLYMARKET:4052431",
+      "question": "Will Bitcoin dip to $65,000 in September?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.0025,
+      "trending_score": 89.42,
+      "scenario": "CRYPTO_DOWNSIDE",
+      "relationship": "SUPPORTED_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.6381,
+      "explanation": "The crypto scenario (CRYPTO_DOWNSIDE) is directionally consistent with the broad P01 regime (RISK_OFF); asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
       "activity_rank": 11,
       "event_id": "POLYMARKET:4052418",
       "question": "Will Bitcoin reach $87,500 in September?",
@@ -374,8 +361,8 @@
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "market_implied_probability": 0.245,
-      "trending_score": 88.86,
+      "market_implied_probability": 0.215,
+      "trending_score": 88.78,
       "scenario": "CRYPTO_UPSIDE",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -432,6 +419,39 @@
     },
     {
       "activity_rank": 13,
+      "event_id": "POLYMARKET:4727099",
+      "question": "Will the price of Bitcoin be above $72,000 on September 26?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.9995,
+      "trending_score": 88.69,
+      "scenario": "CRYPTO_UPSIDE",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.6381,
+      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
+      "activity_rank": 14,
       "event_id": "POLYMARKET:559701",
       "question": "Will Josh Stein win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
@@ -451,7 +471,7 @@
       "execution_allowed": false
     },
     {
-      "activity_rank": 14,
+      "activity_rank": 15,
       "event_id": "POLYMARKET:561250",
       "question": "Will Elon Musk win the 2028 US Presidential Election?",
       "venue": "polymarket",
@@ -471,7 +491,7 @@
       "execution_allowed": false
     },
     {
-      "activity_rank": 15,
+      "activity_rank": 16,
       "event_id": "POLYMARKET:4487273",
       "question": "Saudi Oil Pipeline (East-West) restarts by September 30?",
       "venue": "polymarket",
@@ -480,28 +500,8 @@
         "zh": "能源",
         "en": "Energy"
       },
-      "market_implied_probability": 0.245,
-      "trending_score": 86.11,
-      "scenario": "UNMAPPED",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "p01_evidence": [],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.6381,
-      "explanation": "The topic may be market-relevant, but current P01 evidence is not specific enough for a directional context comparison.",
-      "execution_allowed": false
-    },
-    {
-      "activity_rank": 16,
-      "event_id": "POLYMARKET:2126460",
-      "question": "Will Crude Oil reach a new all-time high by September 30?",
-      "venue": "polymarket",
-      "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
-      },
-      "market_implied_probability": 0.0035,
-      "trending_score": 85.45,
+      "market_implied_probability": 0.235,
+      "trending_score": 86.6,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -512,16 +512,16 @@
     },
     {
       "activity_rank": 17,
-      "event_id": "POLYMARKET:4885967",
-      "question": "Saudi Oil Pipeline (East-West) restarts by October 15?",
+      "event_id": "POLYMARKET:2126460",
+      "question": "Will Crude Oil reach a new all-time high by September 30?",
       "venue": "polymarket",
       "category": {
         "key": "energy",
         "zh": "能源",
         "en": "Energy"
       },
-      "market_implied_probability": 0.57,
-      "trending_score": 85.22,
+      "market_implied_probability": 0.0035,
+      "trending_score": 85.59,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -532,16 +532,16 @@
     },
     {
       "activity_rank": 18,
-      "event_id": "POLYMARKET:3866515",
-      "question": "Will WTI Crude Oil (WTI) hit (LOW) $80 in September?",
+      "event_id": "POLYMARKET:4885967",
+      "question": "Saudi Oil Pipeline (East-West) restarts by October 15?",
       "venue": "polymarket",
       "category": {
         "key": "energy",
         "zh": "能源",
         "en": "Energy"
       },
-      "market_implied_probability": 0.0515,
-      "trending_score": 85.2,
+      "market_implied_probability": 0.515,
+      "trending_score": 85.37,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -552,36 +552,36 @@
     },
     {
       "activity_rank": 19,
-      "event_id": "POLYMARKET:559664",
-      "question": "Will Raphael Warnock win the 2028 Democratic presidential nomination?",
-      "venue": "polymarket",
-      "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
-      },
-      "market_implied_probability": 0.0055,
-      "trending_score": 85.08,
-      "scenario": "UNMAPPED",
-      "relationship": "NOT_APPLICABLE",
-      "p01_evidence": [],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.6381,
-      "explanation": "Candidate-specific political outcomes are intentionally not inferred from P01 macro context; the venue probability remains a market-implied observation only.",
-      "execution_allowed": false
-    },
-    {
-      "activity_rank": 20,
-      "event_id": "POLYMARKET:4618778",
-      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $105 in September?",
+      "event_id": "POLYMARKET:3866515",
+      "question": "Will WTI Crude Oil (WTI) hit (LOW) $80 in September?",
       "venue": "polymarket",
       "category": {
         "key": "energy",
         "zh": "能源",
         "en": "Energy"
       },
-      "market_implied_probability": 0.043,
-      "trending_score": 84.99,
+      "market_implied_probability": 0.0445,
+      "trending_score": 84.87,
+      "scenario": "UNMAPPED",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "p01_evidence": [],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.6381,
+      "explanation": "The topic may be market-relevant, but current P01 evidence is not specific enough for a directional context comparison.",
+      "execution_allowed": false
+    },
+    {
+      "activity_rank": 20,
+      "event_id": "POLYMARKET:2126461",
+      "question": "Will Crude Oil reach a new all-time high by December 31?",
+      "venue": "polymarket",
+      "category": {
+        "key": "energy",
+        "zh": "能源",
+        "en": "Energy"
+      },
+      "market_implied_probability": 0.105,
+      "trending_score": 84.26,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
