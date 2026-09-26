@@ -9,14 +9,14 @@ def test_routes_exist():
 
 def test_home_has_product_modules():
     s=read("index.html")
-    for token in ["P01 · UNDERSTAND","P02 · PREDICT / COMPARE","INT-003 · CONTEXTUALIZE","P03 · GOVERN / ACT"]: assert token in s
+    for token in ["MARKET INTELLIGENCE · UNDERSTAND","PREDICTION INTELLIGENCE · PREDICT / COMPARE","INTEGRATED INTELLIGENCE · CONTEXTUALIZE","AGENT GOVERNANCE · GOVERN / ACT"]: assert token in s
     assert "Execution · DISABLED" in s
 
 def test_shared_home_navigation():
     for p in ["p01/index.html","p02/index.html","intelligence/index.html"]:
         s=read(p)
         assert "Platform navigation" in s
-        assert "P03 · Coming Soon" in s
+        assert "Agent 治理 · Coming Soon" in s
 
 def test_p01_moved_paths_are_safe():
     s=read("p01/index.html")
