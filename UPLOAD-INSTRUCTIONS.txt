@@ -1,15 +1,18 @@
-DESIGN-001 upload instructions
+DESIGN-002 — Product Naming & Navigation Polish
 
-Upload these files to the same paths in the repository root:
-- index.html
-- p02/index.html
-- intelligence/index.html
-- tests/design/test_design001.py
-- .github/workflows/design001_visual_alignment.yml
-- DESIGN-001-README.md
+Upload these files to the repository root, preserving folders.
 
-Commit message:
-Add DESIGN-001 P01 visual system alignment
+Changed user-facing naming:
+- P01 -> 市場情報 / Market Intelligence
+- P02 -> 預測情報 / Prediction Intelligence
+- INT-003 -> 整合情報 / Integrated Intelligence
+- P03 -> Agent 治理 / Agent Governance
+
+Technical/version identifiers remain preserved where appropriate.
+Routes and intelligence logic are unchanged.
+
+Suggested commit message:
+Add DESIGN-002 product naming and navigation polish
 
 Then run:
-Actions > DESIGN-001 P01 Visual System Alignment > Run workflow > main
+GitHub Actions -> DESIGN-002 Product Naming & Navigation Polish -> Run workflow
