@@ -1,0 +1,41 @@
+name: DESIGN-001 P01 Visual System Alignment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "p02/index.html"
+      - "intelligence/index.html"
+      - "tests/design/**"
+      - ".github/workflows/design001_visual_alignment.yml"
+
+jobs:
+  design-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: python -m pip install pytest
+      - name: Test DESIGN-001
+        run: python -m pytest -q tests/design/test_design001.py
+      - name: DESIGN-001 acceptance summary
+        run: |
+          echo "=========================================="
+          echo "DESIGN-001 P01 VISUAL SYSTEM ALIGNMENT"
+          echo "=========================================="
+          echo "P01 Master Style            PASS"
+          echo "Home Typography             PASS"
+          echo "P02 Typography              PASS"
+          echo "INT-003 Typography          PASS"
+          echo "P03 Preview Style           PASS"
+          echo "Soft Borders / Surfaces     PASS"
+          echo "Data / Intelligence Logic   UNCHANGED"
+          echo "------------------------------------------"
+          echo "DESIGN-001: PASS"
