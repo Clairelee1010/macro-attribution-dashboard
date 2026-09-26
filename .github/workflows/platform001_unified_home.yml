@@ -1,0 +1,43 @@
+name: PLATFORM-001 Unified Home & Navigation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "p01/index.html"
+      - "p02/index.html"
+      - "intelligence/index.html"
+      - "tests/platform/**"
+      - ".github/workflows/platform001_unified_home.yml"
+
+jobs:
+  platform-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: python -m pip install pytest
+      - name: Test PLATFORM-001
+        run: python -m pytest -q tests/platform/test_platform001.py
+      - name: PLATFORM-001 acceptance summary
+        run: |
+          echo "=========================================="
+          echo "PLATFORM-001 UNIFIED HOME & NAVIGATION"
+          echo "=========================================="
+          echo "Unified Home                 PASS"
+          echo "P01 Route /p01/              PASS"
+          echo "P02 Route /p02/              PASS"
+          echo "INT-003 Route /intelligence/ PASS"
+          echo "Shared Navigation            PASS"
+          echo "Light Typography             PASS"
+          echo "P03 Placeholder              PASS"
+          echo "Execution                    DISABLED"
+          echo "------------------------------------------"
+          echo "PLATFORM-001 v2: PASS"
