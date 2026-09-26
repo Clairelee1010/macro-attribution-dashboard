@@ -1,18 +1,13 @@
-DESIGN-002 — Product Naming & Navigation Polish
+DESIGN-002.1 P01 Navigation Hotfix
 
-Upload these files to the repository root, preserving folders.
-
-Changed user-facing naming:
-- P01 -> 市場情報 / Market Intelligence
-- P02 -> 預測情報 / Prediction Intelligence
-- INT-003 -> 整合情報 / Integrated Intelligence
-- P03 -> Agent 治理 / Agent Governance
-
-Technical/version identifiers remain preserved where appropriate.
-Routes and intelligence logic are unchanged.
+Upload these files to the repository root preserving paths:
+- p01/index.html
+- tests/design/test_design0021.py
+- .github/workflows/design0021_p01_nav_hotfix.yml
+- DESIGN-002.1-README.md
 
 Suggested commit message:
-Add DESIGN-002 product naming and navigation polish
+Fix P01 navigation product naming
 
 Then run:
-GitHub Actions -> DESIGN-002 Product Naming & Navigation Polish -> Run workflow
+Actions -> DESIGN-002.1 P01 Navigation Hotfix -> Run workflow -> main
