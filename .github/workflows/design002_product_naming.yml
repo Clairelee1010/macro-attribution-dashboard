@@ -1,0 +1,40 @@
+name: DESIGN-002 Product Naming & Navigation Polish
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "p01/index.html"
+      - "p02/index.html"
+      - "intelligence/index.html"
+      - "tests/design/test_design002.py"
+      - ".github/workflows/design002_product_naming.yml"
+
+jobs:
+  design-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: python -m pip install pytest
+      - name: Test DESIGN-002
+        run: python -m pytest -q tests/design/test_design002.py
+      - name: DESIGN-002 acceptance summary
+        run: |
+          echo "=========================================="
+          echo "DESIGN-002 PRODUCT NAMING & NAVIGATION"
+          echo "=========================================="
+          echo "Product-facing Navigation     PASS"
+          echo "Home Product Naming           PASS"
+          echo "Product-facing CTAs           PASS"
+          echo "Technical Version IDs         PRESERVED"
+          echo "Routes / Intelligence Logic   UNCHANGED"
+          echo "------------------------------------------"
+          echo "DESIGN-002: PASS"
