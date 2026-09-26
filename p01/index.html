@@ -33,7 +33,7 @@
 </head>
 <body class="p-4 md:p-6 max-w-7xl mx-auto space-y-6 relative min-h-screen">
     <nav class="platform-nav" aria-label="Platform navigation">
-      <a href="../">首頁</a><a class="active" href="./">市場情報</a><a href="../p02/">預測情報</a><a href="../intelligence/">整合情報</a><span class="coming">Agent 治理 · Coming Soon</span>
+      <a id="platform-nav-home" href="../">首頁</a><a id="platform-nav-market" class="active" href="./">市場情報</a><a id="platform-nav-prediction" href="../p02/">預測情報</a><a id="platform-nav-integrated" href="../intelligence/">整合情報</a><span id="platform-nav-agent" class="coming">Agent 治理</span>
     </nav>
 
 
@@ -837,6 +837,11 @@
                 document.getElementById('robi-input').placeholder = "Enter your macro or market question...";
                 document.getElementById('robi-send-btn').innerText = "Send";
             }
+            document.getElementById('platform-nav-home').innerText = isZh ? '首頁' : 'Home';
+            document.getElementById('platform-nav-market').innerText = isZh ? '市場情報' : 'Market';
+            document.getElementById('platform-nav-prediction').innerText = isZh ? '預測情報' : 'Prediction';
+            document.getElementById('platform-nav-integrated').innerText = isZh ? '整合情報' : 'Integrated';
+            document.getElementById('platform-nav-agent').innerText = isZh ? 'Agent 治理' : 'Agent Governance';
             document.documentElement.lang = isZh ? 'zh-TW' : 'en';
             document.getElementById('lbl-current-feed-items').innerText = isZh ? '目前情報筆數' : 'CURRENT FEED ITEMS';
             document.getElementById('lbl-official-source-share').innerText = isZh ? '官方來源占比' : 'OFFICIAL SOURCE SHARE';
