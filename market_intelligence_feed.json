@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-27T06:50:18.733427Z",
+  "generated_at": "2026-09-27T07:10:36.256176Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,49 +103,64 @@
   ],
   "errors": [
     {
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Taiwan+TSMC+market+semiconductor+blockchain+crypto&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.gdeltproject."
+    },
+    {
       "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=blockchain+web3+tokenization+real+world+assets+RWA+stablecoin+DeFi&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='a"
     },
     {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Federal+Reserve+Treasury+inflation+CPI+PCE+markets+crypto+blockchain&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host="
     },
     {
       "source": "Federal Reserve",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Afederalreserve.gov%29+%28interest+rate+monetary+policy+inflation+liquidity+markets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeou"
     },
     {
       "source": "US Treasury",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atreasury.gov%29+%28treasury+yield+financial+markets+digital+assets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSCon"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abinance.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPS"
+    },
+    {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Aokx.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConn"
     },
     {
       "source": "SEC",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Asec.gov%29+%28crypto+digital+asset+token+securities+blockchain%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnect"
     },
     {
       "source": "Coinbase",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Acoinbase.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTP"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abybit.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSCo"
+    },
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Acircle.com%29+%28stablecoin+USDC+payment+blockchain+tokenization%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConne"
+    },
+    {
+      "source": "Bitget",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abitget.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSC"
     },
     {
       "source": "TWSE",
@@ -163,22 +178,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Gate",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
