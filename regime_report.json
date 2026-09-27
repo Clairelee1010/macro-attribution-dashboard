@@ -1,75 +1,33 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-09-26T14:02:48.664735+00:00",
+  "generated_at": "2026-09-27T06:24:18.389015+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
-  "regime": "RISK_OFF",
-  "score": -0.355,
-  "confidence": 0.43,
-  "coverage": 0.6,
-  "contradiction": true,
-  "drivers": [
-    {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "signal_id": "VERY_HIGH_YIELD",
-      "confidence": 0.9,
-      "weight": 1.8,
-      "weighted_score": -1.62
-    },
-    {
-      "metric_id": "DXY",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "FIRM_DOLLAR",
-      "confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0
-    },
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "signal_id": "LOW_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": 1.2
-    }
-  ],
-  "supporting": [
-    {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "signal_id": "VERY_HIGH_YIELD",
-      "confidence": 0.9,
-      "weight": 1.8,
-      "weighted_score": -1.62
-    },
-    {
-      "metric_id": "DXY",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "FIRM_DOLLAR",
-      "confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0
-    }
-  ],
-  "contradicting": [
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_ON",
-      "strength": "MODERATE",
-      "signal_id": "LOW_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": 1.2
-    }
-  ],
+  "regime": "UNKNOWN",
+  "score": 0.0,
+  "confidence": 0.0,
+  "coverage": 0.0,
+  "contradiction": false,
+  "drivers": [],
+  "supporting": [],
+  "contradicting": [],
   "excluded": [
+    {
+      "metric_id": "US10Y",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
+      "metric_id": "DXY",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
+      "metric_id": "VIX",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
     {
       "metric_id": "BTC",
       "direction": "UNKNOWN",
@@ -82,11 +40,11 @@
     }
   ],
   "summary": {
-    "eligible_signals": 3,
-    "excluded_signals": 2,
+    "eligible_signals": 0,
+    "excluded_signals": 5,
     "total_signals": 5,
-    "eligible_weight": 4.0,
-    "weighted_sum": -1.42
+    "eligible_weight": 0,
+    "weighted_sum": 0
   },
   "semantics": {
     "regime": [

@@ -1,48 +1,48 @@
 {
   "schema_version": "9.0",
   "source_schema_version": "8.0",
-  "generated_at": "2026-09-26T14:02:48.664735+00:00",
+  "generated_at": "2026-09-27T06:24:18.389015+00:00",
   "engine": "P01-009",
   "rules_version": "1.0",
-  "confidence_score": 0.6381,
-  "confidence_level": "MEDIUM",
-  "evidence_coverage": 0.6,
+  "confidence_score": 0.355,
+  "confidence_level": "LOW",
+  "evidence_coverage": 0.0,
   "components": {
-    "data_quality": 1.0,
-    "evidence_coverage": 0.6,
+    "data_quality": 0.85,
+    "evidence_coverage": 0.0,
     "source_reliability": 0.95,
-    "signal_agreement": 0.6859,
-    "attribution_support": 0.108,
-    "risk_confidence": 0.0648
+    "signal_agreement": 0.0,
+    "attribution_support": 0.0,
+    "risk_confidence": 0.0
   },
   "evidence": [
     {
       "evidence_id": "DATA_QUALITY",
       "upstream_engine": "P01-004",
       "artifact": "data_quality_report.json",
-      "status": "PASS",
-      "value": 1.0
+      "status": "DEGRADED",
+      "value": 0.85
     },
     {
       "evidence_id": "MARKET_REGIME",
       "upstream_engine": "P01-006",
       "artifact": "regime_report.json",
-      "status": "RISK_OFF",
-      "value": 0.43
+      "status": "UNKNOWN",
+      "value": 0.0
     },
     {
       "evidence_id": "ATTRIBUTION",
       "upstream_engine": "P01-007",
       "artifact": "attribution_report.json",
-      "status": "AVAILABLE",
-      "value": 0.108
+      "status": "LIMITED",
+      "value": 0.0
     },
     {
       "evidence_id": "MARKET_RISK",
       "upstream_engine": "P01-008",
       "artifact": "market_risk_report.json",
       "status": "HIGH",
-      "value": 0.0648
+      "value": 0.0
     }
   ],
   "traceability": {
@@ -55,13 +55,14 @@
     "EXCLUDED_SIGNALS_PRESENT",
     "FALLBACK_SOURCE_USED",
     "LIMITED_EVIDENCE_COVERAGE",
-    "LOW_ATTRIBUTION_SUPPORT"
+    "LOW_ATTRIBUTION_SUPPORT",
+    "STALE_OBSERVATION"
   ],
   "summary": {
     "expected_observations": 5,
-    "eligible_evidence": 3,
-    "missing_or_excluded": 2,
-    "excluded_signals": 2
+    "eligible_evidence": 0,
+    "missing_or_excluded": 5,
+    "excluded_signals": 5
   },
   "semantics": {
     "confidence_score": "Deterministic reliability score from current data quality, evidence coverage, source provenance, signal agreement, attribution support, and upstream risk confidence. It is not a probability of a future market outcome.",
