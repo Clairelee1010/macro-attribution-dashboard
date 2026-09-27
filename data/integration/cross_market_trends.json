@@ -1,0 +1,117 @@
+{
+  "product": "Cross-Market Trend Intelligence",
+  "version": "INT-004",
+  "generated_at": "2026-09-26T14:02:48.664735+00:00",
+  "methodology": {
+    "chart": "Indexed performance; first available point = 100",
+    "purpose": "Cross-market context only",
+    "forecast": false,
+    "execution_allowed": false
+  },
+  "series": [
+    {
+      "metric_id": "BTC",
+      "name": "Bitcoin",
+      "unit": "USD",
+      "group": "CRYPTO",
+      "source": "CoinGecko Public API",
+      "status": "INSUFFICIENT_HISTORY",
+      "current": 83922.9004,
+      "change_1d_pct": -0.18,
+      "change_7d_pct": null,
+      "change_30d_pct": null,
+      "points": [
+        {
+          "date": "2026-09-26",
+          "value": 83922.9004,
+          "indexed": 100.0
+        }
+      ]
+    },
+    {
+      "metric_id": "ETH",
+      "name": "Ethereum",
+      "unit": "USD",
+      "group": "CRYPTO",
+      "source": "CoinGecko Public API",
+      "status": "INSUFFICIENT_HISTORY",
+      "current": 2685.5475,
+      "change_1d_pct": -0.2,
+      "change_7d_pct": null,
+      "change_30d_pct": null,
+      "points": [
+        {
+          "date": "2026-09-26",
+          "value": 2685.5475,
+          "indexed": 100.0
+        }
+      ]
+    },
+    {
+      "metric_id": "SP500",
+      "name": "S&P 500",
+      "unit": "INDEX",
+      "group": "Equity",
+      "source": "Yahoo Finance via yfinance",
+      "status": "UNAVAILABLE",
+      "points": []
+    },
+    {
+      "metric_id": "DXY",
+      "name": "US Dollar Index",
+      "unit": "INDEX",
+      "group": "FX",
+      "source": "Yahoo Finance via yfinance",
+      "status": "INSUFFICIENT_HISTORY",
+      "current": 100.97,
+      "change_1d_pct": -0.32,
+      "change_7d_pct": null,
+      "change_30d_pct": null,
+      "points": [
+        {
+          "date": "2026-09-25",
+          "value": 100.97,
+          "indexed": 100.0
+        }
+      ]
+    },
+    {
+      "metric_id": "US10Y",
+      "name": "US 10-Year Treasury Yield",
+      "unit": "%",
+      "group": "MACRO",
+      "source": "Yahoo Finance via yfinance",
+      "status": "INSUFFICIENT_HISTORY",
+      "current": 5.184,
+      "change_1d_pct": 0.43,
+      "change_7d_pct": null,
+      "change_30d_pct": null,
+      "points": [
+        {
+          "date": "2026-09-25",
+          "value": 5.184,
+          "indexed": 100.0
+        }
+      ]
+    },
+    {
+      "metric_id": "VIX",
+      "name": "CBOE Volatility Index",
+      "unit": "INDEX",
+      "group": "RISK",
+      "source": "Yahoo Finance via yfinance",
+      "status": "INSUFFICIENT_HISTORY",
+      "current": 14.87,
+      "change_1d_pct": -5.11,
+      "change_7d_pct": null,
+      "change_30d_pct": null,
+      "points": [
+        {
+          "date": "2026-09-25",
+          "value": 14.87,
+          "indexed": 100.0
+        }
+      ]
+    }
+  ]
+}
