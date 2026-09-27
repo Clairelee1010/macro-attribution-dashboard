@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-27T08:20:26.044227Z",
+  "generated_at": "2026-09-27T16:29:43.489862Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -24,8 +24,8 @@
     },
     {
       "source": "Circle",
-      "status": "OK",
-      "items": 1,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -49,7 +49,7 @@
     {
       "source": "MEXC",
       "status": "OK",
-      "items": 4,
+      "items": 3,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -67,7 +67,7 @@
     {
       "source": "NEWS:WEB3_RWA",
       "status": "OK",
-      "items": 2,
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,84 +103,84 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=blockchain+web3+tokenization+real+world+assets+RWA+stablecoin+DeFi&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='a"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abinance.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPS"
-    },
-    {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Afederalreserve.gov%29+%28interest+rate+monetary+policy+inflation+liquidity+markets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeou"
-    },
-    {
       "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Taiwan+TSMC+market+semiconductor+blockchain+crypto&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.gdeltproject."
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=Federal+Reserve+Treasury+inflation+CPI+PCE+markets+crypto+blockchain&mode=artlist&format=json&maxrecords=50&sort=datedesc&timespan=2d (Caused by ConnectTimeoutError(<HTTPSConnection(host="
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Aokx.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConn"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "US Treasury",
+      "source": "Binance",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atreasury.gov%29+%28treasury+yield+financial+markets+digital+assets%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSCon"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "SEC",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Asec.gov%29+%28crypto+digital+asset+token+securities+blockchain%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnect"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "US Treasury",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abybit.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSCo"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "Federal Reserve",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Amexc.com+OR+domain%3Amexc.co%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTi"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Coinbase",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Acoinbase.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTP"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Circle",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Acircle.com%29+%28stablecoin+USDC+payment+blockchain+tokenization%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConne"
-    },
-    {
-      "source": "Bitget",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Abitget.com%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSC"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Gate",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Agate.com+OR+domain%3Agate.io%29+%28blockchain+crypto+web3+stablecoin+token+DeFi+RWA+AI%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTi"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bitget",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "TWSE",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atwse.com.tw%29+%28Taiwan+market+semiconductor+TSMC+ETF%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnection(host"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "TSMC",
       "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Max retries exceeded with url: /api/v2/doc/doc?query=%28domain%3Atsmc.com%29+%28semiconductor+AI+market+technology%29&mode=artlist&format=json&maxrecords=30&sort=datedesc&timespan=7d (Caused by ConnectTimeoutError(<HTTPSConnection(host='api"
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
   ],
   "items": [
@@ -268,134 +268,6 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-3932E0E967B9",
-      "title": "Solana ($SOL): The High-Performance Blockchain Powering the Next Wave of Web3 - Binance",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9mOFpvWlVXNEptSVZ3eVphLXhXZUEySFVvRWQzVVViWWZDVDRyamNSTU5EaUFoSWVEN2F5X2pMdmJUUkhLUTJia05pWloxR0xVNFRYdHZVR2pFRnRMazhXaEdVb3E?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Binance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-26T03:24:43Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 70,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC"
-      ]
-    },
-    {
-      "id": "NEWS-7D802E932B15",
-      "title": "Circle | The full-stack platform for the internet financial system - circle.com",
-      "url": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE9uWVFxclRpNkp5cjBWUEJvN3V2cmRGQXlCRmVlSzJTa21pdnUyNTExRmdRdFlvcGtILUFN?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Circle",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-25T07:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "STABLECOIN"
-      ],
-      "primary_topic": "STABLECOIN",
-      "why_it_matters": "Stablecoin developments can affect payment rails, on-chain liquidity, and institutional adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to stablecoin infrastructure, payment rails, and on-chain liquidity.",
-        "zh-TW": "此事件與穩定幣基礎設施、支付軌道及鏈上流動性相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Stablecoin developments can affect payment infrastructure, on-chain liquidity, settlement, and institutional adoption.",
-        "zh-TW": "穩定幣發展可能影響支付基礎設施、鏈上流動性、結算方式與機構採用。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 68,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC"
-      ]
-    },
-    {
-      "id": "NEWS-899203388CAF",
-      "title": "Solana Blockchain Development Company: Services, Use Cases, and How to Choose - MEXC",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPS2NwX3BCY2pJd3o0YW9DUWkxWHMzNmFUSlFhekRvWUJMdTNlU3hMdDByRGlvSF85bVl4M0tDWEl6RVU5VFAzd0FrSEpmQmZQbnROSUVVaTl6OTVEZGNiRERLRFVKNTJDZ0p1VUk2SmxnbHZWRXN5ejFLYzJta01INm1Rc1ZqNjBYUlJ1aE1SeW5YUWFTMnRoS3dGX29mcnNCMkhCeHF3S3MwQXEwNXVFTg?oc=5",
-      "domain": "news.google.com",
-      "source_name": "MEXC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-21T07:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 68,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC"
       ]
     },
     {
