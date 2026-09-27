@@ -1,7 +1,7 @@
 {
   "product": "Intelligence Platform",
   "version": "INT-001",
-  "generated_at": "2026-09-27T05:09:50.077257+00:00",
+  "generated_at": "2026-09-27T06:24:59.583880+00:00",
   "execution_allowed": false,
   "architecture": {
     "p01": "UNDERSTAND",
@@ -10,41 +10,23 @@
     "p03": "GOVERN_ACT_PLANNED"
   },
   "p01": {
-    "regime": "RISK_OFF",
-    "regime_score": -0.355,
-    "regime_confidence": 0.43,
+    "regime": "UNKNOWN",
+    "regime_score": 0.0,
+    "regime_confidence": 0.0,
     "risk_level": "HIGH",
-    "risk_score": 92.8,
-    "risk_confidence": 0.0648,
-    "evidence_confidence": "MEDIUM",
-    "evidence_confidence_score": 0.6381,
-    "evidence_coverage": 0.6,
+    "risk_score": 80.0,
+    "risk_confidence": 0,
+    "evidence_confidence": "LOW",
+    "evidence_confidence_score": 0.355,
+    "evidence_coverage": 0.0,
     "limitations": [
       "EXCLUDED_SIGNALS_PRESENT",
       "FALLBACK_SOURCE_USED",
       "LIMITED_EVIDENCE_COVERAGE",
-      "LOW_ATTRIBUTION_SUPPORT"
+      "LOW_ATTRIBUTION_SUPPORT",
+      "STALE_OBSERVATION"
     ],
-    "drivers": [
-      {
-        "metric_id": "US10Y",
-        "signal_id": "VERY_HIGH_YIELD",
-        "direction": "RISK_OFF",
-        "strength": "STRONG"
-      },
-      {
-        "metric_id": "DXY",
-        "signal_id": "FIRM_DOLLAR",
-        "direction": "RISK_OFF",
-        "strength": "MODERATE"
-      },
-      {
-        "metric_id": "VIX",
-        "signal_id": "LOW_VOLATILITY",
-        "direction": "RISK_ON",
-        "strength": "MODERATE"
-      }
-    ]
+    "drivers": []
   },
   "p02": {
     "market_coverage": 4907,
