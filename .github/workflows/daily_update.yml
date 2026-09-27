@@ -60,6 +60,9 @@ jobs:
       - name: Run P01-NEWS-001 market intelligence feed
         run: python market_intelligence.py --output market_intelligence_feed.json
 
+      - name: Run INT-004 cross-market trend intelligence
+        run: python cross_market_trends.py
+
       - name: Validate generated files
         run: |
           python - <<'PY'
@@ -80,6 +83,7 @@ jobs:
               "dashboard_data.json",
               "pipeline_status.json",
               "market_intelligence_feed.json",
+              "data/integration/cross_market_trends.json",
           ]
 
           for filename in required:
@@ -105,7 +109,7 @@ jobs:
 
       - name: Stage generated artifacts
         run: |
-          git add --             data.json             live_market_data.json             raw_market_data.json             normalized_market_data.json             data_quality_report.json             signal_report.json             regime_report.json             attribution_report.json             market_risk_report.json             confidence_evidence_report.json             dashboard_data.json             pipeline_status.json             market_intelligence_feed.json
+          git add --             data.json             live_market_data.json             raw_market_data.json             normalized_market_data.json             data_quality_report.json             signal_report.json             regime_report.json             attribution_report.json             market_risk_report.json             confidence_evidence_report.json             dashboard_data.json             pipeline_status.json             market_intelligence_feed.json             data/integration/cross_market_trends.json
           git status --short
 
       - name: Commit generated artifacts
