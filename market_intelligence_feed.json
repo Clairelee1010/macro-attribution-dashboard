@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-27T17:39:48.157634Z",
+  "generated_at": "2026-09-28T06:34:54.382902Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -54,14 +54,14 @@
     },
     {
       "source": "NEWS:TW_MARKET",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,12 +103,12 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -118,12 +118,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "SEC",
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -138,17 +143,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,12 +158,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -271,6 +271,92 @@
       ]
     },
     {
+      "id": "NEWS-C5F437E40BC9",
+      "title": "Will the Fed Rate Hike and High Oil Prices Push Bitcoin Lower? - Programming Insider",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPWll6Q2FiUTlpMTlFcUJzNUNGdXdSNFQ0YXpRNDNQel9Db3NjY2owT2hkWGVRcTk5Uy1wcHNST0dYcW5wX010T1lfWlhjT2R0NjNwSDRFRXpvMlN4X19rOXpyYmpIVjY3Q1ZqMzEwRi03WERtNXV5REljVFRGNnMxN0p0NkRHVDVrZXFOWjFPMU1mWHQ4RXVIdQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Programming Insider",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-22T13:53:38Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 73,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "HIGH_MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-899203388CAF",
+      "title": "Solana Blockchain Development Company: Services, Use Cases, and How to Choose - MEXC",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPS2NwX3BCY2pJd3o0YW9DUWkxWHMzNmFUSlFhekRvWUJMdTNlU3hMdDByRGlvSF85bVl4M0tDWEl6RVU5VFAzd0FrSEpmQmZQbnROSUVVaTl6OTVEZGNiRERLRFVKNTJDZ0p1VUk2SmxnbHZWRXN5ejFLYzJta01INm1Rc1ZqNjBYUlJ1aE1SeW5YUWFTMnRoS3dGX29mcnNCMkhCeHF3S3MwQXEwNXVFTg?oc=5",
+      "domain": "news.google.com",
+      "source_name": "MEXC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-21T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "EXCHANGE"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
+        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
+        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC"
+      ]
+    },
+    {
       "id": "NEWS-245F47004A01",
       "title": "CLARITY Act Momentum Triggers FOMO: A New Era of Crypto Market Regulation Arrives - MEXC",
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQYlhra0RiRUo0VU5KUTNoNlRWMEFpc2NaM2Y2dkQyZEJBM29yM09mdVpCbVI3ZTJZRmRNYVRSM01iQ2ZZMDFKWnpCY2o2MmcxbVlZOVdaSHVEYWVLUFVGdXFiY2V5S044R0RRZ2h2Q25VR2pfZF9MSDVfUWFxVkM2V3VVOERpdHVyMXBtUnBsNDJCcXI5eFV5NlRUMmp1aGUwZS1QWmFreEJuOVA5N05ScldlZ3hmQS04?oc=5",
@@ -313,44 +399,44 @@
       ]
     },
     {
-      "id": "NEWS-881A090494C2",
-      "title": "What Is POLYMARKET Pre-IPO Futures? A Beginner’s Guide to Trading Polymarket Before a Potential IPO - MEXC",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQS2c3bzRxLURKWk9jOGE3ajdLZWx3QjVENmNJNUYxekNXR3Roc05SanRlNlpNYlg2UHpNZ2N0b3ZWeFhjYURpRUxGLTd3a1JaNmZFQ1N5QUsyZlpHamd5S2dtUV9QT1VyZHFrSjdCX202T01XdUhvMVFZMk1Talg1UTI2c2s5SkhoN3Y5UlBCV0JRdW5XUFNpcTRHYW1uN1NoVnRHYlUwVDZTTERzNzVzTHNPdzA4Vnh5WVd0V3kxcmVITHpFcFdzNWdqaXVfWVU?oc=5",
+      "id": "NEWS-29E5C9730C93",
+      "title": "Will TSMC be the Most Valuable Semiconductor Company? - Phandroid",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaEJ5VGRrUEdxVTNmckJRY3llNVp6eHNFMm4wMGczR1oxSDY1U1B1SUg2UVZCWTE2OVFJbllkYmxrTHNlT3NBYVE3Zk1IRmhLQ0RRcVVaRk1lNHFKQ0xIcGxlcmFFVzVZMy04anJNMUwxUU9JQ0M0STVabEJSOHRhMVdrS3VDblBEUnl3RWRmcko?oc=5",
       "domain": "news.google.com",
-      "source_name": "MEXC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "source_name": "Phandroid",
+      "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-22T05:33:28Z",
+      "published_at": "2026-09-23T07:00:00Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
-        "EXCHANGE"
+        "TW_MARKET"
       ],
-      "primary_topic": "EXCHANGE",
-      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
-        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
-        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
       },
       "linked_p01_context": [
-        "BTC",
-        "ETH",
         "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
+        "MARKET_RISK"
       ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 58,
+      "relevance_score": 60,
       "priority": "MEDIUM",
       "ranking_reasons": [
-        "OFFICIAL_SOURCE",
+        "NEWS_SOURCE",
         "STALE",
-        "STRONG_P01_CONTEXT_MATCH"
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
       ]
     },
     {
