@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-29T01:37:30.216538Z",
+  "generated_at": "2026-09-29T01:38:22.254404Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,16 +103,6 @@
   ],
   "errors": [
     {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -123,12 +113,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "US Treasury",
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
+      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,12 +133,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,17 +168,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TWSE",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Bitget",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -185,9 +185,9 @@
   ],
   "items": [
     {
-      "id": "NEWS-67E66789BF42",
+      "id": "NEWS-9FC05EFC76EE",
       "title": "United States Department of the Treasury Announces New Appointment - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBfWFQxd01QaC15WFU3ZnhDMkxsUzM5LVM4UUQyQzFRd2YzSWZOOTFmTG9GQWVlTlZneHRSN2dRRG1PUFlSa3p1TFJzYzVxQ1ZzZXhTd2ZJVUZteDczNENkTVBDQQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB3R21yLVdvTE1Kdzc3OUtLZWZ2WkxVZlNWa1VjR1VMQ3lDbUx2MElzeDFUcjhxVW1vRDV2WWVodzFZbEhzRktQUTBCbF9YdThoYlNPYk1talBiTlVZRWtCcXZR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
