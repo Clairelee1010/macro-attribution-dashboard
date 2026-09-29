@@ -1,37 +1,36 @@
 {
   "schema_version": "8.0",
   "source_schema_version": "7.0",
-  "generated_at": "2026-09-28T06:34:42.494162+00:00",
+  "generated_at": "2026-09-29T01:37:18.295576+00:00",
   "engine": "P01-008",
   "rules_version": "1.0",
-  "regime": "UNKNOWN",
+  "regime": "RISK_OFF",
   "risk_score": 100,
   "risk_level": "HIGH",
-  "confidence": 0.008,
-  "evidence_coverage": 0.2,
+  "confidence": 0.2088,
+  "evidence_coverage": 0.6,
   "risk_drivers": [
+    {
+      "metric_id": "US10Y",
+      "signal_id": "VERY_HIGH_YIELD",
+      "direction": "RISK_OFF",
+      "strength": "STRONG",
+      "contribution_share": 0.6183,
+      "signal_confidence": 0.9,
+      "risk_impact": 16.6941
+    },
     {
       "metric_id": "DXY",
       "signal_id": "FIRM_DOLLAR",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
-      "contribution_share": 1.0,
+      "contribution_share": 0.3817,
       "signal_confidence": 1.0,
-      "risk_impact": 30.0
+      "risk_impact": 11.451
     }
   ],
   "protective_factors": [],
   "excluded": [
-    {
-      "metric_id": "US10Y",
-      "direction": "UNKNOWN",
-      "reason": "DATA_QUALITY_GATE_FAILED"
-    },
-    {
-      "metric_id": "VIX",
-      "direction": "UNKNOWN",
-      "reason": "DATA_QUALITY_GATE_FAILED"
-    },
     {
       "metric_id": "BTC",
       "direction": "UNKNOWN",
@@ -44,10 +43,10 @@
     }
   ],
   "summary": {
-    "risk_driver_count": 1,
+    "risk_driver_count": 2,
     "protective_factor_count": 0,
-    "eligible_drivers": 1,
-    "excluded_signals": 4
+    "eligible_drivers": 3,
+    "excluded_signals": 2
   },
   "semantics": {
     "risk_score": "Deterministic composite assessment from current regime, attributed evidence, coverage, and confidence. Higher values indicate higher assessed market risk.",
