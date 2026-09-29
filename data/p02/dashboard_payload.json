@@ -1,11 +1,11 @@
 {
   "product": "P02",
   "version": "P02-v1.0",
-  "generated_at": "2026-09-29T05:34:50.285885Z",
+  "generated_at": "2026-09-29T12:40:55.425851Z",
   "execution_allowed": false,
   "summary": {
-    "polymarket_markets": 1770,
-    "kalshi_markets": 3243,
+    "polymarket_markets": 1762,
+    "kalshi_markets": 3134,
     "matched_events": 0,
     "discrepancy_signals": 0,
     "p01_context_available": true,
@@ -18,32 +18,32 @@
     "quality_policy": "UP_TO_20_NO_FORCED_FILL",
     "category_cap": 5,
     "category_counts": {
+      "politics": 4,
       "macro": 5,
       "crypto": 5,
       "energy": 5,
-      "politics": 1,
-      "technology": 4
+      "technology": 1
     },
     "predictions": [
       {
-        "event_id": "POLYMARKET:2589813",
+        "event_id": "POLYMARKET:560317",
         "venue": "polymarket",
-        "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+        "question": "Putin out as President of Russia by December 31, 2026?",
         "outcome": "YES",
-        "implied_probability": 0.685,
-        "volume_usd": 213341.2753800001,
-        "liquidity_usd": 716014.3386,
-        "market_close_time": "2026-10-29",
-        "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "implied_probability": 0.0285,
+        "volume_usd": 218038.728976,
+        "liquidity_usd": 854684.62352,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/putin-out-before-2027-346",
+        "retrieved_at": "2026-09-29T12:40:40.158291Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
-          "key": "macro",
-          "zh": "總經／利率",
-          "en": "Macro & Rates"
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
         },
-        "trending_score": 95.48,
+        "trending_score": 95.86,
         "rank": 1
       },
       {
@@ -52,11 +52,11 @@
         "question": "Will the Fed decrease interest rates by 50+ bps after the October 2026 meeting?",
         "outcome": "YES",
         "implied_probability": 0.0025,
-        "volume_usd": 141597.547002,
-        "liquidity_usd": 725064.89702,
+        "volume_usd": 128273.65700199999,
+        "liquidity_usd": 773557.79777,
         "market_close_time": "2026-10-29",
         "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324029",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -64,8 +64,29 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 94.47,
+        "trending_score": 94.33,
         "rank": 2
+      },
+      {
+        "event_id": "POLYMARKET:2589813",
+        "venue": "polymarket",
+        "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+        "outcome": "YES",
+        "implied_probability": 0.685,
+        "volume_usd": 154738.6552850001,
+        "liquidity_usd": 404859.5048,
+        "market_close_time": "2026-10-29",
+        "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "macro",
+          "zh": "總經／利率",
+          "en": "Macro & Rates"
+        },
+        "trending_score": 93.64,
+        "rank": 3
       },
       {
         "event_id": "POLYMARKET:2589812",
@@ -73,11 +94,11 @@
         "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
         "outcome": "YES",
         "implied_probability": 0.305,
-        "volume_usd": 155258.10971900003,
-        "liquidity_usd": 546069.5541,
+        "volume_usd": 146527.80728999994,
+        "liquidity_usd": 377913.4935,
         "market_close_time": "2026-10-29",
         "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -85,20 +106,20 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 94.19,
-        "rank": 3
+        "trending_score": 93.37,
+        "rank": 4
       },
       {
         "event_id": "POLYMARKET:2589814",
         "venue": "polymarket",
         "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.0095,
-        "volume_usd": 83816.08187499997,
-        "liquidity_usd": 371009.55618,
+        "implied_probability": 0.0085,
+        "volume_usd": 89387.97156899996,
+        "liquidity_usd": 359843.72881,
         "market_close_time": "2026-10-29",
         "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324033",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -106,71 +127,29 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 91.93,
-        "rank": 4
-      },
-      {
-        "event_id": "POLYMARKET:3215008",
-        "venue": "polymarket",
-        "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
-        "outcome": "YES",
-        "implied_probability": 0.77,
-        "volume_usd": 178400.97314,
-        "liquidity_usd": 111330.5631,
-        "market_close_time": "2026-12-09",
-        "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "macro",
-          "zh": "總經／利率",
-          "en": "Macro & Rates"
-        },
-        "trending_score": 91.66,
+        "trending_score": 92.03,
         "rank": 5
       },
       {
-        "event_id": "KALSHI:KXBTC2026200-27JAN01-200000",
-        "venue": "kalshi",
-        "question": "Will Bitcoin be above $200000 by Jan 1, 2027 at 11:59PM ET?",
-        "outcome": "YES",
-        "implied_probability": 0.03,
-        "volume_usd": 31623.21,
-        "liquidity_usd": 3984384.62,
-        "market_close_time": "2027-01-01T05:00:00Z",
-        "source_url": "https://kalshi.com/markets/KXBTC2026200-27JAN01-200000",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 91.25,
-        "rank": 6
-      },
-      {
-        "event_id": "POLYMARKET:701493",
+        "event_id": "POLYMARKET:561250",
         "venue": "polymarket",
-        "question": "Will Bitcoin reach $130,000 by December 31, 2026?",
+        "question": "Will Elon Musk win the 2028 US Presidential Election?",
         "outcome": "YES",
-        "implied_probability": 0.0585,
-        "volume_usd": 83584.73179899999,
-        "liquidity_usd": 159806.47842,
-        "market_close_time": "2027-01-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-reach-130000-by-december-31-2026-756-151-855",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "implied_probability": 0.0015,
+        "volume_usd": 42435.591,
+        "liquidity_usd": 1579958.56218,
+        "market_close_time": "2029-01-21",
+        "source_url": "https://polymarket.com/market/will-elon-musk-win-the-2028-us-presidential-election",
+        "retrieved_at": "2026-09-29T12:40:40.158291Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
         },
-        "trending_score": 90.39,
-        "rank": 7
+        "trending_score": 92.0,
+        "rank": 6
       },
       {
         "event_id": "POLYMARKET:4052413",
@@ -178,11 +157,11 @@
         "question": "Will Bitcoin reach $100,000 in September?",
         "outcome": "YES",
         "implied_probability": 0.0015,
-        "volume_usd": 87406.71762599998,
-        "liquidity_usd": 134732.83609,
+        "volume_usd": 150591.57679199998,
+        "liquidity_usd": 139088.97111,
         "market_close_time": "2026-10-01",
         "source_url": "https://polymarket.com/market/will-bitcoin-reach-100k-in-september-2026",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -190,20 +169,83 @@
           "zh": "加密貨幣",
           "en": "Crypto"
         },
-        "trending_score": 90.2,
+        "trending_score": 91.63,
+        "rank": 7
+      },
+      {
+        "event_id": "KALSHI:KXBTC15M-26SEP290845-45",
+        "venue": "kalshi",
+        "question": "BTC price up in next 15 mins?",
+        "outcome": "YES",
+        "implied_probability": 0.978,
+        "volume_usd": 68919.73,
+        "liquidity_usd": 311124.33,
+        "market_close_time": "2026-09-29T12:45:00Z",
+        "source_url": "https://kalshi.com/markets/KXBTC15M-26SEP290845-45",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 91.11,
         "rank": 8
       },
       {
-        "event_id": "POLYMARKET:4689727",
+        "event_id": "POLYMARKET:2589811",
         "venue": "polymarket",
-        "question": "Will Bitcoin dip to $80,000 in September?",
+        "question": "Will the Fed decrease interest rates by 25 bps after the October 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.1265,
-        "volume_usd": 160107.568202,
-        "liquidity_usd": 56524.33843,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-80k-in-september-2026-from-september-18",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "implied_probability": 0.0045,
+        "volume_usd": 52748.313500000004,
+        "liquidity_usd": 389386.59998,
+        "market_close_time": "2026-10-29",
+        "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324030",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "macro",
+          "zh": "總經／利率",
+          "en": "Macro & Rates"
+        },
+        "trending_score": 90.84,
+        "rank": 9
+      },
+      {
+        "event_id": "POLYMARKET:4841937",
+        "venue": "polymarket",
+        "question": "Will the price of Bitcoin be above $82,000 on September 29?",
+        "outcome": "YES",
+        "implied_probability": 0.9885,
+        "volume_usd": 158037.399932,
+        "liquidity_usd": 59291.20683,
+        "market_close_time": "2026-09-29",
+        "source_url": "https://polymarket.com/market/bitcoin-above-82k-on-september-29-2026",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 90.21,
+        "rank": 10
+      },
+      {
+        "event_id": "POLYMARKET:4841944",
+        "venue": "polymarket",
+        "question": "Will the price of Bitcoin be above $86,000 on September 29?",
+        "outcome": "YES",
+        "implied_probability": 0.0425,
+        "volume_usd": 178121.14952800004,
+        "liquidity_usd": 48788.5867,
+        "market_close_time": "2026-09-29",
+        "source_url": "https://polymarket.com/market/bitcoin-above-86k-on-september-29-2026",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -212,19 +254,19 @@
           "en": "Crypto"
         },
         "trending_score": 90.16,
-        "rank": 9
+        "rank": 11
       },
       {
-        "event_id": "POLYMARKET:4797724",
+        "event_id": "POLYMARKET:4841932",
         "venue": "polymarket",
-        "question": "Will Bitcoin dip to $82,500 in September?",
+        "question": "Will the price of Bitcoin be above $78,000 on September 29?",
         "outcome": "YES",
-        "implied_probability": 0.685,
-        "volume_usd": 150108.253266,
-        "liquidity_usd": 52811.606,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-82pt5k-in-september-2026",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "implied_probability": 0.9995,
+        "volume_usd": 114033.453036,
+        "liquidity_usd": 79068.11621,
+        "market_close_time": "2026-09-29",
+        "source_url": "https://polymarket.com/market/bitcoin-above-78k-on-september-29-2026",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -232,125 +274,20 @@
           "zh": "加密貨幣",
           "en": "Crypto"
         },
-        "trending_score": 89.87,
-        "rank": 10
-      },
-      {
-        "event_id": "POLYMARKET:3866512",
-        "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $110 in September?",
-        "outcome": "YES",
-        "implied_probability": 0.0075,
-        "volume_usd": 58583.81997600003,
-        "liquidity_usd": 110695.27449,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-110-in-september-2026",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 88.83,
-        "rank": 11
-      },
-      {
-        "event_id": "POLYMARKET:2126460",
-        "venue": "polymarket",
-        "question": "Will Crude Oil reach a new all-time high by September 30?",
-        "outcome": "YES",
-        "implied_probability": 0.0015,
-        "volume_usd": 36010.869999999995,
-        "liquidity_usd": 156250.54108,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-crude-oil-reach-a-new-all-time-high-by-september-30",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 88.22,
+        "trending_score": 89.91,
         "rank": 12
       },
       {
-        "event_id": "POLYMARKET:4487273",
+        "event_id": "POLYMARKET:559662",
         "venue": "polymarket",
-        "question": "Saudi Oil Pipeline (East-West) restarts by September 30?",
+        "question": "Will Mark Cuban win the 2028 Democratic presidential nomination?",
         "outcome": "YES",
-        "implied_probability": 0.2,
-        "volume_usd": 120578.23715400002,
-        "liquidity_usd": 20761.0406,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/saudi-oil-pipeline-east-west-restarts-by-september-30",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 87.63,
-        "rank": 13
-      },
-      {
-        "event_id": "POLYMARKET:3866511",
-        "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $120 in September?",
-        "outcome": "YES",
-        "implied_probability": 0.0035,
-        "volume_usd": 38998.51308000001,
-        "liquidity_usd": 72682.34692,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-120-in-september-2026",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 87.04,
-        "rank": 14
-      },
-      {
-        "event_id": "POLYMARKET:4619164",
-        "venue": "polymarket",
-        "question": "Saudi Oil Pipeline (East-West) restarts by October 31?",
-        "outcome": "YES",
-        "implied_probability": 0.759,
-        "volume_usd": 66278.11582100003,
-        "liquidity_usd": 34418.45334,
-        "market_close_time": "2026-11-01",
-        "source_url": "https://polymarket.com/market/saudi-oil-pipeline-east-west-restarts-by-october-31",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 87.03,
-        "rank": 15
-      },
-      {
-        "event_id": "POLYMARKET:559678",
-        "venue": "polymarket",
-        "question": "Will Liz Cheney win the 2028 Democratic presidential nomination?",
-        "outcome": "YES",
-        "implied_probability": 0.0005,
-        "volume_usd": 3042.68,
-        "liquidity_usd": 2806983.32085,
+        "implied_probability": 0.0045,
+        "volume_usd": 16354.37,
+        "liquidity_usd": 1829767.93849,
         "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-liz-cheney-win-the-2028-democratic-presidential-nomination-551",
-        "retrieved_at": "2026-09-29T05:34:36.283026Z",
+        "source_url": "https://polymarket.com/market/will-mark-cuban-win-the-2028-democratic-presidential-nomination-329",
+        "retrieved_at": "2026-09-29T12:40:40.158291Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -358,8 +295,134 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 85.32,
+        "trending_score": 89.58,
+        "rank": 13
+      },
+      {
+        "event_id": "POLYMARKET:2126460",
+        "venue": "polymarket",
+        "question": "Will Crude Oil reach a new all-time high by September 30?",
+        "outcome": "YES",
+        "implied_probability": 0.001,
+        "volume_usd": 65794.02,
+        "liquidity_usd": 140455.24161,
+        "market_close_time": "2026-10-01",
+        "source_url": "https://polymarket.com/market/will-crude-oil-reach-a-new-all-time-high-by-september-30",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 89.55,
+        "rank": 14
+      },
+      {
+        "event_id": "POLYMARKET:3866512",
+        "venue": "polymarket",
+        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $110 in September?",
+        "outcome": "YES",
+        "implied_probability": 0.0085,
+        "volume_usd": 54859.460454000015,
+        "liquidity_usd": 114520.72192,
+        "market_close_time": "2026-10-01",
+        "source_url": "https://polymarket.com/market/will-wti-reach-110-in-september-2026",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 88.72,
+        "rank": 15
+      },
+      {
+        "event_id": "POLYMARKET:561257",
+        "venue": "polymarket",
+        "question": "Will Michelle Obama win the 2028 US Presidential Election?",
+        "outcome": "YES",
+        "implied_probability": 0.0015,
+        "volume_usd": 10792.396999999999,
+        "liquidity_usd": 1096662.95785,
+        "market_close_time": "2029-01-21",
+        "source_url": "https://polymarket.com/market/will-michelle-obama-win-the-2028-us-presidential-election",
+        "retrieved_at": "2026-09-29T12:40:40.158291Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 88.53,
         "rank": 16
+      },
+      {
+        "event_id": "POLYMARKET:4690431",
+        "venue": "polymarket",
+        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $100 in September?",
+        "outcome": "YES",
+        "implied_probability": 0.015,
+        "volume_usd": 45329.65785499999,
+        "liquidity_usd": 65994.54272,
+        "market_close_time": "2026-10-01",
+        "source_url": "https://polymarket.com/market/will-wti-reach-100-in-september-2026-from-september-18",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 87.24,
+        "rank": 17
+      },
+      {
+        "event_id": "POLYMARKET:3866511",
+        "venue": "polymarket",
+        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $120 in September?",
+        "outcome": "YES",
+        "implied_probability": 0.004,
+        "volume_usd": 34920.18221300001,
+        "liquidity_usd": 67286.43988,
+        "market_close_time": "2026-10-01",
+        "source_url": "https://polymarket.com/market/will-wti-reach-120-in-september-2026",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 86.62,
+        "rank": 18
+      },
+      {
+        "event_id": "POLYMARKET:4487273",
+        "venue": "polymarket",
+        "question": "Saudi Oil Pipeline (East-West) restarts by September 30?",
+        "outcome": "YES",
+        "implied_probability": 0.115,
+        "volume_usd": 72160.48760500002,
+        "liquidity_usd": 22153.2318,
+        "market_close_time": "2026-10-01",
+        "source_url": "https://polymarket.com/market/saudi-oil-pipeline-east-west-restarts-by-september-30",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 86.45,
+        "rank": 19
       },
       {
         "event_id": "POLYMARKET:3554657",
@@ -367,11 +430,11 @@
         "question": "Will Anthropic have the best AI model at the end of October 2026?",
         "outcome": "YES",
         "implied_probability": 0.875,
-        "volume_usd": 35082.78222400001,
-        "liquidity_usd": 30391.733,
+        "volume_usd": 22167.858765000004,
+        "liquidity_usd": 54001.8942,
         "market_close_time": "2026-10-31",
         "source_url": "https://polymarket.com/market/will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
+        "retrieved_at": "2026-09-29T12:40:42.077320Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -379,70 +442,7 @@
           "zh": "科技",
           "en": "Technology"
         },
-        "trending_score": 85.19,
-        "rank": 17
-      },
-      {
-        "event_id": "POLYMARKET:3554660",
-        "venue": "polymarket",
-        "question": "Will Alibaba have the best AI model at the end of October 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.003,
-        "volume_usd": 16973.2445,
-        "liquidity_usd": 41789.3129,
-        "market_close_time": "2026-10-31",
-        "source_url": "https://polymarket.com/market/will-alibaba-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841121",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "technology",
-          "zh": "科技",
-          "en": "Technology"
-        },
-        "trending_score": 83.93,
-        "rank": 18
-      },
-      {
-        "event_id": "POLYMARKET:3554659",
-        "venue": "polymarket",
-        "question": "Will Google have the best AI model at the end of October 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.103,
-        "volume_usd": 12923.987461,
-        "liquidity_usd": 58675.51029,
-        "market_close_time": "2026-10-31",
-        "source_url": "https://polymarket.com/market/will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "technology",
-          "zh": "科技",
-          "en": "Technology"
-        },
-        "trending_score": 83.85,
-        "rank": 19
-      },
-      {
-        "event_id": "POLYMARKET:4412199",
-        "venue": "polymarket",
-        "question": "Will OpenAI announce another Millennium Prize solution by September 30, 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.0215,
-        "volume_usd": 12587.016375,
-        "liquidity_usd": 59622.09706,
-        "market_close_time": "2026-10-01",
-        "source_url": "https://polymarket.com/market/will-openai-announce-another-millennium-prize-solution-by-september-30-2026",
-        "retrieved_at": "2026-09-29T05:34:37.737536Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "technology",
-          "zh": "科技",
-          "en": "Technology"
-        },
-        "trending_score": 83.81,
+        "trending_score": 85.07,
         "rank": 20
       }
     ],
@@ -453,8 +453,7 @@
       "macro": 25,
       "energy": 25,
       "metals": 25,
-      "society": 25,
-      "politics": 25,
+      "politics": 50,
       "sports": 25,
       "other": 25
     },
