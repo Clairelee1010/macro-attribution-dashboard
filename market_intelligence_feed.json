@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-29T09:05:39.149027Z",
+  "generated_at": "2026-09-29T09:09:55.072859Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -54,8 +54,8 @@
     },
     {
       "source": "NEWS:TW_MARKET",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,6 +103,31 @@
   ],
   "errors": [
     {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -118,32 +143,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,22 +168,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
+      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Bitget",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -185,8 +185,8 @@
   ],
   "items": [
     {
-      "id": "NEWS-A05305339518",
-      "title": "READOUT: Secretary of the Treasury Scott Bessent’s Meeting with Lebanese Prime Minister Nawaf Salam and Minister of Finance Yassine Jaber - treasury.gov",
+      "id": "NEWS-AF48DBA8C400",
+      "title": "READOUT: Secretary of the Treasury Scott Bessent’s Meeting with Lebanese Prime Minister Nawaf Salam and Minister of Finance Yassine Jaber - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE85ZjhRYjV4U0dXcWdUN0kyTTJGVXNFbFJ6U2xNcmgxMWktQTF2ZVdtRGppY3Jhd2ZMUnZJMlhTa0pMaVBFRkZKaUZlWXFlbFlDSm15am10dXltbHdoZWpJOFlB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -228,8 +228,8 @@
       ]
     },
     {
-      "id": "NEWS-6559B035CCBA",
-      "title": "United States Department of the Treasury Announces New Appointment - treasury.gov",
+      "id": "NEWS-9FC05EFC76EE",
+      "title": "United States Department of the Treasury Announces New Appointment - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB3R21yLVdvTE1Kdzc3OUtLZWZ2WkxVZlNWa1VjR1VMQ3lDbUx2MElzeDFUcjhxVW1vRDV2WWVodzFZbEhzRktQUTBCbF9YdThoYlNPYk1talBiTlVZRWtCcXZR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "id": "NEWS-D71ED03998E6",
-      "title": "OFFICE OF FOREIGN ASSETS CONTROL - treasury.gov",
+      "id": "NEWS-1D4A42A7BAED",
+      "title": "OFFICE OF FOREIGN ASSETS CONTROL - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5JVWVWN29teVgtNklnUlk5dkx3MWFHZTU5RUtwc05CY1lhR2V6d05waGF5SVR3UGpITHZyb0lHVWwxSjZTck10SVJPWmcyOW00N2taUDJpTTlTRDhMSG9jTA?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -394,6 +394,47 @@
         "FRESH",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC"
+      ]
+    },
+    {
+      "id": "NEWS-CA62A5B6CD5D",
+      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - britannica.com",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "britannica.com",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-26T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
       ]
     }
   ],
