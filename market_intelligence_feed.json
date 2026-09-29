@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-29T08:59:02.941828Z",
+  "generated_at": "2026-09-29T09:05:39.149027Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -108,12 +108,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
+      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -123,7 +118,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "US Treasury",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,7 +133,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -148,22 +148,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
