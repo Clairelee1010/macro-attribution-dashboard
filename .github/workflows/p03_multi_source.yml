@@ -1,0 +1,47 @@
+name: P03 Multi-Source Market Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p03-multi-source-main
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Collect public read-only market data
+        run: python p03_multi_source.py
+      - name: Validate guardrails
+        run: |
+          python - <<'PY2'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('p03/data/multi_source_market.json').read_text())
+          assert p['execution']=='DISABLED'
+          assert 'NO_ORDER' in p['guardrails'] and 'NO_WALLET' in p['guardrails']
+          assert set(p['assets'])=={'BTC','ETH'}
+          print('P03-001A guardrails PASS')
+          PY2
+      - name: Commit generated P03 data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add p03/data/multi_source_market.json p03/data/source_validation.json
+          git diff --cached --quiet && exit 0
+          git commit -m "P03-001A: update multi-source market data"
+          git pull --rebase origin main
+          git push origin HEAD:main
