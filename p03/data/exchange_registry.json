@@ -1,0 +1,60 @@
+{
+  "version": "P03-001A",
+  "mode": "PUBLIC_READ_ONLY",
+  "execution": "DISABLED",
+  "assets": [
+    "BTC",
+    "ETH"
+  ],
+  "quote": "USDT",
+  "sources": [
+    {
+      "id": "binance",
+      "name": "Binance",
+      "base_url": "https://data-api.binance.vision",
+      "endpoint": "/api/v3/ticker/24hr",
+      "symbol_format": "{base}USDT",
+      "auth": "NONE"
+    },
+    {
+      "id": "mexc",
+      "name": "MEXC",
+      "base_url": "https://api.mexc.com",
+      "endpoint": "/api/v3/ticker/24hr",
+      "symbol_format": "{base}USDT",
+      "auth": "NONE"
+    },
+    {
+      "id": "gate",
+      "name": "Gate",
+      "base_url": "https://api.gateio.ws",
+      "endpoint": "/api/v4/spot/tickers",
+      "symbol_format": "{base}_USDT",
+      "auth": "NONE"
+    },
+    {
+      "id": "bitget",
+      "name": "Bitget",
+      "base_url": "https://api.bitget.com",
+      "endpoint": "/api/v2/spot/market/tickers",
+      "symbol_format": "{base}USDT",
+      "auth": "NONE"
+    },
+    {
+      "id": "bybit",
+      "name": "Bybit",
+      "base_url": "https://api.bybit.com",
+      "endpoint": "/v5/market/tickers",
+      "symbol_format": "{base}USDT",
+      "auth": "NONE"
+    },
+    {
+      "id": "coinbase",
+      "name": "Coinbase Exchange",
+      "base_url": "https://api.exchange.coinbase.com",
+      "endpoint": "/products/{symbol}/ticker",
+      "symbol_format": "{base}-USDT",
+      "auth": "NONE"
+    }
+  ]
+}
