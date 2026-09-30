@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-09-30T03:13:56.641910Z",
+  "generated_at": "2026-09-30T03:14:46.431399Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -55,7 +55,7 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,12 +103,12 @@
   ],
   "errors": [
     {
-      "source": "SEC",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:WEB3_RWA",
+      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -118,7 +118,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,12 +138,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -148,7 +148,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,7 +158,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -168,12 +168,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -185,8 +185,8 @@
   ],
   "items": [
     {
-      "id": "NEWS-AF48DBA8C400",
-      "title": "READOUT: Secretary of the Treasury Scott Bessent’s Meeting with Lebanese Prime Minister Nawaf Salam and Minister of Finance Yassine Jaber - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-A05305339518",
+      "title": "READOUT: Secretary of the Treasury Scott Bessent’s Meeting with Lebanese Prime Minister Nawaf Salam and Minister of Finance Yassine Jaber - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE85ZjhRYjV4U0dXcWdUN0kyTTJGVXNFbFJ6U2xNcmgxMWktQTF2ZVdtRGppY3Jhd2ZMUnZJMlhTa0pMaVBFRkZKaUZlWXFlbFlDSm15am10dXltbHdoZWpJOFlB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -228,8 +228,8 @@
       ]
     },
     {
-      "id": "NEWS-6B34B82A5174",
-      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-E2AB34F9504C",
+      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE92ZHEzb1QzVWtJNkViWXFmODdhcm02QVlMZjNGTHpRWlByUTlXQTNqd1JWVTRFd1FfZFZXdXRnNGE2elpQd1lRODJiMDVsSEt3dV9XUWhEY3cxbGVFX3lVVVRWUQ?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "id": "NEWS-DADA2CEA3935",
-      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-484E2E9A9262",
+      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBkOGgySW5FTzhTSDMxVTVlNjJJaG1DazZtTFA2dV9WYWVyQVhXNGd1WW9kMmJLNU8yd2tGOWtjNkVpZUVzSVJ0cDB6RTFmenMxd0RRMFB2RG5BRkJsTjJTMi13?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -314,8 +314,8 @@
       ]
     },
     {
-      "id": "NEWS-06EA71505BDE",
-      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-23071ACAA442",
+      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBRT1F0emZ6bk9ENmpnODVUOW9LSE1hU0NyRmdnREF6QXliaTExNnZzUW5ydG5wMmFhRFVYbWtMOUlXRGZ0a3pfSXVLb2RsbFUteGd4ZjNfU0tsZEg3QzAyVHdR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -447,8 +447,8 @@
       ]
     },
     {
-      "id": "NEWS-9FC05EFC76EE",
-      "title": "United States Department of the Treasury Announces New Appointment - U.S. Department of the Treasury (.gov)",
+      "id": "NEWS-6559B035CCBA",
+      "title": "United States Department of the Treasury Announces New Appointment - treasury.gov",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB3R21yLVdvTE1Kdzc3OUtLZWZ2WkxVZlNWa1VjR1VMQ3lDbUx2MElzeDFUcjhxVW1vRDV2WWVodzFZbEhzRktQUTBCbF9YdThoYlNPYk1talBiTlVZRWtCcXZR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -528,6 +528,47 @@
         "OFFICIAL_SOURCE",
         "FRESH",
         "STRONG_P01_CONTEXT_MATCH"
+      ]
+    },
+    {
+      "id": "NEWS-29E5C9730C93",
+      "title": "Will TSMC be the Most Valuable Semiconductor Company? - Phandroid",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaEJ5VGRrUEdxVTNmckJRY3llNVp6eHNFMm4wMGczR1oxSDY1U1B1SUg2UVZCWTE2OVFJbllkYmxrTHNlT3NBYVE3Zk1IRmhLQ0RRcVVaRk1lNHFKQ0xIcGxlcmFFVzVZMy04anJNMUwxUU9JQ0M0STVabEJSOHRhMVdrS3VDblBEUnl3RWRmcko?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Phandroid",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-23T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 60,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
       ]
     },
     {
