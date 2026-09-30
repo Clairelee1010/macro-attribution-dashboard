@@ -1,6 +1,26 @@
 {
   "version": "P03-001A",
-  "generated_at": null,
-  "overall_status": "AWAITING_FIRST_RUN",
+  "generated_at": "2026-09-30T03:47:03.639791+00:00",
+  "overall_status": "PASS",
+  "checks": {
+    "BTC": {
+      "sources_checked": 6,
+      "sources_available": 5,
+      "evidence_coverage_pct": 83.3,
+      "median_price": 83315.3,
+      "max_deviation_pct": 0.0227,
+      "source_agreement": "HIGH",
+      "data_quality": "PASS"
+    },
+    "ETH": {
+      "sources_checked": 6,
+      "sources_available": 5,
+      "evidence_coverage_pct": 83.3,
+      "median_price": 2672.91,
+      "max_deviation_pct": 0.07,
+      "source_agreement": "HIGH",
+      "data_quality": "PASS"
+    }
+  },
   "execution": "DISABLED"
 }
