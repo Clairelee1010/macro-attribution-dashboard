@@ -1,12 +1,97 @@
 {
   "version": "P03-002A",
-  "generated_at": null,
+  "generated_at": "2026-10-01T02:20:33.413932+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
-  "guardrails": ["NO_ACCOUNT", "NO_ORDER", "NO_WALLET", "NO_SIGNING", "NO_FUND_EXECUTION", "DISCREPANCY_NOT_ARBITRAGE"],
-  "methodology": {"mapping":"Verify product identity before comparison","comparison":"Traditional vs tokenized observed prices; no trade recommendation","timestamp_policy":"Missing source timestamps remain explicit"},
+  "guardrails": [
+    "NO_ACCOUNT",
+    "NO_ORDER",
+    "NO_WALLET",
+    "NO_SIGNING",
+    "NO_FUND_EXECUTION",
+    "DISCREPANCY_NOT_ARBITRAGE"
+  ],
+  "methodology": {
+    "mapping": "Verify product identity before comparison",
+    "comparison": "Traditional vs tokenized observed prices; no trade recommendation",
+    "timestamp_policy": "Missing source timestamps remain explicit; collected_at is not a substitute for source_ts"
+  },
   "pairs": [
-    {"underlying":"AAPL","token":"AAPLx","name":"Apple","provider":"xStocks / Backed","mapping":{"status":"VERIFIED_PRODUCT_MAPPING","basis":"Official xStocks product listing","backing":"1:1 underlying security (provider statement)","legal_form":"Tokenized representation / certificate structure; not asserted as identical shareholder ownership","verification_source":"https://xstocks.com/us/products","last_verified":null},"traditional":{"status":"PENDING_FIRST_RUN","price":null},"tokenized":{"status":"PENDING_FIRST_RUN","price":null},"comparison":{"status":"INSUFFICIENT_EVIDENCE","discrepancy_pct":null,"evidence_coverage_pct":50.0,"interpretation":"Observed price difference only. Discrepancy does not imply arbitrage."}},
-    {"underlying":"NVDA","token":"NVDAx","name":"NVIDIA","provider":"xStocks / Backed","mapping":{"status":"VERIFIED_PRODUCT_MAPPING","basis":"Official xStocks product listing","backing":"1:1 underlying security (provider statement)","legal_form":"Tokenized representation / certificate structure; not asserted as identical shareholder ownership","verification_source":"https://xstocks.com/us/products","last_verified":null},"traditional":{"status":"PENDING_FIRST_RUN","price":null},"tokenized":{"status":"PENDING_FIRST_RUN","price":null},"comparison":{"status":"INSUFFICIENT_EVIDENCE","discrepancy_pct":null,"evidence_coverage_pct":50.0,"interpretation":"Observed price difference only. Discrepancy does not imply arbitrage."}}
+    {
+      "underlying": "AAPL",
+      "token": "AAPLx",
+      "name": "Apple",
+      "provider": "xStocks / Backed",
+      "mapping": {
+        "status": "VERIFIED_PRODUCT_MAPPING",
+        "basis": "Official xStocks product listing",
+        "backing": "1:1 underlying security (provider statement)",
+        "legal_form": "Tokenized representation / certificate structure; not asserted as identical shareholder ownership",
+        "verification_source": "https://xstocks.com/us/products",
+        "last_verified": "2026-10-01T02:20:32.274882+00:00"
+      },
+      "traditional": {
+        "status": "UNAVAILABLE",
+        "source": "Yahoo Finance via yfinance",
+        "price": null,
+        "source_ts": null,
+        "collected_at": "2026-10-01T02:20:31.043511+00:00",
+        "latency_ms": 0,
+        "note": "Alpaca secrets not configured; using public fallback."
+      },
+      "tokenized": {
+        "status": "METADATA_AVAILABLE",
+        "source": "xStocks / Backed public API",
+        "price": null,
+        "source_ts": null,
+        "latency_ms": 703,
+        "url": "https://api.dev.backed.fi/api/v1/token",
+        "note": "Token metadata reachable; price-data endpoint unavailable or schema not price-bearing."
+      },
+      "comparison": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "discrepancy_pct": null,
+        "evidence_coverage_pct": 50.0,
+        "interpretation": "Observed price difference only. Discrepancy does not imply arbitrage."
+      }
+    },
+    {
+      "underlying": "NVDA",
+      "token": "NVDAx",
+      "name": "NVIDIA",
+      "provider": "xStocks / Backed",
+      "mapping": {
+        "status": "VERIFIED_PRODUCT_MAPPING",
+        "basis": "Official xStocks product listing",
+        "backing": "1:1 underlying security (provider statement)",
+        "legal_form": "Tokenized representation / certificate structure; not asserted as identical shareholder ownership",
+        "verification_source": "https://xstocks.com/us/products",
+        "last_verified": "2026-10-01T02:20:33.413905+00:00"
+      },
+      "traditional": {
+        "status": "UNAVAILABLE",
+        "source": "Yahoo Finance via yfinance",
+        "price": null,
+        "source_ts": null,
+        "collected_at": "2026-10-01T02:20:32.275124+00:00",
+        "latency_ms": 0,
+        "note": "Alpaca secrets not configured; using public fallback."
+      },
+      "tokenized": {
+        "status": "METADATA_AVAILABLE",
+        "source": "xStocks / Backed public API",
+        "price": null,
+        "source_ts": null,
+        "latency_ms": 350,
+        "url": "https://api.dev.backed.fi/api/v1/token",
+        "note": "Token metadata reachable; price-data endpoint unavailable or schema not price-bearing."
+      },
+      "comparison": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "discrepancy_pct": null,
+        "evidence_coverage_pct": 50.0,
+        "interpretation": "Observed price difference only. Discrepancy does not imply arbitrage."
+      }
+    }
   ]
 }
