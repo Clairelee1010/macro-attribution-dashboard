@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-10-01T15:21:34.933296+00:00",
+  "generated_at": "2026-10-01T20:27:48.290082+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,8 +26,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 42.1,
-        "7D": 39.0,
+        "24H": 42.0,
+        "7D": 39.1,
         "30D": 80
       },
       "levels": {
@@ -36,9 +36,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 0.79,
-        "7D": -0.19,
-        "30D": 8.8
+        "24H": 0.77,
+        "7D": -0.22,
+        "30D": 8.78
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,8 +52,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 39.9,
-        "7D": 39.2,
+        "24H": 38.3,
+        "7D": 38.4,
         "30D": 80
       },
       "levels": {
@@ -62,9 +62,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 0.36,
-        "7D": 0.23,
-        "30D": 11.4
+        "24H": 0.05,
+        "7D": -0.08,
+        "30D": 11.05
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,8 +78,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.7,
-        "7D": 41.6,
+        "24H": 40.1,
+        "7D": 40.2,
         "30D": 80
       },
       "levels": {
@@ -88,9 +88,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.14,
-        "7D": 0.7,
-        "30D": 17.85
+        "24H": -0.41,
+        "7D": 0.43,
+        "30D": 17.53
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -105,8 +105,8 @@
       "heat_basis": "AGGREGATE_WATCHLIST_MOMENTUM",
       "scores": {
         "24H": 42.2,
-        "7D": 53.6,
-        "30D": 56.0
+        "7D": 53.7,
+        "30D": 55.5
       },
       "levels": {
         "24H": "COOL",
@@ -114,9 +114,9 @@
         "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": -0.27,
-        "7D": -2.09,
-        "30D": -0.11
+        "24H": -0.31,
+        "7D": -2.13,
+        "30D": -0.16
       },
       "evidence_coverage_pct": 100.0,
       "source": "INT multi-asset watchlist",
@@ -130,9 +130,9 @@
       "evidence_type": "INFERRED_ATTENTION",
       "heat_basis": "VERIFIED_MAPPING_PLUS_UNDERLYING_ACTIVITY",
       "scores": {
-        "24H": 49.7,
+        "24H": 49.4,
         "7D": 56.7,
-        "30D": 58.5
+        "30D": 57.9
       },
       "levels": {
         "24H": "WATCH",
@@ -140,9 +140,9 @@
         "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": -0.16,
-        "7D": -1.83,
-        "30D": 3.1
+        "24H": -0.19,
+        "7D": -1.87,
+        "30D": 3.05
       },
       "evidence_coverage_pct": 36.7,
       "source": "INT verified tokenization mapping + live underlying watchlist",
