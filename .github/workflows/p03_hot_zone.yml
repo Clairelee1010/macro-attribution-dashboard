@@ -1,0 +1,48 @@
+name: P03 Dynamic Hot Zone Intelligence
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "35 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p03-hot-zone-main
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build evidence-first Hot Zone intelligence
+        run: python p03_hot_zone.py
+      - name: Validate P03-003A semantics and guardrails
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('p03/data/hot_zone_intelligence.json').read_text())
+          assert p['execution']=='DISABLED'
+          assert 'HEAT_NOT_RECOMMENDATION' in p['guardrails']
+          assert 'ATTENTION_NOT_CAPITAL_FLOW' in p['guardrails']
+          assert all(not f.get('observed') for f in p['flows'])
+          assert all(x['id']!='RWA' or x['evidence_type']=='INSUFFICIENT_DIRECT_FLOW_EVIDENCE' for x in p['zones'])
+          print('P03-003A semantics PASS')
+          PY
+      - name: Commit generated P03-003A data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add p03/data/hot_zone_intelligence.json
+          git diff --cached --quiet && exit 0
+          git commit -m "P03-003A: update dynamic hot zones"
+          git pull --rebase origin main
+          git push origin HEAD:main
