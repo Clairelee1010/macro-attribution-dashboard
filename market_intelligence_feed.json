@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-01T07:48:15.160562Z",
+  "generated_at": "2026-10-01T15:19:08.841853Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -42,8 +42,8 @@
     },
     {
       "source": "Gate",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,7 +103,7 @@
   ],
   "errors": [
     {
-      "source": "SEC",
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -113,12 +113,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -128,27 +123,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TWSE",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Coinbase",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,12 +148,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
+      "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -173,7 +158,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -181,18 +171,28 @@
       "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TSMC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
   ],
   "items": [
     {
-      "id": "NEWS-DCBDC2E477EB",
-      "title": "Treasury Sanctions Financial Network of Foreign Terrorist Organization, Tren de Aragua, After Theft of Millions from U.S. Banks - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1KNHFQVUxqbGszYV9DZGZhaVgwOWU4alNSM2h5X0cxeHhBMUVMRXpoR2cwRkdLU0VmV1pKQThlZlRIWUdHLXA3M3JGRmNLaDBkOEpmNDY1bTZReWY3cHFaMGFZQQ?oc=5",
+      "id": "NEWS-F8EEBA3C9BCB",
+      "title": "The Trump Administration Advances the Establishment of America’s First Nationwide School Choice Program - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5raXZUX1dzQ0IzdDVLeTg5Q2NGRjJlLW9MTjRRb3U4UEZqUVo3d2xyeXpMS2c4QWQtUTZ3ckFtS3ZiUlBobFNzb3NxM1c1OHJfZU1Od0lUMjRIQ0RzTGEtbi0wYw?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-30T14:30:00Z",
+      "published_at": "2026-10-01T13:00:00Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -236,49 +236,6 @@
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-30T14:01:00Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-6B34B82A5174",
-      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE92ZHEzb1QzVWtJNkViWXFmODdhcm02QVlMZjNGTHpRWlByUTlXQTNqd1JWVTRFd1FfZFZXdXRnNGE2elpQd1lRODJiMDVsSEt3dV9XUWhEY3cxbGVFX3lVVVRWUQ?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-29T20:22:00Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -526,6 +483,49 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-6B34B82A5174",
+      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE92ZHEzb1QzVWtJNkViWXFmODdhcm02QVlMZjNGTHpRWlByUTlXQTNqd1JWVTRFd1FfZFZXdXRnNGE2elpQd1lRODJiMDVsSEt3dV9XUWhEY3cxbGVFX3lVVVRWUQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-29T20:22:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 78,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
       ]
     },
     {
@@ -790,6 +790,47 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-B29B2A36AC23",
+      "title": "Cardano Price Today, Live Market & Historical Trend Chart - Gate.com",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5wRnE1a0NIM29rZ2tmQ1ZvODBDby1jc29lb2pCYnhTSkljT2w3NXZZXzU4bC1SeFZBRlRmZ24td3hPMWJUaWRXemtveW5JQjg?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Gate",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-09-29T00:12:35Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "intelligence_summary": {
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 58,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH"
       ]
     },
     {
