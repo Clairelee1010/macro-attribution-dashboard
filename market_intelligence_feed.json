@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-02T06:52:22.965730Z",
+  "generated_at": "2026-10-02T14:48:07.460695Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -48,8 +48,8 @@
     },
     {
       "source": "MEXC",
-      "status": "OK",
-      "items": 1,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -97,23 +97,13 @@
     {
       "source": "US Treasury",
       "status": "OK",
-      "items": 9,
+      "items": 8,
       "provider": "GOOGLE_NEWS_RSS"
     }
   ],
   "errors": [
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -123,17 +113,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,22 +123,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "Coinbase",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Bybit",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -168,12 +153,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bitget",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -271,57 +271,14 @@
       ]
     },
     {
-      "id": "NEWS-D05297A39E36",
+      "id": "NEWS-1D58B4D14BF6",
       "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9EdmxSQTB0akozbWFLU29RckZXSEJ2TllQVDZKdkU0Z2RQbmpxdWRQTjI4SXE5SjlDLVFCRlYzX3ZuRzFFVEZIQlk0cnBwbkZuZ3l4cUR5UjVkVVpKY1M4eWxXVQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBhbzlMdU5oTWxndzRxbkRCSEhJU2pPV0s4Mk9paC1OTG1yMXdZeGM4cE45RTVCMUN4Z29lT0FxTGRFSFZRQnVHVTNLVjMybEhJNHMyRDdjejk3ZVZSUmgtdkN3?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-10-01T15:30:00Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-F8EEBA3C9BCB",
-      "title": "The Trump Administration Advances the Establishment of America’s First Nationwide School Choice Program - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5raXZUX1dzQ0IzdDVLeTg5Q2NGRjJlLW9MTjRRb3U4UEZqUVo3d2xyeXpMS2c4QWQtUTZ3ckFtS3ZiUlBobFNzb3NxM1c1OHJfZU1Od0lUMjRIQ0RzTGEtbi0wYw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-01T13:00:00Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -572,51 +529,6 @@
       ]
     },
     {
-      "id": "NEWS-2F548BDC4779",
-      "title": "MEXC On-Chain Daily Report: Tokenized Stock DEX Volume Hits $20.9B, Uniswap Leads - MEXC",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNZ01uVHE3am8tUThlZlZLa1EzN3g3Ui00N1lLU09rcWNMY0s3dEtPZzJqanhkSk1zRWsxRU1Ra1FpUFpaY2J6YTRUbC0yYmcwb3dWUG5oTzlfZ01LMWZacGdjS2RaNXNvb0czZVZ0MlhzMjBwTnEtb0NuRDBYZzZncVdJelpoRDE5T1pmeTNaX25mRGo5ekdJT0Y5M0lZR09Ud3RaSDdpMWlXbERhQUpfVVkxTkVLdw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "MEXC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-28T01:38:33Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE",
-        "DEFI"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
       "id": "NEWS-05554F3802F9",
       "title": "Bitcoin steadies as soft PCE cools October Fed rate hike bets - The Block",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPc3pPa3R5NXZyeGNMeVZmRE5hSE5MZnFLUjRPdUthcWNGazA1TEdDcG5uVzI5THNuUzY1N1N5MlAtVDMyOUtMaExiMGJxY1NsVlQ0UG1kelVmZzhVWU4zY3VFVjJId2ZOSmtWQUgtTDQzRXpuLVIwMGZCX1BySzRuVHBockdNeUNlQU52cDdBbnBOazdfa01CUzNB?oc=5",
@@ -703,11 +615,11 @@
       ]
     },
     {
-      "id": "NEWS-F83C0686F63C",
-      "title": "How Federal Reserve Interest Rate Hikes Impact Global Assets - bitget.com",
+      "id": "NEWS-82B03C6B7130",
+      "title": "How Federal Reserve Interest Rate Hikes Impact Global Assets - Bitget",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ1ZzejRaVjZaZjNwWnMzckpUTzdXWkR3RHlieU1udG5LQ25LRGNQMlVneHIxTUx6dkVHTW41QzE2SnJFbi02VHRuNk9wTVQzUlZrX3NyNmhqaXlkbnlNc0Z3WUNBdENiMW1XQ3pNRktZYnUzTDBHSXBkWFZQS0NLSFRySGY3UdIBiwFBVV95cUxOOXRzRGU0ZENoVFBfaXlhczU0SWVwcDNGZFpaQVpZQXktUGtMcWs5Tkp5ZzBVVzlTOVhuR0I2NVA5bUlOYXdaV0V4Rml3cUJsRWxwTmpMeUphLWNZbVIyN3NLR1ZkLW1UMnZkNjgzeFFtVmpySGVfNUtuQ2lVQkRJZWlra3k5MnVQS2VR?oc=5",
       "domain": "news.google.com",
-      "source_name": "bitget.com",
+      "source_name": "Bitget",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-29T06:07:13Z",
