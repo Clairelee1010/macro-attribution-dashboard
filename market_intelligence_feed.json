@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-02T16:44:57.449027Z",
+  "generated_at": "2026-10-03T06:17:11.307764Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,32 +103,12 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -138,12 +118,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -153,17 +148,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -178,6 +168,16 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -185,8 +185,51 @@
   ],
   "items": [
     {
-      "id": "NEWS-638F02DE4750",
-      "title": "Treasury Dismantles Major Hamas Financing Network - treasury.gov",
+      "id": "NEWS-D24D519AFBAD",
+      "title": "URIF Approves Additional Investments and Partnerships in Energy and Critical Minerals - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBMRVJ3Q2pfRWdZZUhMM1hxbEs2Q0JBS0pGSU00dE5qLU9fNVIxNkxnc0dGRnljU3hiU1loWVV4eU1xbjJ1TmVNVUlGVE1BZzNlS0F0OFB6QlN5TjZIMWk1dC1PYw?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-02T19:30:00Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 90,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "FRESH",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-9F8E292E76A7",
+      "title": "Treasury Dismantles Major Hamas Financing Network - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5CY3pxR2Z6SWxUM3dKZVRxWndvMzNHWWJHT0NzMm1SLW1EV2ZXdkZBQVBMMDNyQk5YOW1GT2xRcDA2U2hVRV9KSnpIUHNZaFFpRURSazJLM1dmc2tNZGVFal9GNA?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -228,58 +271,15 @@
       ]
     },
     {
-      "id": "NEWS-99740CCEAC3B",
-      "title": "The Financial Literacy and Education Commission Releases the 2026 Update to the U.S. National Strategy for Financial Literacy - treasury.gov",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE8xU3JEcnRaWlRVaWlTV2FFNnlfZUFlZlZsdlBLUS1BUm11V1k2enc5U3dOSmRNT1RSNm4xTUppMXRqVTNJczNSTF81eTlMcHVKcHQ3TEZvYTU2RmZQRnVlS3A0bw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-02T14:00:00Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-CB9BC6C2BAC3",
-      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - treasury.gov",
+      "id": "NEWS-4961478C1F54",
+      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBiaXFUNUxDUWwtb25WbGxLaDFSRjJkd3RjY2R2d25PT2pTY1NiWXFMajU4VHRmTndmRDc2M25nbVlRQTdBOV8zdGVidmQ2NXhPOUhHQ3UzdUZlbEo3VGNrUVNn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-10-01T17:00:00Z",
-      "freshness": "FRESH",
+      "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
@@ -303,26 +303,26 @@
       ],
       "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
+      "relevance_score": 78,
       "priority": "HIGH",
       "ranking_reasons": [
         "AUTHORITATIVE_SOURCE",
-        "FRESH",
+        "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
       ]
     },
     {
-      "id": "NEWS-AF1D33D4C6A1",
-      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - treasury.gov",
+      "id": "NEWS-B501EC5AB66A",
+      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNTBVTEs1aWlXRlNXTjBCa3NFVnh3a19EdzlQY2N1Mm5SZUF2LWk5S190V3RtS0RONkZJbXNZY2tBZy13X05wV1lQdHprdDhKVmtJb0FaWjBPazdRSEJhX3RB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-10-01T17:00:00Z",
-      "freshness": "FRESH",
+      "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
@@ -346,26 +346,26 @@
       ],
       "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
+      "relevance_score": 78,
       "priority": "HIGH",
       "ranking_reasons": [
         "AUTHORITATIVE_SOURCE",
-        "FRESH",
+        "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
       ]
     },
     {
-      "id": "NEWS-97BB94BA8CB1",
-      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - treasury.gov",
+      "id": "NEWS-1D58B4D14BF6",
+      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBhbzlMdU5oTWxndzRxbkRCSEhJU2pPV0s4Mk9paC1OTG1yMXdZeGM4cE45RTVCMUN4Z29lT0FxTGRFSFZRQnVHVTNLVjMybEhJNHMyRDdjejk3ZVZSUmgtdkN3?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-10-01T15:30:00Z",
-      "freshness": "FRESH",
+      "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
@@ -389,19 +389,19 @@
       ],
       "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 90,
+      "relevance_score": 78,
       "priority": "HIGH",
       "ranking_reasons": [
         "AUTHORITATIVE_SOURCE",
-        "FRESH",
+        "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
       ]
     },
     {
-      "id": "NEWS-C800BF09F350",
-      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - treasury.gov",
+      "id": "NEWS-CC0C52163A6F",
+      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9mTzZrNzg0bkt4d1gyQ2N3S2VGXzIxd0pac05CVFZQUWRIVkh6MHhRdnU3VW1wd2N3ZGN6ZElhMEtwQkU0VkQteXhka1pEclg3Y3NpcVI2b01HRlJ0eDlWR2Nn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -443,8 +443,8 @@
       ]
     },
     {
-      "id": "NEWS-E2AB34F9504C",
-      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - treasury.gov",
+      "id": "NEWS-6B34B82A5174",
+      "title": "READOUT: Financial Stability Oversight Council Meeting on September 29, 2026 - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE92ZHEzb1QzVWtJNkViWXFmODdhcm02QVlMZjNGTHpRWlByUTlXQTNqd1JWVTRFd1FfZFZXdXRnNGE2elpQd1lRODJiMDVsSEt3dV9XUWhEY3cxbGVFX3lVVVRWUQ?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -486,8 +486,8 @@
       ]
     },
     {
-      "id": "NEWS-484E2E9A9262",
-      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks - treasury.gov",
+      "id": "NEWS-DADA2CEA3935",
+      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBkOGgySW5FTzhTSDMxVTVlNjJJaG1DazZtTFA2dV9WYWVyQVhXNGd1WW9kMmJLNU8yd2tGOWtjNkVpZUVzSVJ0cDB6RTFmenMxd0RRMFB2RG5BRkJsTjJTMi13?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -529,8 +529,8 @@
       ]
     },
     {
-      "id": "NEWS-23071ACAA442",
-      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - treasury.gov",
+      "id": "NEWS-06EA71505BDE",
+      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBRT1F0emZ6bk9ENmpnODVUOW9LSE1hU0NyRmdnREF6QXliaTExNnZzUW5ydG5wMmFhRFVYbWtMOUlXRGZ0a3pfSXVLb2RsbFUteGd4ZjNfU0tsZEg3QzAyVHdR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -572,8 +572,8 @@
       ]
     },
     {
-      "id": "NEWS-6559B035CCBA",
-      "title": "United States Department of the Treasury Announces New Appointment - treasury.gov",
+      "id": "NEWS-9FC05EFC76EE",
+      "title": "United States Department of the Treasury Announces New Appointment - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB3R21yLVdvTE1Kdzc3OUtLZWZ2WkxVZlNWa1VjR1VMQ3lDbUx2MElzeDFUcjhxVW1vRDV2WWVodzFZbEhzRktQUTBCbF9YdThoYlNPYk1talBiTlVZRWtCcXZR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
