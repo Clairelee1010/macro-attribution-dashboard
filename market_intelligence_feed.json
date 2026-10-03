@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-03T06:17:11.307764Z",
+  "generated_at": "2026-10-03T15:26:28.038099Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -24,8 +24,8 @@
     },
     {
       "source": "Circle",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -54,8 +54,8 @@
     },
     {
       "source": "NEWS:TW_MARKET",
-      "status": "OK",
-      "items": 1,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,7 +103,7 @@
   ],
   "errors": [
     {
-      "source": "Federal Reserve",
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -113,22 +113,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "US Treasury",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,7 +128,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,17 +153,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bybit",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Bitget",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -658,49 +658,6 @@
       ]
     },
     {
-      "id": "NEWS-342A95EFDD6E",
-      "title": "Bitcoin Jumps on Cool PCE Inflation Data as Bond Yields Hit 20-Year Highs - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdG5iLU40clZTbDM1cExaYmlpQ0gzYzU4eVRaQnh2ZW1kSW1sU1Z5MmVUMHJpNDhhQ1lXcXd4OGVHM2t2SnJRWWFycmNtOWt2S1VTdVo4RmFMTTlwT3VaMTBCQXhDTmtlUlRhSDhRNkpRWnJVQThVQzFJN3JEX09VWlZGZWlnaWlGQk5qWUxsMU12ekZFMmxFTGtnWlNCUQ?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Yahoo Finance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-30T15:50:25Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
       "id": "NEWS-82B03C6B7130",
       "title": "How Federal Reserve Interest Rate Hikes Impact Global Assets - Bitget",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQ1ZzejRaVjZaZjNwWnMzckpUTzdXWkR3RHlieU1udG5LQ25LRGNQMlVneHIxTUx6dkVHTW41QzE2SnJFbi02VHRuNk9wTVQzUlZrX3NyNmhqaXlkbnlNc0Z3WUNBdENiMW1XQ3pNRktZYnUzTDBHSXBkWFZQS0NLSFRySGY3UdIBiwFBVV95cUxOOXRzRGU0ZENoVFBfaXlhczU0SWVwcDNGZFpaQVpZQXktUGtMcWs5Tkp5ZzBVVzlTOVhuR0I2NVA5bUlOYXdaV0V4Rml3cUJsRWxwTmpMeUphLWNZbVIyN3NLR1ZkLW1UMnZkNjgzeFFtVmpySGVfNUtuQ2lVQkRJZWlra3k5MnVQS2VR?oc=5",
@@ -748,11 +705,53 @@
       ]
     },
     {
-      "id": "NEWS-955E4A92797D",
-      "title": "US PCE Inflation Is a Big Test for Stocks, Crypto, and Trump - BeInCrypto",
+      "id": "NEWS-7D802E932B15",
+      "title": "Circle | The full-stack platform for the internet financial system - circle.com",
+      "url": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE9uWVFxclRpNkp5cjBWUEJvN3V2cmRGQXlCRmVlSzJTa21pdnUyNTExRmdRdFlvcGtILUFN?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Circle",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-01T07:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "STABLECOIN"
+      ],
+      "primary_topic": "STABLECOIN",
+      "why_it_matters": "Stablecoin developments can affect payment rails, on-chain liquidity, and institutional adoption.",
+      "intelligence_summary": {
+        "en": "This development is relevant to stablecoin infrastructure, payment rails, and on-chain liquidity.",
+        "zh-TW": "此事件與穩定幣基礎設施、支付軌道及鏈上流動性相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Stablecoin developments can affect payment infrastructure, on-chain liquidity, settlement, and institutional adoption.",
+        "zh-TW": "穩定幣發展可能影響支付基礎設施、鏈上流動性、結算方式與機構採用。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC"
+      ]
+    },
+    {
+      "id": "NEWS-8379D346B5D7",
+      "title": "US PCE Inflation Is a Big Test for Stocks, Crypto, and Trump - beincrypto.com",
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9vaUhoNGFGYTFOSTBvbFZaZzI0dXhDZHE3dHQ3Z0k1UXpWLW5EV2owSTdDaUY3TkNCNktoMWdFUzVFLV8wVGJNZllESmh2R2N5b0V6LTRpSG5nZ1BDYV9VdzVIVzFxbzdGc0JkNEVBaFVxZVN4M1hmUG4ySQ?oc=5",
       "domain": "news.google.com",
-      "source_name": "BeInCrypto",
+      "source_name": "beincrypto.com",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-30T08:57:00Z",
@@ -834,44 +833,44 @@
       ]
     },
     {
-      "id": "NEWS-1E99B80B0131",
-      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "id": "NEWS-B6882E41D028",
+      "title": "Gold Combat 2: Why Real Rates Matter More - Bitget",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA3QWJOdHRPT1FScnA0Nm5mYi1GdUhpS2tYUzRHck42Nk5yUjFzd1l5b0xNUmVnRFkyRzNZYWR3Mmx2d1RTV2phRDFyQ21oUjBwMjJDd29zX3E4YzVZWHpmX3lWdlV3d9IBa0FVX3lxTE10V1luLWVVMlR3eEtKWGRWQTZZUlhkN0tQVXc3NnhYQ3JKcjQ1THdyWEJWNmxacGcybTBIdnFDRm5QOEc2RERaSS1wU3JMY05SQjlvdE81NWs3b2RaQTI5VnNVN3dTWlUzdVJR?oc=5",
       "domain": "news.google.com",
-      "source_name": "Britannica",
+      "source_name": "Bitget",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-09-26T07:00:00Z",
+      "published_at": "2026-10-01T10:40:58Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
-        "TW_MARKET"
+        "EXCHANGE"
       ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
       "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
       },
       "linked_p01_context": [
+        "BTC",
+        "ETH",
         "MARKET_REGIME",
-        "MARKET_RISK"
+        "EVIDENCE_CONFIDENCE"
       ],
       "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 55,
-      "priority": "MEDIUM",
+      "relevance_score": 48,
+      "priority": "LOW",
       "ranking_reasons": [
         "NEWS_SOURCE",
         "STALE",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
+        "STRONG_P01_CONTEXT_MATCH"
       ]
     }
   ],
