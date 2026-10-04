@@ -1,32 +1,32 @@
 {
   "schema_version": "10.0",
   "engine": "P01-010",
-  "generated_at": "2026-10-03T15:58:57.764013+00:00",
+  "generated_at": "2026-10-04T06:42:27.997119+00:00",
   "executive_summary": {
     "market_regime": {
-      "value": "RISK_OFF",
-      "score": -0.7706,
-      "confidence": 0.58,
-      "coverage": 0.6
+      "value": "UNKNOWN",
+      "score": 0.0,
+      "confidence": 0.0,
+      "coverage": 0.0
     },
     "market_risk": {
       "level": "HIGH",
-      "score": 100,
-      "confidence": 0.2088,
-      "evidence_coverage": 0.6
+      "score": 80.0,
+      "confidence": 0,
+      "evidence_coverage": 0.0
     },
     "evidence_confidence": {
-      "level": "MEDIUM",
-      "score": 0.7356,
-      "coverage": 0.6
+      "level": "LOW",
+      "score": 0.355,
+      "coverage": 0.0
     },
     "data_quality": {
-      "gate": "PASS",
-      "score": 1.0,
+      "gate": "DEGRADED",
+      "score": 0.85,
       "counts": {
         "expected": 5,
         "available": 5,
-        "fresh": 5,
+        "fresh": 2,
         "valid": 5,
         "consistent": 5
       }
@@ -35,53 +35,58 @@
   "signals": [
     {
       "metric_id": "US10Y",
-      "signal_id": "VERY_HIGH_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "confidence": 0.9,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.65,
       "value": 0.05277,
       "unit": "DECIMAL",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "FALLBACK",
         "quality_reasons": [
+          "STALE_OBSERVATION",
           "FALLBACK_SOURCE_USED"
         ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "DXY",
-      "signal_id": "FIRM_DOLLAR",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 101.93,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "VIX",
-      "signal_id": "NORMAL_VOLATILITY",
-      "direction": "NEUTRAL",
-      "strength": "WEAK",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 15.31,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "BTC",
@@ -89,7 +94,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 84845.6436,
+      "value": 84970.2947,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -105,7 +110,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2681.3508,
+      "value": 2692.3446,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -119,38 +124,30 @@
   "signal_summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 2,
-    "neutral": 1,
-    "unknown": 2
+    "risk_off": 0,
+    "neutral": 0,
+    "unknown": 5
   },
   "attribution": {
-    "confidence": 0.348,
-    "agreement": 1.0,
-    "drivers": [
+    "confidence": 0.0,
+    "agreement": 0.0,
+    "drivers": [],
+    "excluded": [
       {
         "metric_id": "US10Y",
-        "signal_id": "VERY_HIGH_YIELD",
-        "direction": "RISK_OFF",
-        "strength": "STRONG",
-        "signal_confidence": 0.9,
-        "weight": 1.8,
-        "weighted_score": -1.62,
-        "contribution_share": 0.6183,
-        "relation_to_regime": "SUPPORTING"
+        "direction": "UNKNOWN",
+        "reason": "DATA_QUALITY_GATE_FAILED"
       },
       {
         "metric_id": "DXY",
-        "signal_id": "FIRM_DOLLAR",
-        "direction": "RISK_OFF",
-        "strength": "MODERATE",
-        "signal_confidence": 1.0,
-        "weight": 1.0,
-        "weighted_score": -1.0,
-        "contribution_share": 0.3817,
-        "relation_to_regime": "SUPPORTING"
-      }
-    ],
-    "excluded": [
+        "direction": "UNKNOWN",
+        "reason": "DATA_QUALITY_GATE_FAILED"
+      },
+      {
+        "metric_id": "VIX",
+        "direction": "UNKNOWN",
+        "reason": "DATA_QUALITY_GATE_FAILED"
+      },
       {
         "metric_id": "BTC",
         "direction": "UNKNOWN",
@@ -163,26 +160,7 @@
       }
     ]
   },
-  "risk_drivers": [
-    {
-      "metric_id": "US10Y",
-      "signal_id": "VERY_HIGH_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "contribution_share": 0.6183,
-      "signal_confidence": 0.9,
-      "risk_impact": 16.6941
-    },
-    {
-      "metric_id": "DXY",
-      "signal_id": "FIRM_DOLLAR",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "contribution_share": 0.3817,
-      "signal_confidence": 1.0,
-      "risk_impact": 11.451
-    }
-  ],
+  "risk_drivers": [],
   "protective_factors": [],
   "evidence": {
     "items": [
@@ -190,36 +168,37 @@
         "evidence_id": "DATA_QUALITY",
         "upstream_engine": "P01-004",
         "artifact": "data_quality_report.json",
-        "status": "PASS",
-        "value": 1.0
+        "status": "DEGRADED",
+        "value": 0.85
       },
       {
         "evidence_id": "MARKET_REGIME",
         "upstream_engine": "P01-006",
         "artifact": "regime_report.json",
-        "status": "RISK_OFF",
-        "value": 0.58
+        "status": "UNKNOWN",
+        "value": 0.0
       },
       {
         "evidence_id": "ATTRIBUTION",
         "upstream_engine": "P01-007",
         "artifact": "attribution_report.json",
-        "status": "AVAILABLE",
-        "value": 0.348
+        "status": "LIMITED",
+        "value": 0.0
       },
       {
         "evidence_id": "MARKET_RISK",
         "upstream_engine": "P01-008",
         "artifact": "market_risk_report.json",
         "status": "HIGH",
-        "value": 0.2088
+        "value": 0.0
       }
     ],
     "limitations": [
       "EXCLUDED_SIGNALS_PRESENT",
       "FALLBACK_SOURCE_USED",
       "LIMITED_EVIDENCE_COVERAGE",
-      "LOW_ATTRIBUTION_SUPPORT"
+      "LOW_ATTRIBUTION_SUPPORT",
+      "STALE_OBSERVATION"
     ],
     "traceability": {
       "data_quality": "data_quality_report.json",

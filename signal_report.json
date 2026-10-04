@@ -2,59 +2,64 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-10-03T15:58:57.764013+00:00",
+  "generated_at": "2026-10-04T06:42:27.997119+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
     {
       "metric_id": "US10Y",
-      "signal_id": "VERY_HIGH_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "confidence": 0.9,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.65,
       "value": 0.05277,
       "unit": "DECIMAL",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "FALLBACK",
         "quality_reasons": [
+          "STALE_OBSERVATION",
           "FALLBACK_SOURCE_USED"
         ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "DXY",
-      "signal_id": "FIRM_DOLLAR",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 101.93,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "VIX",
-      "signal_id": "NORMAL_VOLATILITY",
-      "direction": "NEUTRAL",
-      "strength": "WEAK",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 15.31,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "BTC",
@@ -62,7 +67,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 84845.6436,
+      "value": 84970.2947,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -78,7 +83,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2681.3508,
+      "value": 2692.3446,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -92,9 +97,9 @@
   "summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 2,
-    "neutral": 1,
-    "unknown": 2
+    "risk_off": 0,
+    "neutral": 0,
+    "unknown": 5
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
