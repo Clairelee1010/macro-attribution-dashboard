@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-05T14:20:48.625494Z",
+  "generated_at": "2026-10-05T14:21:45.392537Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,22 +103,7 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -128,12 +113,27 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "SEC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -148,17 +148,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "TWSE",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -174,11 +179,6 @@
     },
     {
       "source": "TSMC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -228,8 +228,8 @@
       ]
     },
     {
-      "id": "NEWS-2C66EB899D52",
-      "title": "URIF Approves Additional Investments and Partnerships in Energy and Critical Minerals - treasury.gov",
+      "id": "NEWS-D24D519AFBAD",
+      "title": "URIF Approves Additional Investments and Partnerships in Energy and Critical Minerals - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBMRVJ3Q2pfRWdZZUhMM1hxbEs2Q0JBS0pGSU00dE5qLU9fNVIxNkxnc0dGRnljU3hiU1loWVV4eU1xbjJ1TmVNVUlGVE1BZzNlS0F0OFB6QlN5TjZIMWk1dC1PYw?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "id": "NEWS-CB9BC6C2BAC3",
-      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - treasury.gov",
+      "id": "NEWS-4961478C1F54",
+      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBiaXFUNUxDUWwtb25WbGxLaDFSRjJkd3RjY2R2d25PT2pTY1NiWXFMajU4VHRmTndmRDc2M25nbVlRQTdBOV8zdGVidmQ2NXhPOUhHQ3UzdUZlbEo3VGNrUVNn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -314,8 +314,8 @@
       ]
     },
     {
-      "id": "NEWS-AF1D33D4C6A1",
-      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - treasury.gov",
+      "id": "NEWS-B501EC5AB66A",
+      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNTBVTEs1aWlXRlNXTjBCa3NFVnh3a19EdzlQY2N1Mm5SZUF2LWk5S190V3RtS0RONkZJbXNZY2tBZy13X05wV1lQdHprdDhKVmtJb0FaWjBPazdRSEJhX3RB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -357,8 +357,8 @@
       ]
     },
     {
-      "id": "NEWS-97BB94BA8CB1",
-      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - treasury.gov",
+      "id": "NEWS-1D58B4D14BF6",
+      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBhbzlMdU5oTWxndzRxbkRCSEhJU2pPV0s4Mk9paC1OTG1yMXdZeGM4cE45RTVCMUN4Z29lT0FxTGRFSFZRQnVHVTNLVjMybEhJNHMyRDdjejk3ZVZSUmgtdkN3?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -400,8 +400,8 @@
       ]
     },
     {
-      "id": "NEWS-C800BF09F350",
-      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - treasury.gov",
+      "id": "NEWS-CC0C52163A6F",
+      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9mTzZrNzg0bkt4d1gyQ2N3S2VGXzIxd0pac05CVFZQUWRIVkh6MHhRdnU3VW1wd2N3ZGN6ZElhMEtwQkU0VkQteXhka1pEclg3Y3NpcVI2b01HRlJ0eDlWR2Nn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -443,8 +443,8 @@
       ]
     },
     {
-      "id": "NEWS-7D9C1BD4D7C5",
-      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks | U.S. Department of the Treasury - treasury.gov",
+      "id": "NEWS-F05435ABE8AE",
+      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks | U.S. Department of the Treasury - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBkOGgySW5FTzhTSDMxVTVlNjJJaG1DazZtTFA2dV9WYWVyQVhXNGd1WW9kMmJLNU8yd2tGOWtjNkVpZUVzSVJ0cDB6RTFmenMxd0RRMFB2RG5BRkJsTjJTMi13?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -486,8 +486,8 @@
       ]
     },
     {
-      "id": "NEWS-23071ACAA442",
-      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - treasury.gov",
+      "id": "NEWS-06EA71505BDE",
+      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBRT1F0emZ6bk9ENmpnODVUOW9LSE1hU0NyRmdnREF6QXliaTExNnZzUW5ydG5wMmFhRFVYbWtMOUlXRGZ0a3pfSXVLb2RsbFUteGd4ZjNfU0tsZEg3QzAyVHdR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -572,11 +572,11 @@
       ]
     },
     {
-      "id": "NEWS-955E4A92797D",
-      "title": "US PCE Inflation Is a Big Test for Stocks, Crypto, and Trump - BeInCrypto",
+      "id": "NEWS-8379D346B5D7",
+      "title": "US PCE Inflation Is a Big Test for Stocks, Crypto, and Trump - beincrypto.com",
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9vaUhoNGFGYTFOSTBvbFZaZzI0dXhDZHE3dHQ3Z0k1UXpWLW5EV2owSTdDaUY3TkNCNktoMWdFUzVFLV8wVGJNZllESmh2R2N5b0V6LTRpSG5nZ1BDYV9VdzVIVzFxbzdGc0JkNEVBaFVxZVN4M1hmUG4ySQ?oc=5",
       "domain": "news.google.com",
-      "source_name": "BeInCrypto",
+      "source_name": "beincrypto.com",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-30T08:57:00Z",
@@ -701,11 +701,11 @@
       ]
     },
     {
-      "id": "NEWS-CA62A5B6CD5D",
-      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - britannica.com",
+      "id": "NEWS-1E99B80B0131",
+      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
       "domain": "news.google.com",
-      "source_name": "britannica.com",
+      "source_name": "Britannica",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-10-03T07:00:00Z",
