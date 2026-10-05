@@ -1,25 +1,30 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-10-04T06:42:27.997119+00:00",
+  "generated_at": "2026-10-05T06:45:16.527774+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
   "regime": "UNKNOWN",
-  "score": 0.0,
-  "confidence": 0.0,
-  "coverage": 0.0,
+  "score": -1.0,
+  "confidence": 0.2,
+  "coverage": 0.2,
   "contradiction": false,
-  "drivers": [],
+  "drivers": [
+    {
+      "metric_id": "DXY",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_id": "FIRM_DOLLAR",
+      "confidence": 1.0,
+      "weight": 1.0,
+      "weighted_score": -1.0
+    }
+  ],
   "supporting": [],
   "contradicting": [],
   "excluded": [
     {
       "metric_id": "US10Y",
-      "direction": "UNKNOWN",
-      "reason": "DATA_QUALITY_GATE_FAILED"
-    },
-    {
-      "metric_id": "DXY",
       "direction": "UNKNOWN",
       "reason": "DATA_QUALITY_GATE_FAILED"
     },
@@ -40,11 +45,11 @@
     }
   ],
   "summary": {
-    "eligible_signals": 0,
-    "excluded_signals": 5,
+    "eligible_signals": 1,
+    "excluded_signals": 4,
     "total_signals": 5,
-    "eligible_weight": 0,
-    "weighted_sum": 0
+    "eligible_weight": 1.0,
+    "weighted_sum": -1.0
   },
   "semantics": {
     "regime": [

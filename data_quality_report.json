@@ -1,20 +1,20 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-10-04T06:42:27.997119+00:00",
+  "generated_at": "2026-10-05T06:45:16.527774+00:00",
   "rules_version": "1.0",
-  "quality_score": 0.85,
-  "quality_gate": "DEGRADED",
+  "quality_score": 0.9,
+  "quality_gate": "PASS",
   "components": {
     "completeness": 1.0,
-    "freshness": 0.4,
+    "freshness": 0.6,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 2,
+    "fresh": 3,
     "valid": 5,
     "consistent": 5
   },
@@ -28,7 +28,7 @@
       "available": true,
       "freshness": {
         "is_fresh": false,
-        "age_hours": 49.7078,
+        "age_hours": 73.7546,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -52,8 +52,8 @@
       "metric_id": "DXY",
       "available": true,
       "freshness": {
-        "is_fresh": false,
-        "age_hours": 50.7078,
+        "is_fresh": true,
+        "age_hours": 2.7546,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -68,16 +68,14 @@
         "upstream_status": "FRESH",
         "upstream_error": null
       },
-      "reasons": [
-        "STALE_OBSERVATION"
-      ]
+      "reasons": []
     },
     {
       "metric_id": "VIX",
       "available": true,
       "freshness": {
         "is_fresh": false,
-        "age_hours": 49.7078,
+        "age_hours": 73.7546,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -101,7 +99,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0244,
+        "age_hours": 0.0268,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -123,7 +121,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.03,
+        "age_hours": 0.024,
         "threshold_hours": 2.0
       },
       "validity": {

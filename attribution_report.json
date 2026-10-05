@@ -1,26 +1,45 @@
 {
   "schema_version": "7.0",
   "source_schema_version": "6.0",
-  "generated_at": "2026-10-04T06:42:27.997119+00:00",
+  "generated_at": "2026-10-05T06:45:16.527774+00:00",
   "engine": "P01-007",
   "rules_version": "1.0",
   "regime": "UNKNOWN",
-  "regime_score": 0.0,
-  "regime_confidence": 0.0,
-  "attribution_confidence": 0.0,
+  "regime_score": -1.0,
+  "regime_confidence": 0.2,
+  "attribution_confidence": 0.04,
   "evidence_agreement": 0.0,
-  "drivers": [],
+  "drivers": [
+    {
+      "metric_id": "DXY",
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_confidence": 1.0,
+      "weight": 1.0,
+      "weighted_score": -1.0,
+      "contribution_share": 1.0,
+      "relation_to_regime": "CONTEXT"
+    }
+  ],
   "supporting_evidence": [],
   "conflicting_evidence": [],
-  "contextual_evidence": [],
+  "contextual_evidence": [
+    {
+      "metric_id": "DXY",
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_confidence": 1.0,
+      "weight": 1.0,
+      "weighted_score": -1.0,
+      "contribution_share": 1.0,
+      "relation_to_regime": "CONTEXT"
+    }
+  ],
   "excluded": [
     {
       "metric_id": "US10Y",
-      "direction": "UNKNOWN",
-      "reason": "DATA_QUALITY_GATE_FAILED"
-    },
-    {
-      "metric_id": "DXY",
       "direction": "UNKNOWN",
       "reason": "DATA_QUALITY_GATE_FAILED"
     },
@@ -41,13 +60,13 @@
     }
   ],
   "summary": {
-    "eligible_drivers": 0,
-    "reported_drivers": 0,
+    "eligible_drivers": 1,
+    "reported_drivers": 1,
     "supporting_drivers": 0,
     "conflicting_drivers": 0,
-    "contextual_drivers": 0,
-    "excluded_signals": 5,
-    "contribution_share_total": 0
+    "contextual_drivers": 1,
+    "excluded_signals": 4,
+    "contribution_share_total": 1.0
   },
   "semantics": {
     "attribution": "Deterministic evidence attribution describing which eligible signals align with or conflict with the classified market regime. It does not establish causality.",

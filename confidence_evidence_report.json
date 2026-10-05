@@ -1,48 +1,48 @@
 {
   "schema_version": "9.0",
   "source_schema_version": "8.0",
-  "generated_at": "2026-10-04T06:42:27.997119+00:00",
+  "generated_at": "2026-10-05T06:45:16.527774+00:00",
   "engine": "P01-009",
   "rules_version": "1.0",
-  "confidence_score": 0.355,
+  "confidence_score": 0.4143,
   "confidence_level": "LOW",
-  "evidence_coverage": 0.0,
+  "evidence_coverage": 0.2,
   "components": {
-    "data_quality": 0.85,
-    "evidence_coverage": 0.0,
+    "data_quality": 0.9,
+    "evidence_coverage": 0.2,
     "source_reliability": 0.95,
     "signal_agreement": 0.0,
-    "attribution_support": 0.0,
-    "risk_confidence": 0.0
+    "attribution_support": 0.04,
+    "risk_confidence": 0.008
   },
   "evidence": [
     {
       "evidence_id": "DATA_QUALITY",
       "upstream_engine": "P01-004",
       "artifact": "data_quality_report.json",
-      "status": "DEGRADED",
-      "value": 0.85
+      "status": "PASS",
+      "value": 0.9
     },
     {
       "evidence_id": "MARKET_REGIME",
       "upstream_engine": "P01-006",
       "artifact": "regime_report.json",
       "status": "UNKNOWN",
-      "value": 0.0
+      "value": 0.2
     },
     {
       "evidence_id": "ATTRIBUTION",
       "upstream_engine": "P01-007",
       "artifact": "attribution_report.json",
-      "status": "LIMITED",
-      "value": 0.0
+      "status": "AVAILABLE",
+      "value": 0.04
     },
     {
       "evidence_id": "MARKET_RISK",
       "upstream_engine": "P01-008",
       "artifact": "market_risk_report.json",
       "status": "HIGH",
-      "value": 0.0
+      "value": 0.008
     }
   ],
   "traceability": {
@@ -60,9 +60,9 @@
   ],
   "summary": {
     "expected_observations": 5,
-    "eligible_evidence": 0,
-    "missing_or_excluded": 5,
-    "excluded_signals": 5
+    "eligible_evidence": 1,
+    "missing_or_excluded": 4,
+    "excluded_signals": 4
   },
   "semantics": {
     "confidence_score": "Deterministic reliability score from current data quality, evidence coverage, source provenance, signal agreement, attribution support, and upstream risk confidence. It is not a probability of a future market outcome.",
