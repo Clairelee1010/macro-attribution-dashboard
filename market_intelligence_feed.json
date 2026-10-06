@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-06T08:47:20.202628Z",
+  "generated_at": "2026-10-06T14:46:36.116387Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -108,12 +108,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -128,22 +133,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,12 +158,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -178,7 +178,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -486,11 +486,11 @@
       ]
     },
     {
-      "id": "NEWS-05554F3802F9",
-      "title": "Bitcoin steadies as soft PCE cools October Fed rate hike bets - The Block",
+      "id": "NEWS-64833A43A649",
+      "title": "Bitcoin steadies as soft PCE cools October Fed rate hike bets - theblock.co",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPc3pPa3R5NXZyeGNMeVZmRE5hSE5MZnFLUjRPdUthcWNGazA1TEdDcG5uVzI5THNuUzY1N1N5MlAtVDMyOUtMaExiMGJxY1NsVlQ0UG1kelVmZzhVWU4zY3VFVjJId2ZOSmtWQUgtTDQzRXpuLVIwMGZCX1BySzRuVHBockdNeUNlQU52cDdBbnBOazdfa01CUzNB?oc=5",
       "domain": "news.google.com",
-      "source_name": "The Block",
+      "source_name": "theblock.co",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-09-30T16:10:00Z",
