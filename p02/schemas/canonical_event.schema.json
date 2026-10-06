@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canonical_event.schema.json",
+  "title": "P02 Canonical Event Match",
+  "type": "object",
+  "required": [
+    "canonical_event_id",
+    "name_en",
+    "name_zh_tw",
+    "category",
+    "market_refs",
+    "comparability",
+    "comparability_score",
+    "reasons"
+  ],
+  "properties": {
+    "canonical_event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name_en": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name_zh_tw": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "FED_POLICY",
+        "US_INFLATION",
+        "OTHER"
+      ]
+    },
+    "event_window_start": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "event_window_end": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "market_refs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "venue",
+          "venue_market_id"
+        ],
+        "properties": {
+          "venue": {
+            "type": "string"
+          },
+          "venue_market_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "comparability": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "NOT_COMPARABLE"
+      ]
+    },
+    "comparability_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

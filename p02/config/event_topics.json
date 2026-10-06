@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "product": "P02",
+  "scope": "Prediction Market Intelligence MVP",
+  "topics": [
+    {
+      "topic_id": "FED_POLICY",
+      "name_en": "Federal Reserve Policy",
+      "name_zh_tw": "聯準會貨幣政策",
+      "enabled": true,
+      "keywords": [
+        "Federal Reserve",
+        "Fed",
+        "FOMC",
+        "rate cut",
+        "rate hike",
+        "interest rate"
+      ],
+      "p01_context": [
+        "US10Y",
+        "DXY",
+        "VIX",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ]
+    },
+    {
+      "topic_id": "US_INFLATION",
+      "name_en": "U.S. Inflation",
+      "name_zh_tw": "美國通膨",
+      "enabled": true,
+      "keywords": [
+        "CPI",
+        "inflation",
+        "PCE"
+      ],
+      "p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ]
+    }
+  ]
+}

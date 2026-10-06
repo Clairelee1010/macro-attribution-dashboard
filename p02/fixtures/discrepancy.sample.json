@@ -1,0 +1,28 @@
+{
+  "signal_id": "P02-DEMO-SIGNAL-001",
+  "canonical_event_id": "FED_DECISION_DEMO",
+  "market_probabilities": [
+    {
+      "venue": "polymarket",
+      "probability": 0.62
+    },
+    {
+      "venue": "kalshi",
+      "probability": 0.55
+    }
+  ],
+  "raw_discrepancy_pp": 7.0,
+  "comparability": "HIGH",
+  "evidence_confidence": "MEDIUM",
+  "attention": "HIGH_ATTENTION",
+  "trust_status": "NORMAL",
+  "execution_allowed": false,
+  "reasons": [
+    "7PP_CROSS_MARKET_GAP",
+    "HIGH_COMPARABILITY",
+    "FRESH_DATA"
+  ],
+  "limitations": [
+    "DEMO_FIXTURE_NOT_LIVE_MARKET_DATA"
+  ]
+}

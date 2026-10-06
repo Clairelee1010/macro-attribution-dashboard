@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "comparability": {
+    "high_min": 0.85,
+    "medium_min": 0.65,
+    "low_min": 0.4
+  },
+  "discrepancy": {
+    "high_attention_pp": 8.0,
+    "medium_attention_pp": 4.0
+  },
+  "freshness": {
+    "fresh_max_minutes": 30,
+    "stale_max_minutes": 180
+  },
+  "liquidity": {
+    "minimum_usd_for_high_confidence": 10000
+  },
+  "security": {
+    "recent_incident_days": 30
+  }
+}

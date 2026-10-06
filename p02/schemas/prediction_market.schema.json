@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "prediction_market.schema.json",
+  "title": "P02 Normalized Prediction Market",
+  "type": "object",
+  "required": [
+    "event_id",
+    "canonical_event",
+    "venue",
+    "venue_market_id",
+    "question",
+    "outcome",
+    "implied_probability",
+    "retrieved_at",
+    "freshness",
+    "data_quality"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "venue": {
+      "type": "string",
+      "enum": [
+        "polymarket",
+        "kalshi",
+        "other"
+      ]
+    },
+    "venue_market_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "outcome": {
+      "type": "string",
+      "minLength": 1
+    },
+    "implied_probability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "volume_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "liquidity_usd": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "best_bid": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "best_ask": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "spread": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "market_open_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "market_close_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "resolution_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolution_rules": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "freshness": {
+      "type": "string",
+      "enum": [
+        "FRESH",
+        "STALE",
+        "MISSING",
+        "ERROR"
+      ]
+    },
+    "data_quality": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "WARN",
+        "FAIL"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
