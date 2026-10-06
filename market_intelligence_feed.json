@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-06T15:50:37.986437Z",
+  "generated_at": "2026-10-06T16:05:53.912105Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,17 +103,32 @@
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -124,21 +139,6 @@
     },
     {
       "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,22 +163,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "MEXC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "TSMC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -271,8 +271,8 @@
       ]
     },
     {
-      "id": "NEWS-CB9BC6C2BAC3",
-      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - treasury.gov",
+      "id": "NEWS-4961478C1F54",
+      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBiaXFUNUxDUWwtb25WbGxLaDFSRjJkd3RjY2R2d25PT2pTY1NiWXFMajU4VHRmTndmRDc2M25nbVlRQTdBOV8zdGVidmQ2NXhPOUhHQ3UzdUZlbEo3VGNrUVNn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -314,8 +314,8 @@
       ]
     },
     {
-      "id": "NEWS-AF1D33D4C6A1",
-      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - treasury.gov",
+      "id": "NEWS-B501EC5AB66A",
+      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNTBVTEs1aWlXRlNXTjBCa3NFVnh3a19EdzlQY2N1Mm5SZUF2LWk5S190V3RtS0RONkZJbXNZY2tBZy13X05wV1lQdHprdDhKVmtJb0FaWjBPazdRSEJhX3RB?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -357,8 +357,8 @@
       ]
     },
     {
-      "id": "NEWS-97BB94BA8CB1",
-      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - treasury.gov",
+      "id": "NEWS-1D58B4D14BF6",
+      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBhbzlMdU5oTWxndzRxbkRCSEhJU2pPV0s4Mk9paC1OTG1yMXdZeGM4cE45RTVCMUN4Z29lT0FxTGRFSFZRQnVHVTNLVjMybEhJNHMyRDdjejk3ZVZSUmgtdkN3?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -400,8 +400,8 @@
       ]
     },
     {
-      "id": "NEWS-C800BF09F350",
-      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - treasury.gov",
+      "id": "NEWS-CC0C52163A6F",
+      "title": "U.S. Department of the Treasury and U.S. Department of Education Launch New Defaulted Loans Support Center - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9mTzZrNzg0bkt4d1gyQ2N3S2VGXzIxd0pac05CVFZQUWRIVkh6MHhRdnU3VW1wd2N3ZGN6ZElhMEtwQkU0VkQteXhka1pEclg3Y3NpcVI2b01HRlJ0eDlWR2Nn?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -443,8 +443,8 @@
       ]
     },
     {
-      "id": "NEWS-7D9C1BD4D7C5",
-      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks | U.S. Department of the Treasury - treasury.gov",
+      "id": "NEWS-F05435ABE8AE",
+      "title": "Operation Economic Outcast Takes Down Iranian Military Procurement Networks | U.S. Department of the Treasury - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBkOGgySW5FTzhTSDMxVTVlNjJJaG1DazZtTFA2dV9WYWVyQVhXNGd1WW9kMmJLNU8yd2tGOWtjNkVpZUVzSVJ0cDB6RTFmenMxd0RRMFB2RG5BRkJsTjJTMi13?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
@@ -486,8 +486,8 @@
       ]
     },
     {
-      "id": "NEWS-23071ACAA442",
-      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - treasury.gov",
+      "id": "NEWS-06EA71505BDE",
+      "title": "Treasury Sanctions Sinaloa Cartel Leadership and Corruption Networks - U.S. Department of the Treasury (.gov)",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBRT1F0emZ6bk9ENmpnODVUOW9LSE1hU0NyRmdnREF6QXliaTExNnZzUW5ydG5wMmFhRFVYbWtMOUlXRGZ0a3pfSXVLb2RsbFUteGd4ZjNfU0tsZEg3QzAyVHdR?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
