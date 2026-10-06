@@ -1,0 +1,239 @@
+{
+  "version": "P03-003A",
+  "generated_at": "2026-10-06T10:43:40.969170+00:00",
+  "mode": "PUBLIC_READ_ONLY",
+  "execution": "DISABLED",
+  "guardrails": [
+    "NO_ACCOUNT",
+    "NO_ORDER",
+    "NO_WALLET",
+    "NO_SIGNING",
+    "NO_FUND_EXECUTION",
+    "HEAT_NOT_RECOMMENDATION",
+    "ATTENTION_NOT_CAPITAL_FLOW",
+    "INFERRED_FLOW_LABELED"
+  ],
+  "methodology": {
+    "heat_score": "Deterministic attention/activity score from existing verified artifacts; score is investigation priority, not investment attractiveness.",
+    "flow_policy": "Only direct net-flow evidence may be labeled OBSERVED_FLOW. Context links are labeled inferred/contextual.",
+    "politics": "Political prediction-market contracts are excluded from Hot Zone scoring."
+  },
+  "zones": [
+    {
+      "id": "BTC",
+      "name_zh": "比特幣",
+      "name_en": "Bitcoin",
+      "evidence_type": "OBSERVED_MARKET_DATA",
+      "heat_basis": "MARKET_MOMENTUM",
+      "scores": {
+        "24H": 39.2,
+        "7D": 52.7,
+        "30D": 74.5
+      },
+      "levels": {
+        "24H": "COOL",
+        "7D": "WATCH",
+        "30D": "HOT"
+      },
+      "changes_pct": {
+        "24H": 0.23,
+        "7D": 2.82,
+        "30D": 7.01
+      },
+      "evidence_coverage_pct": 100.0,
+      "source": "Yahoo Finance via yfinance",
+      "note_zh": "熱度反映價格活動／動能強度，不代表資金淨流入或投資建議。",
+      "note_en": "Heat reflects market activity/momentum, not net capital inflow or investment advice."
+    },
+    {
+      "id": "ETH",
+      "name_zh": "以太坊",
+      "name_en": "Ethereum",
+      "evidence_type": "OBSERVED_MARKET_DATA",
+      "heat_basis": "MARKET_MOMENTUM",
+      "scores": {
+        "24H": 38.7,
+        "7D": 45.4,
+        "30D": 79.4
+      },
+      "levels": {
+        "24H": "COOL",
+        "7D": "COOL",
+        "30D": "VERY_HOT"
+      },
+      "changes_pct": {
+        "24H": 0.13,
+        "7D": 1.42,
+        "30D": 7.96
+      },
+      "evidence_coverage_pct": 100.0,
+      "source": "Yahoo Finance via yfinance",
+      "note_zh": "熱度反映價格活動／動能強度，不代表資金淨流入或投資建議。",
+      "note_en": "Heat reflects market activity/momentum, not net capital inflow or investment advice."
+    },
+    {
+      "id": "SOL",
+      "name_zh": "Solana",
+      "name_en": "Solana",
+      "evidence_type": "OBSERVED_MARKET_DATA",
+      "heat_basis": "MARKET_MOMENTUM",
+      "scores": {
+        "24H": 38.7,
+        "7D": 44.7,
+        "30D": 80
+      },
+      "levels": {
+        "24H": "COOL",
+        "7D": "COOL",
+        "30D": "VERY_HOT"
+      },
+      "changes_pct": {
+        "24H": -0.14,
+        "7D": 1.28,
+        "30D": 13.28
+      },
+      "evidence_coverage_pct": 100.0,
+      "source": "Yahoo Finance via yfinance",
+      "note_zh": "熱度反映價格活動／動能強度，不代表資金淨流入或投資建議。",
+      "note_en": "Heat reflects market activity/momentum, not net capital inflow or investment advice."
+    },
+    {
+      "id": "US_EQUITY",
+      "name_zh": "美股觀察池",
+      "name_en": "US Equity Watchlist",
+      "evidence_type": "OBSERVED_MARKET_DATA",
+      "heat_basis": "AGGREGATE_WATCHLIST_MOMENTUM",
+      "scores": {
+        "24H": 43.3,
+        "7D": 51.2,
+        "30D": 56.7
+      },
+      "levels": {
+        "24H": "COOL",
+        "7D": "WATCH",
+        "30D": "WATCH"
+      },
+      "changes_pct": {
+        "24H": 0.98,
+        "7D": 0.01,
+        "30D": 1.64
+      },
+      "evidence_coverage_pct": 100.0,
+      "source": "INT multi-asset watchlist",
+      "note_zh": "以觀察池價格活動聚合，不代表整體美股資金流。",
+      "note_en": "Aggregated watchlist activity; not whole-market fund flow."
+    },
+    {
+      "id": "TOKENIZED_EQUITY",
+      "name_zh": "代幣化股票",
+      "name_en": "Tokenized Equities",
+      "evidence_type": "INFERRED_ATTENTION",
+      "heat_basis": "VERIFIED_MAPPING_PLUS_UNDERLYING_ACTIVITY",
+      "scores": {
+        "24H": 51.4,
+        "7D": 55.6,
+        "30D": 62.5
+      },
+      "levels": {
+        "24H": "WATCH",
+        "7D": "WATCH",
+        "30D": "WATCH"
+      },
+      "changes_pct": {
+        "24H": 1.01,
+        "7D": 1.2,
+        "30D": 4.11
+      },
+      "evidence_coverage_pct": 36.7,
+      "source": "INT verified tokenization mapping + live underlying watchlist",
+      "note_zh": "推論型熱度：結合已驗證產品映射與標的市場活動；不是代幣資金淨流入。",
+      "note_en": "Inferred heat combines verified product mappings and underlying activity; it is not token net inflow."
+    },
+    {
+      "id": "PREDICTION",
+      "name_zh": "預測市場注意力",
+      "name_en": "Prediction Market Attention",
+      "evidence_type": "OBSERVED_MARKET_ACTIVITY",
+      "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
+      "scores": {
+        "24H": 81.3,
+        "7D": 81.3,
+        "30D": 81.3
+      },
+      "levels": {
+        "24H": "VERY_HOT",
+        "7D": "VERY_HOT",
+        "30D": "VERY_HOT"
+      },
+      "changes_pct": {
+        "24H": null,
+        "7D": null,
+        "30D": null
+      },
+      "evidence_coverage_pct": 100.0,
+      "source": "P02 deterministic topic intelligence",
+      "activity": {
+        "top_nonpolitical_markets": 10,
+        "volume_usd": 3291518.06,
+        "liquidity_usd": 3613177.24
+      },
+      "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
+      "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
+    },
+    {
+      "id": "RWA",
+      "name_zh": "RWA / 鏈上實體資產",
+      "name_en": "RWA / Tokenized Real-World Assets",
+      "evidence_type": "INSUFFICIENT_DIRECT_FLOW_EVIDENCE",
+      "heat_basis": "DIRECT_FLOW_SOURCE_REQUIRED",
+      "scores": {
+        "24H": null,
+        "7D": null,
+        "30D": null
+      },
+      "levels": {
+        "24H": "EVIDENCE_PENDING",
+        "7D": "EVIDENCE_PENDING",
+        "30D": "EVIDENCE_PENDING"
+      },
+      "changes_pct": {
+        "24H": null,
+        "7D": null,
+        "30D": null
+      },
+      "evidence_coverage_pct": 0.0,
+      "source": null,
+      "note_zh": "目前 Repo 沒有可驗證的直接 RWA 淨流資料，因此不建立假熱度。",
+      "note_en": "No verified direct RWA net-flow source is present in the repo, so no synthetic heat is created."
+    }
+  ],
+  "flows": [
+    {
+      "from": "US_EQUITY",
+      "to": "TOKENIZED_EQUITY",
+      "type": "CONTEXT_LINK",
+      "strength": 62,
+      "observed": false,
+      "label_zh": "標的市場 ↔ 代幣化映射",
+      "label_en": "Underlying ↔ tokenized mapping"
+    },
+    {
+      "from": "BTC",
+      "to": "ETH",
+      "type": "MARKET_ROTATION_CONTEXT",
+      "strength": 48,
+      "observed": false,
+      "label_zh": "跨加密市場活動比較",
+      "label_en": "Cross-crypto activity comparison"
+    },
+    {
+      "from": "ETH",
+      "to": "RWA",
+      "type": "EVIDENCE_PENDING",
+      "strength": 22,
+      "observed": false,
+      "label_zh": "等待直接資金流證據",
+      "label_en": "Direct flow evidence pending"
+    }
+  ]
+}
