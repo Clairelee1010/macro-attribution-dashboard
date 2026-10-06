@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-10-06T03:17:17.199855+00:00",
+  "generated_at": "2026-10-06T10:43:40.969170+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,9 +26,9 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 45.2,
-        "7D": 49.0,
-        "30D": 73.5
+        "24H": 39.2,
+        "7D": 52.7,
+        "30D": 74.5
       },
       "levels": {
         "24H": "COOL",
@@ -36,9 +36,9 @@
         "30D": "HOT"
       },
       "changes_pct": {
-        "24H": -1.39,
-        "7D": 2.12,
-        "30D": 6.83
+        "24H": 0.23,
+        "7D": 2.82,
+        "30D": 7.01
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,9 +52,9 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 43.9,
-        "7D": 39.3,
-        "30D": 80
+        "24H": 38.7,
+        "7D": 45.4,
+        "30D": 79.4
       },
       "levels": {
         "24H": "COOL",
@@ -62,9 +62,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -1.14,
-        "7D": 0.25,
-        "30D": 8.66
+        "24H": 0.13,
+        "7D": 1.42,
+        "30D": 7.96
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,8 +78,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 46.8,
-        "7D": 40.8,
+        "24H": 38.7,
+        "7D": 44.7,
         "30D": 80
       },
       "levels": {
@@ -88,9 +88,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -1.69,
-        "7D": 0.53,
-        "30D": 15.78
+        "24H": -0.14,
+        "7D": 1.28,
+        "30D": 13.28
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -104,8 +104,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "AGGREGATE_WATCHLIST_MOMENTUM",
       "scores": {
-        "24H": 42.2,
-        "7D": 50.9,
+        "24H": 43.3,
+        "7D": 51.2,
         "30D": 56.7
       },
       "levels": {
@@ -114,9 +114,9 @@
         "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": 0.75,
-        "7D": -0.22,
-        "30D": 1.42
+        "24H": 0.98,
+        "7D": 0.01,
+        "30D": 1.64
       },
       "evidence_coverage_pct": 100.0,
       "source": "INT multi-asset watchlist",
@@ -130,9 +130,9 @@
       "evidence_type": "INFERRED_ATTENTION",
       "heat_basis": "VERIFIED_MAPPING_PLUS_UNDERLYING_ACTIVITY",
       "scores": {
-        "24H": 50.4,
-        "7D": 54.7,
-        "30D": 61.6
+        "24H": 51.4,
+        "7D": 55.6,
+        "30D": 62.5
       },
       "levels": {
         "24H": "WATCH",
@@ -140,9 +140,9 @@
         "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": 0.79,
-        "7D": 0.97,
-        "30D": 3.89
+        "24H": 1.01,
+        "7D": 1.2,
+        "30D": 4.11
       },
       "evidence_coverage_pct": 36.7,
       "source": "INT verified tokenization mapping + live underlying watchlist",
@@ -156,9 +156,9 @@
       "evidence_type": "OBSERVED_MARKET_ACTIVITY",
       "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
       "scores": {
-        "24H": 81.5,
-        "7D": 81.5,
-        "30D": 81.5
+        "24H": 81.3,
+        "7D": 81.3,
+        "30D": 81.3
       },
       "levels": {
         "24H": "VERY_HOT",
@@ -174,8 +174,8 @@
       "source": "P02 deterministic topic intelligence",
       "activity": {
         "top_nonpolitical_markets": 10,
-        "volume_usd": 3329464.16,
-        "liquidity_usd": 3609681.95
+        "volume_usd": 3291518.06,
+        "liquidity_usd": 3613177.24
       },
       "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
       "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
