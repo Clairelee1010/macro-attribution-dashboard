@@ -1,0 +1,30 @@
+RECOVERY-001 — FULL SITE RESTORE
+
+IMPORTANT: Upload/replace the ENTIRE CONTENTS of this package at the repository root.
+Do NOT upload the outer folder itself.
+Do NOT mix with SIMPLIFY-002 / SIMPLIFY-003 / P01-current-index.
+
+Required runtime paths include:
+/index.html
+/p01/index.html
+/p02/index.html
+/intelligence/index.html
+/p03/index.html
+/dashboard_data.json
+/market_intelligence_feed.json
+/live_market_data.json
+/data/p02/dashboard_payload.json
+/data/integration/*.json
+/p03/data/*.json
+/.nojekyll
+
+Expected pages:
+/                 Home
+/p01/             Market Intelligence
+/p02/             Prediction Intelligence
+/intelligence/    Integrated Intelligence
+/p03/             Agent Intelligence
+/learn/           Web3 Learning
+
+This recovery build is based only on macro-attribution-dashboard-main (36).zip.
+No SIMPLIFY overlay has been applied.
