@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "freshness_threshold_hours": {
+    "US10Y": 36,
+    "DXY": 36,
+    "VIX": 36,
+    "BTC": 2,
+    "ETH": 2
+  },
+  "component_weights": {
+    "completeness": 0.25,
+    "freshness": 0.25,
+    "validity": 0.25,
+    "consistency": 0.25
+  },
+  "quality_gate": {
+    "pass_min_score": 0.90,
+    "degraded_min_score": 0.60
+  },
+  "notes": "MVP thresholds are configurable engineering defaults for this portfolio and are not financial-industry standards. Source type is retained as evidence and is not assigned an arbitrary vendor score."
+}

@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "semantics": {
+    "regime": [
+      "RISK_ON",
+      "NEUTRAL",
+      "RISK_OFF",
+      "UNKNOWN"
+    ],
+    "score": "Deterministic cross-signal balance from -1 (risk-off) to +1 (risk-on); not outcome probability.",
+    "confidence": "Evidence reliability for regime classification; not probability of a market outcome."
+  },
+  "direction_scores": {
+    "RISK_ON": 1.0,
+    "NEUTRAL": 0.0,
+    "RISK_OFF": -1.0
+  },
+  "strength_weights": {
+    "WEAK": 0.5,
+    "MODERATE": 1.0,
+    "STRONG": 1.5
+  },
+  "metric_weights": {
+    "US10Y": 1.2,
+    "DXY": 1.0,
+    "VIX": 1.2,
+    "BTC": 1.0,
+    "ETH": 1.0
+  },
+  "thresholds": {
+    "risk_on_min": 0.25,
+    "risk_off_max": -0.25
+  },
+  "confidence": {
+    "minimum_coverage": 0.4,
+    "contradiction_penalty": 0.15
+  }
+}

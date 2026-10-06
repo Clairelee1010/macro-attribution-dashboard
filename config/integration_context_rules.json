@@ -1,0 +1,33 @@
+{
+  "version": "INT-002-RULES-1.0",
+  "semantics": {
+    "SUPPORTED_CONTEXT": "Current P01 market context is directionally consistent with the scenario described by the P02 contract. This is context consistency, not causal proof or a forecast.",
+    "DIVERGENT_CONTEXT": "Current P01 market context is directionally inconsistent with the scenario described by the P02 contract. This is not a claim that the contract outcome is wrong.",
+    "MIXED_CONTEXT": "Relevant P01 evidence points in more than one direction or does not provide a clean directional read.",
+    "INSUFFICIENT_EVIDENCE": "The topic is potentially relevant, but current P01 evidence is not specific or reliable enough for directional comparison.",
+    "NOT_APPLICABLE": "The P02 contract is outside the defined P01 market-context mapping and is intentionally not interpreted."
+  },
+  "category_policy": {
+    "politics": "NOT_APPLICABLE",
+    "sports": "NOT_APPLICABLE",
+    "society": "NOT_APPLICABLE",
+    "other": "NOT_APPLICABLE",
+    "energy": "INSUFFICIENT_EVIDENCE",
+    "metals": "INSUFFICIENT_EVIDENCE",
+    "equities": "INSUFFICIENT_EVIDENCE",
+    "technology": "INSUFFICIENT_EVIDENCE"
+  },
+  "macro": {
+    "rate_hike_terms": ["increase interest rates", "raise interest rates", "rate hike", "hike rates"],
+    "rate_cut_terms": ["decrease interest rates", "cut interest rates", "rate cut", "cut rates"],
+    "no_change_terms": ["no change in fed interest rates", "hold rates", "unchanged rates"],
+    "restrictive_signal_ids": ["VERY_HIGH_YIELD", "HIGH_YIELD", "FIRM_DOLLAR", "STRONG_DOLLAR"],
+    "easing_signal_ids": ["LOW_YIELD", "FALLING_YIELD", "WEAK_DOLLAR"]
+  },
+  "crypto": {
+    "up_terms": ["reach $", "above $", "rise to", "hit $", "all-time high", "new high"],
+    "down_terms": ["dip to", "below $", "fall to", "drop to", "decline to"],
+    "risk_on_regimes": ["RISK_ON"],
+    "risk_off_regimes": ["RISK_OFF"]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "semantics": {
+    "direction": [
+      "RISK_ON",
+      "RISK_OFF",
+      "NEUTRAL",
+      "UNKNOWN"
+    ],
+    "strength": [
+      "WEAK",
+      "MODERATE",
+      "STRONG",
+      "UNKNOWN"
+    ],
+    "confidence": "Evidence reliability for classification; not outcome probability."
+  },
+  "quality_gate": {
+    "require_available": true,
+    "require_fresh": true,
+    "require_valid": true,
+    "require_consistent": true
+  },
+  "confidence": {
+    "fallback_source_penalty": 0.1
+  },
+  "metrics": {
+    "US10Y": {
+      "unit": "DECIMAL",
+      "rules": [
+        {
+          "min": 0.05,
+          "signal_id": "VERY_HIGH_YIELD",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "min": 0.045,
+          "max": 0.05,
+          "signal_id": "ELEVATED_YIELD",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        },
+        {
+          "min": 0.035,
+          "max": 0.045,
+          "signal_id": "MID_RANGE_YIELD",
+          "direction": "NEUTRAL",
+          "strength": "WEAK"
+        },
+        {
+          "max": 0.035,
+          "signal_id": "LOW_YIELD",
+          "direction": "RISK_ON",
+          "strength": "WEAK"
+        }
+      ]
+    },
+    "DXY": {
+      "unit": "INDEX",
+      "rules": [
+        {
+          "min": 105,
+          "signal_id": "STRONG_DOLLAR",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "min": 100,
+          "max": 105,
+          "signal_id": "FIRM_DOLLAR",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        },
+        {
+          "min": 95,
+          "max": 100,
+          "signal_id": "SOFT_DOLLAR",
+          "direction": "RISK_ON",
+          "strength": "WEAK"
+        },
+        {
+          "max": 95,
+          "signal_id": "WEAK_DOLLAR",
+          "direction": "RISK_ON",
+          "strength": "MODERATE"
+        }
+      ]
+    },
+    "VIX": {
+      "unit": "INDEX",
+      "rules": [
+        {
+          "min": 35,
+          "signal_id": "EXTREME_VOLATILITY",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "min": 25,
+          "max": 35,
+          "signal_id": "HIGH_VOLATILITY",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        },
+        {
+          "min": 15,
+          "max": 25,
+          "signal_id": "NORMAL_VOLATILITY",
+          "direction": "NEUTRAL",
+          "strength": "WEAK"
+        },
+        {
+          "max": 15,
+          "signal_id": "LOW_VOLATILITY",
+          "direction": "RISK_ON",
+          "strength": "MODERATE"
+        }
+      ]
+    },
+    "BTC": {
+      "unit": "USD",
+      "mode": "INSUFFICIENT_HISTORY"
+    },
+    "ETH": {
+      "unit": "USD",
+      "mode": "INSUFFICIENT_HISTORY"
+    }
+  }
+}
