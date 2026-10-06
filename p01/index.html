@@ -35,6 +35,9 @@
         .ux-details>summary{list-style:none;cursor:pointer;padding:13px 16px;font-size:12px;font-weight:700;color:#57534e;display:flex;align-items:center;justify-content:space-between}
         .ux-details>summary::-webkit-details-marker{display:none}.ux-details>summary:after{content:"＋";color:#78716c}.ux-details[open]>summary:after{content:"−"}
         .ux-details-body{padding:0 16px 16px}.ux-news-details{margin-top:10px}.ux-news-details>summary{cursor:pointer;color:#6366f1;font-size:11px;font-weight:700}
+
+        .brief-card{background:linear-gradient(135deg,#171129 0%,#241343 55%,#32165a 100%);color:#fff;border:1px solid rgba(139,92,246,.45);border-radius:18px;padding:16px;box-shadow:0 14px 34px rgba(76,29,149,.12)}.brief-kicker{font-size:10px;font-weight:900;letter-spacing:.12em;color:#c4b5fd}.brief-rank{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:11px;font-weight:900}.brief-pill{display:inline-flex;padding:.18rem .5rem;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);font-size:9px;font-weight:800;color:#ddd6fe}.brief-action{border:1px solid rgba(196,181,253,.45);background:rgba(139,92,246,.14);color:#ede9fe;border-radius:10px;padding:7px 10px;font-size:10px;font-weight:800;cursor:pointer}.brief-action:hover{background:rgba(139,92,246,.26)}
+        .trend-card{background:linear-gradient(135deg,#fff 0%,#faf7ff 100%);border:1px solid #e9e1f7;border-radius:16px;padding:16px}.trend-bar{height:7px;background:#eee9f4;border-radius:999px;overflow:hidden}.trend-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#c05656);border-radius:999px}.trend-rank{font-variant-numeric:tabular-nums}.trend-chip{display:inline-flex;padding:.18rem .5rem;border-radius:999px;font-size:9px;font-weight:800;letter-spacing:.05em}.trend-up{background:#ecfdf5;color:#047857}.trend-flat{background:#f5f5f4;color:#57534e}.trend-down{background:#fff7ed;color:#c2410c}.trend-method{border-top:1px solid #f0eae1;margin-top:12px;padding-top:10px}.trend-open{margin-top:12px;width:100%;border:1px solid #ddd6fe;background:#f5f3ff;color:#6d28d9;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer}.trend-open:hover{background:#ede9fe}.trend-modal{position:fixed;inset:0;z-index:80;background:rgba(28,25,23,.58);display:none;align-items:center;justify-content:center;padding:18px}.trend-modal.open{display:flex}.trend-panel{width:min(920px,96vw);max-height:88vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.25);padding:20px}.trend-evidence{border:1px solid #eee7f7;border-radius:14px;padding:12px;background:#fff}.trend-meter{height:6px;background:#eee9f4;border-radius:999px;overflow:hidden}.trend-meter>i{display:block;height:100%;background:#8b5cf6;border-radius:999px}
 </style>
 </head>
 <body class="p-4 md:p-6 max-w-7xl mx-auto space-y-6 relative min-h-screen">
@@ -242,6 +245,35 @@
 
     <!-- 📢 VIX 通報 Banner -->
     <div id="vix-banner" class="bg-rose-50/60 border border-rose-100 text-rose-800 text-xs px-4 py-2.5 rounded-xl font-medium">Live VIX context loading…</div>
+
+
+    <!-- P01-UX-004 · Today's Intelligence Brief -->
+    <section id="today-brief" class="brief-card space-y-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
+        <div><div class="brief-kicker">P01-UX-004 · TODAY'S INTELLIGENCE BRIEF</div><h2 id="brief-title" class="text-xl font-bold mt-1">What deserves attention today?</h2><div id="brief-subtitle" class="text-[11px] text-violet-200 mt-1">Evidence-led research priorities from current news and market context.</div></div>
+        <div class="flex items-center gap-2"><span class="brief-pill">GENERATED · EXPLAINABLE</span><span id="brief-updated" class="text-[10px] text-violet-200 font-mono">Loading…</span></div>
+      </div>
+      <div id="brief-lead" class="text-sm text-violet-50 bg-white/5 border border-white/10 rounded-xl p-3">Building today's brief…</div>
+      <div id="brief-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+      <div id="brief-guardrail" class="text-[10px] text-violet-200 border-t border-white/10 pt-3">Research prioritization only · No BUY / SELL · Evidence gaps remain explicit.</div>
+    </section>
+
+    <!-- P01-UX-001 · News-to-Trend Intelligence -->
+    <section id="trend-intelligence" class="soft-card rounded-2xl p-4 md:p-5 space-y-4 border-l-4 border-l-violet-500">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-2">
+        <div><div id="trend-title" class="text-xs font-bold text-stone-700 uppercase tracking-wider">🔥 News-to-Trend Intelligence</div><div id="trend-subtitle" class="text-[11px] text-stone-400 mt-1">Turns current news into explainable research priorities — not trading advice.</div></div>
+        <div class="flex items-center gap-2"><span class="data-badge data-generated">GENERATED</span><span id="trend-window" class="text-[10px] text-stone-400 font-mono">Loading…</span></div>
+      </div>
+      <div id="trend-summary" class="text-sm text-stone-700 bg-violet-50/50 border border-violet-100 rounded-xl p-3">Loading trend analysis…</div>
+      <div id="trend-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+      <details class="ux-details"><summary id="trend-method-summary">How the analysis works</summary><div id="trend-method-body" class="ux-details-body text-[11px] text-stone-500 leading-relaxed"></div></details>
+    </section>
+    <div id="trend-detail-modal" class="trend-modal" role="dialog" aria-modal="true" aria-labelledby="trend-detail-title">
+      <div class="trend-panel">
+        <div class="flex items-start justify-between gap-4"><div><div class="text-[10px] font-bold text-violet-600 uppercase tracking-wider">P01-UX-002 · Trend Evidence</div><h2 id="trend-detail-title" class="text-xl font-bold text-stone-900 mt-1"></h2><div id="trend-detail-sub" class="text-xs text-stone-500 mt-1"></div></div><button id="trend-detail-close" class="px-3 py-2 rounded-xl border border-stone-200 text-stone-500">✕</button></div>
+        <div id="trend-detail-body" class="mt-5 space-y-4"></div>
+      </div>
+    </div>
 
     <!-- 📑 TAB 頁籤切換 -->
     <div class="flex border-b border-stone-200 space-x-8 text-sm font-semibold text-stone-500 overflow-x-auto">
@@ -568,6 +600,140 @@
             document.getElementById('meta-total-val').innerText = items.length;
             const official = items.filter(x => x.source_type === 'OFFICIAL_COMPANY_SOURCE').length;
             document.getElementById('meta-bullish-val').innerText = items.length ? `${Math.round(official / items.length * 100)}%` : '--';
+        }
+
+        let lastTrendRanked = [];
+
+        function openTrendDetail(index) {
+            const g=lastTrendRanked[index]; if(!g) return;
+            const zh=currentLang==='zh';
+            const modal=document.getElementById('trend-detail-modal');
+            const name=translateNewsValue(g.topic,'topic');
+            document.getElementById('trend-detail-title').innerText=name;
+            document.getElementById('trend-detail-sub').innerText=zh
+              ? `Research Priority ${g.score}/100 · ${g.rows.length} 則證據 · ${g.sources} 個獨立來源`
+              : `Research Priority ${g.score}/100 · ${g.rows.length} evidence items · ${g.sources} independent sources`;
+            const recentLabel=g.momentum==='INSUFFICIENT_HISTORY'?(zh?'歷史不足，暫不判定方向':'Insufficient history — direction not classified'):g.momentum;
+            const sorted=[...g.rows].sort((a,b)=>new Date(b.published_at||0)-new Date(a.published_at||0));
+            const evidence=sorted.slice(0,8).map(x=>{
+              const title=zh?(x.title_zh||x.title||x.title_en):(x.title_en||x.title||x.title_zh);
+              const source=x.source_name||x.domain||x.source||'Unknown source';
+              const when=x.published_at?new Date(x.published_at).toLocaleString(zh?'zh-TW':'en-US'):'--';
+              const rel=Math.round(Number(x.relevance_score)||0);
+              const why=zh?(x.why_it_matters_zh||x.why_it_matters||x.evidence_note_zh||x.evidence_note):(x.why_it_matters_en||x.why_it_matters||x.evidence_note_en||x.evidence_note);
+              const url=x.url||x.link||x.source_url||'';
+              return `<div class="trend-evidence"><div class="flex items-start justify-between gap-3"><div class="font-bold text-sm text-stone-800">${escapeHtml(title||'Untitled evidence')}</div><span class="text-[10px] font-mono text-violet-700">${rel}/100</span></div><div class="text-[10px] text-stone-400 mt-1">${escapeHtml(source)} · ${escapeHtml(when)}</div>${why?`<div class="text-[11px] text-stone-600 mt-2">${escapeHtml(why)}</div>`:''}${url?`<a class="inline-block mt-2 text-[11px] font-bold text-violet-700" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${zh?'查看原始來源 ↗':'Open source ↗'}</a>`:''}</div>`;
+            }).join('');
+            document.getElementById('trend-detail-body').innerHTML=`
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <div class="trend-evidence"><div class="text-[10px] text-stone-400">${zh?'趨勢狀態':'Momentum'}</div><b class="text-sm">${escapeHtml(recentLabel)}</b></div>
+                <div class="trend-evidence"><div class="text-[10px] text-stone-400">24H / ${zh?'前24H':'Prior 24H'}</div><b class="text-sm">${g.recent} / ${g.prior}</b></div>
+                <div class="trend-evidence"><div class="text-[10px] text-stone-400">${zh?'來源多樣性':'Source diversity'}</div><b class="text-sm">${g.sources}</b></div>
+                <div class="trend-evidence"><div class="text-[10px] text-stone-400">${zh?'證據品質':'Evidence quality'}</div><b class="text-sm">${g.evidence}</b></div>
+              </div>
+              <div class="trend-evidence"><div class="flex items-center justify-between gap-3"><div class="text-xs font-bold text-stone-800">${zh?'跨市場脈絡檢查':'Cross-market context check'}</div><span class="text-[10px] font-bold text-violet-700">${escapeHtml(g.cross?.label||'INSUFFICIENT EVIDENCE')}</span></div><div class="text-xs text-stone-600 mt-2">${escapeHtml(g.cross?.detail||'No mapped market context is available.')}</div><div class="text-[10px] text-stone-400 mt-2">${zh?'此狀態只描述目前可用市場訊號的脈絡，不代表新聞主題已被價格確認，也不是投資建議。':'This describes available market-signal context only; it does not claim the news theme is price-confirmed and is not investment advice.'}</div></div>
+              <div class="trend-evidence"><div class="text-xs font-bold text-stone-800">${zh?'為什麼值得注意？':'Why is this worth investigating?'}</div><div class="text-xs text-stone-600 mt-2">${zh?`目前 feed 中共有 ${g.rows.length} 則相關情報，來自 ${g.sources} 個獨立來源，平均相關度 ${Math.round(g.avg)}/100。Research Priority 衡量研究注意力與證據強度，不代表價格方向。`:`The current feed contains ${g.rows.length} related items from ${g.sources} independent sources with average relevance ${Math.round(g.avg)}/100. Research Priority measures research attention and evidence strength, not price direction.`}</div></div>
+              <div><div class="flex items-center justify-between mb-2"><h3 class="font-bold text-sm">${zh?'證據來源':'Evidence trail'}</h3><span class="text-[10px] text-stone-400">${zh?'最多顯示 8 則':'Up to 8 items'}</span></div><div class="space-y-2">${evidence||`<div class="text-xs text-stone-400">${zh?'沒有可顯示的證據。':'No evidence available.'}</div>`}</div></div>
+              <div class="text-[10px] text-stone-400 border-t pt-3">${zh?'Guardrail：新聞注意力 ≠ 市場方向；相關性 ≠ 因果；資料不足時不推定趨勢。':'Guardrail: news attention ≠ market direction; correlation ≠ causality; insufficient history does not imply a trend.'}</div>`;
+            modal.classList.add('open'); document.body.style.overflow='hidden';
+        }
+
+        function closeTrendDetail(){document.getElementById('trend-detail-modal')?.classList.remove('open');document.body.style.overflow='';}
+
+        function assessCrossMarketContext(topic) {
+            const signals = dashboardV5Snapshot?.signals || [];
+            const byId = Object.fromEntries(signals.map(s => [s.metric_id, s]));
+            const macroIds = ['US10Y','DXY','VIX'];
+            const cryptoIds = ['BTC','ETH'];
+            const macroTopics = ['US_MACRO','TW_MARKET'];
+            const cryptoTopics = ['WEB3_RWA','STABLECOIN','DEFI','AGENTIC_AI','EXCHANGE'];
+            const ids = macroTopics.includes(topic) ? macroIds : (cryptoTopics.includes(topic) ? cryptoIds : []);
+            if (!dashboardV5Snapshot || !ids.length) return {state:'INSUFFICIENT_EVIDENCE', label:'INSUFFICIENT EVIDENCE', detail:'No mapped cross-market signal set is available for this theme.', usable:0, total:ids.length};
+            const selected = ids.map(id=>byId[id]).filter(Boolean);
+            const usable = selected.filter(x=>x.direction && !['UNKNOWN'].includes(x.direction));
+            if (!usable.length) return {state:'INSUFFICIENT_EVIDENCE', label:'INSUFFICIENT EVIDENCE', detail:'Mapped market signals are unavailable or have insufficient history.', usable:0, total:ids.length};
+            const riskOn=usable.filter(x=>x.direction==='RISK_ON').length;
+            const riskOff=usable.filter(x=>x.direction==='RISK_OFF').length;
+            const neutral=usable.filter(x=>x.direction==='NEUTRAL').length;
+            let state='MIXED_CONTEXT', label='MIXED CONTEXT';
+            if (riskOn>=2 && riskOn>riskOff) {state='SUPPORTED_CONTEXT';label='RISK-ON CONTEXT';}
+            else if (riskOff>=2 && riskOff>riskOn) {state='SUPPORTED_CONTEXT';label='RISK-OFF CONTEXT';}
+            else if (usable.length===1 || neutral===usable.length) {state='PARTIAL_CONTEXT';label='PARTIAL CONTEXT';}
+            const detail=`${usable.length}/${ids.length} mapped market signals usable · Risk-on ${riskOn} · Risk-off ${riskOff} · Neutral ${neutral}`;
+            return {state,label,detail,usable:usable.length,total:ids.length,riskOn,riskOff,neutral};
+        }
+
+
+        function renderTodayBrief(ranked, generated) {
+            const root=document.getElementById('brief-grid'); if(!root) return;
+            const zh=currentLang==='zh';
+            document.getElementById('brief-title').innerText=zh?'今天最值得注意什麼？':'What deserves attention today?';
+            document.getElementById('brief-subtitle').innerText=zh?'從目前新聞證據與市場脈絡整理出的研究優先方向。':'Evidence-led research priorities from current news and market context.';
+            document.getElementById('brief-guardrail').innerText=zh?'僅供研究排序 · 不產生 BUY / SELL · 證據缺口會明確保留。':'Research prioritization only · No BUY / SELL · Evidence gaps remain explicit.';
+            document.getElementById('brief-updated').innerText=(zh?'更新 ':'Updated ')+(generated instanceof Date&&!isNaN(generated)?generated.toLocaleString(zh?'zh-TW':'en-US'):'--');
+            if(!ranked?.length){document.getElementById('brief-lead').innerText=zh?'目前證據不足，無法產生今日情報摘要。':'Current evidence is insufficient to generate today\'s intelligence brief.';root.innerHTML='';return;}
+            const top=ranked[0], topName=translateNewsValue(top.topic,'topic');
+            const leadState=top.momentum==='RISING'?(zh?'注意力正在上升':'attention is rising'):top.momentum==='COOLING'?(zh?'注意力正在降溫':'attention is cooling'):top.momentum==='STEADY'?(zh?'注意力相對穩定':'attention is relatively steady'):(zh?'趨勢歷史仍不足':'trend history is still insufficient');
+            document.getElementById('brief-lead').innerHTML=zh?`<b>今日首要研究方向：${escapeHtml(topName)}</b> · ${leadState}。Research Priority ${top.score}/100；跨市場狀態為 <b>${escapeHtml(top.cross?.label||'INSUFFICIENT EVIDENCE')}</b>。`:`<b>Top research focus: ${escapeHtml(topName)}</b> · ${leadState}. Research Priority ${top.score}/100; cross-market state is <b>${escapeHtml(top.cross?.label||'INSUFFICIENT EVIDENCE')}</b>.`;
+            root.innerHTML=ranked.map((g,i)=>{
+              const name=translateNewsValue(g.topic,'topic');
+              const changed=g.momentum==='RISING'?(zh?`最近 24H 相關情報高於前一個 24H（${g.recent} vs ${g.prior}）。`:`Latest 24H evidence exceeds the prior 24H (${g.recent} vs ${g.prior}).`):g.momentum==='COOLING'?(zh?`最近 24H 相關情報低於前一個 24H（${g.recent} vs ${g.prior}）。`:`Latest 24H evidence is below the prior 24H (${g.recent} vs ${g.prior}).`):g.momentum==='STEADY'?(zh?`最近兩個 24H 視窗的相關情報量相近（${g.recent} vs ${g.prior}）。`:`Evidence volume is similar across the latest two 24H windows (${g.recent} vs ${g.prior}).`):(zh?'目前缺少連續兩個 24H 視窗的樣本，因此不推定上升或降溫。':'Both 24H windows are not sufficiently populated, so no momentum direction is inferred.');
+              const why=zh?`${g.rows.length} 則情報、${g.sources} 個獨立來源，平均相關度 ${Math.round(g.avg)}/100；證據品質 ${g.evidence}。`:`${g.rows.length} items from ${g.sources} independent sources, average relevance ${Math.round(g.avg)}/100; evidence quality ${g.evidence}.`;
+              const watch=g.cross?.state==='INSUFFICIENT_EVIDENCE'?(zh?'觀察後續是否出現可用市場訊號，避免只用新聞熱度推論市場方向。':'Watch for usable market signals before interpreting news attention as market direction.'):(g.momentum==='INSUFFICIENT_HISTORY'?(zh?'觀察下一個資料視窗是否形成持續性，再判斷是否為真正趨勢。':'Watch the next data window for persistence before treating this as a durable trend.'):(zh?`觀察新聞動能是否持續，以及跨市場脈絡是否由 ${g.cross.label} 發生變化。`:`Watch whether news momentum persists and whether cross-market context changes from ${g.cross.label}.`));
+              return `<article class="bg-white/5 border border-white/10 rounded-xl p-3"><div class="flex items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="brief-rank">0${i+1}</span><b class="text-sm">${escapeHtml(name)}</b></div><span class="brief-pill">${g.score}/100</span></div><div class="mt-3"><div class="text-[9px] font-bold text-violet-300 uppercase">${zh?'發生什麼變化':'What changed'}</div><div class="text-[11px] text-violet-50 mt-1">${escapeHtml(changed)}</div></div><div class="mt-3"><div class="text-[9px] font-bold text-violet-300 uppercase">${zh?'為什麼重要':'Why it matters'}</div><div class="text-[11px] text-violet-50 mt-1">${escapeHtml(why)}</div></div><div class="mt-3"><div class="text-[9px] font-bold text-violet-300 uppercase">${zh?'下一步觀察':'What to watch next'}</div><div class="text-[11px] text-violet-50 mt-1">${escapeHtml(watch)}</div></div><button class="brief-action mt-3" onclick="openTrendDetail(${i})">${zh?'查看證據 →':'View evidence →'}</button></article>`;
+            }).join('');
+        }
+
+        function buildTrendIntelligence() {
+            const root=document.getElementById('trend-grid');
+            if(!root) return;
+            const zh=currentLang==='zh';
+            const items=(marketIntelligenceFeed?.items||[]).filter(x=>['FRESH','STALE'].includes(x.freshness));
+            const generated=marketIntelligenceFeed?.generated_at?new Date(marketIntelligenceFeed.generated_at):new Date();
+            const title=document.getElementById('trend-title'), subtitle=document.getElementById('trend-subtitle');
+            title.innerText=zh?'🔥 新聞 → 趨勢情報':'🔥 News-to-Trend Intelligence';
+            subtitle.innerText=zh?'把目前新聞整理成可解釋的研究優先順序，不是買賣建議。':'Turns current news into explainable research priorities — not trading advice.';
+            document.getElementById('trend-method-summary').innerText=zh?'分析方法與限制':'Methodology & limitations';
+            document.getElementById('trend-method-body').innerHTML=zh
+              ? '分數由目前 feed 中的 <b>新聞量、來源多樣性、平均相關度、Freshness、Priority</b> 組成。Momentum 只在目前資料視窗同時具有最近 24H 與前一個 24H 樣本時才判定；樣本不足會明確顯示 <b>INSUFFICIENT HISTORY</b>。另以 P01 Intelligence Engine 的 US10Y / DXY / VIX 或 BTC / ETH 訊號做跨市場脈絡檢查；若訊號為 UNKNOWN 或歷史不足，維持 INSUFFICIENT EVIDENCE。此功能衡量「值得研究的注意力與證據」，不預測價格、不產生 BUY / SELL。'
+              : 'Scores combine <b>news volume, source diversity, average relevance, freshness and priority</b> in the current feed. Momentum is only classified when both the latest 24H and prior 24H have observations; otherwise it shows <b>INSUFFICIENT HISTORY</b>. It also checks mapped P01 Intelligence Engine signals (US10Y / DXY / VIX or BTC / ETH) for cross-market context; UNKNOWN or insufficient-history signals remain INSUFFICIENT EVIDENCE. This ranks research attention and evidence, not price direction, and never emits BUY / SELL.';
+            if(!items.length){renderTodayBrief([],generated);root.innerHTML=`<div class="col-span-full text-xs text-stone-400 py-4">${zh?'目前沒有足夠新聞證據可分析。':'No current news evidence is available for trend analysis.'}</div>`;document.getElementById('trend-summary').innerText=zh?'目前無法產生趨勢分析。':'Trend analysis unavailable.';return;}
+            const groups={};
+            items.forEach(x=>{
+              const k=x.primary_topic||x.topics?.[0]||'OTHER';
+              (groups[k]??=[]).push(x);
+            });
+            const ranked=Object.entries(groups).map(([topic,rows])=>{
+              const sources=new Set(rows.map(x=>x.domain||x.source_name).filter(Boolean)).size;
+              const avg=rows.reduce((a,x)=>a+(Number(x.relevance_score)||0),0)/rows.length;
+              const fresh=rows.filter(x=>x.freshness==='FRESH').length/rows.length;
+              const high=rows.filter(x=>x.priority==='HIGH').length/rows.length;
+              const volume=Math.min(100,rows.length*20);
+              const diversity=Math.min(100,sources*25);
+              const score=Math.round(volume*.20+diversity*.20+avg*.30+fresh*100*.15+high*100*.15);
+              const recent=rows.filter(x=>x.published_at && generated-new Date(x.published_at)<=86400000 && generated-new Date(x.published_at)>=0).length;
+              const prior=rows.filter(x=>x.published_at && generated-new Date(x.published_at)>86400000 && generated-new Date(x.published_at)<=172800000).length;
+              let momentum='INSUFFICIENT_HISTORY';
+              if(recent>0&&prior>0) momentum=recent>prior?'RISING':recent<prior?'COOLING':'STEADY';
+              const evidence=sources>=3&&rows.length>=3?'HIGH':sources>=2?'MEDIUM':'LIMITED';
+              const cross=assessCrossMarketContext(topic);
+              return {topic,rows,sources,avg,score,recent,prior,momentum,evidence,cross};
+            }).sort((a,b)=>b.score-a.score).slice(0,3);
+            lastTrendRanked=ranked;
+            renderTodayBrief(ranked,generated);
+            const top=ranked[0];
+            const topName=translateNewsValue(top.topic,'topic');
+            document.getElementById('trend-summary').innerHTML=zh
+              ? `<b>今日研究焦點：${escapeHtml(topName)}</b> · Research Priority ${top.score}/100。此排名代表目前新聞證據的研究優先度，不代表價格方向。`
+              : `<b>Top research focus: ${escapeHtml(topName)}</b> · Research Priority ${top.score}/100. This ranks current news evidence, not price direction.`;
+            document.getElementById('trend-window').innerText=(zh?'分析時間 ':'Window ')+(isNaN(generated)?'--':generated.toLocaleString(zh?'zh-TW':'en-US'));
+            root.innerHTML=ranked.map((g,i)=>{
+              const name=translateNewsValue(g.topic,'topic');
+              const state=g.momentum==='RISING'?(zh?'上升 RISING':'RISING'):g.momentum==='COOLING'?(zh?'降溫 COOLING':'COOLING'):g.momentum==='STEADY'?(zh?'持平 STEADY':'STEADY'):(zh?'歷史不足':'INSUFFICIENT HISTORY');
+              const cls=g.momentum==='RISING'?'trend-up':g.momentum==='COOLING'?'trend-down':'trend-flat';
+              const why=zh?`${g.rows.length} 則相關情報、${g.sources} 個獨立來源；平均相關度 ${Math.round(g.avg)}/100。`:`${g.rows.length} related items across ${g.sources} independent sources; average relevance ${Math.round(g.avg)}/100.`;
+              return `<article class="trend-card"><div class="flex items-center justify-between"><div class="text-[10px] font-bold text-stone-400">#${i+1} RESEARCH PRIORITY</div><span class="trend-chip ${cls}">${state}</span></div><div class="flex items-end justify-between gap-3 mt-2"><div class="text-base font-bold text-stone-900">${escapeHtml(name)}</div><div class="trend-rank text-2xl font-bold text-violet-700">${g.score}</div></div><div class="trend-bar mt-2"><div class="trend-fill" style="width:${g.score}%"></div></div><div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-3 text-[10px]"><div><span class="text-stone-400">${zh?'來源':'Sources'}</span><br><b>${g.sources}</b></div><div><span class="text-stone-400">${zh?'證據品質':'Evidence'}</span><br><b>${g.evidence}</b></div><div><span class="text-stone-400">${zh?'跨市場脈絡':'Cross-market'}</span><br><b>${escapeHtml(g.cross?.label||'INSUFFICIENT EVIDENCE')}</b></div><div><span class="text-stone-400">24H</span><br><b>${g.recent}</b></div><div><span class="text-stone-400">${zh?'前 24H':'Prior 24H'}</span><br><b>${g.prior}</b></div></div><div class="trend-method text-[11px] text-stone-600">${why}</div><button class="trend-open" onclick="openTrendDetail(${i})">${zh?'為什麼這個趨勢值得注意？ →':'Why is this trending? →'}</button></article>`;
+            }).join('');
         }
 
         function tabMatches(item, tab) {
@@ -1138,7 +1304,7 @@
         }
 
         async function loadDashboardV5() {
-            try { const r=await fetch('../dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); pipelineHealth.dashboard=true; updateProductionPipelineStatus(); console.log('P01-010 dashboard data loaded'); }
+            try { const r=await fetch('../dashboard_data.json?ts='+Date.now(),{cache:'no-store'}); if(!r.ok) throw new Error(`HTTP ${r.status}`); dashboardV5Snapshot=await r.json(); renderDashboardV5(); if(marketIntelligenceFeed) buildTrendIntelligence(); pipelineHealth.dashboard=true; updateProductionPipelineStatus(); console.log('P01-010 dashboard data loaded'); }
             catch(e) { pipelineHealth.dashboard=false; updateProductionPipelineStatus(); console.error('P01-010 dashboard data unavailable:',e); const s=document.getElementById('v5-data-state'); if(s){s.innerText='UNAVAILABLE';s.className='data-badge data-prototype';} document.getElementById('v5-interpretation').innerText=currentLang==='zh'?'Intelligence Engine 資料目前不可用；不顯示過期分析。':'Intelligence Engine data is unavailable; stale analysis is not presented as current.'; document.getElementById('v5-updated').innerText=currentLang==='zh'?'資料不可用':'Data unavailable'; }
         }
 
@@ -1151,12 +1317,12 @@
                 if(d.status !== 'AVAILABLE') throw new Error('feed unavailable');
                 pipelineHealth.feed=true; updateProductionPipelineStatus(); state.innerText='CURRENT'; state.className='data-badge data-live';
                 const dt=d.generated_at?new Date(d.generated_at):null; updated.innerText=dt&&!isNaN(dt)?`${currentLang==='zh'?'更新':'Updated'}: ${dt.toLocaleString()}`:'--';
-                calculateOverallStats(); renderActiveTab();
+                calculateOverallStats(); buildTrendIntelligence(); renderActiveTab();
             } catch(e) {
                 pipelineHealth.feed=false; updateProductionPipelineStatus(); console.error('P01-NEWS-001 unavailable:',e); marketIntelligenceFeed={status:'UNAVAILABLE',items:[]};
                 state.innerText='UNAVAILABLE'; state.className='data-badge data-prototype';
                 updated.innerText=currentLang==='zh'?'不顯示過期 Prototype 情報':'Stale prototype intelligence is not shown';
-                calculateOverallStats(); renderActiveTab();
+                calculateOverallStats(); buildTrendIntelligence(); renderActiveTab();
             }
         }
 
@@ -1212,6 +1378,10 @@
             loadDashboardV5();
             loadMarketIntelligenceFeed();
         };
-    </script>
+    
+        document.getElementById('trend-detail-close')?.addEventListener('click',closeTrendDetail);
+        document.getElementById('trend-detail-modal')?.addEventListener('click',e=>{if(e.target.id==='trend-detail-modal')closeTrendDetail();});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTrendDetail();});
+</script>
 </body>
 </html>
