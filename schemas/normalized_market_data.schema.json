@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clairelee1010.github.io/macro-attribution-dashboard/schemas/normalized_market_data.schema.json",
+  "title": "P01-003 Normalized Market Data Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_schema_version", "generated_at", "expected_metrics", "records"],
+  "properties": {
+    "schema_version": {"const": "3.0"},
+    "source_schema_version": {"const": "2.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "expected_metrics": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/normalizedMetric"}}
+  },
+  "$defs": {
+    "nullableNumber": {"type": ["number", "null"]},
+    "nullableString": {"type": ["string", "null"]},
+    "normalizedMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric_id", "canonical_name", "category", "raw", "normalized", "transformation", "provenance"],
+      "properties": {
+        "metric_id": {"enum": ["US10Y", "DXY", "VIX", "BTC", "ETH"]},
+        "canonical_name": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1},
+        "raw": {
+          "type": "object", "additionalProperties": false, "required": ["value", "unit"],
+          "properties": {"value": {"$ref": "#/$defs/nullableNumber"}, "unit": {"type": "string", "minLength": 1}}
+        },
+        "normalized": {
+          "type": "object", "additionalProperties": false, "required": ["value", "unit", "precision"],
+          "properties": {"value": {"$ref": "#/$defs/nullableNumber"}, "unit": {"enum": ["DECIMAL", "INDEX", "USD"]}, "precision": {"type": "integer", "minimum": 0, "maximum": 12}}
+        },
+        "transformation": {
+          "type": "object", "additionalProperties": false, "required": ["type", "formula", "deterministic"],
+          "properties": {"type": {"enum": ["PERCENT_TO_DECIMAL", "IDENTITY"]}, "formula": {"type": "string", "minLength": 1}, "deterministic": {"const": true}}
+        },
+        "provenance": {
+          "type": "object", "additionalProperties": false,
+          "required": ["ticker", "source", "source_type", "observed_at", "fetched_at", "status", "error"],
+          "properties": {
+            "ticker": {"$ref": "#/$defs/nullableString"}, "source": {"type": "string", "minLength": 1},
+            "source_type": {"enum": ["PRIMARY", "FALLBACK", "NONE"]}, "observed_at": {"$ref": "#/$defs/nullableString"},
+            "fetched_at": {"type": "string", "format": "date-time"}, "status": {"enum": ["FRESH", "STALE", "MISSING", "ERROR"]},
+            "error": {"$ref": "#/$defs/nullableString"}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "P01-NEWS-001 Market Intelligence Feed",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "engine",
+    "generated_at",
+    "status",
+    "sources",
+    "errors",
+    "items",
+    "social_adapters",
+    "methodology"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "engine": {
+      "const": "P01-NEWS-001"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ]
+    },
+    "sources": {
+      "type": "array"
+    },
+    "errors": {
+      "type": "array"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url",
+          "source_name",
+          "source_type",
+          "freshness",
+          "topics",
+          "linked_p01_context",
+          "limitations"
+        ],
+        "properties": {
+          "source_type": {
+            "enum": [
+              "OFFICIAL_COMPANY_SOURCE",
+              "NEWS_SOURCE",
+              "SOCIAL_SIGNAL"
+            ]
+          },
+          "freshness": {
+            "enum": [
+              "FRESH",
+              "STALE",
+              "ARCHIVED",
+              "UNKNOWN"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?://"
+          }
+        }
+      }
+    },
+    "social_adapters": {
+      "type": "object"
+    },
+    "methodology": {
+      "type": "object"
+    }
+  }
+}

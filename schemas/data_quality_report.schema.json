@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clairelee1010.github.io/macro-attribution-dashboard/schemas/data_quality_report.schema.json",
+  "title": "P01-004 Data Quality Report Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","source_schema_version","generated_at","rules_version","quality_score","quality_gate","components","counts","degradation_reasons","metrics"],
+  "properties": {
+    "schema_version": {"const": "4.0"},
+    "source_schema_version": {"const": "3.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "rules_version": {"type": "string", "minLength": 1},
+    "quality_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "quality_gate": {"enum": ["PASS","DEGRADED","BLOCK"]},
+    "components": {
+      "type": "object", "additionalProperties": false,
+      "required": ["completeness","freshness","validity","consistency"],
+      "properties": {
+        "completeness": {"type":"number","minimum":0,"maximum":1},
+        "freshness": {"type":"number","minimum":0,"maximum":1},
+        "validity": {"type":"number","minimum":0,"maximum":1},
+        "consistency": {"type":"number","minimum":0,"maximum":1}
+      }
+    },
+    "counts": {
+      "type":"object","additionalProperties":false,
+      "required":["expected","available","fresh","valid","consistent"],
+      "properties": {"expected":{"type":"integer","minimum":0},"available":{"type":"integer","minimum":0},"fresh":{"type":"integer","minimum":0},"valid":{"type":"integer","minimum":0},"consistent":{"type":"integer","minimum":0}}
+    },
+    "degradation_reasons": {"type":"array","uniqueItems":true,"items":{"type":"string"}},
+    "metrics": {
+      "type":"array",
+      "items": {
+        "type":"object","additionalProperties":false,
+        "required":["metric_id","available","freshness","validity","consistency","source_evidence","reasons"],
+        "properties": {
+          "metric_id":{"enum":["US10Y","DXY","VIX","BTC","ETH"]},
+          "available":{"type":"boolean"},
+          "freshness":{"type":"object","additionalProperties":false,"required":["is_fresh","age_hours","threshold_hours"],"properties":{"is_fresh":{"type":"boolean"},"age_hours":{"type":["number","null"],"minimum":0},"threshold_hours":{"type":"number","exclusiveMinimum":0}}},
+          "validity":{"type":"object","additionalProperties":false,"required":["is_valid"],"properties":{"is_valid":{"type":"boolean"}}},
+          "consistency":{"type":"object","additionalProperties":false,"required":["is_consistent"],"properties":{"is_consistent":{"type":"boolean"}}},
+          "source_evidence":{"type":"object","additionalProperties":false,"required":["source","source_type","upstream_status","upstream_error"],"properties":{"source":{"type":["string","null"]},"source_type":{"enum":["PRIMARY","FALLBACK","NONE"]},"upstream_status":{"enum":["FRESH","STALE","MISSING","ERROR"]},"upstream_error":{"type":["string","null"]}}},
+          "reasons":{"type":"array","items":{"type":"string"}}
+        }
+      }
+    }
+  }
+}

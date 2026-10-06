@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_schema_version",
+    "generated_at",
+    "engine",
+    "rules_version",
+    "regime",
+    "risk_score",
+    "risk_level",
+    "confidence",
+    "evidence_coverage",
+    "risk_drivers",
+    "protective_factors",
+    "excluded",
+    "summary",
+    "semantics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "8.0"
+    },
+    "source_schema_version": {
+      "const": "7.0"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "engine": {
+      "const": "P01-008"
+    },
+    "rules_version": {
+      "type": "string"
+    },
+    "regime": {
+      "enum": [
+        "RISK_ON",
+        "NEUTRAL",
+        "RISK_OFF",
+        "UNKNOWN"
+      ]
+    },
+    "risk_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "risk_level": {
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence_coverage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "risk_drivers": {
+      "type": "array"
+    },
+    "protective_factors": {
+      "type": "array"
+    },
+    "excluded": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "semantics": {
+      "type": "object",
+      "required": [
+        "risk_score",
+        "risk_level",
+        "confidence",
+        "recommendation"
+      ]
+    }
+  }
+}
