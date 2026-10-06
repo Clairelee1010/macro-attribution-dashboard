@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-10-05T23:19:56.082252+00:00",
+  "generated_at": "2026-10-06T03:17:17.199855+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -156,9 +156,9 @@
       "evidence_type": "OBSERVED_MARKET_ACTIVITY",
       "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
       "scores": {
-        "24H": 80.0,
-        "7D": 80.0,
-        "30D": 80.0
+        "24H": 81.5,
+        "7D": 81.5,
+        "30D": 81.5
       },
       "levels": {
         "24H": "VERY_HOT",
@@ -174,8 +174,8 @@
       "source": "P02 deterministic topic intelligence",
       "activity": {
         "top_nonpolitical_markets": 10,
-        "volume_usd": 1591168.09,
-        "liquidity_usd": 3554138.14
+        "volume_usd": 3329464.16,
+        "liquidity_usd": 3609681.95
       },
       "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
       "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
