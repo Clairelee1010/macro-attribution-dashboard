@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-08T06:48:48.349990Z",
+  "generated_at": "2026-10-09T06:57:19.335763Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -19,7 +19,7 @@
     {
       "source": "Bybit",
       "status": "OK",
-      "items": 2,
+      "items": 3,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -61,7 +61,7 @@
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 2,
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -85,7 +85,7 @@
     {
       "source": "TSMC",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -97,13 +97,13 @@
     {
       "source": "US Treasury",
       "status": "OK",
-      "items": 5,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     }
   ],
   "errors": [
     {
-      "source": "NEWS:WEB3_RWA",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -113,7 +113,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "SEC",
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -123,17 +123,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -144,11 +144,6 @@
     },
     {
       "source": "Coinbase",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,7 +158,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -178,6 +173,11 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -185,14 +185,14 @@
   ],
   "items": [
     {
-      "id": "NEWS-4D2E804CBCBC",
-      "title": "Treasury Announces Enforcement Penalty for Violation of Outbound Program - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9lbkFhREJIb3NjOS03T1FzUWd4OHhIa1gySzNJUTJNaTh3a09vZlktR19iSkRwSE5BdTQzYVVfcU1sQlg5bGN3OHVseTJSaS1UVXdPRmdPR3RRa3hCZFNXaGgzVQ?oc=5",
+      "id": "NEWS-7044E02B3588",
+      "title": "Operation Economic Outcast Neutralizes Iranian Regime’s Remaining Shadow Fleet Network - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5QX2xOU3cyTXJMQ2o4VVhlSXVHVDNHVVlLSThJNWk4NUtOaWM3T1NPZmlBZzBwdEJuaWhMOUI2ZnpRLWNmVEhxRGdpRVItbGMtbGo0aXB4dklsNkc1UE5ROHhEVQ?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-07T15:15:00Z",
+      "published_at": "2026-10-08T17:00:00Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -271,14 +271,55 @@
       ]
     },
     {
-      "id": "NEWS-4961478C1F54",
-      "title": "Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBiaXFUNUxDUWwtb25WbGxLaDFSRjJkd3RjY2R2d25PT2pTY1NiWXFMajU4VHRmTndmRDc2M25nbVlRQTdBOV8zdGVidmQ2NXhPOUhHQ3UzdUZlbEo3VGNrUVNn?oc=5",
+      "id": "NEWS-5E2DBBB0FD23",
+      "title": "TSMC September 2026 Revenue Report|Taiwan Semiconductor Manufacturing Company Limited - TSMC",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1hUlZLeWhBQkw4U1FfQ0RZcTBsRVliaTlVeXh2Q2lXekdsekI3X285dUdvMnhUQUpDTThrZXBXS1pHUFhWTjkwMXA1eUY4QQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "TSMC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-08T12:00:00Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 87,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "FRESH",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-93DEB63AC997",
+      "title": "The Financial Literacy and Education Commission Releases the 2026 Update to the U.S. National Strategy for Financial Literacy - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE05NTB6U2xUbDB5WmlucjFNWEljRXFsVDY1UHAtc3BXMWVPaVk3dFU2OEcxOGtmNnU0bDc4bWRQTnR4TXgwQVlHSU9MNzF5Ui1mQ01tTXgxaUphVEY3cUJKcXp3?oc=5",
       "domain": "news.google.com",
       "source_name": "US Treasury",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-01T17:00:00Z",
+      "published_at": "2026-10-02T14:00:00Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
@@ -314,186 +355,55 @@
       ]
     },
     {
-      "id": "NEWS-B501EC5AB66A",
-      "title": "Operation Economic Outcast Targets Iran’s Remaining Industrial Lifelines - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNTBVTEs1aWlXRlNXTjBCa3NFVnh3a19EdzlQY2N1Mm5SZUF2LWk5S190V3RtS0RONkZJbXNZY2tBZy13X05wV1lQdHprdDhKVmtJb0FaWjBPazdRSEJhX3RB?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-01T17:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 78,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-1D58B4D14BF6",
-      "title": "Treasury Announces the Completion of Automatic Enrollment Today for Trump Accounts - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBhbzlMdU5oTWxndzRxbkRCSEhJU2pPV0s4Mk9paC1OTG1yMXdZeGM4cE45RTVCMUN4Z29lT0FxTGRFSFZRQnVHVTNLVjMybEhJNHMyRDdjejk3ZVZSUmgtdkN3?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-01T15:30:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 78,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-EB778CA3E036",
-      "title": "The Trump Administration Advances the Establishment of America’s First Nationwide School Choice Program - U.S. Department of the Treasury (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBNakxlQV9tN3hrMnZ1clhNd2t6SGFpZnpDVHAycUxBNTAxd0wyYVhPWUdLX1NDUy1ucEd4SXNHbG1XYXV2enBoX0NwYm1kWEk3VGlvbmZkSHpPY1h3aUlXbmhR?oc=5",
-      "domain": "news.google.com",
-      "source_name": "US Treasury",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-01T13:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 78,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-F7F6B13CD8C8",
-      "title": "Bitcoin October Outlook Hinges on Fed, CPI and ETF Flows - Analytics Insight",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNaG1aWGJ4dy14S0lwZW5yOXhOZG9BVXNRdjVacE5rTmlGMmZjc3NKdVAySWtYSi05RWJTUjh6VDJYNkl5YVlwbE5oOWJkbVBLdURvV2RqdWFEM1VLVGRNWnVQZWZISXlkV2JHcm52VzBGNnAxbGlfOVhhUkVXcnFoYmcwZ2J3Z3BESUVIMjA0Vk82RzdZbXNESnF4R1FaUkFvMzNHMjdVRnZ5Ym9FTDc0VEp1aEwxSmo4d1VLSEZjSHhsZmNwVVJRWGEyNNIBywFBVV95cUxNaG1aWGJ4dy14S0lwZW5yOXhOZG9BVXNRdjVacE5rTmlGMmZjc3NKdVAySWtYSi05RWJTUjh6VDJYNkl5YVlwbE5oOWJkbVBLdURvV2RqdWFEM1VLVGRNWnVQZWZISXlkV2JHcm52VzBGNnAxbGlfOVhhUkVXcnFoYmcwZ2J3Z3BESUVIMjA0Vk82RzdZbXNESnF4R1FaUkFvMzNHMjdVRnZ5Ym9FTDc0VEp1aEwxSmo4d1VLSEZjSHhsZmNwVVJRWGEyNA?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Analytics Insight",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-05T13:57:21Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-6E51D727D7C6",
-      "title": "TRON vs Solana: Fees, Speed & DeFi Comparison - Bybit",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNTNqU1p0Y0c3MWx5NHphTURYQkRzMzk4aUVMLWEzV1VkU2cwV1djNFVZRlZCMnd2VUNEN3ZtRU9mRHZIWl9sWkVueFR6SHI1c2tGaGR0TzBDdDZ3a21xQ3hhSXI0Y3RDNG1xNV9zemtNeXBKSDFURUtNUm1hTzNpX2tRZUNSNE9fZndj?oc=5",
+      "id": "NEWS-D84BF4C68DD1",
+      "title": "Companies Using Solana in 2025 - Bybit",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1rT3NVSEprXzVGTk9FWmJwOG5zVVZWNWlVNU1lMXk4WnVNQ0pJYUVRTFdmbklSWFZfTzc4akJvcHU3Zzh4TXZSNXFSbjk2bkpsYWVNd09nOVJ2QVBRZVpKbkVMMHZNaXozNWVxWjUxUHYzRUtC?oc=5",
       "domain": "news.google.com",
       "source_name": "Bybit",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-08T01:17:29Z",
+      "published_at": "2026-10-08T19:37:20Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "intelligence_summary": {
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 70,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "FRESH",
+        "STRONG_P01_CONTEXT_MATCH"
+      ]
+    },
+    {
+      "id": "NEWS-711B01A28A05",
+      "title": "TRON vs Solana: Fees, Speed & DeFi Comparison - Bybit",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNbHF6ZjU3MmZ5eEFIU0VjOERaUnR3elpZNHF5czFmbWZGMnRiU0o4RXRaX0xHZklSb21JVjlaN1UxemtFQW80VHNISXA4YnZFX0NZUVJwRGg3OW14dEFzSUM5YWstVTlFX01YcVVqMlJlX2VNa2FDeTRIYl9lemM2dEFfTTRwSzQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Bybit",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-08T09:57:22Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -528,14 +438,14 @@
       ]
     },
     {
-      "id": "NEWS-29383D3452E2",
+      "id": "NEWS-A56E14AE9528",
       "title": "TRON vs Solana: Side-by-Side Comparison - Bybit",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5LUGJJaUJYN3BqMUVVTHN2ZEhERmNYOGQ3SXBkSnhXNUNCdmt0ZXpQcXppc2tYd1hQMEhkTHh3MEhKVm4yclQwNkc0TjhIMnc2S0Vsbzk1NTktdFQzYTJVbzNhYVFfUVlNUkw4SUVLMV9Rb3hkTktkYU1qbk1SYVk?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT3o5QlM0Qm1HWXZGZno3M09vSTZmVTIwU1lnWDl2UEhiU0xmMzV4Qy1RcmlXOGpUX29meFhlc1NjeWZCM3Bzd2lST3FmQTBjeU9mUWdCdXVIWFVVU2hIenpmRC1jMWhhdldOOG5Oc214dGh4NWRxVFNfZ2lmQ05sSE9ycnRIVHM?oc=5",
       "domain": "news.google.com",
       "source_name": "Bybit",
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-08T01:17:27Z",
+      "published_at": "2026-10-08T05:31:11Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -653,6 +563,47 @@
       ]
     },
     {
+      "id": "NEWS-85F120485D7F",
+      "title": "TSMC Stock Falls 1.4% as September Revenue Jumps 54.6% to $16.1B - CryptoRank",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPc204amxrd1d2RkRLeWRtUVZPdExZUnRIcDBuWFVGREtTYkNXakt4N1h5dUcxc2pzTUZHUHZCOFgxa2s2TG5UaXU5MF9EMkwyWEYyZEhfeTJjc0FMeEZfWkdJRGREY3VPWU9sajkyWEZodV9zX3U1Q19BUXlzWG96cUVUNjYyUG1LSS1vWFpIRWhuWVlNWDN1TzNJMU8?oc=5",
+      "domain": "news.google.com",
+      "source_name": "CryptoRank",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-08T17:26:32Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 67,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "FRESH",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
       "id": "NEWS-2BC2B4B3A769",
       "title": "DApp Store - Bitget Wallet",
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFA4X3FhWkJnMTM4NHQ2WUg3ZWxJc2xWNWtsN3pDR3M5bmIycW9rTEtvaFRHcnNCT1R4MnRtMkRvTzB2QkhsOHNoQlYwaGtaYUhD?oc=5",
@@ -691,47 +642,6 @@
         "OFFICIAL_SOURCE",
         "STALE",
         "STRONG_P01_CONTEXT_MATCH"
-      ]
-    },
-    {
-      "id": "NEWS-1E99B80B0131",
-      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Britannica",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-03T07:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 55,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
       ]
     }
   ],
