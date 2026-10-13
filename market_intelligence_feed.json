@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-12T06:45:10.252037Z",
+  "generated_at": "2026-10-13T07:13:26.377708Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -19,7 +19,7 @@
     {
       "source": "Bybit",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -61,7 +61,7 @@
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 3,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,37 +103,7 @@
   ],
   "errors": [
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -143,12 +113,32 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,12 +148,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -173,7 +163,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -228,92 +228,6 @@
       ]
     },
     {
-      "id": "NEWS-883A6E5AE0B9",
-      "title": "U.S. Inflation Forecast to Reach 3.7% Ahead of October 28 Fed Decision - Coinpaper",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNV25JbER5Szh5WEt3N190YWtRc0RWNG9Ic2p4NGR6LTFrV0RES3YyLXpMZ05weVNaRlM5V1pDeXVNVFBQdjVBaVdhSk5vQzV6SlZuYmFuNUV2TERMTkNmQXc4VE5mMm01M1ZzNzdiWnEyNnBwT0NtbmstVUxHTjN1NjJBb0ktcGpxcFdVemliaDNKZHlyMGZsUXBR?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Coinpaper",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-11T17:29:45Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 80,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-7F278931DDA4",
-      "title": "Bitcoin Falls Below $83,000 as US Inflation Data and ETF Outflows Pose Key Tests - BigGo Finance",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5JMG43cTJZUUJNOVFJc3YxLWMyWmtGVnBqdWowblhuZzVZOUlweUVMc0M4OWczQ05XUGxtNVVxcUZ3bHd6VElGYTU5QWRqenNhWjU4UU9VMHo0UWRuU0xnSXI3Z21rVFZMeG1Ga1VSUnJSM2lOcnc?oc=5",
-      "domain": "news.google.com",
-      "source_name": "BigGo Finance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-11T03:35:00Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 80,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
       "id": "NEWS-5E2DBBB0FD23",
       "title": "TSMC September 2026 Revenue Report|Taiwan Semiconductor Manufacturing Company Limited - TSMC",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1hUlZLeWhBQkw4U1FfQ0RZcTBsRVliaTlVeXh2Q2lXekdsekI3X285dUdvMnhUQUpDTThrZXBXS1pHUFhWTjkwMXA1eUY4QQ?oc=5",
@@ -350,6 +264,49 @@
         "AUTHORITATIVE_SOURCE",
         "STALE",
         "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-7F278931DDA4",
+      "title": "Bitcoin Falls Below $83,000 as US Inflation Data and ETF Outflows Pose Key Tests - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5JMG43cTJZUUJNOVFJc3YxLWMyWmtGVnBqdWowblhuZzVZOUlweUVMc0M4OWczQ05XUGxtNVVxcUZ3bHd6VElGYTU5QWRqenNhWjU4UU9VMHo0UWRuU0xnSXI3Z21rVFZMeG1Ga1VSUnJSM2lOcnc?oc=5",
+      "domain": "news.google.com",
+      "source_name": "BigGo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-11T03:35:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
       ]
@@ -397,6 +354,47 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-D84BF4C68DD1",
+      "title": "Companies Using Solana in 2025 - Bybit",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1rT3NVSEprXzVGTk9FWmJwOG5zVVZWNWlVNU1lMXk4WnVNQ0pJYUVRTFdmbklSWFZfTzc4akJvcHU3Zzh4TXZSNXFSbjk2bkpsYWVNd09nOVJ2QVBRZVpKbkVMMHZNaXozNWVxWjUxUHYzRUtC?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Bybit",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-08T19:37:20Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "intelligence_summary": {
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 58,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH"
       ]
     },
     {
