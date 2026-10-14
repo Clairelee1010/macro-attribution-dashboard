@@ -1,0 +1,11 @@
+name = "claire-market-robi"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+[vars]
+ALLOWED_ORIGIN = "https://clairelee1010.github.io"
+[[durable_objects.bindings]]
+name = "BUDGET"
+class_name = "Budget"
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Budget"]

@@ -1,3 +1,6 @@
+## AI-006 Gemini 問答
+Daily 新增可部署的 Gemini Robi 問答入口，須設定独立後端後才會啟用。見 [設定說明](./AI-006-README.md)。
+
 ## SITE-005
 四頁共用 P01 基準字體，Daily 自選資產新增詳情。見 [說明](./SITE-005-README.md)。
 
