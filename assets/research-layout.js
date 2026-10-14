@@ -1,0 +1,11 @@
+/* Progressive presentation only: retains all data IDs and event handlers. */
+(()=>{'use strict';function apply(){const page=document.body.dataset.researchPage;const $=s=>document.querySelector(s);const folded=new Set();function fold(el,zh,en){if(!el||folded.has(el)||el.closest('.research-fold'))return;folded.add(el);const d=document.createElement('details');d.className='research-fold';const s=document.createElement('summary');s.textContent=zh+' / '+en;el.before(d);d.append(s,el);}
+function section(id){return $('#'+id)?.closest('section,.section')}
+const nav=document.createElement('nav');nav.className='research-nav';nav.setAttribute('aria-label','Research navigation');nav.innerHTML='<a href="../daily/">← 今日情報 / Daily</a><span>深入研究 · 按需展開 / Research on demand</span>';const root=$('main.wrap')||$('.wrap')||$('main')||document.body;root.prepend(nav);
+if(page==='p01'){fold($('#meta-total-val')?.parentElement?.parentElement,'資料覆蓋與監控概況','Coverage & monitoring');fold($('#intelligence-v5'),'市場判讀與證據細節','Market interpretation & evidence');fold($('#trend-intelligence'),'跨市場趨勢研究','Cross-market trends');}
+if(page==='p02'){const d=$('details.details');const tabs=$('.tabs'),prediction=$('#prediction'),trust=$('#trust');if(d&&tabs&&prediction&&trust){const area=document.createElement('section');area.className='research-core';const h=document.createElement('h2');h.textContent='事件比較與來源信任 / Event comparison & source trust';area.append(h);d.before(area);area.append(tabs,prediction,trust);}}
+if(page==='p03'){fold(section('flowApp'),'市場關聯雷達 · 非直接資金流','Context radar · not direct flows');fold(section('equityApp'),'代幣化資產比較','Tokenized asset comparison');}
+if(page==='intelligence'){fold($('.flow'),'分析如何串接','How analysis connects');fold(section('tokenMap'),'代幣化映射與證據','Tokenization mapping');fold(section('tokenCompare'),'代幣化產品結構比較','Product structure comparison');const core=section('predictions');const container=core?.closest('details');if(core&&container){container.before(core);}}
+// P01 already contains explicitly labelled prototype cards; prevent them dominating the reading surface.
+document.documentElement.classList.add('research-ready');}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();})();
