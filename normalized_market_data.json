@@ -1,7 +1,7 @@
 {
   "schema_version": "3.0",
   "source_schema_version": "2.0",
-  "generated_at": "2026-10-14T03:41:40.863848+00:00",
+  "generated_at": "2026-10-14T03:42:52.231490+00:00",
   "expected_metrics": [
     "US10Y",
     "DXY",
@@ -33,7 +33,7 @@
         "source": "Yahoo Finance via yfinance",
         "source_type": "FALLBACK",
         "observed_at": "2026-10-13T05:00:00+00:00",
-        "fetched_at": "2026-10-14T03:41:40.438949+00:00",
+        "fetched_at": "2026-10-14T03:42:51.761642+00:00",
         "status": "FRESH",
         "error": "Primary FRED failed; fallback used: 'DATE'"
       }
@@ -43,11 +43,11 @@
       "canonical_name": "US Dollar Index",
       "category": "FX",
       "raw": {
-        "value": 102.09,
+        "value": 102.085,
         "unit": "INDEX"
       },
       "normalized": {
-        "value": 102.09,
+        "value": 102.085,
         "unit": "INDEX",
         "precision": 6
       },
@@ -61,7 +61,7 @@
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
         "observed_at": "2026-10-13T04:00:00+00:00",
-        "fetched_at": "2026-10-14T03:41:40.550146+00:00",
+        "fetched_at": "2026-10-14T03:42:51.864040+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -89,7 +89,7 @@
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
         "observed_at": "2026-10-13T05:00:00+00:00",
-        "fetched_at": "2026-10-14T03:41:40.606920+00:00",
+        "fetched_at": "2026-10-14T03:42:51.915783+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -99,11 +99,11 @@
       "canonical_name": "Bitcoin",
       "category": "CRYPTO",
       "raw": {
-        "value": 83826.7262,
+        "value": 83824.589,
         "unit": "USD"
       },
       "normalized": {
-        "value": 83826.7262,
+        "value": 83824.589,
         "unit": "USD",
         "precision": 4
       },
@@ -116,8 +116,8 @@
         "ticker": "BTC-USD",
         "source": "CoinGecko Public API",
         "source_type": "PRIMARY",
-        "observed_at": "2026-10-14T03:40:10+00:00",
-        "fetched_at": "2026-10-14T03:41:40.748628+00:00",
+        "observed_at": "2026-10-14T03:41:20+00:00",
+        "fetched_at": "2026-10-14T03:42:52.138650+00:00",
         "status": "FRESH",
         "error": null
       }
@@ -127,11 +127,11 @@
       "canonical_name": "Ethereum",
       "category": "CRYPTO",
       "raw": {
-        "value": 2518.167,
+        "value": 2517.2646,
         "unit": "USD"
       },
       "normalized": {
-        "value": 2518.167,
+        "value": 2517.2646,
         "unit": "USD",
         "precision": 4
       },
@@ -144,8 +144,8 @@
         "ticker": "ETH-USD",
         "source": "CoinGecko Public API",
         "source_type": "PRIMARY",
-        "observed_at": "2026-10-14T03:40:10+00:00",
-        "fetched_at": "2026-10-14T03:41:40.863045+00:00",
+        "observed_at": "2026-10-14T03:41:20+00:00",
+        "fetched_at": "2026-10-14T03:42:52.230533+00:00",
         "status": "FRESH",
         "error": null
       }
