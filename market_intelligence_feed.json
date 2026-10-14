@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-14T03:43:54.115836Z",
+  "generated_at": "2026-10-14T04:34:39.350590Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -55,7 +55,7 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 3,
+      "items": 4,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,12 +103,17 @@
   ],
   "errors": [
     {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -118,7 +123,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "SEC",
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,12 +143,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "US Treasury",
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -148,22 +158,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TWSE",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -174,11 +179,6 @@
     },
     {
       "source": "Gate",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -606,6 +606,47 @@
         "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC"
+      ]
+    },
+    {
+      "id": "NEWS-85F120485D7F",
+      "title": "TSMC Stock Falls 1.4% as September Revenue Jumps 54.6% to $16.1B - CryptoRank",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPc204amxrd1d2RkRLeWRtUVZPdExZUnRIcDBuWFVGREtTYkNXakt4N1h5dUcxc2pzTUZHUHZCOFgxa2s2TG5UaXU5MF9EMkwyWEYyZEhfeTJjc0FMeEZfWkdJRGREY3VPWU9sajkyWEZodV9zX3U1Q19BUXlzWG96cUVUNjYyUG1LSS1vWFpIRWhuWVlNWDN1TzNJMU8?oc=5",
+      "domain": "news.google.com",
+      "source_name": "CryptoRank",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-08T17:26:32Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
       ]
     },
     {
