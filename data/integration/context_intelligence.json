@@ -1,7 +1,7 @@
 {
   "product": "Intelligence Platform",
   "version": "INT-002",
-  "generated_at": "2026-10-06T17:47:43.248602+00:00",
+  "generated_at": "2026-10-14T05:48:29.704254+00:00",
   "execution_allowed": false,
   "input": {
     "integration_version": "INT-001",
@@ -10,44 +10,31 @@
     "predictions_evaluated": 20
   },
   "relationship_counts": {
-    "DIVERGENT_CONTEXT": 5,
+    "NOT_APPLICABLE": 5,
     "MIXED_CONTEXT": 1,
-    "SUPPORTED_CONTEXT": 4,
-    "NOT_APPLICABLE": 4,
-    "INSUFFICIENT_EVIDENCE": 6
+    "DIVERGENT_CONTEXT": 7,
+    "SUPPORTED_CONTEXT": 2,
+    "INSUFFICIENT_EVIDENCE": 5
   },
   "context_intelligence": [
     {
       "rank": 1,
-      "event_id": "POLYMARKET:2589811",
-      "question": "Will the Fed decrease interest rates by 25 bps after the October 2026 meeting?",
+      "event_id": "POLYMARKET:560317",
+      "question": "Putin out as President of Russia by December 31, 2026?",
       "venue": "polymarket",
       "category": {
-        "key": "macro",
-        "zh": "總經／利率",
-        "en": "Macro & Rates"
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
       },
-      "market_implied_probability": 0.0045,
-      "trending_score": 94.62,
-      "scenario": "RATE_CUT",
-      "relationship": "DIVERGENT_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "US10Y",
-          "signal_id": "VERY_HIGH_YIELD",
-          "direction": "RISK_OFF",
-          "strength": "STRONG"
-        },
-        {
-          "metric_id": "DXY",
-          "signal_id": "FIRM_DOLLAR",
-          "direction": "RISK_OFF",
-          "strength": "MODERATE"
-        }
-      ],
+      "market_implied_probability": 0.0365,
+      "trending_score": 97.0,
+      "scenario": "UNMAPPED",
+      "relationship": "NOT_APPLICABLE",
+      "p01_evidence": [],
       "p01_evidence_confidence": "MEDIUM",
       "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The contract scenario (RATE_CUT) differs from the direction suggested by current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this does not imply the market probability is wrong.",
+      "explanation": "Candidate-specific political outcomes are intentionally not inferred from P01 macro context; the venue probability remains a market-implied observation only.",
       "execution_allowed": false
     },
     {
@@ -60,8 +47,8 @@
         "zh": "總經／利率",
         "en": "Macro & Rates"
       },
-      "market_implied_probability": 0.825,
-      "trending_score": 94.41,
+      "market_implied_probability": 0.805,
+      "trending_score": 96.65,
       "scenario": "RATE_HOLD",
       "relationship": "MIXED_CONTEXT",
       "p01_evidence": [
@@ -85,39 +72,6 @@
     },
     {
       "rank": 3,
-      "event_id": "POLYMARKET:2589814",
-      "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
-      "venue": "polymarket",
-      "category": {
-        "key": "macro",
-        "zh": "總經／利率",
-        "en": "Macro & Rates"
-      },
-      "market_implied_probability": 0.0045,
-      "trending_score": 94.29,
-      "scenario": "RATE_HIKE",
-      "relationship": "SUPPORTED_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "US10Y",
-          "signal_id": "VERY_HIGH_YIELD",
-          "direction": "RISK_OFF",
-          "strength": "STRONG"
-        },
-        {
-          "metric_id": "DXY",
-          "signal_id": "FIRM_DOLLAR",
-          "direction": "RISK_OFF",
-          "strength": "MODERATE"
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The contract scenario (RATE_HIKE) is directionally consistent with current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this is context consistency, not causal proof or a forecast.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 4,
       "event_id": "POLYMARKET:2589810",
       "question": "Will the Fed decrease interest rates by 50+ bps after the October 2026 meeting?",
       "venue": "polymarket",
@@ -127,7 +81,7 @@
         "en": "Macro & Rates"
       },
       "market_implied_probability": 0.0015,
-      "trending_score": 93.98,
+      "trending_score": 96.35,
       "scenario": "RATE_CUT",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -150,23 +104,69 @@
       "execution_allowed": false
     },
     {
-      "rank": 5,
-      "event_id": "POLYMARKET:559666",
-      "question": "Will Tim Walz win the 2028 Democratic presidential nomination?",
+      "rank": 4,
+      "event_id": "POLYMARKET:2589814",
+      "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
       "venue": "polymarket",
       "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
       },
-      "market_implied_probability": 0.0005,
-      "trending_score": 93.5,
-      "scenario": "UNMAPPED",
-      "relationship": "NOT_APPLICABLE",
-      "p01_evidence": [],
+      "market_implied_probability": 0.0035,
+      "trending_score": 95.38,
+      "scenario": "RATE_HIKE",
+      "relationship": "SUPPORTED_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "US10Y",
+          "signal_id": "VERY_HIGH_YIELD",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "metric_id": "DXY",
+          "signal_id": "FIRM_DOLLAR",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        }
+      ],
       "p01_evidence_confidence": "MEDIUM",
       "p01_evidence_confidence_score": 0.7356,
-      "explanation": "Candidate-specific political outcomes are intentionally not inferred from P01 macro context; the venue probability remains a market-implied observation only.",
+      "explanation": "The contract scenario (RATE_HIKE) is directionally consistent with current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this is context consistency, not causal proof or a forecast.",
+      "execution_allowed": false
+    },
+    {
+      "rank": 5,
+      "event_id": "POLYMARKET:2589811",
+      "question": "Will the Fed decrease interest rates by 25 bps after the October 2026 meeting?",
+      "venue": "polymarket",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "market_implied_probability": 0.0045,
+      "trending_score": 94.8,
+      "scenario": "RATE_CUT",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "US10Y",
+          "signal_id": "VERY_HIGH_YIELD",
+          "direction": "RISK_OFF",
+          "strength": "STRONG"
+        },
+        {
+          "metric_id": "DXY",
+          "signal_id": "FIRM_DOLLAR",
+          "direction": "RISK_OFF",
+          "strength": "MODERATE"
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "The contract scenario (RATE_CUT) differs from the direction suggested by current P01 macro context (VERY_HIGH_YIELD, FIRM_DOLLAR); this does not imply the market probability is wrong.",
       "execution_allowed": false
     },
     {
@@ -179,8 +179,8 @@
         "zh": "總經／利率",
         "en": "Macro & Rates"
       },
-      "market_implied_probability": 0.165,
-      "trending_score": 92.81,
+      "market_implied_probability": 0.195,
+      "trending_score": 94.7,
       "scenario": "RATE_HIKE",
       "relationship": "SUPPORTED_CONTEXT",
       "p01_evidence": [
@@ -204,16 +204,16 @@
     },
     {
       "rank": 7,
-      "event_id": "POLYMARKET:559691",
-      "question": "Will Chris Murphy win the 2028 Democratic presidential nomination?",
+      "event_id": "POLYMARKET:561242",
+      "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?",
       "venue": "polymarket",
       "category": {
         "key": "politics",
         "zh": "政治",
         "en": "Politics"
       },
-      "market_implied_probability": 0.0035,
-      "trending_score": 92.65,
+      "market_implied_probability": 0.0015,
+      "trending_score": 90.67,
       "scenario": "UNMAPPED",
       "relationship": "NOT_APPLICABLE",
       "p01_evidence": [],
@@ -224,8 +224,8 @@
     },
     {
       "rank": 8,
-      "event_id": "POLYMARKET:559678",
-      "question": "Will Liz Cheney win the 2028 Democratic presidential nomination?",
+      "event_id": "POLYMARKET:559666",
+      "question": "Will Tim Walz win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
       "category": {
         "key": "politics",
@@ -233,7 +233,7 @@
         "en": "Politics"
       },
       "market_implied_probability": 0.0005,
-      "trending_score": 92.46,
+      "trending_score": 90.47,
       "scenario": "UNMAPPED",
       "relationship": "NOT_APPLICABLE",
       "p01_evidence": [],
@@ -252,8 +252,8 @@
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "market_implied_probability": 0.0035,
-      "trending_score": 90.83,
+      "market_implied_probability": 0.0015,
+      "trending_score": 89.64,
       "scenario": "CRYPTO_UPSIDE",
       "relationship": "DIVERGENT_CONTEXT",
       "p01_evidence": [
@@ -277,168 +277,16 @@
     },
     {
       "rank": 10,
-      "event_id": "POLYMARKET:5081766",
-      "question": "Will the price of Bitcoin be above $74,000 on October 5?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "market_implied_probability": 0.9995,
-      "trending_score": 90.8,
-      "scenario": "CRYPTO_UPSIDE",
-      "relationship": "DIVERGENT_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 11,
-      "event_id": "POLYMARKET:5081783",
-      "question": "Will the price of Bitcoin be above $84,000 on October 5?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "market_implied_probability": 0.9975,
-      "trending_score": 90.45,
-      "scenario": "CRYPTO_UPSIDE",
-      "relationship": "DIVERGENT_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 12,
-      "event_id": "POLYMARKET:3866000",
-      "question": "Will Ethereum dip to $2,250 by December 31, 2026?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "market_implied_probability": 0.225,
-      "trending_score": 90.2,
-      "scenario": "CRYPTO_DOWNSIDE",
-      "relationship": "SUPPORTED_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The crypto scenario (CRYPTO_DOWNSIDE) is directionally consistent with the broad P01 regime (RISK_OFF); asset-specific P01 evidence remains limited.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 13,
-      "event_id": "POLYMARKET:1339767",
-      "question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "market_implied_probability": 0.055,
-      "trending_score": 89.56,
-      "scenario": "CRYPTO_DOWNSIDE",
-      "relationship": "SUPPORTED_CONTEXT",
-      "p01_evidence": [
-        {
-          "metric_id": "MARKET_REGIME",
-          "signal_id": "RISK_OFF",
-          "direction": "RISK_OFF",
-          "strength": null
-        },
-        {
-          "metric_id": "MARKET_RISK",
-          "signal_id": "HIGH",
-          "direction": null,
-          "strength": null
-        }
-      ],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The crypto scenario (CRYPTO_DOWNSIDE) is directionally consistent with the broad P01 regime (RISK_OFF); asset-specific P01 evidence remains limited.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 14,
-      "event_id": "POLYMARKET:2126461",
-      "question": "Will Crude Oil reach a new all-time high by December 31?",
-      "venue": "polymarket",
-      "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
-      },
-      "market_implied_probability": 0.095,
-      "trending_score": 87.78,
-      "scenario": "UNMAPPED",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "p01_evidence": [],
-      "p01_evidence_confidence": "MEDIUM",
-      "p01_evidence_confidence_score": 0.7356,
-      "explanation": "The topic may be market-relevant, but current P01 evidence is not specific enough for a directional context comparison.",
-      "execution_allowed": false
-    },
-    {
-      "rank": 15,
-      "event_id": "POLYMARKET:559681",
-      "question": "Will LeBron James win the 2028 Democratic presidential nomination?",
+      "event_id": "POLYMARKET:559699",
+      "question": "Will Elissa Slotkin win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
       "category": {
         "key": "politics",
         "zh": "政治",
         "en": "Politics"
       },
-      "market_implied_probability": 0.0005,
-      "trending_score": 87.43,
+      "market_implied_probability": 0.0015,
+      "trending_score": 88.61,
       "scenario": "UNMAPPED",
       "relationship": "NOT_APPLICABLE",
       "p01_evidence": [],
@@ -448,17 +296,136 @@
       "execution_allowed": false
     },
     {
-      "rank": 16,
-      "event_id": "POLYMARKET:4619164",
-      "question": "Saudi Oil Pipeline (East-West) restarts by October 31?",
+      "rank": 11,
+      "event_id": "POLYMARKET:559657",
+      "question": "Will Stephen A. Smith win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
       "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
       },
-      "market_implied_probability": 0.5345,
-      "trending_score": 87.21,
+      "market_implied_probability": 0.0015,
+      "trending_score": 87.67,
+      "scenario": "UNMAPPED",
+      "relationship": "NOT_APPLICABLE",
+      "p01_evidence": [],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "Candidate-specific political outcomes are intentionally not inferred from P01 macro context; the venue probability remains a market-implied observation only.",
+      "execution_allowed": false
+    },
+    {
+      "rank": 12,
+      "event_id": "POLYMARKET:5170728",
+      "question": "Will Bitcoin reach $105,000 in October?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.0115,
+      "trending_score": 87.23,
+      "scenario": "CRYPTO_UPSIDE",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
+      "rank": 13,
+      "event_id": "POLYMARKET:5407340",
+      "question": "Will the price of Bitcoin be above $76,000 on October 14?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.9995,
+      "trending_score": 87.07,
+      "scenario": "CRYPTO_UPSIDE",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
+      "rank": 14,
+      "event_id": "POLYMARKET:5407344",
+      "question": "Will the price of Bitcoin be above $80,000 on October 14?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.9895,
+      "trending_score": 86.98,
+      "scenario": "CRYPTO_UPSIDE",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
+      "rank": 15,
+      "event_id": "POLYMARKET:3554659",
+      "question": "Will Google have the best AI model at the end of October 2026?",
+      "venue": "polymarket",
+      "category": {
+        "key": "technology",
+        "zh": "科技",
+        "en": "Technology"
+      },
+      "market_implied_probability": 0.7035,
+      "trending_score": 86.54,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -468,17 +435,50 @@
       "execution_allowed": false
     },
     {
+      "rank": 16,
+      "event_id": "POLYMARKET:5407342",
+      "question": "Will the price of Bitcoin be above $78,000 on October 14?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "market_implied_probability": 0.9975,
+      "trending_score": 86.27,
+      "scenario": "CRYPTO_UPSIDE",
+      "relationship": "DIVERGENT_CONTEXT",
+      "p01_evidence": [
+        {
+          "metric_id": "MARKET_REGIME",
+          "signal_id": "RISK_OFF",
+          "direction": "RISK_OFF",
+          "strength": null
+        },
+        {
+          "metric_id": "MARKET_RISK",
+          "signal_id": "HIGH",
+          "direction": null,
+          "strength": null
+        }
+      ],
+      "p01_evidence_confidence": "MEDIUM",
+      "p01_evidence_confidence_score": 0.7356,
+      "explanation": "The crypto scenario (CRYPTO_UPSIDE) differs from the broad P01 regime (RISK_OFF); this is not a price forecast and asset-specific P01 evidence remains limited.",
+      "execution_allowed": false
+    },
+    {
       "rank": 17,
-      "event_id": "POLYMARKET:4885967",
-      "question": "Saudi Oil Pipeline (East-West) restarts by October 15?",
+      "event_id": "POLYMARKET:2126461",
+      "question": "Will Crude Oil reach a new all-time high by December 31?",
       "venue": "polymarket",
       "category": {
         "key": "energy",
         "zh": "能源",
         "en": "Energy"
       },
-      "market_implied_probability": 0.275,
-      "trending_score": 87.08,
+      "market_implied_probability": 0.105,
+      "trending_score": 85.74,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -489,16 +489,16 @@
     },
     {
       "rank": 18,
-      "event_id": "POLYMARKET:3554658",
-      "question": "Will Meta have the best AI model at the end of October 2026?",
+      "event_id": "POLYMARKET:3554666",
+      "question": "Will SpaceXAI have the best AI model at the end of October 2026?",
       "venue": "polymarket",
       "category": {
-        "key": "equities",
-        "zh": "股市",
-        "en": "Equities"
+        "key": "technology",
+        "zh": "科技",
+        "en": "Technology"
       },
-      "market_implied_probability": 0.006,
-      "trending_score": 85.44,
+      "market_implied_probability": 0.0015,
+      "trending_score": 85.14,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -509,16 +509,16 @@
     },
     {
       "rank": 19,
-      "event_id": "POLYMARKET:3554660",
-      "question": "Will Alibaba have the best AI model at the end of October 2026?",
+      "event_id": "POLYMARKET:4951229",
+      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $115 in October?",
       "venue": "polymarket",
       "category": {
-        "key": "technology",
-        "zh": "科技",
-        "en": "Technology"
+        "key": "energy",
+        "zh": "能源",
+        "en": "Energy"
       },
-      "market_implied_probability": 0.0005,
-      "trending_score": 85.32,
+      "market_implied_probability": 0.049,
+      "trending_score": 84.76,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
@@ -529,16 +529,16 @@
     },
     {
       "rank": 20,
-      "event_id": "POLYMARKET:2431412",
-      "question": "Will Google have the best AI model at the end of December 2026?",
+      "event_id": "POLYMARKET:3554658",
+      "question": "Will Meta have the best AI model at the end of October 2026?",
       "venue": "polymarket",
       "category": {
-        "key": "technology",
-        "zh": "科技",
-        "en": "Technology"
+        "key": "equities",
+        "zh": "股市",
+        "en": "Equities"
       },
-      "market_implied_probability": 0.425,
-      "trending_score": 85.28,
+      "market_implied_probability": 0.018,
+      "trending_score": 84.68,
       "scenario": "UNMAPPED",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "p01_evidence": [],
