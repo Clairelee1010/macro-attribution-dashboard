@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-14T05:47:49.420449Z",
+  "generated_at": "2026-10-14T05:48:34.548095Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -103,17 +103,17 @@
   ],
   "errors": [
     {
-      "source": "NEWS:TW_MARKET",
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,17 +133,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Coinbase",
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -153,7 +153,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Gate",
+      "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,17 +163,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -355,14 +355,14 @@
       ]
     },
     {
-      "id": "NEWS-568A9DA2106F",
-      "title": "South Korea’s KOSPI Crashes 6.5% Today – AI Crypto Down 10% - CryptoRank",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOVlNMR3o2WVdlb2lBcEJYVEdJd0laa0NzR09vU2hmUjQxMGswNzY3WVFkNmdWd0pSR0hTOXFIM0JRTXZJWGpkNm5MSGJwSHJENTdBX0VhdFR0Z08xeGZDYnY1bHlkOWxWa1VubmhrRDJUbG10VmxoS1N0aEhleUttdWoxNEFEZmVCdEhzX3o3dlh0cTc1aHVR?oc=5",
+      "id": "NEWS-42ED90374BE8",
+      "title": "South Korea’s KOSPI Crashes 6.5% Today – AI Crypto Down 10% - Coinpedia",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSHZ0eVc2enJzTU9NRHJsanhSaFNiVTBrMGR6SnU4TWFPRVJyejdxRl9MNW1sSTA0eTNPME9lek9UVFVQSGNqTHdPejU4THlXekszVnhsOFBfSkdGRTBJNEVkZmU2UmdTTHJqYzZDN2xOMUkwXzNhbW83SjNBdzNNeHc4bFpSZkNYYUHSAY8BQVVfeXFMTlJuaWZMOFIwbzRGVkZETExQMlRYdVNYWGMxdkt6X0NMZmhtUDZLa01jQUVqOUFVcDJrUWxEMWVxWmg4b3Rhd3JjQVJFeWQ3N1R5R1g5YUtTZlBMYzF5bzJNejRwMlA0RzFsX1dYSGNoRkdJb2xwQ0FTWEZJZWlraG9TQ1NjS3diNThHZjJ3eE0?oc=5",
       "domain": "news.google.com",
-      "source_name": "CryptoRank",
+      "source_name": "Coinpedia",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-13T09:55:06Z",
+      "published_at": "2026-10-13T11:33:36Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
