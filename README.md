@@ -1,3 +1,6 @@
+## 今日情報 DAILY-001
+新增手機友善的每日市場情報入口：近期重點、來源證據、歷史資訊、自選資產及瀏覽器追蹤紀錄。入口為 [今日情報](./daily/)，部署與資料語義請見 [DAILY-001 說明](./DAILY-001-README.md)。
+
 # Macro & Web3 Risk Intelligence Engine 🌸
 
 > **P01 v1.0 — Macro Attribution & Cross-Market Intelligence**
