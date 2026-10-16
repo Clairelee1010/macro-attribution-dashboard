@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-16T05:22:14.230255Z",
+  "generated_at": "2026-10-16T05:23:00.059834Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -18,8 +18,8 @@
     },
     {
       "source": "Bybit",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -55,7 +55,7 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 2,
+      "items": 3,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -113,12 +113,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "US Treasury",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,27 +143,22 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Coinbase",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bybit",
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -164,11 +169,6 @@
     },
     {
       "source": "Gate",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -524,6 +524,90 @@
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-D41D2DBAD3BC",
+      "title": "TSMC Eyes Sixth Straight Record With 65% Q3 Profit Jump - Taiwan Semiconductor (NYSE:TSM) - Benzinga",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPQzdSdDhoTk9RajdNemxDS20xQlpmQW5VN3lISjl2UW9qN0psVGp0Y1BFZnZyZElpVEpyLXN3cmpCdE1tMW14ZUpCMzdlQWZfYkQ0Q0xKeVV2bTQxc2E2eG1hdUZFSWp1SU1SQXJObWVfdGFBQjM5TnphaEhoTm5CZy1Ecl9LdG5zVkRORWdXYWpveHRFT2RsWEZCU18wVzZf?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Benzinga",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-15T04:16:14Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 72,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "FRESH",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-7A68D6BC48AA",
+      "title": "USDT on Solana: Guide to SPL Token Usage - Bybit",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPUWJ5Rm1WS0pBUVBjQzV1UDhxOWZoRWl3Yk5xZHJfanZ1Y0lkdWRRRjJtUEFZam9sdGJtOGxEUlN6NDVsLUE5dHNaWXc5OElfejJPUDBZM0wtb2xUbkRhYmJ1QW1fcS1yajBEOEFDamVLZG5uREgzYVNMSXpTcWFFRA?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Bybit",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-09T17:20:13Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "STABLECOIN",
+        "EXCHANGE"
+      ],
+      "primary_topic": "STABLECOIN",
+      "why_it_matters": "Stablecoin developments can affect payment rails, on-chain liquidity, and institutional adoption.",
+      "intelligence_summary": {
+        "en": "This development is relevant to stablecoin infrastructure, payment rails, and on-chain liquidity.",
+        "zh-TW": "此事件與穩定幣基礎設施、支付軌道及鏈上流動性相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Stablecoin developments can affect payment infrastructure, on-chain liquidity, settlement, and institutional adoption.",
+        "zh-TW": "穩定幣發展可能影響支付基礎設施、鏈上流動性、結算方式與機構採用。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC"
       ]
     },
     {
