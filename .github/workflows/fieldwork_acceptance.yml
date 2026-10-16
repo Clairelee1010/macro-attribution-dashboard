@@ -1,0 +1,38 @@
+name: Web3 Fieldwork acceptance
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'index.html'
+      - 'assets/fieldwork*'
+      - 'workbench/**'
+      - 'product-lab/**'
+      - 'trade-clarity/**'
+      - 'assets/trade-engine.js'
+      - 'assets/product-lab*'
+      - 'tests/trade/**'
+      - 'agent/**'
+      - 'journal/**'
+      - 'learn/**'
+      - 'tests/product/**'
+      - 'tests/learn/**'
+      - '.github/workflows/fieldwork_acceptance.yml'
+permissions:
+  contents: read
+jobs:
+  product:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/product/*.test.cjs tests/learn/*.test.cjs tests/trade/*.test.cjs
+      - run: npx playwright install --with-deps chromium
+      - name: Serve and check mobile, bilingual and task flows
+        run: |
+          python3 -m http.server 8000 > /tmp/fieldwork-server.log 2>&1 &
+          node tests/product/browser-acceptance.cjs
