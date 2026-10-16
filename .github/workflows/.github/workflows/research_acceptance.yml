@@ -1,0 +1,29 @@
+name: Research release acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'daily/**'
+      - 'research/**'
+      - 'assets/research-*'
+      - 'assets/evidence*'
+      - 'ai-worker/**'
+      - 'tests/research/**'
+      - 'package*.json'
+      - '.github/workflows/research_acceptance.yml'
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run test:research
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
