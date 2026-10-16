@@ -1,117 +1,51 @@
-# Claire’s Web3 Intelligence — Cross-Market Research
+# Web3 Fieldwork · Claire’s Lab
 
-跨市場情報研究工作台：整合宏觀、預測市場與代幣化資產，回查來源、時間與證據限制。
+一個把 Web3 學習、資料查證與代理權限設計串在一起的雙語互動產品。
 
-Evidence-first research across macro conditions, prediction markets and tokenized assets.
+**Explore → test → verify → keep your work.**
 
-- Public project: https://clairelee1010.github.io/macro-attribution-dashboard/
-- Main reading flow: `daily/`
-- Frozen research case and methodology: `research/`
-- Release / acceptance / deployment: [RELEASE-2026-10-16.md](RELEASE-2026-10-16.md)
+## 可以做什麼
 
-## Current scope / 目前範圍
+| 入口 | 動手做 | 留下的成果 |
+| --- | --- | --- |
+| `/product-lab/` 產品案例 | 閱讀 Trade Clarity 的問題假設、設計決策、驗證方法與貢獻 | 可連到履歷的產品案例入口 |
+| `/trade-clarity/` 交易原型 | 預覽與確認市價／限價、切換示範委託簿、查看部分成交與取消 | 可解釋的模擬訂單及費用／滑價證據 |
+| `/learn/` 學習世界 | 駕駛小車找任務站；打包與竄改區塊、辨識錢包陷阱、建立提問卡 | 四個完成徽章 |
+| `/workbench/` 研究工作台 | 核對 BTC／ETH 的來源、數值和觀測時間；辨認 FOMC 不同結果合約 | 附當時證據與不確定性的研究筆記 |
+| `/agent/` 代理沙盒 | 測試收款白名單、預算、人工批准和拒絕 | 判斷紀錄與完成徽章 |
+| `/journal/` 我的筆記 | 查看、刪除、匯出 JSON 或 Markdown | 可攜的個人研究成果 |
 
-| Module | Implemented behavior | Boundary |
-|---|---|---|
-| P01 | Public market observations, deterministic signals, regime, risk, attribution and evidence confidence | Rules describe evidence alignment, not causality or validated forecast accuracy |
-| P02 | Polymarket / Kalshi data, topic discovery, ranking, event matching and historical artifacts | Zero matches is valid; title similarity alone does not prove identical contracts |
-| P03 | Public read-only tokenized-equity and activity-zone research | Context links are not observed net fund flows; missing evidence stays missing |
-| Daily | EN / 繁中 controls, followed assets, tracking, rule briefs, cited Gemini questions, visible source health | Local browser storage; no member accounts or cross-device sync |
-| Research | Dated October 2026 FOMC case with five copied contract observations, frozen input evidence and SHA-256 provenance | Not live odds; no independently verified cross-venue counterpart or settlement-rule equivalence |
+首頁護照共 7 個任務。學習 4 個、研究 2 個、代理 1 個。星光收集不當成學習完成。筆記與徽章僅存在目前瀏覽器，沒有帳號同步；最多保留 100 則筆記，請定期匯出。沙盒餘額和紀錄是單頁回合，重新開啟頁面會重設。
 
-This is a research MVP / portfolio project, not a fully accepted production trading platform.
+## 產品與資料的界線
 
-這是研究 MVP 與作品集。不能把「程式存在」「附件驗收通過」或「已填服務網址」當成完整正式上線驗收。
+- **規則運算**：區塊練習使用真正的 SHA-256，但資料格式、共識、簽章及確認流程是教學簡化。代理支出由本地固定規則判斷，不連接錢包或交易平台。
+- **生成式 AI**：本版主要任務不呼叫模型。Robi 遊戲導覽是預寫文案；提問卡是本地模板。舊 `ai-worker/` 為獨立 Gemini 原型，保留程式碼，但不放在已驗收的產品主流程。尚未驗證其線上 Gemini 問答成功；不能宣稱本版有即時 AI 市場分析或自動交易。
+- **研究資料**：`live_market_data.json` 是專案資料管線的快照，並非網頁直接連報價 API。價格、來源和觀測時間原樣展示。檔案更新時間和觀測時間分開。超過 24 小時會提示，這個門檻沒有交易日曆判斷。
+- **事件案例**：`research/case-study.json` 是凍結教學資料，並非當前市場。合約機率是所附快照的觀測值；未驗證結算條款、後續結果或跨平台同等合約。沒有已核實的可比合約時，不產生套利價差。
+- **新聞品質**：工作台顯示來源不可用數量與轉接器失敗。原有廣泛分類、關聯標籤、通用摘要，不作為價格因果或資金流證據。
 
-## Rules, Gemini and prototypes / 哪些結果來自哪裡
+## 這次刪減與保留
 
-**Deterministic rules:** Python normalization, freshness, P01 signals / regime / risk / attribution, P02 ranking and matching, P03 heat, and Daily quick briefs. Their output does not require a Gemini call. Risk scores and evidence confidence are different concepts.
+主要介面撤下舊 P01 / P02 / INT / P03 技術模組卡、通用市場敘事、資金流推論、風險分數及無可比合約的機會卡。舊網址導向具體任務，`p02-web/index.html` 與 `p02/index.html` 保持一致，排程複製不會復原舊頁面。
 
-**Gemini:** Only Daily’s submitted free-form Robi question calls the separate Worker. The Worker reads fixed public project JSON, limits evidence size, requests structured output and validates citation IDs. It does not verify that every sentence is entailed by its cited source. Missing sources and stale observation times must remain visible. No Gemini text is stored in the frozen research case.
+資料來源、Python 引擎、歷史研究證據與 Worker 原型保留供研究。舊介面備份於 `docs/previous-ui-PRODUCT-001.zip`，不在主要導覽中。舊主題專用的 acceptance workflows 可能仍驗證已撤下的 DOM；新版以 `fieldwork_acceptance.yml` 為驗收入口，請參閱 `PRODUCT-001-RELEASE.md`。
 
-**Roadmap / unimplemented:** Wallet authorization, signing, Account Abstraction, x402 payments, spending policies and trade execution. Current P03 is read-only research, rather than a completed autonomous wallet. P03’s built-in keyword responses are rule-based, not a general Gemini agent.
+## 設計與驗證紀錄
 
-**Prototype visuals:** City animation is decorative; inferred relationships and heat are not observed capital flow or trading recommendations.
+Claire 提出產品方向、選擇學習與研究主題並部署；本次程式改版由 Codex 協助實作。可檢查的實作包括任務條件、證據快照、可匯出的筆記、支出政策和雙語介面。請僅把自己實際設計、操作及驗證過的部分列為親自完成，未做的訪談、真人測試、模型效能與投資績效不列作成果。
 
-## Data quality policy / 資料品質
+## 執行與驗收
 
-- Main Daily and P01/P02/P03/INT pages expose source health.
-- File generation time, observation time and retrieval time have different meanings.
-- The new quality panel recalculates age against the current clock. Missing / future timestamps and observations older than 36 hours are flagged. This is a UI review threshold, not a claim about provider freshness standards. Traditional-market holidays are not silently treated as fresh.
-- The denominator for core P01 completeness is five: US10Y, DXY, VIX, BTC, ETH. Missing metrics cannot inflate coverage.
-- Fallback prices retain primary failure information. News error records are shown separately from successfully collected items.
-- Contract probability is a venue observation, not the product’s forecast. Different topic-discovery and raw-feed coverage must not be treated as equivalent datasets.
-- Missing or failed evidence does not become zero price, zero risk or a successful comparison.
+GitHub Pages 可直接提供靜態檔案，無建置步驟，無須 API 金鑰。請以 HTTP 提供網站，不用 `file://` 開啟。
 
-## Frozen research case / 完整研究案例
-
-`research/case-study.json` preserves the supplied snapshot, with archived source files in `research/evidence/`. It includes:
-
-1. Federal Reserve official meeting calendar: October 27–28, 2026; calendar checked October 16, 2026.
-2. P01 observations and deterministic regime context, with their original timestamps.
-3. Five supplied Polymarket contracts about that October meeting, including YES probabilities, source URLs and retrieval times.
-4. Withheld cross-venue comparison: no verified counterpart in the snapshot; topic rows lack full resolution terms; raw feeds and topic discovery differ in coverage.
-5. Uncertainty, subsequent verification steps and exact archived input hashes.
-
-Values are copied from the supplied repository artifacts, **not independently certified exchange data**. Retrieval timestamps are not necessarily exchange quote timestamps. Opening the case later does not relabel historical probabilities as current. The official calendar verifies the meeting dates only, not quotes or settlement rules.
-
-To deliberately publish a new frozen case, review the source inputs and run `python scripts/build_research_case.py`. Do not add this command to recurring market-data updates: that would silently rewrite an archival case.
-
-## Architecture
-
-External public sources → scheduled Python fetch / normalization → JSON artifacts → rule-based research → source-aware pages.
-
-Daily free-form question → separate Cloudflare Worker → fixed public evidence → Gemini → citation validation → cited answer or explicit error.
-
-A failed news source does not automatically block all other usable question evidence. Failed model output is withheld; it is never replaced with an invented AI answer.
-
-## Robi deployment and current verification
-
-The frontend endpoint remains `https://claire-market-robi.claire-web3.workers.dev` in `daily/ai-config.js`; it contains no API key.
-
-This update adds:
-
-- Read-only `GET /health`, which reports configuration status and explicitly sets `provider_verified: false`.
-- Distinct error codes for entry blocks, origin denial, application daily limits, Gemini limits / authentication / model failures, timeouts, missing evidence, invalid output and invalid citations.
-- User cancellation, EN / 中文 question language, structured model output, source-level partial failure and safe text rendering.
-- P02 topic observations and P01 regime evidence in the question context, alongside market observations and news.
-
-**Observed on October 16:** live OPTIONS and POST requests from this test environment received HTTP 403 with Cloudflare error 1010, without the Worker’s JSON / CORS response. This establishes an entry-layer block for this connection; it does not prove that every user browser is blocked or identify the exact account rule. Cloudflare account logs and a browser Network response are needed for that determination. This update cannot modify account-level security settings.
-
-The new Worker still needs deployment by the account owner, followed by a real cited model response. A configured endpoint or passing mock test is not real model acceptance. See the release guide.
-
-The application cap remains 50 requests globally per UTC day and 5 per IP per UTC day; failed and cancelled requests already sent may count. These are application limits, not Gemini’s provider quota. Origin filtering is not authentication. Only public market questions should be submitted.
-
-## Run checks
-
-```bash
-python -m pip install -r requirements.txt
-python -m pytest -q tests/research/test_fred_dates.py tests/test_adapters.py
+```sh
 npm ci
-npm run test:research
+node --test tests/product/*.test.cjs tests/learn/*.test.cjs tests/trade/*.test.cjs
 ```
 
-Browser layout / interactions, on a machine supporting Chromium:
+新 GitHub Actions 驗收另於 320 / 375 / 768 / 1280 寬度執行 Playwright：主路由、溢出、雙語、筆記儲存、代理批准、學習徽章。交付環境僅完成 Node / jsdom 測試，未執行真實瀏覽器視覺驗收；上線後請執行該 workflow 並用手機完成一次任務。
 
-```bash
-npx playwright install --with-deps chromium
-npm run test:browser
-```
+## Product Lab · TRADE-001
 
-`research_acceptance.yml` runs the new regression suite and Chromium acceptance at 320, 375, 768 and 1280px. The browser test mocks the AI backend: it validates UI behavior, not the real Gemini service. It does not submit credentials or place trades.
-
-The pre-existing Python suite had 21 failures before these edits (mostly earlier homepage / navigation / text contracts). This release does not claim that entire legacy suite passes. See `qa/` and the release acceptance notes.
-
-## Authorship / 作者與 AI 協作
-
-Claire Lee is the project owner. Requirements and priorities for this update are recorded in the project conversation. Implementation, research framing, documentation and test development include AI assistance. This repository does **not** claim all code was independently hand-written.
-
-Personal claims about independently designed modules, manual source review, deployment and acceptance should be supported by the author’s records. Automated checks performed for this update and checks still pending are listed in the release report. No invented performance, user adoption, investment returns or manual-validation claims are used.
-
-## Limitations
-
-Public provider availability, delayed snapshots, source errors and incomplete contracts can constrain conclusions. Translation covers interface controls and available bilingual fields; original source titles, raw evidence, saved historical source text and an existing model answer retain their original language. Asking again requests a model answer in the selected language.
-
-There is no portfolio-account connection, trading execution, signing, fund custody or push subscription. Tracked price changes are observations, not verified investment performance.
-
-Author: Claire Lee · https://medium.com/@claireli_79034
+本包已合併 PRODUCT-001 補丁，另加入 Trade Clarity 現貨交易模擬。47 項 Node/jsdom 測試通過；瀏覽器視覺與真人測試待執行。請先讀 `TRADE-001-RELEASE.md` 的安裝選項與預期數值。原型只用虛構委託簿、單一 BTC/USD、每回合初始 $1,000 + 0.02 BTC、固定示範費率 0.10%，不是交易服務。主流程沒有生成式 AI 問答，AI-assisted 僅描述開發協作。履歷備忘於 `docs/product-lab-portfolio.md`，請在親自上線驗收後依實際參與調整。
