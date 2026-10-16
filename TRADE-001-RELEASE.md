@@ -1,3 +1,5 @@
+> 歷史版本紀錄。最新路由及恢復方式以 `RESTORE-001-READ-ME.md` 為準；原研究頁已恢復，新增功能改用首頁 hash 入口。
+
 # TRADE-001 · Integrated Product Lab release · 2026-10-17
 
 ## What is included

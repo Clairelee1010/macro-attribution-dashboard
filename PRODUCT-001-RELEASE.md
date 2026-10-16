@@ -1,3 +1,5 @@
+> 歷史版本紀錄。最新路由及恢復方式以 `RESTORE-001-READ-ME.md` 為準；原研究頁已恢復，新增功能改用首頁 hash 入口。
+
 # PRODUCT-001 · Web3 Fieldwork — 2026-10-16
 
 基底：使用者提供的 `macro-attribution-dashboard-main (45).zip`。這是產品流程改版，不是更新行情或宣稱模型分析已上線。

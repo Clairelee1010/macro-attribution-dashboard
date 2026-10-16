@@ -8,12 +8,12 @@
 
 | 入口 | 動手做 | 留下的成果 |
 | --- | --- | --- |
-| `/product-lab/` 產品案例 | 閱讀 Trade Clarity 的問題假設、設計決策、驗證方法與貢獻 | 可連到履歷的產品案例入口 |
-| `/trade-clarity/` 交易原型 | 預覽與確認市價／限價、切換示範委託簿、查看部分成交與取消 | 可解釋的模擬訂單及費用／滑價證據 |
+| `/play.html#/product-lab` 產品案例 | 閱讀 Trade Clarity 的問題假設、設計決策、驗證方法與貢獻 | 可連到履歷的產品案例入口 |
+| `/play.html#/trade-clarity` 交易原型 | 預覽與確認市價／限價、切換示範委託簿、查看部分成交與取消 | 可解釋的模擬訂單及費用／滑價證據 |
 | `/learn/` 學習世界 | 駕駛小車找任務站；打包與竄改區塊、辨識錢包陷阱、建立提問卡 | 四個完成徽章 |
-| `/workbench/` 研究工作台 | 核對 BTC／ETH 的來源、數值和觀測時間；辨認 FOMC 不同結果合約 | 附當時證據與不確定性的研究筆記 |
-| `/agent/` 代理沙盒 | 測試收款白名單、預算、人工批准和拒絕 | 判斷紀錄與完成徽章 |
-| `/journal/` 我的筆記 | 查看、刪除、匯出 JSON 或 Markdown | 可攜的個人研究成果 |
+| `/play.html#/workbench` 研究工作台 | 核對 BTC／ETH 的來源、數值和觀測時間；辨認 FOMC 不同結果合約 | 附當時證據與不確定性的研究筆記 |
+| `/play.html#/agent` 代理沙盒 | 測試收款白名單、預算、人工批准和拒絕 | 判斷紀錄與完成徽章 |
+| `/play.html#/journal` 我的筆記 | 查看、刪除、匯出 JSON 或 Markdown | 可攜的個人研究成果 |
 
 首頁護照共 7 個任務。學習 4 個、研究 2 個、代理 1 個。星光收集不當成學習完成。筆記與徽章僅存在目前瀏覽器，沒有帳號同步；最多保留 100 則筆記，請定期匯出。沙盒餘額和紀錄是單頁回合，重新開啟頁面會重設。
 
@@ -27,9 +27,9 @@
 
 ## 這次刪減與保留
 
-主要介面撤下舊 P01 / P02 / INT / P03 技術模組卡、通用市場敘事、資金流推論、風險分數及無可比合約的機會卡。舊網址導向具體任務，`p02-web/index.html` 與 `p02/index.html` 保持一致，排程複製不會復原舊頁面。
+主要介面撤下舊 P01 / P02 / INT / P03 技術模組卡、通用市場敘事、資金流推論、風險分數及無可比合約的機會卡。舊研究網址已由 RESTORE-001 恢復原介面，`p02-web/index.html` 與 `p02/index.html` 保持一致，排程複製不會復原舊頁面。
 
-資料來源、Python 引擎、歷史研究證據與 Worker 原型保留供研究。舊介面備份於 `docs/previous-ui-PRODUCT-001.zip`，不在主要導覽中。舊主題專用的 acceptance workflows 可能仍驗證已撤下的 DOM；新版以 `fieldwork_acceptance.yml` 為驗收入口，請參閱 `PRODUCT-001-RELEASE.md`。
+資料來源、Python 引擎、歷史研究證據與 Worker 原型保留供研究。原研究首頁現可從 `research-dashboard.html` 進入，主導覽已補回市場研究入口。歷史備份於 `docs/previous-ui-PRODUCT-001.zip`。舊主題專用的 acceptance workflows 可能仍驗證已撤下的 DOM；新版以 `fieldwork_acceptance.yml` 為驗收入口，請參閱 `PRODUCT-001-RELEASE.md`。
 
 ## 設計與驗證紀錄
 
@@ -49,3 +49,11 @@ node --test tests/product/*.test.cjs tests/learn/*.test.cjs tests/trade/*.test.c
 ## Product Lab · TRADE-001
 
 本包已合併 PRODUCT-001 補丁，另加入 Trade Clarity 現貨交易模擬。47 項 Node/jsdom 測試通過；瀏覽器視覺與真人測試待執行。請先讀 `TRADE-001-RELEASE.md` 的安裝選項與預期數值。原型只用虛構委託簿、單一 BTC/USD、每回合初始 $1,000 + 0.02 BTC、固定示範費率 0.10%，不是交易服務。主流程沒有生成式 AI 問答，AI-assisted 僅描述開發協作。履歷備忘於 `docs/product-lab-portfolio.md`，請在親自上線驗收後依實際參與調整。
+
+## RESTORE-001 · 原研究保留＋404 修正
+
+主要新功能使用首頁內 hash 路由，不再依賴新增子目錄 HTML。原 P01／P02／整合情報／P03／daily／overview 已恢復 `(45)` 介面並補互相導覽，城市研究首頁在 `research-dashboard.html`。本版 52 項 Node/jsdom 測試通過；上傳後請開 `site-check.html` 查檔案發布狀態，並執行瀏覽器／手機驗收。詳見 `RESTORE-001-READ-ME.md`。本文件新段落取代歷史版「舊頁轉址」的說明。
+
+## GTA-002 · 原城市首頁作為主入口
+
+原城市保留於 `/`，新版大廳移至 `/play.html`，功能為 `/play.html#/workbench` 等路徑。右下角可展開「探索新版功能」，新版可返回 GTA。54 項 Node/jsdom 測試通過，尚未執行真實瀏覽器／手機視覺驗收。最新安裝與網址以 `GTA-002-START-HERE.md` 為準。
