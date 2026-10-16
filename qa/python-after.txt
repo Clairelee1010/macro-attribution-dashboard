@@ -1,0 +1,204 @@
+FF.FFFFF..FF........................F...............................FF.. [ 55%]
+..............FFFFFFFF.........F.........................                [100%]
+=================================== FAILURES ===================================
+___________________________ test_design_scope_exists ___________________________
+
+    def test_design_scope_exists():
+        for p in ["index.html","p02/index.html","intelligence/index.html"]:
+            assert (ROOT/p).exists()
+>           assert "design-001-p01-alignment" in read(p)
+E           assert 'design-001-p01-alignment' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+E            +  where '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n' = read('index.html')
+
+tests/design/test_design001.py:9: AssertionError
+______________________ test_p02_soft_typography_override _______________________
+
+    def test_p02_soft_typography_override():
+        s=read("p02/index.html")
+        for token in [".brand{font-weight:500", ".engine-title,.section-title,.prediction-q,.question{font-weight:500", ".metric b,.summary b,.prediction-prob,.prob{font-weight:500"]:
+>           assert token in s
+E           assert '.brand{font-weight:500' in '<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initi...pt><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body></html>\n'
+
+tests/design/test_design001.py:14: AssertionError
+_____________________ test_home_and_p03_preview_alignment ______________________
+
+    def test_home_and_p03_preview_alignment():
+        s=read("index.html")
+>       assert "p03-preview" in s
+E       assert 'p03-preview' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/design/test_design001.py:23: AssertionError
+________________________ test_p01_master_palette_reused ________________________
+
+    def test_p01_master_palette_reused():
+        for p in ["index.html","p02/index.html","intelligence/index.html"]:
+            s=read(p)
+>           assert "#fcfbf9" in s
+E           assert '#fcfbf9' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/design/test_design001.py:30: AssertionError
+_________________________ test_home_uses_product_names _________________________
+
+    def test_home_uses_product_names():
+        s=read('index.html')
+>       assert 'data-i18n="marketNav">市場情報</a>' in s
+E       assert 'data-i18n="marketNav">市場情報</a>' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/design/test_design002.py:8: AssertionError
+__________________ test_shared_navigation_uses_product_names ___________________
+
+    def test_shared_navigation_uses_product_names():
+        for f in ['p01/index.html','p02/index.html','intelligence/index.html']:
+            s=read(f)
+            assert '>市場情報</a>' in s
+            assert '>預測情報</a>' in s
+            assert '>整合情報</a>' in s
+>           assert 'Agent 治理 · Coming Soon' in s
+E           assert 'Agent 治理 · Coming Soon' in '\n<!DOCTYPE html>\n<html lang="zh-TW">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=...><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body>\n</html>\n'
+
+tests/design/test_design002.py:22: AssertionError
+______________________ test_home_ctas_are_product_facing _______________________
+
+    def test_home_ctas_are_product_facing():
+        s=read('index.html')
+>       assert '探索市場情報 →' in s
+E       assert '探索市場情報 →' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/design/test_design002.py:26: AssertionError
+________________________ test_p01_product_navigation_zh ________________________
+
+    def test_p01_product_navigation_zh():
+        for label in ["市場情報", "預測情報", "整合情報", "Agent 治理"]:
+>           assert label in P01
+E           assert 'Agent 治理' in '\n<!DOCTYPE html>\n<html lang="zh-TW">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=...><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body>\n</html>\n'
+
+tests/design/test_design0021.py:9: AssertionError
+________________________ test_p01_product_navigation_en ________________________
+
+    def test_p01_product_navigation_en():
+        for label in ["Home", "Market", "Prediction", "Integrated", "Agent Governance"]:
+>           assert label in P01
+E           assert 'Agent Governance' in '\n<!DOCTYPE html>\n<html lang="zh-TW">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=...><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body>\n</html>\n'
+
+tests/design/test_design0021.py:14: AssertionError
+_________________ test_ui_release_badge_and_coverage_semantics _________________
+
+    def test_ui_release_badge_and_coverage_semantics():
+        h=Path("p02-web/index.html").read_text(encoding="utf-8")
+>       assert "P02 v1.0 · PRODUCTION" in h
+E       assert 'P02 v1.0 · PRODUCTION' in '<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initi...pt><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body></html>\n'
+
+tests/p02/test_final_ui_acceptance.py:5: AssertionError
+________________________ test_home_has_product_modules _________________________
+
+    def test_home_has_product_modules():
+        s=read("index.html")
+>       for token in ["MARKET INTELLIGENCE · UNDERSTAND","PREDICTION INTELLIGENCE · PREDICT / COMPARE","INTEGRATED INTELLIGENCE · CONTEXTUALIZE","AGENT GOVERNANCE · GOVERN / ACT"]: assert token in s
+                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^
+E       assert 'MARKET INTELLIGENCE · UNDERSTAND' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/platform/test_platform001.py:12: AssertionError
+_________________________ test_shared_home_navigation __________________________
+
+    def test_shared_home_navigation():
+        for p in ["p01/index.html","p02/index.html","intelligence/index.html"]:
+            s=read(p)
+            assert "Platform navigation" in s
+>           assert "Agent 治理 · Coming Soon" in s
+E           assert 'Agent 治理 · Coming Soon' in '\n<!DOCTYPE html>\n<html lang="zh-TW">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=...><script src="../assets/research-logic.js"></script><script src="../assets/evidence-ui.js"></script></body>\n</html>\n'
+
+tests/platform/test_platform001.py:19: AssertionError
+______________________________ test_product_title ______________________________
+
+    def test_product_title():
+>       assert "Macro & Web3 Risk Intelligence Engine" in HTML
+E       assert 'Macro & Web3 Risk Intelligence Engine' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:6: AssertionError
+__________________________ test_intelligence_contract __________________________
+
+    def test_intelligence_contract():
+>       assert "dashboard_data.json" in HTML
+E       assert 'dashboard_data.json' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:9: AssertionError
+_____________________________ test_executive_hooks _____________________________
+
+    def test_executive_hooks():
+        for hook in [
+            "v5-regime", "v5-risk", "v5-confidence", "v5-quality",
+            "v5-coverage", "v5-signals", "v5-drivers", "v5-evidence"
+        ]:
+>           assert f'id="{hook}"' in HTML
+E           assert 'id="v5-regime"' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:17: AssertionError
+_____________________________ test_data_semantics ______________________________
+
+    def test_data_semantics():
+        for value in ["LIVE", "GENERATED", "PROTOTYPE"]:
+>           assert value in HTML
+E           assert 'LIVE' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:21: AssertionError
+________________________ test_provenance_and_freshness _________________________
+
+    def test_provenance_and_freshness():
+>       assert 'id="live-provenance"' in HTML
+E       assert 'id="live-provenance"' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:25: AssertionError
+________________________________ test_bilingual ________________________________
+
+    def test_bilingual():
+>       assert "證據信心" in HTML
+E       assert '證據信心' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:30: AssertionError
+__________________________ test_graceful_degradation ___________________________
+
+    def test_graceful_degradation():
+>       assert "stale analysis is not presented as current" in HTML
+E       assert 'stale analysis is not presented as current' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:36: AssertionError
+________________________ test_risk_confidence_semantics ________________________
+
+    def test_risk_confidence_semantics():
+>       assert "Risk ≠ confidence" in HTML
+E       assert 'Risk ≠ confidence' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_dashboard_productization.py:40: AssertionError
+________ test_frontend_has_no_legacy_recommendation_or_execution_labels ________
+
+    def test_frontend_has_no_legacy_recommendation_or_execution_labels():
+        html=Path("index.html").read_text(encoding="utf-8")
+        assert "RECOMMENDED US EQUITIES" not in html
+        assert "Soft Robi Execution Log:" not in html
+>       assert "market_intelligence_feed.json" in html
+E       assert 'market_intelligence_feed.json' in '<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,ini...src="./assets/market-snapshot.js"></script><script src="./assets/home007-neon-city.js" defer></script></body></html>\n'
+
+tests/test_market_intelligence.py:35: AssertionError
+=========================== short test summary info ============================
+FAILED tests/design/test_design001.py::test_design_scope_exists - assert 'des...
+FAILED tests/design/test_design001.py::test_p02_soft_typography_override - as...
+FAILED tests/design/test_design001.py::test_home_and_p03_preview_alignment - ...
+FAILED tests/design/test_design001.py::test_p01_master_palette_reused - asser...
+FAILED tests/design/test_design002.py::test_home_uses_product_names - assert ...
+FAILED tests/design/test_design002.py::test_shared_navigation_uses_product_names
+FAILED tests/design/test_design002.py::test_home_ctas_are_product_facing - as...
+FAILED tests/design/test_design0021.py::test_p01_product_navigation_zh - asse...
+FAILED tests/design/test_design0021.py::test_p01_product_navigation_en - asse...
+FAILED tests/p02/test_final_ui_acceptance.py::test_ui_release_badge_and_coverage_semantics
+FAILED tests/platform/test_platform001.py::test_home_has_product_modules - as...
+FAILED tests/platform/test_platform001.py::test_shared_home_navigation - asse...
+FAILED tests/test_dashboard_productization.py::test_product_title - assert 'M...
+FAILED tests/test_dashboard_productization.py::test_intelligence_contract - a...
+FAILED tests/test_dashboard_productization.py::test_executive_hooks - assert ...
+FAILED tests/test_dashboard_productization.py::test_data_semantics - assert '...
+FAILED tests/test_dashboard_productization.py::test_provenance_and_freshness
+FAILED tests/test_dashboard_productization.py::test_bilingual - assert '證據...
+FAILED tests/test_dashboard_productization.py::test_graceful_degradation - as...
+FAILED tests/test_dashboard_productization.py::test_risk_confidence_semantics
+FAILED tests/test_market_intelligence.py::test_frontend_has_no_legacy_recommendation_or_execution_labels
+21 failed, 108 passed in 0.64s

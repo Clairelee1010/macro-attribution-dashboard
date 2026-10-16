@@ -1,568 +1,117 @@
-## AI-006 Gemini 問答
-Daily 新增可部署的 Gemini Robi 問答入口，須設定独立後端後才會啟用。見 [設定說明](./AI-006-README.md)。
-
-## SITE-005
-四頁共用 P01 基準字體，Daily 自選資產新增詳情。見 [說明](./SITE-005-README.md)。
-
-## SITE-004 全站精簡
-P01/P02/P03/INT 以主要結果優先，研究與系統資訊按需展開。參閱 [更新說明](./SITE-004-README.md)。
-
-## DAILY-003 精簡體驗
-縮小行情與標題、依自選資產呈現、增加三個資料摘要入口、收合宏觀背景與歷史資料。見 [更新說明](./DAILY-003-README.md)。
-
-## DAILY-002 更新
-首頁與今日情報 BTC/ETH 統一行情來源，新增依自選資產篩選與明確配對原因。見 [更新說明](./DAILY-002-README.md)。
-
-## 今日情報 DAILY-001
-新增手機友善的每日市場情報入口：近期重點、來源證據、歷史資訊、自選資產及瀏覽器追蹤紀錄。入口為 [今日情報](./daily/)，部署與資料語義請見 [DAILY-001 說明](./DAILY-001-README.md)。
-
-# Macro & Web3 Risk Intelligence Engine 🌸
-
-> **P01 v1.0 — Macro Attribution & Cross-Market Intelligence**
->
-> An evidence-driven, bilingual market intelligence dashboard connecting
-> **U.S. macro conditions, cross-asset market signals, Web3/RWA context,
-> and Taiwan market indicators**.
-
-🌐 Live Demo: https://clairelee1010.github.io/macro-attribution-dashboard/
-
----
-
-## Overview
-
-The Macro & Web3 Risk Intelligence Engine is a portfolio project exploring how
-market data, deterministic signal processing, evidence confidence, and
-source-aware news intelligence can be combined into an explainable
-cross-market decision-support product.
-
-Instead of presenting a single AI-generated market opinion, the system separates:
-
-- live market observations,
-- deterministic intelligence outputs,
-- evidence confidence,
-- source provenance,
-- and prototype-only concepts.
-
-The objective is to answer three questions:
-
-1. **What is happening in the market?**
-2. **What evidence supports the current interpretation?**
-3. **How confident should we be in that interpretation?**
-
-This repository represents **P01 — UNDERSTAND**, the first phase of a broader
-three-stage product roadmap.
+# Claire’s Web3 Intelligence — Cross-Market Research
 
----
+跨市場情報研究工作台：整合宏觀、預測市場與代幣化資產，回查來源、時間與證據限制。
 
-# Product Architecture
+Evidence-first research across macro conditions, prediction markets and tokenized assets.
 
-```text
-External Market Sources
-        │
-        ▼
-┌─────────────────────────┐
-│ Multi-Source Data Layer │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Normalization & Quality │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Signal Engine           │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Market Regime           │
-│ Market Risk             │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Attribution Engine      │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Evidence Confidence     │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ News Intelligence       │
-│ Source + Ranking + i18n │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│ Bilingual Dashboard     │
-│ 中文 / English           │
-└─────────────────────────┘
-Core Capabilities
-1. Multi-Source Market Data Pipeline
+- Public project: https://clairelee1010.github.io/macro-attribution-dashboard/
+- Main reading flow: `daily/`
+- Frozen research case and methodology: `research/`
+- Release / acceptance / deployment: [RELEASE-2026-10-16.md](RELEASE-2026-10-16.md)
 
-The dashboard currently monitors core cross-market indicators including:
+## Current scope / 目前範圍
 
-U.S. 10-Year Treasury Yield
-U.S. Dollar Index (DXY)
-VIX
-Bitcoin (BTC)
-Ethereum (ETH)
+| Module | Implemented behavior | Boundary |
+|---|---|---|
+| P01 | Public market observations, deterministic signals, regime, risk, attribution and evidence confidence | Rules describe evidence alignment, not causality or validated forecast accuracy |
+| P02 | Polymarket / Kalshi data, topic discovery, ranking, event matching and historical artifacts | Zero matches is valid; title similarity alone does not prove identical contracts |
+| P03 | Public read-only tokenized-equity and activity-zone research | Context links are not observed net fund flows; missing evidence stays missing |
+| Daily | EN / 繁中 controls, followed assets, tracking, rule briefs, cited Gemini questions, visible source health | Local browser storage; no member accounts or cross-device sync |
+| Research | Dated October 2026 FOMC case with five copied contract observations, frozen input evidence and SHA-256 provenance | Not live odds; no independently verified cross-venue counterpart or settlement-rule equivalence |
 
-The production pipeline supports primary and fallback data routes and exposes
-data freshness and availability to downstream intelligence modules.
+This is a research MVP / portfolio project, not a fully accepted production trading platform.
 
-2. Data Quality Layer
+這是研究 MVP 與作品集。不能把「程式存在」「附件驗收通過」或「已填服務網址」當成完整正式上線驗收。
 
-Before market observations are used downstream, the system evaluates:
+## Rules, Gemini and prototypes / 哪些結果來自哪裡
 
-data availability,
-freshness,
-source route,
-and overall data quality.
+**Deterministic rules:** Python normalization, freshness, P01 signals / regime / risk / attribution, P02 ranking and matching, P03 heat, and Daily quick briefs. Their output does not require a Gemini call. Risk scores and evidence confidence are different concepts.
 
-The dashboard explicitly distinguishes incomplete evidence from usable evidence.
+**Gemini:** Only Daily’s submitted free-form Robi question calls the separate Worker. The Worker reads fixed public project JSON, limits evidence size, requests structured output and validates citation IDs. It does not verify that every sentence is entailed by its cited source. Missing sources and stale observation times must remain visible. No Gemini text is stored in the frozen research case.
 
-3. Deterministic Market Signals
+**Roadmap / unimplemented:** Wallet authorization, signing, Account Abstraction, x402 payments, spending policies and trade execution. Current P03 is read-only research, rather than a completed autonomous wallet. P03’s built-in keyword responses are rule-based, not a general Gemini agent.
 
-Normalized observations are transformed into explainable signals such as:
+**Prototype visuals:** City animation is decorative; inferred relationships and heat are not observed capital flow or trading recommendations.
 
-US10Y → VERY_HIGH_YIELD → RISK_OFF
-DXY   → FIRM_DOLLAR     → RISK_OFF
-VIX   → NORMAL_VOLATILITY → NEUTRAL
+## Data quality policy / 資料品質
 
-Signal generation is deterministic rather than based on an opaque AI-generated
-market conclusion.
+- Main Daily and P01/P02/P03/INT pages expose source health.
+- File generation time, observation time and retrieval time have different meanings.
+- The new quality panel recalculates age against the current clock. Missing / future timestamps and observations older than 36 hours are flagged. This is a UI review threshold, not a claim about provider freshness standards. Traditional-market holidays are not silently treated as fresh.
+- The denominator for core P01 completeness is five: US10Y, DXY, VIX, BTC, ETH. Missing metrics cannot inflate coverage.
+- Fallback prices retain primary failure information. News error records are shown separately from successfully collected items.
+- Contract probability is a venue observation, not the product’s forecast. Different topic-discovery and raw-feed coverage must not be treated as equivalent datasets.
+- Missing or failed evidence does not become zero price, zero risk or a successful comparison.
 
-4. Market Regime & Risk Assessment
+## Frozen research case / 完整研究案例
 
-Signals are aggregated into higher-level intelligence including:
+`research/case-study.json` preserves the supplied snapshot, with archived source files in `research/evidence/`. It includes:
 
-Market Regime
-Market Risk
-Risk Score
-Assessment Confidence
+1. Federal Reserve official meeting calendar: October 27–28, 2026; calendar checked October 16, 2026.
+2. P01 observations and deterministic regime context, with their original timestamps.
+3. Five supplied Polymarket contracts about that October meeting, including YES probabilities, source URLs and retrieval times.
+4. Withheld cross-venue comparison: no verified counterpart in the snapshot; topic rows lack full resolution terms; raw feeds and topic discovery differ in coverage.
+5. Uncertainty, subsequent verification steps and exact archived input hashes.
 
-Example:
+Values are copied from the supplied repository artifacts, **not independently certified exchange data**. Retrieval timestamps are not necessarily exchange quote timestamps. Opening the case later does not relabel historical probabilities as current. The official calendar verifies the meeting dates only, not quotes or settlement rules.
 
-MARKET REGIME
-RISK_OFF
+To deliberately publish a new frozen case, review the source inputs and run `python scripts/build_research_case.py`. Do not add this command to recurring market-data updates: that would silently rewrite an archival case.
 
-MARKET RISK
-HIGH · 100/100
+## Architecture
 
-Risk and confidence are intentionally treated as different concepts.
+External public sources → scheduled Python fetch / normalization → JSON artifacts → rule-based research → source-aware pages.
 
-High assessed market risk does not automatically imply high evidence confidence.
+Daily free-form question → separate Cloudflare Worker → fixed public evidence → Gemini → citation validation → cited answer or explicit error.
 
-5. Cross-Market Attribution
+A failed news source does not automatically block all other usable question evidence. Failed model output is withheld; it is never replaced with an invented AI answer.
 
-The Attribution Engine identifies which eligible signals contribute most strongly
-to the current market regime.
+## Robi deployment and current verification
 
-Example:
+The frontend endpoint remains `https://claire-market-robi.claire-web3.workers.dev` in `daily/ai-config.js`; it contains no API key.
 
-US10Y · VERY_HIGH_YIELD   61.8%
-DXY   · FIRM_DOLLAR       38.2%
+This update adds:
 
-Attribution represents evidence alignment, not causal proof.
+- Read-only `GET /health`, which reports configuration status and explicitly sets `provider_verified: false`.
+- Distinct error codes for entry blocks, origin denial, application daily limits, Gemini limits / authentication / model failures, timeouts, missing evidence, invalid output and invalid citations.
+- User cancellation, EN / 中文 question language, structured model output, source-level partial failure and safe text rendering.
+- P02 topic observations and P01 regime evidence in the question context, alongside market observations and news.
 
-6. Evidence Confidence
+**Observed on October 16:** live OPTIONS and POST requests from this test environment received HTTP 403 with Cloudflare error 1010, without the Worker’s JSON / CORS response. This establishes an entry-layer block for this connection; it does not prove that every user browser is blocked or identify the exact account rule. Cloudflare account logs and a browser Network response are needed for that determination. This update cannot modify account-level security settings.
 
-The system separately evaluates the reliability of the evidence supporting
-the current intelligence output.
+The new Worker still needs deployment by the account owner, followed by a real cited model response. A configured endpoint or passing mock test is not real model acceptance. See the release guide.
 
-The dashboard exposes:
+The application cap remains 50 requests globally per UTC day and 5 per IP per UTC day; failed and cancelled requests already sent may count. These are application limits, not Gemini’s provider quota. Origin filtering is not authentication. Only public market questions should be submitted.
 
-Evidence Confidence
-Evidence Coverage
-Data Quality
-Excluded Signals
-Fallback Source Usage
-Attribution Support
+## Run checks
 
-This prevents market risk, model output, and evidence reliability from being
-presented as the same concept.
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -q tests/research/test_fred_dates.py tests/test_adapters.py
+npm ci
+npm run test:research
+```
 
-Market & Web3 Intelligence Feed
+Browser layout / interactions, on a machine supporting Chromium:
 
-P01 includes a source-aware market intelligence pipeline.
+```bash
+npx playwright install --with-deps chromium
+npm run test:browser
+```
 
-The pipeline follows:
+`research_acceptance.yml` runs the new regression suite and Chromium acceptance at 320, 375, 768 and 1280px. The browser test mocks the AI backend: it validates UI behavior, not the real Gemini service. It does not submit credentials or place trades.
 
-Sources
-   ↓
-Fetch
-   ↓
-Normalize
-   ↓
-Deduplicate
-   ↓
-Freshness Evaluation
-   ↓
-Relevance Scoring
-   ↓
-Priority Classification
-   ↓
-Context Linking
-   ↓
-Bilingual Intelligence Layer
-   ↓
-Dashboard
-Source Intelligence
+The pre-existing Python suite had 21 failures before these edits (mostly earlier homepage / navigation / text contracts). This release does not claim that entire legacy suite passes. See `qa/` and the release acceptance notes.
 
-The intelligence layer can collect information associated with sources such as:
+## Authorship / 作者與 AI 協作
 
-U.S. Macro / Regulation
-Federal Reserve
-U.S. Securities and Exchange Commission
-U.S. Treasury
-Web3 / Digital Assets
-Coinbase
-Binance
-OKX
-Circle
-Bybit
-Bitget
-Gate
-MEXC
-Taiwan Market
-Taiwan Stock Exchange
-TSMC
+Claire Lee is the project owner. Requirements and priorities for this update are recorded in the project conversation. Implementation, research framing, documentation and test development include AI assistance. This repository does **not** claim all code was independently hand-written.
 
-Additional news sources may appear through the news aggregation layer.
+Personal claims about independently designed modules, manual source review, deployment and acceptance should be supported by the author’s records. Automated checks performed for this update and checks still pending are listed in the release report. No invented performance, user adoption, investment returns or manual-validation claims are used.
 
-Source availability varies by update cycle.
+## Limitations
 
-Intelligence Ranking
+Public provider availability, delayed snapshots, source errors and incomplete contracts can constrain conclusions. Translation covers interface controls and available bilingual fields; original source titles, raw evidence, saved historical source text and an existing model answer retain their original language. Asking again requests a model answer in the selected language.
 
-P01-NEWS-004 introduced deterministic relevance ranking.
+There is no portfolio-account connection, trading execution, signing, fund custody or push subscription. Tracked price changes are observations, not verified investment performance.
 
-Each eligible intelligence item can contain:
-
-{
-  "relevance_score": 85,
-  "priority": "HIGH",
-  "ranking_reasons": [
-    "NEWS_SOURCE",
-    "FRESH",
-    "STRONG_P01_CONTEXT_MATCH",
-    "CORE_TOPIC",
-    "HIGH_MARKET_IMPACT"
-  ]
-}
-
-Ranking considers factors including:
-
-source authority,
-freshness,
-P01 context relevance,
-core topic relevance,
-and market-impact keywords.
-
-Priority is classified as:
-
-HIGH
-MEDIUM
-LOW
-
-The ranking system is designed to be explainable rather than dependent on
-opaque LLM ranking.
-
-Bilingual Intelligence Layer
-
-P01-NEWS-005 introduced bilingual intelligence presentation.
-
-The dashboard supports:
-
-🇹🇼 Traditional Chinese
-🇺🇸 English
-
-Each intelligence item may contain:
-
-Original Source Title
-Source
-Freshness
-Priority
-Relevance Score
-Intelligence Summary
-Why It Matters
-Linked P01 Context
-Ranking Reasons
-Evidence
-Limitations
-
-Original source titles are preserved to maintain provenance.
-
-The bilingual layer applies to the intelligence interpretation rather than
-rewriting the original source headline.
-
-Data Semantics
-
-The dashboard explicitly labels three data types.
-
-LIVE
-
-Automatically retrieved market observations.
-
-Examples:
-
-U.S. Treasury Yield
-DXY
-VIX
-BTC
-ETH
-GENERATED
-
-Deterministic intelligence produced by the system.
-
-Examples:
-
-Market Regime
-Market Risk
-Attribution
-Evidence Confidence
-News Relevance Score
-PROTOTYPE
-
-Illustrative concepts that are not current production market evidence.
-
-Prototype values are visually labeled and should not be interpreted as live data.
-
-This separation is a deliberate product design decision to prevent prototype
-concepts from being confused with production intelligence.
-
-Bilingual Dashboard
-
-The production interface supports real-time switching between:
-
-繁體中文
-English
-
-Localization covers:
-
-market intelligence labels,
-market status,
-risk and confidence descriptions,
-news metadata,
-intelligence summaries,
-ranking explanations,
-evidence descriptions,
-and limitations.
-Automation
-
-The project uses GitHub Actions to automate the intelligence pipeline.
-
-A typical update cycle includes:
-
-Market Data Update
-        ↓
-Normalization
-        ↓
-Data Quality
-        ↓
-Signals
-        ↓
-Market Regime
-        ↓
-Market Risk
-        ↓
-Attribution
-        ↓
-Evidence Confidence
-        ↓
-News Intelligence
-        ↓
-Validation
-        ↓
-Generated Artifacts
-        ↓
-GitHub Pages
-
-Generated artifacts are validated before being committed back to the repository.
-
-Technology Stack
-Data / Intelligence
-Python
-Requests
-yfinance
-CoinGecko Public API
-Intelligence Architecture
-Deterministic Signal Engine
-Market Regime Engine
-Market Risk Engine
-Attribution Engine
-Evidence Confidence Layer
-News Intelligence Ranking
-Frontend
-HTML
-CSS
-JavaScript
-Bilingual UI
-DevOps
-GitHub
-GitHub Actions
-GitHub Pages
-Product Design Principles
-
-P01 was built around several product principles:
-
-Explainability over black-box conclusions
-
-Market conclusions should expose their supporting evidence.
-
-Risk ≠ Confidence
-
-A high-risk environment does not necessarily mean the evidence supporting the
-assessment is highly reliable.
-
-Provenance matters
-
-Original sources and headlines are preserved whenever possible.
-
-Graceful degradation
-
-Individual provider failures should not automatically break the complete
-intelligence pipeline.
-
-Prototype ≠ Production
-
-Illustrative concepts are explicitly separated from live market evidence.
-
-No causal overclaiming
-
-Attribution represents evidence alignment and should not be interpreted as
-proof of market causality.
-
-Project Roadmap
-
-This project is designed as a three-phase product portfolio.
-
-P01 — UNDERSTAND ✅
-Macro & Web3 Risk Intelligence Engine
-Market Data
-    ↓
-Signals
-    ↓
-Regime / Risk
-    ↓
-Attribution
-    ↓
-Evidence Confidence
-    ↓
-News Intelligence
-
-Status: P01 v1.0
-
-P02 — PREDICT / COMPARE ✅
-Tokenized Market & Prediction Intelligence
-
-Production capabilities:
-
-Prediction-market adapters for Polymarket and Kalshi
-Normalized market contracts and source provenance
-Canonical event matching with comparability guardrails
-Cross-market discrepancy intelligence
-P01 macro-context bridge
-Trust & Security evidence layer
-Bilingual intelligence dashboard
-Historical snapshots and deterministic change intelligence
-Production acceptance gate
-
-Product semantics:
-
-Market-implied probability is an observation, not a forecast.
-Same headline does not necessarily mean the same contract.
-Discrepancy does not prove arbitrage.
-UNKNOWN trust status does not mean safe.
-P01 context is supporting evidence, not causal proof.
-Execution is disabled.
-
-Status: P02 v1.0 — PRODUCTION / FROZEN
-
-Post-v1.0 extension roadmap:
-
-Tokenized Market Intelligence
-Tokenized U.S. equities / RWA
-24/7 price-discovery analysis
-Crypto / stablecoin yield intelligence
-Risk-adjusted APY comparison
-Exchange / counterparty / security intelligence
-
-These extensions remain part of the portfolio roadmap but are outside the
-frozen P02 v1.0 production scope.
-
-P03 — ACT 🔜
-AI Agent Wallet + x402
-
-Planned product concepts include:
-
-AI Agent execution
-Wallet authorization
-Account Abstraction
-x402 payments
-Spending policies
-Spending limits
-Whitelists
-Human-in-the-loop approval
-Multi-signature controls
-Risk checks
-Audit trails
-On-chain execution
-
-Conceptual flow:
-
-Intelligence Signal
-        ↓
-AI Agent
-        ↓
-Risk Check
-        ↓
-Policy Check
-        ↓
-Human Approval
-        ↓
-Wallet Authorization
-        ↓
-x402 / Payment / Execution
-        ↓
-Audit Trail
-Current Limitations
-
-P01 is an experimental portfolio product and not a production trading system.
-
-Known limitations include:
-
-some data sources may rely on fallback routes,
-news provider availability can vary,
-not every market signal has sufficient historical context,
-evidence coverage may be incomplete,
-attribution does not establish causality,
-prototype metrics are not live market evidence,
-intelligence ranking is deterministic and rule-based,
-and the system does not execute trades or manage user funds.
-Disclaimer
-
-This project is provided for research, product exploration, and portfolio
-demonstration purposes only.
-
-Nothing presented by the dashboard constitutes investment, financial, legal,
-or trading advice.
-
-Market risk assessments, attribution results, relevance scores, intelligence
-summaries, and evidence-confidence outputs should not be interpreted as
-predictions of future market performance.
-
-Users should independently verify source information and perform their own
-due diligence before making financial decisions.
-
-Author
-
-Claire Lee
-
-Technical Project Manager focused on:
-
-Web3
-RWA
-AI / Agentic Systems
-Cross-Market Intelligence
-Product Strategy
-
-Medium: https://medium.com/@claireli_79034
-
+Author: Claire Lee · https://medium.com/@claireli_79034

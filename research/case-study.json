@@ -1,0 +1,349 @@
+{
+  "id": "fomc-october-2026",
+  "type": "FROZEN_RESEARCH_SNAPSHOT",
+  "snapshot_at": "2026-10-15T05:24:09.635634+00:00",
+  "event": {
+    "title_zh": "2026 年 10 月 FOMC：利率預期與宏觀風險",
+    "title_en": "October 2026 FOMC: rate expectations and macro risk",
+    "meeting_dates": [
+      "2026-10-27",
+      "2026-10-28"
+    ],
+    "official_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "calendar_checked_on": "2026-10-16",
+    "calendar_scope": "Meeting dates verified against the Federal Reserve calendar. This does not verify exchange contract rules or prices."
+  },
+  "macro": {
+    "schema_version": "1.0",
+    "generated_at": "2026-10-15T05:24:09.635634+00:00",
+    "metrics": {
+      "US10Y": {
+        "metric_id": "US10Y",
+        "name": "US 10-Year Treasury Yield",
+        "category": "MACRO",
+        "ticker": "^TNX",
+        "value": 5.19,
+        "previous_close": 5.217,
+        "change_pct": -0.52,
+        "unit": "%",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "FALLBACK",
+        "observed_at": "2026-10-14T05:00:00+00:00",
+        "fetched_at": "2026-10-15T05:24:09.077550+00:00",
+        "status": "FRESH",
+        "error": "Primary FRED failed; fallback used: 'DATE'"
+      },
+      "DXY": {
+        "metric_id": "DXY",
+        "name": "US Dollar Index",
+        "category": "FX",
+        "ticker": "DX-Y.NYB",
+        "value": 102.086,
+        "previous_close": 102.55,
+        "change_pct": -0.45,
+        "unit": "INDEX",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-10-15T04:00:00+00:00",
+        "fetched_at": "2026-10-15T05:24:09.194110+00:00",
+        "status": "FRESH",
+        "error": null
+      },
+      "VIX": {
+        "metric_id": "VIX",
+        "name": "CBOE Volatility Index",
+        "category": "RISK",
+        "ticker": "^VIX",
+        "value": 16.87,
+        "previous_close": 15.27,
+        "change_pct": 10.48,
+        "unit": "INDEX",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-10-14T05:00:00+00:00",
+        "fetched_at": "2026-10-15T05:24:09.277950+00:00",
+        "status": "FRESH",
+        "error": null
+      },
+      "BTC": {
+        "metric_id": "BTC",
+        "name": "Bitcoin",
+        "category": "CRYPTO",
+        "ticker": "BTC-USD",
+        "value": 81104.6609,
+        "previous_close": 81603.6546,
+        "change_pct": -0.61,
+        "unit": "USD",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-10-15T05:22:50+00:00",
+        "fetched_at": "2026-10-15T05:24:09.473591+00:00",
+        "status": "FRESH",
+        "error": null
+      },
+      "ETH": {
+        "metric_id": "ETH",
+        "name": "Ethereum",
+        "category": "CRYPTO",
+        "ticker": "ETH-USD",
+        "value": 2362.4076,
+        "previous_close": 2419.6896,
+        "change_pct": -2.37,
+        "unit": "USD",
+        "source": "CoinGecko Public API",
+        "source_type": "PRIMARY",
+        "observed_at": "2026-10-15T05:22:30+00:00",
+        "fetched_at": "2026-10-15T05:24:09.635047+00:00",
+        "status": "FRESH",
+        "error": null
+      }
+    },
+    "data_quality": {
+      "total": 5,
+      "fresh": 5,
+      "stale": 0,
+      "missing": 0,
+      "error": 0,
+      "score": 1.0,
+      "status": "SUCCESS"
+    }
+  },
+  "regime": {
+    "schema_version": "6.0",
+    "source_schema_version": "5.0",
+    "generated_at": "2026-10-15T05:24:09.635634+00:00",
+    "engine": "P01-006",
+    "rules_version": "1.0",
+    "regime": "RISK_OFF",
+    "score": -0.7706,
+    "confidence": 0.58,
+    "coverage": 0.6,
+    "contradiction": false,
+    "drivers": [
+      {
+        "metric_id": "US10Y",
+        "direction": "RISK_OFF",
+        "strength": "STRONG",
+        "signal_id": "VERY_HIGH_YIELD",
+        "confidence": 0.9,
+        "weight": 1.8,
+        "weighted_score": -1.62
+      },
+      {
+        "metric_id": "DXY",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "signal_id": "FIRM_DOLLAR",
+        "confidence": 1.0,
+        "weight": 1.0,
+        "weighted_score": -1.0
+      },
+      {
+        "metric_id": "VIX",
+        "direction": "NEUTRAL",
+        "strength": "WEAK",
+        "signal_id": "NORMAL_VOLATILITY",
+        "confidence": 1.0,
+        "weight": 0.6,
+        "weighted_score": 0.0
+      }
+    ],
+    "supporting": [
+      {
+        "metric_id": "US10Y",
+        "direction": "RISK_OFF",
+        "strength": "STRONG",
+        "signal_id": "VERY_HIGH_YIELD",
+        "confidence": 0.9,
+        "weight": 1.8,
+        "weighted_score": -1.62
+      },
+      {
+        "metric_id": "DXY",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "signal_id": "FIRM_DOLLAR",
+        "confidence": 1.0,
+        "weight": 1.0,
+        "weighted_score": -1.0
+      }
+    ],
+    "contradicting": [],
+    "excluded": [
+      {
+        "metric_id": "BTC",
+        "direction": "UNKNOWN",
+        "reason": "INSUFFICIENT_HISTORY"
+      },
+      {
+        "metric_id": "ETH",
+        "direction": "UNKNOWN",
+        "reason": "INSUFFICIENT_HISTORY"
+      }
+    ],
+    "summary": {
+      "eligible_signals": 3,
+      "excluded_signals": 2,
+      "total_signals": 5,
+      "eligible_weight": 3.4,
+      "weighted_sum": -2.62
+    },
+    "semantics": {
+      "regime": [
+        "RISK_ON",
+        "NEUTRAL",
+        "RISK_OFF",
+        "UNKNOWN"
+      ],
+      "score": "Deterministic cross-signal balance from -1 (risk-off) to +1 (risk-on); not outcome probability.",
+      "confidence": "Evidence reliability for regime classification; not probability of a market outcome."
+    }
+  },
+  "contracts": [
+    {
+      "event_id": "POLYMARKET:2589814",
+      "venue": "polymarket",
+      "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
+      "outcome": "YES",
+      "implied_probability": 0.0045,
+      "volume_usd": 845856.1414600002,
+      "liquidity_usd": 811478.40337,
+      "market_close_time": "2026-10-29",
+      "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324033",
+      "retrieved_at": "2026-10-15T04:28:48.158772Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "trending_score": 99.2,
+      "rank": 1
+    },
+    {
+      "event_id": "POLYMARKET:2589813",
+      "venue": "polymarket",
+      "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+      "outcome": "YES",
+      "implied_probability": 0.235,
+      "volume_usd": 1457620.145801,
+      "liquidity_usd": 208848.5644,
+      "market_close_time": "2026-10-29",
+      "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
+      "retrieved_at": "2026-10-15T04:28:48.158772Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "trending_score": 97.17,
+      "rank": 2
+    },
+    {
+      "event_id": "POLYMARKET:2589812",
+      "venue": "polymarket",
+      "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
+      "outcome": "YES",
+      "implied_probability": 0.755,
+      "volume_usd": 2692695.5198709955,
+      "liquidity_usd": 193342.6966,
+      "market_close_time": "2026-10-29",
+      "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
+      "retrieved_at": "2026-10-15T04:28:48.158772Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "trending_score": 97.03,
+      "rank": 3
+    },
+    {
+      "event_id": "POLYMARKET:2589811",
+      "venue": "polymarket",
+      "question": "Will the Fed decrease interest rates by 25 bps after the October 2026 meeting?",
+      "outcome": "YES",
+      "implied_probability": 0.0035,
+      "volume_usd": 183924.59880900005,
+      "liquidity_usd": 908606.74353,
+      "market_close_time": "2026-10-29",
+      "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324030",
+      "retrieved_at": "2026-10-15T04:28:48.158772Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "trending_score": 95.54,
+      "rank": 4
+    },
+    {
+      "event_id": "POLYMARKET:2589810",
+      "venue": "polymarket",
+      "question": "Will the Fed decrease interest rates by 50+ bps after the October 2026 meeting?",
+      "outcome": "YES",
+      "implied_probability": 0.0015,
+      "volume_usd": 129666.5409999999,
+      "liquidity_usd": 1644596.21687,
+      "market_close_time": "2026-10-29",
+      "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324029",
+      "retrieved_at": "2026-10-15T04:28:48.158772Z",
+      "freshness": "FRESH",
+      "data_quality": "PASS",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "trending_score": 94.82,
+      "rank": 6
+    }
+  ],
+  "comparison": {
+    "status": "WITHHELD",
+    "verified_pairs": 0,
+    "reasons": [
+      "NO_VERIFIED_COUNTERPART_IN_THIS_SNAPSHOT",
+      "RESOLUTION_RULES_ABSENT_FROM_TOPIC_ROWS",
+      "RAW_FEEDS_AND_TOPIC_DISCOVERY_HAVE_DIFFERENT_COVERAGE"
+    ],
+    "scanned_kalshi_rows": 500,
+    "warning": "Zero verified pairs is not evidence that no counterpart exists on either venue. No price-gap or arbitrage conclusion is published."
+  },
+  "provenance": [
+    {
+      "path": "live_market_data.json",
+      "archive_path": "research/evidence/live_market_data.json",
+      "sha256": "1a9c617830c2f12fd75f7b8ee61b01a07c2e75a6d0f348ec35ac49a3be5f6f8e"
+    },
+    {
+      "path": "regime_report.json",
+      "archive_path": "research/evidence/regime_report.json",
+      "sha256": "92f3c02345545678fc30c6c8b194a7aab81b4f403e59a5cc9a0285aca126067e"
+    },
+    {
+      "path": "data/p02/topic_intelligence.json",
+      "archive_path": "research/evidence/topic_intelligence.json",
+      "sha256": "7e016d080637ec9d6a37e38fe073e8ebd771ca762121070a45bc3a6ce6483efe"
+    },
+    {
+      "path": "data/p02/canonical_events.json",
+      "archive_path": "research/evidence/canonical_events.json",
+      "sha256": "3b16c1ed270984567ff68ac68fc672960635e67b64fe81e0f440467a760dcd99"
+    },
+    {
+      "path": "data/p02/kalshi_markets.json",
+      "archive_path": "research/evidence/kalshi_markets.json",
+      "sha256": "d63811f901bdd3830d1eba62076dff5c7667eb126f882d9d585ab252d1b3dd49"
+    }
+  ],
+  "authenticity": "Values copied from user-supplied repository artifacts. Retrieval timestamps are not exchange quote timestamps; prices and contract rules have not been independently revalidated against exchanges.",
+  "method": "Rule-based context and human-authored research framing; no Gemini output is stored in this case."
+}

@@ -1,0 +1,29 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test:research
+> node --test tests/research/*.test.cjs tests/research/*.test.mjs
+
+✔ Daily EN/ZH switching, rules, asset detail, tracking and persistence (366.213127ms)
+✔ edge non-JSON response becomes an actionable bilingual error, not JSON parse failure (131.676118ms)
+✔ successful cited answer sends selected language and renders text safely (118.497946ms)
+✔ provider limits and invalid citations are not shown as successful answers (83.928001ms)
+✔ cancel aborts the pending request and restores controls (71.823125ms)
+✔ missing source files remain visible; no fresh success manufactured (77.058984ms)
+✔ freshness uses observation time, rejects future/missing times (1.04555ms)
+✔ quality includes expected missing metrics, failed files and provider records (0.781236ms)
+✔ frozen case copies every probability from its supplied topic artifact (18.589274ms)
+✔ health describes configuration, never claims provider verification (5.439218ms)
+✔ CORS, missing configuration, malformed JSON and length guards (3.081489ms)
+✔ collection preserves zero values, source times and fallback errors (0.544253ms)
+✔ citations reject unknown IDs, absent inline sources and unsupported citation arrays (0.509195ms)
+✔ provider failures and partial source failure retain actionable error categories (21.795279ms)
+✔ no evidence avoids provider call; daily cap avoids source fetch (3.592562ms)
+✔ Durable Object budget persists and blocks the sixth IP request (1.598757ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1207.098158

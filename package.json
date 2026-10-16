@@ -1,0 +1,6 @@
+{
+  "name": "claire-cross-market-research",
+  "private": true,
+  "scripts": {"test:research": "node --test tests/research/*.test.cjs tests/research/*.test.mjs", "test:browser": "node tests/research/browser-acceptance.mjs"},
+  "devDependencies": {"jsdom": "26.1.0", "playwright": "1.56.1"}
+}
