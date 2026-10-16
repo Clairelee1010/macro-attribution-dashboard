@@ -10,9 +10,11 @@ class FredAdapter(BaseAdapter):
             rows=[]
             for x in csv.DictReader(io.StringIO(r.text)):
                 v=safe_number(x.get("DGS10"))
-                if v is not None: rows.append((x["DATE"],v))
+                if v is not None: rows.append((x.get("DATE") or x.get("observation_date") or x.get("date"),v))
             if not rows: raise ValueError("No FRED observations")
-            date,current=rows[-1]; previous=rows[-2][1] if len(rows)>1 else None
+            date,current=rows[-1]
+            if not date: raise ValueError("FRED observation date column missing")
+            previous=rows[-2][1] if len(rows)>1 else None
             obs=datetime.strptime(date,"%Y-%m-%d").replace(tzinfo=timezone.utc)
             age=(datetime.now(timezone.utc)-obs).total_seconds()/86400
             ch=round((current-previous)/previous*100,2) if previous not in (None,0) else None
