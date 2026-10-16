@@ -2,27 +2,27 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-10-16T05:19:08.842450+00:00",
+  "generated_at": "2026-10-16T05:19:56.334369+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
     {
       "metric_id": "US10Y",
-      "signal_id": "VERY_HIGH_YIELD",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "confidence": 0.9,
-      "value": 0.05089,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
+      "value": 0.0519,
       "unit": "DECIMAL",
       "evidence": {
-        "data_quality_gate": "PASS",
-        "source": "Yahoo Finance via yfinance",
-        "source_type": "FALLBACK",
+        "data_quality_gate": "BLOCKED",
+        "source": "FRED / Federal Reserve Board H.15",
+        "source_type": "PRIMARY",
         "quality_reasons": [
-          "FALLBACK_SOURCE_USED"
+          "STALE_OBSERVATION"
         ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "DXY",
@@ -62,7 +62,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 82164.6852,
+      "value": 82165.7167,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -78,7 +78,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2446.5467,
+      "value": 2446.7577,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -92,9 +92,9 @@
   "summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 2,
+    "risk_off": 1,
     "neutral": 1,
-    "unknown": 2
+    "unknown": 3
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",

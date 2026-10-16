@@ -1,24 +1,15 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-10-16T05:19:08.842450+00:00",
+  "generated_at": "2026-10-16T05:19:56.334369+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
-  "score": -0.7706,
-  "confidence": 0.58,
-  "coverage": 0.6,
+  "score": -0.625,
+  "confidence": 0.4,
+  "coverage": 0.4,
   "contradiction": false,
   "drivers": [
-    {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "signal_id": "VERY_HIGH_YIELD",
-      "confidence": 0.9,
-      "weight": 1.8,
-      "weighted_score": -1.62
-    },
     {
       "metric_id": "DXY",
       "direction": "RISK_OFF",
@@ -40,15 +31,6 @@
   ],
   "supporting": [
     {
-      "metric_id": "US10Y",
-      "direction": "RISK_OFF",
-      "strength": "STRONG",
-      "signal_id": "VERY_HIGH_YIELD",
-      "confidence": 0.9,
-      "weight": 1.8,
-      "weighted_score": -1.62
-    },
-    {
       "metric_id": "DXY",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
@@ -61,6 +43,11 @@
   "contradicting": [],
   "excluded": [
     {
+      "metric_id": "US10Y",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
       "metric_id": "BTC",
       "direction": "UNKNOWN",
       "reason": "INSUFFICIENT_HISTORY"
@@ -72,11 +59,11 @@
     }
   ],
   "summary": {
-    "eligible_signals": 3,
-    "excluded_signals": 2,
+    "eligible_signals": 2,
+    "excluded_signals": 3,
     "total_signals": 5,
-    "eligible_weight": 3.4,
-    "weighted_sum": -2.62
+    "eligible_weight": 1.6,
+    "weighted_sum": -1.0
   },
   "semantics": {
     "regime": [

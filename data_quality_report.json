@@ -1,33 +1,33 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-10-16T05:19:08.842450+00:00",
+  "generated_at": "2026-10-16T05:19:56.334369+00:00",
   "rules_version": "1.0",
-  "quality_score": 1.0,
+  "quality_score": 0.95,
   "quality_gate": "PASS",
   "components": {
     "completeness": 1.0,
-    "freshness": 1.0,
+    "freshness": 0.8,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 5,
+    "fresh": 4,
     "valid": 5,
     "consistent": 5
   },
   "degradation_reasons": [
-    "FALLBACK_SOURCE_USED"
+    "STALE_OBSERVATION"
   ],
   "metrics": [
     {
       "metric_id": "US10Y",
       "available": true,
       "freshness": {
-        "is_fresh": true,
-        "age_hours": 24.3191,
+        "is_fresh": false,
+        "age_hours": 53.3323,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -37,13 +37,13 @@
         "is_consistent": true
       },
       "source_evidence": {
-        "source": "Yahoo Finance via yfinance",
-        "source_type": "FALLBACK",
+        "source": "FRED / Federal Reserve Board H.15",
+        "source_type": "PRIMARY",
         "upstream_status": "FRESH",
-        "upstream_error": "Primary FRED failed; fallback used: 'DATE'"
+        "upstream_error": null
       },
       "reasons": [
-        "FALLBACK_SOURCE_USED"
+        "STALE_OBSERVATION"
       ]
     },
     {
@@ -51,7 +51,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 1.3191,
+        "age_hours": 1.3323,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -73,7 +73,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 24.3191,
+        "age_hours": 24.3323,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -95,7 +95,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0247,
+        "age_hours": 0.0295,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -117,7 +117,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0247,
+        "age_hours": 0.0295,
         "threshold_hours": 2.0
       },
       "validity": {
