@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-17T05:11:27.712242Z",
+  "generated_at": "2026-10-18T05:16:06.704318Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -55,7 +55,7 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 4,
+      "items": 5,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -113,12 +113,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
+      "source": "Federal Reserve",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -128,7 +128,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "OKX",
+      "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -138,12 +138,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Bybit",
+      "source": "OKX",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -153,7 +148,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
+      "source": "Bybit",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -163,7 +158,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "Circle",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -173,7 +173,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Circle",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -184,47 +184,6 @@
     }
   ],
   "items": [
-    {
-      "id": "NEWS-C3A6338A1A9D",
-      "title": "Q3 2026 Taiwan Semiconductor Manufacturing Company Limited Earnings Call (Chinese, English) EVENT DATE/TIME - TSMC",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQTHBTQUhIS0ZMWkV5WS00MjBnSXRad2xuWlFWTmQycG0xYU56cG1QVjdYYkEtbWM4elVveU1jWXRJbTJMTmdodFNqUUI3UzZ4Y3FJODRuOWtxMXowRVdlcFRpamk2clR2LUQ0ZUcxZzVpc1dUOVAxZUVfcV8tc2VncmEzZzBzc01paVJsR21aWnczVVdoVV9scHFTcjJVSE41cDNObThFbWY1SXVrUTZjdmJQWm5xOTRJbzE0TVF4WVFuM1JudS1GUkZYNm5RZlkwaFlKLWRtajlMRXNKUlhz?oc=5",
-      "domain": "news.google.com",
-      "source_name": "TSMC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-16T03:19:44Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 87,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "FRESH",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
     {
       "id": "NEWS-52F4BECC2E06",
       "title": "Statement from U.S. Secretary of the Treasury Scott Bessent for the World Bank Development Committee and IMF International Monetary and Financial Committee - U.S. Department of the Treasury (.gov)",
@@ -306,51 +265,6 @@
       "ranking_reasons": [
         "AUTHORITATIVE_SOURCE",
         "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-56939AC4AAC9",
-      "title": "Bitcoin News | Bitcoin Recovers to $82,000 in Two Hours as Seoul Rebounds — Though TSMC Still Fell on Good News - Binance",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE11U3Eyb0VEdUd6d01pUFVFdk84Ym9UZUswY2JHRnpzOGRUWVFrQUpXM0I4NndyMU9uMGFpUUI1eE5JeU1Bb2Zjekw2TkR1Vk1rTkF0MUxrRi1wOXNTd2tkNHRxRXo?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Binance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-16T08:52:18Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET",
-        "EXCHANGE"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 80,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
@@ -529,6 +443,47 @@
       ]
     },
     {
+      "id": "NEWS-46C9AF8FD261",
+      "title": "Q3 2026 Taiwan Semiconductor Manufacturing Company Limited Earnings Call (Chinese, English) on October 15, 2026 / 6:00AM - TSMC",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQTHBTQUhIS0ZMWkV5WS00MjBnSXRad2xuWlFWTmQycG0xYU56cG1QVjdYYkEtbWM4elVveU1jWXRJbTJMTmdodFNqUUI3UzZ4Y3FJODRuOWtxMXowRVdlcFRpamk2clR2LUQ0ZUcxZzVpc1dUOVAxZUVfcV8tc2VncmEzZzBzc01paVJsR21aWnczVVdoVV9scHFTcjJVSE41cDNObThFbWY1SXVrUTZjdmJQWm5xOTRJbzE0TVF4WVFuM1JudS1GUkZYNm5RZlkwaFlKLWRtajlMRXNKUlhz?oc=5",
+      "domain": "news.google.com",
+      "source_name": "TSMC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-16T03:13:46Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 75,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
       "id": "NEWS-CF359BFDFFCD",
       "title": "TSMC Reports Third Quarter EPS of NT$29.43|Taiwan Semiconductor Manufacturing Company Limited - TSMC",
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE53WTNKZC1rRTNpMk5IYXZOU2J1REhGZXdqNkduVDg2YVJvSHRVdHAxWlJGSldYTmJDVlZEeXhFaU9EU1V0T21fSzJYQ3NsUQ?oc=5",
@@ -699,29 +654,29 @@
       ]
     },
     {
-      "id": "NEWS-506C0380CF82",
-      "title": "Is the AI Bubble Cracking? Chip Stocks Fall for 8 Straight Days - CryptoRank",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1YbnlxbmdFTE1GbC1DaXk1cEM5d3JCRnhNWXFYVzBsWm5Bc0ViOWZ6Vi15SGZTWnlTSDZ2STBDdUZjLS1zSFh4Z09nNWkxaGR1aWVBSGlCVzlSRjRLc2xUMm5XNFN5dWdRZWI4TWJkWVpYeXc4VnduaGpn?oc=5",
+      "id": "NEWS-763EFC3A388F",
+      "title": "Injective Price Today, Live Market & Historical Trend Chart - Gate.com",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5OTWZPdmMxZzVSWEh1eUZDblVFMS1Vc0s3bENRQThaNUEwQThFQ0Q3aC1ncGRadnRyTHFGTlpUcTcwWlk0bDd3bl9XaFJGcUtseVE?oc=5",
       "domain": "news.google.com",
-      "source_name": "CryptoRank",
-      "source_type": "NEWS_SOURCE",
+      "source_name": "Gate",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-16T18:10:39Z",
+      "published_at": "2026-10-16T22:03:21Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
       "topics": [
-        "WEB3_RWA"
+        "EXCHANGE"
       ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
       "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
       },
       "linked_p01_context": [
         "BTC",
@@ -729,26 +684,25 @@
         "MARKET_REGIME",
         "EVIDENCE_CONFIDENCE"
       ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
       "relevance_score": 70,
       "priority": "MEDIUM",
       "ranking_reasons": [
-        "NEWS_SOURCE",
+        "OFFICIAL_SOURCE",
         "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC"
+        "STRONG_P01_CONTEXT_MATCH"
       ]
     },
     {
-      "id": "NEWS-7F278931DDA4",
-      "title": "Bitcoin Falls Below $83,000 as US Inflation Data and ETF Outflows Pose Key Tests - BigGo Finance",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5JMG43cTJZUUJNOVFJc3YxLWMyWmtGVnBqdWowblhuZzVZOUlweUVMc0M4OWczQ05XUGxtNVVxcUZ3bHd6VElGYTU5QWRqenNhWjU4UU9VMHo0UWRuU0xnSXI3Z21rVFZMeG1Ga1VSUnJSM2lOcnc?oc=5",
+      "id": "NEWS-68D67DE8A31B",
+      "title": "US CPI data comes hotter than expected: will Fed hike rates in October or December? - Invezz",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOU25IVDhYVTFpd252VGUxaXdTUGdINFlpQjRVNzBaYk5lUDN0cjZwUmEyYUw2VHNTWjFYQzJNNmVsWk9iM3VMaFdYcmpNVjFfQ2NFTjJjMVVhQllCT2ZaOFJsUUc2c3VOeWluQWtPVTVtMjV6ZmF3dDY1UEJ1MFRzZ2JPdXMyQkdYQXBwcUZaZEx0WXR4amVpaGtLaWlSQm9pQzVseHhud3lTSExYU0FwU25pZEV4SnQ5QVZqbQ?oc=5",
       "domain": "news.google.com",
-      "source_name": "BigGo Finance",
+      "source_name": "Invezz",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-11T03:35:00Z",
+      "published_at": "2026-10-14T18:00:01Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
@@ -829,6 +783,47 @@
       ]
     },
     {
+      "id": "NEWS-FC2B259BC578",
+      "title": "Here's What a $1,400 Investment in Taiwan Semiconductor Manufacturing (TSMC) Stock Could Be Worth in 3 Years - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdnJFZjhhWmk5aU9uTnA2dEM1VnJPU2w5WHI5QjBnZXZ0anBQbjNkVnVxX19uZmlYTFRKMG1EaVNmLXgwYkxNZWs5Q2QxV3h0NDJtNk1LOUN5MDVKQUo4T1JZMGdfVHBnNEp4Mmh1dFl5SGxYSXZOMnhJZDJaQjVHNUlKbDFnTzRGOC04ZHVXNnIxMjZjQS1yc3hB?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Yahoo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-12T08:35:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 60,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
       "id": "NEWS-D94381821702",
       "title": "##cryptonarratives ຂໍ້ມູນເຈາະເລິກຈາກຊຸມຊົນ ແລະ ແນວໂນ້ມຕະຫຼາດ | Binance Square - Binance",
       "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5ZdlNYSzdPdllCQUpfNlhXZXYta3VJRExhclNFY2VLTUpNX09BQ0paZnhqbWdxLU1NMG55d1RkNkVQTlVPamd6N2tBVEVaTFJwZVlHLXVRVk80X3JrdHpETzdOY1dpN2xCRFhjbmtn?oc=5",
@@ -867,89 +862,6 @@
         "OFFICIAL_SOURCE",
         "STALE",
         "STRONG_P01_CONTEXT_MATCH"
-      ]
-    },
-    {
-      "id": "NEWS-539EC274C825",
-      "title": "Base Price Today, Live Market & Historical Trend Chart - Gate.com",
-      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9aUF8yYVFVTDRUazZTd3RtTDFzNHRfclNhNkU0LVZ2YnRWOTY5STk2Z1YzVUlNX0M5Z3g1ZFByNmcyR2NXMk82cXhGVWM?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Gate",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-13T23:13:18Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "EXCHANGE"
-      ],
-      "primary_topic": "EXCHANGE",
-      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
-      "intelligence_summary": {
-        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
-        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
-        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 58,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH"
-      ]
-    },
-    {
-      "id": "NEWS-3E7717A13777",
-      "title": "Two Major Events That Could Impact the Stock Market Today - Coinpedia",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNeHU2aWtxcloxX3ZZUXVZZS1kUVZWbG9RRzRIZnhVaUstV0kzRVpOeFlvT01wQm41cUplc2xqU1dEeFZTQXRuanFVTm5tM0pldWdoVXNnUDJaOXh4aVlNN3E2Qk9idmp6akRZZmNFYUxSU0o2eVdyOXQ2SFBXTVlZRXQ5SkxZYlZOZ21XVk5B0gGTAUFVX3lxTE5OOUVVVjlFZEFxdXkxeGhWcGY1MjJwNEtwVjZYN1FHOWxlZ1NNMXphT1BUaFpGRjBpNjljMjhBUHRDU3N0MXNKVmJsT3k2b19CUEtzektVS0hyMnBBWFZmTkJNM3dFR1MtWFd5WGtzUXNxNnBsUV9uSDliQ1pEa0hXbUN5a1BhbmRvMUdyMDBKdXloMA?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Coinpedia",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-14T08:26:21Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 58,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC"
       ]
     },
     {
@@ -992,6 +904,129 @@
         "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC"
+      ]
+    },
+    {
+      "id": "NEWS-CA7260908624",
+      "title": "Taiwan chipmaker TSMC explores Texas investment to expand production in the US - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxONkVpbW0zbzFMV3Y5QzByQUVPYm94d25VUExpbUFVRTBlYm1felRfUUhEbzdDeXV4Zk9RYk5FdENObkVlTUxiUXhJdlJRUm5XNGFINlB1czUzNUpWSnMwMzB4QXZBYVUtSGotb1J2enF6YUs2WXRtSi03SEdYMjFlUmJVSGFTQ0x2Q0RDdDYwcE5uNlZkWElIY0ZlbzJVQQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Yahoo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-15T10:16:33Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-1E99B80B0131",
+      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Britannica",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-15T10:16:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-3D454D225EC3",
+      "title": "History Says This Happens to Taiwan Semiconductor Stock After Oct. 15 - Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOakZJTWw5YWltRGJSZXZCRGt2eW95Qm9wSWpZWnE4dVQyQXVXM0h6UWV6TFJNMUNRQUJHTkR0MlRGSzNtdjAxS3ZhejdRLXQwYmh5MzVEMzBvaU5nRVFXSnA5NWhYX1J2ZUZaamh1ZkY5S0ZsR1RIZGRFMU9qY2ZPR3RkdVY5cWxTNktjNjNMWkYxNXQza0lFTUpXXzhqRi1SUU5WMTk3SkhWdw?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Yahoo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-10-14T14:34:32Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
       ]
     }
   ],
