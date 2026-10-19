@@ -1,7 +1,7 @@
 {
   "product": "Intelligence Platform",
   "version": "INT-001",
-  "generated_at": "2026-10-19T13:00:44.430034+00:00",
+  "generated_at": "2026-10-19T22:18:26.896262+00:00",
   "execution_allowed": false,
   "architecture": {
     "p01": "UNDERSTAND",
@@ -35,7 +35,7 @@
     ]
   },
   "p02": {
-    "market_coverage": 5016,
+    "market_coverage": 4864,
     "ranked_predictions": 20,
     "matched_events": 0,
     "discrepancy_signals": 0,
@@ -53,7 +53,7 @@
         "en": "Macro & Rates"
       },
       "implied_probability": 0.0005,
-      "trending_score": 99.75,
+      "trending_score": 100,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -69,7 +69,7 @@
         "en": "Macro & Rates"
       },
       "implied_probability": 0.0035,
-      "trending_score": 97.92,
+      "trending_score": 99.26,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -84,30 +84,14 @@
         "zh": "總經／利率",
         "en": "Macro & Rates"
       },
-      "implied_probability": 0.875,
-      "trending_score": 97.68,
+      "implied_probability": 0.845,
+      "trending_score": 98.23,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 4,
-      "event_id": "POLYMARKET:2589813",
-      "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
-      "venue": "polymarket",
-      "category": {
-        "key": "macro",
-        "zh": "總經／利率",
-        "en": "Macro & Rates"
-      },
-      "implied_probability": 0.125,
-      "trending_score": 97.33,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 5,
       "event_id": "POLYMARKET:2589814",
       "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
       "venue": "polymarket",
@@ -117,7 +101,23 @@
         "en": "Macro & Rates"
       },
       "implied_probability": 0.0035,
-      "trending_score": 96.18,
+      "trending_score": 98.19,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 5,
+      "event_id": "POLYMARKET:2589813",
+      "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+      "venue": "polymarket",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "implied_probability": 0.145,
+      "trending_score": 98.02,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -132,94 +132,46 @@
         "zh": "政治",
         "en": "Politics"
       },
-      "implied_probability": 0.0235,
-      "trending_score": 95.26,
+      "implied_probability": 0.0245,
+      "trending_score": 95.42,
       "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
       "rank": 7,
-      "event_id": "POLYMARKET:5610594",
-      "question": "Will the price of Bitcoin be above $76,000 on October 19?",
+      "event_id": "POLYMARKET:559682",
+      "question": "Will Hunter Biden win the 2028 Democratic presidential nomination?",
       "venue": "polymarket",
       "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
       },
-      "implied_probability": 0.9995,
-      "trending_score": 90.74,
-      "context_link": "P01_CONTEXT_AVAILABLE",
+      "implied_probability": 0.0015,
+      "trending_score": 92.23,
+      "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
       "rank": 8,
-      "event_id": "POLYMARKET:5610598",
-      "question": "Will the price of Bitcoin be above $80,000 on October 19?",
+      "event_id": "POLYMARKET:5170735",
+      "question": "Will Bitcoin reach $87,500 in October?",
       "venue": "polymarket",
       "category": {
         "key": "crypto",
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "implied_probability": 0.9935,
-      "trending_score": 90.34,
+      "implied_probability": 0.29,
+      "trending_score": 88.98,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 9,
-      "event_id": "POLYMARKET:5610590",
-      "question": "Will the price of Bitcoin be above $72,000 on October 19?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "implied_probability": 0.9995,
-      "trending_score": 90.05,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 10,
-      "event_id": "POLYMARKET:5610596",
-      "question": "Will the price of Bitcoin be above $78,000 on October 19?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "implied_probability": 0.9985,
-      "trending_score": 89.48,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 11,
-      "event_id": "POLYMARKET:5610602",
-      "question": "Will the price of Bitcoin be above $84,000 on October 19?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "implied_probability": 0.042,
-      "trending_score": 89.11,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 12,
       "event_id": "POLYMARKET:561250",
       "question": "Will Elon Musk win the 2028 US Presidential Election?",
       "venue": "polymarket",
@@ -229,23 +181,71 @@
         "en": "Politics"
       },
       "implied_probability": 0.0015,
-      "trending_score": 87.68,
+      "trending_score": 88.1,
       "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
-      "rank": 13,
-      "event_id": "POLYMARKET:4951227",
-      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $105 in October?",
+      "rank": 10,
+      "event_id": "POLYMARKET:5170729",
+      "question": "Will Bitcoin reach $102,500 in October?",
       "venue": "polymarket",
       "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
       },
-      "implied_probability": 0.345,
-      "trending_score": 87.35,
+      "implied_probability": 0.0085,
+      "trending_score": 87.66,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 11,
+      "event_id": "POLYMARKET:5170770",
+      "question": "Will Ethereum reach $3,100 in October?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "implied_probability": 0.0215,
+      "trending_score": 87.29,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 12,
+      "event_id": "POLYMARKET:5653798",
+      "question": "Will the price of Bitcoin be above $86,000 on October 20?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "implied_probability": 0.0125,
+      "trending_score": 87.15,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 13,
+      "event_id": "POLYMARKET:5170728",
+      "question": "Will Bitcoin reach $105,000 in October?",
+      "venue": "polymarket",
+      "category": {
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
+      },
+      "implied_probability": 0.0045,
+      "trending_score": 87.1,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -261,39 +261,39 @@
         "en": "Politics"
       },
       "implied_probability": 0.0015,
-      "trending_score": 87.11,
+      "trending_score": 87.09,
       "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
       "rank": 15,
-      "event_id": "POLYMARKET:561240",
-      "question": "Will Stephen Smith win the 2028 US Presidential Election?",
+      "event_id": "POLYMARKET:561242",
+      "question": "Will Tulsi Gabbard win the 2028 US Presidential Election?",
       "venue": "polymarket",
       "category": {
         "key": "politics",
         "zh": "政治",
         "en": "Politics"
       },
-      "implied_probability": 0.0005,
-      "trending_score": 86.16,
+      "implied_probability": 0.0015,
+      "trending_score": 86.18,
       "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
       "rank": 16,
-      "event_id": "POLYMARKET:2126461",
-      "question": "Will Crude Oil reach a new all-time high by December 31?",
+      "event_id": "POLYMARKET:4951227",
+      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $105 in October?",
       "venue": "polymarket",
       "category": {
         "key": "energy",
         "zh": "能源",
         "en": "Energy"
       },
-      "implied_probability": 0.105,
-      "trending_score": 86.13,
+      "implied_probability": 0.36,
+      "trending_score": 86.03,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -308,56 +308,56 @@
         "zh": "能源",
         "en": "Energy"
       },
-      "implied_probability": 0.032,
-      "trending_score": 85.95,
+      "implied_probability": 0.0295,
+      "trending_score": 84.59,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 18,
-      "event_id": "POLYMARKET:4951230",
-      "question": "Will WTI Crude Oil (WTI) hit (LOW) $65 in October?",
+      "event_id": "POLYMARKET:3554659",
+      "question": "Will Google have the best AI model at the end of October 2026?",
       "venue": "polymarket",
       "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
+        "key": "technology",
+        "zh": "科技",
+        "en": "Technology"
       },
-      "implied_probability": 0.007,
-      "trending_score": 85.78,
+      "implied_probability": 0.7345,
+      "trending_score": 84.39,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 19,
-      "event_id": "POLYMARKET:559681",
-      "question": "Will LeBron James win the 2028 Democratic presidential nomination?",
+      "event_id": "POLYMARKET:4936098",
+      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $150 in October?",
       "venue": "polymarket",
       "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
+        "key": "energy",
+        "zh": "能源",
+        "en": "Energy"
       },
-      "implied_probability": 0.0015,
-      "trending_score": 85.57,
-      "context_link": "NO_DIRECT_P01_CONTEXT",
+      "implied_probability": 0.0035,
+      "trending_score": 84.21,
+      "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 20,
-      "event_id": "KALSHI:KXINXY-26DEC31H1600-B7900",
-      "question": "Will the S&P 500 be between 7800 and 7999.99 on Dec 31, 2026 at 4pm EST?",
-      "venue": "kalshi",
+      "event_id": "POLYMARKET:2126461",
+      "question": "Will Crude Oil reach a new all-time high by December 31?",
+      "venue": "polymarket",
       "category": {
-        "key": "equities",
-        "zh": "股市",
-        "en": "Equities"
+        "key": "energy",
+        "zh": "能源",
+        "en": "Energy"
       },
-      "implied_probability": 0.21,
-      "trending_score": 85.36,
+      "implied_probability": 0.105,
+      "trending_score": 84.06,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
