@@ -2,7 +2,7 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-10-19T04:09:37.921757+00:00",
+  "generated_at": "2026-10-19T04:11:38.366877+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
@@ -26,21 +26,19 @@
     },
     {
       "metric_id": "DXY",
-      "signal_id": "DATA_QUALITY_GATE_FAILED",
-      "direction": "UNKNOWN",
-      "strength": "UNKNOWN",
-      "confidence": 0.75,
-      "value": 101.84,
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "confidence": 1.0,
+      "value": 101.819,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "BLOCKED",
+        "data_quality_gate": "PASS",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": [
-          "STALE_OBSERVATION"
-        ]
+        "quality_reasons": []
       },
-      "reason": "DATA_QUALITY_GATE_FAILED"
+      "reason": null
     },
     {
       "metric_id": "VIX",
@@ -66,7 +64,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 82448.1195,
+      "value": 82446.4909,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -82,7 +80,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2420.9852,
+      "value": 2421.1047,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -96,9 +94,9 @@
   "summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 0,
+    "risk_off": 1,
     "neutral": 0,
-    "unknown": 5
+    "unknown": 4
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",

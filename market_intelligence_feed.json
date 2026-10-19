@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-10-19T04:09:49.329920Z",
+  "generated_at": "2026-10-19T04:11:50.421073Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -55,7 +55,7 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 5,
+      "items": 4,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,7 +103,22 @@
   ],
   "errors": [
     {
+      "source": "NEWS:US_MACRO",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -118,12 +133,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:US_MACRO",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,12 +143,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,11 +163,6 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -173,12 +173,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TSMC",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
@@ -900,47 +900,6 @@
         "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC"
-      ]
-    },
-    {
-      "id": "NEWS-2D2B51E37AB1",
-      "title": "Taiwan Semiconductor Sees Sequential Fourth-Quarter Gross Margin Decline; Issues Upbeat Revenue Outlook - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNeXc0cWZ6ZEtoTW5tRk1aR0tWcWZVbzNxWDY0TnNCeVhUOTc5SEUybUF3RzYzZm9BVlpWTFZBMFVnOFBuVUczX3ByQzBQVnUtbnNZM3pRQjFLM2loX3BWU0xfVEFxOEdBWkhWUDhMN1dhaTVYYlZjdHppMjZoeS13TFVScWFndmRiREJnamY3S3lXOGJ0UHVKTVkweFVPVDN2X2ZPZkhLckFYcFU?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Yahoo Finance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-15T10:53:39Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 55,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
       ]
     },
     {
