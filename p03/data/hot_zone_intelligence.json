@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-10-19T05:11:06.321976+00:00",
+  "generated_at": "2026-10-19T11:09:18.551459+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,9 +26,9 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 44.5,
-        "7D": 46.0,
-        "30D": 45.4
+        "24H": 45.4,
+        "7D": 45.0,
+        "30D": 46.4
       },
       "levels": {
         "24H": "COOL",
@@ -36,9 +36,9 @@
         "30D": "COOL"
       },
       "changes_pct": {
-        "24H": 1.25,
-        "7D": -1.53,
-        "30D": 1.43
+        "24H": 1.43,
+        "7D": -1.35,
+        "30D": 1.62
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,9 +52,9 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 42.1,
-        "7D": 61.8,
-        "30D": 80
+        "24H": 43.1,
+        "7D": 60.9,
+        "30D": 79.2
       },
       "levels": {
         "24H": "COOL",
@@ -62,9 +62,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 0.79,
-        "7D": -4.58,
-        "30D": -8.1
+        "24H": 0.98,
+        "7D": -4.4,
+        "30D": -7.93
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,19 +78,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 47.0,
-        "7D": 66.7,
-        "30D": 65.7
+        "24H": 48.9,
+        "7D": 64.9,
+        "30D": 63.9
       },
       "levels": {
-        "24H": "COOL",
+        "24H": "WATCH",
         "7D": "HOT",
-        "30D": "HOT"
+        "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": 1.74,
-        "7D": -5.51,
-        "30D": -5.32
+        "24H": 2.1,
+        "7D": -5.18,
+        "30D": -4.99
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
