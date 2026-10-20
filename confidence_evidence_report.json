@@ -1,19 +1,19 @@
 {
   "schema_version": "9.0",
   "source_schema_version": "8.0",
-  "generated_at": "2026-10-19T05:28:26.514508+00:00",
+  "generated_at": "2026-10-20T05:31:36.077488+00:00",
   "engine": "P01-009",
   "rules_version": "1.0",
-  "confidence_score": 0.4218,
-  "confidence_level": "LOW",
-  "evidence_coverage": 0.2,
+  "confidence_score": 0.6479,
+  "confidence_level": "MEDIUM",
+  "evidence_coverage": 0.4,
   "components": {
-    "data_quality": 0.9,
-    "evidence_coverage": 0.2,
+    "data_quality": 0.95,
+    "evidence_coverage": 0.4,
     "source_reliability": 1.0,
-    "signal_agreement": 0.0,
-    "attribution_support": 0.04,
-    "risk_confidence": 0.008
+    "signal_agreement": 1.0,
+    "attribution_support": 0.16,
+    "risk_confidence": 0.064
   },
   "evidence": [
     {
@@ -21,28 +21,28 @@
       "upstream_engine": "P01-004",
       "artifact": "data_quality_report.json",
       "status": "PASS",
-      "value": 0.9
+      "value": 0.95
     },
     {
       "evidence_id": "MARKET_REGIME",
       "upstream_engine": "P01-006",
       "artifact": "regime_report.json",
-      "status": "UNKNOWN",
-      "value": 0.2
+      "status": "RISK_OFF",
+      "value": 0.4
     },
     {
       "evidence_id": "ATTRIBUTION",
       "upstream_engine": "P01-007",
       "artifact": "attribution_report.json",
       "status": "AVAILABLE",
-      "value": 0.04
+      "value": 0.16
     },
     {
       "evidence_id": "MARKET_RISK",
       "upstream_engine": "P01-008",
       "artifact": "market_risk_report.json",
       "status": "HIGH",
-      "value": 0.008
+      "value": 0.064
     }
   ],
   "traceability": {
@@ -59,9 +59,9 @@
   ],
   "summary": {
     "expected_observations": 5,
-    "eligible_evidence": 1,
-    "missing_or_excluded": 4,
-    "excluded_signals": 4
+    "eligible_evidence": 2,
+    "missing_or_excluded": 3,
+    "excluded_signals": 3
   },
   "semantics": {
     "confidence_score": "Deterministic reliability score from current data quality, evidence coverage, source provenance, signal agreement, attribution support, and upstream risk confidence. It is not a probability of a future market outcome.",

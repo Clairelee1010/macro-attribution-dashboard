@@ -2,7 +2,7 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-10-19T05:28:26.514508+00:00",
+  "generated_at": "2026-10-20T05:31:36.077488+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
@@ -12,7 +12,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 0.75,
-      "value": 0.051,
+      "value": 0.0509,
       "unit": "DECIMAL",
       "evidence": {
         "data_quality_gate": "BLOCKED",
@@ -30,7 +30,7 @@
       "direction": "RISK_OFF",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 101.819,
+      "value": 101.772,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -42,21 +42,19 @@
     },
     {
       "metric_id": "VIX",
-      "signal_id": "DATA_QUALITY_GATE_FAILED",
-      "direction": "UNKNOWN",
-      "strength": "UNKNOWN",
-      "confidence": 0.75,
-      "value": 19.99,
+      "signal_id": "NORMAL_VOLATILITY",
+      "direction": "NEUTRAL",
+      "strength": "WEAK",
+      "confidence": 1.0,
+      "value": 18.44,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "BLOCKED",
+        "data_quality_gate": "PASS",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": [
-          "STALE_OBSERVATION"
-        ]
+        "quality_reasons": []
       },
-      "reason": "DATA_QUALITY_GATE_FAILED"
+      "reason": null
     },
     {
       "metric_id": "BTC",
@@ -64,7 +62,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 82565.3736,
+      "value": 81917.9886,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -80,7 +78,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2423.8718,
+      "value": 2404.3947,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -95,8 +93,8 @@
     "total": 5,
     "risk_on": 0,
     "risk_off": 1,
-    "neutral": 0,
-    "unknown": 4
+    "neutral": 1,
+    "unknown": 3
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
