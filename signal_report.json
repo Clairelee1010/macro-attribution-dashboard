@@ -2,7 +2,7 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-10-24T05:12:36.030732+00:00",
+  "generated_at": "2026-10-25T05:29:57.167432+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
@@ -26,35 +26,39 @@
     },
     {
       "metric_id": "DXY",
-      "signal_id": "FIRM_DOLLAR",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 101.81,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "VIX",
-      "signal_id": "NORMAL_VOLATILITY",
-      "direction": "NEUTRAL",
-      "strength": "WEAK",
-      "confidence": 1.0,
+      "signal_id": "DATA_QUALITY_GATE_FAILED",
+      "direction": "UNKNOWN",
+      "strength": "UNKNOWN",
+      "confidence": 0.75,
       "value": 19.45,
       "unit": "INDEX",
       "evidence": {
-        "data_quality_gate": "PASS",
+        "data_quality_gate": "BLOCKED",
         "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
-        "quality_reasons": []
+        "quality_reasons": [
+          "STALE_OBSERVATION"
+        ]
       },
-      "reason": null
+      "reason": "DATA_QUALITY_GATE_FAILED"
     },
     {
       "metric_id": "BTC",
@@ -62,7 +66,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 80768.95,
+      "value": 80772.2144,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -78,7 +82,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2378.3747,
+      "value": 2362.9634,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -92,9 +96,9 @@
   "summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 1,
-    "neutral": 1,
-    "unknown": 3
+    "risk_off": 0,
+    "neutral": 0,
+    "unknown": 5
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
