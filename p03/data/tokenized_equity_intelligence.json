@@ -1,6 +1,6 @@
 {
   "version": "P03-002A",
-  "generated_at": "2026-10-27T16:44:12.075037+00:00",
+  "generated_at": "2026-10-27T21:23:47.113153+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -28,15 +28,15 @@
         "backing": "1:1 underlying security (provider statement)",
         "legal_form": "Tokenized representation / certificate structure; not asserted as identical shareholder ownership",
         "verification_source": "https://xstocks.com/us/products",
-        "last_verified": "2026-10-27T16:44:10.975643+00:00"
+        "last_verified": "2026-10-27T21:23:46.639475+00:00"
       },
       "traditional": {
         "status": "UNAVAILABLE",
         "source": "Yahoo Finance via yfinance",
         "price": null,
         "source_ts": null,
-        "collected_at": "2026-10-27T16:44:09.626271+00:00",
-        "latency_ms": 0,
+        "collected_at": "2026-10-27T21:23:45.880406+00:00",
+        "latency_ms": 1,
         "note": "Alpaca secrets not configured; using public fallback."
       },
       "tokenized": {
@@ -44,7 +44,7 @@
         "source": "xStocks / Backed public API",
         "price": null,
         "source_ts": null,
-        "latency_ms": 1060,
+        "latency_ms": 599,
         "url": "https://api.dev.backed.fi/api/v1/token",
         "note": "Token metadata reachable; price-data endpoint unavailable or schema not price-bearing."
       },
@@ -66,14 +66,14 @@
         "backing": "1:1 underlying security (provider statement)",
         "legal_form": "Tokenized representation / certificate structure; not asserted as identical shareholder ownership",
         "verification_source": "https://xstocks.com/us/products",
-        "last_verified": "2026-10-27T16:44:12.075020+00:00"
+        "last_verified": "2026-10-27T21:23:47.113130+00:00"
       },
       "traditional": {
         "status": "UNAVAILABLE",
         "source": "Yahoo Finance via yfinance",
         "price": null,
         "source_ts": null,
-        "collected_at": "2026-10-27T16:44:10.975793+00:00",
+        "collected_at": "2026-10-27T21:23:46.639706+00:00",
         "latency_ms": 0,
         "note": "Alpaca secrets not configured; using public fallback."
       },
@@ -82,7 +82,7 @@
         "source": "xStocks / Backed public API",
         "price": null,
         "source_ts": null,
-        "latency_ms": 712,
+        "latency_ms": 211,
         "url": "https://api.dev.backed.fi/api/v1/token",
         "note": "Token metadata reachable; price-data endpoint unavailable or schema not price-bearing."
       },
