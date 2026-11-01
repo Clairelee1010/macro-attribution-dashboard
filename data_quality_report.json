@@ -1,24 +1,25 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-10-31T06:27:09.249597+00:00",
+  "generated_at": "2026-11-01T06:59:28.879497+00:00",
   "rules_version": "1.0",
-  "quality_score": 0.95,
-  "quality_gate": "PASS",
+  "quality_score": 0.85,
+  "quality_gate": "DEGRADED",
   "components": {
     "completeness": 1.0,
-    "freshness": 0.8,
+    "freshness": 0.4,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 4,
+    "fresh": 2,
     "valid": 5,
     "consistent": 5
   },
   "degradation_reasons": [
+    "FALLBACK_SOURCE_USED",
     "STALE_OBSERVATION"
   ],
   "metrics": [
@@ -27,7 +28,7 @@
       "available": true,
       "freshness": {
         "is_fresh": false,
-        "age_hours": 54.4526,
+        "age_hours": 49.9914,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -37,7 +38,32 @@
         "is_consistent": true
       },
       "source_evidence": {
-        "source": "FRED / Federal Reserve Board H.15",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "FALLBACK",
+        "upstream_status": "FRESH",
+        "upstream_error": "Primary FRED failed; fallback used: 404 Client Error: Not Found for url: https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+      },
+      "reasons": [
+        "STALE_OBSERVATION",
+        "FALLBACK_SOURCE_USED"
+      ]
+    },
+    {
+      "metric_id": "DXY",
+      "available": true,
+      "freshness": {
+        "is_fresh": false,
+        "age_hours": 50.9914,
+        "threshold_hours": 36.0
+      },
+      "validity": {
+        "is_valid": true
+      },
+      "consistency": {
+        "is_consistent": true
+      },
+      "source_evidence": {
+        "source": "Yahoo Finance via yfinance",
         "source_type": "PRIMARY",
         "upstream_status": "FRESH",
         "upstream_error": null
@@ -47,33 +73,11 @@
       ]
     },
     {
-      "metric_id": "DXY",
-      "available": true,
-      "freshness": {
-        "is_fresh": true,
-        "age_hours": 26.4526,
-        "threshold_hours": 36.0
-      },
-      "validity": {
-        "is_valid": true
-      },
-      "consistency": {
-        "is_consistent": true
-      },
-      "source_evidence": {
-        "source": "Yahoo Finance via yfinance",
-        "source_type": "PRIMARY",
-        "upstream_status": "FRESH",
-        "upstream_error": null
-      },
-      "reasons": []
-    },
-    {
       "metric_id": "VIX",
       "available": true,
       "freshness": {
-        "is_fresh": true,
-        "age_hours": 25.4526,
+        "is_fresh": false,
+        "age_hours": 49.9914,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -88,14 +92,16 @@
         "upstream_status": "FRESH",
         "upstream_error": null
       },
-      "reasons": []
+      "reasons": [
+        "STALE_OBSERVATION"
+      ]
     },
     {
       "metric_id": "BTC",
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0248,
+        "age_hours": 0.0358,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -117,7 +123,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0276,
+        "age_hours": 0.0247,
         "threshold_hours": 2.0
       },
       "validity": {
