@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-11-02T02:41:50.685820+00:00",
+  "generated_at": "2026-11-02T11:37:15.322245+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,19 +26,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 42.6,
-        "7D": 56.8,
-        "30D": 80
+        "24H": 42.1,
+        "7D": 50.9,
+        "30D": 77.8
       },
       "levels": {
         "24H": "COOL",
         "7D": "WATCH",
-        "30D": "VERY_HOT"
+        "30D": "HOT"
       },
       "changes_pct": {
-        "24H": 0.88,
-        "7D": -3.61,
-        "30D": -8.22
+        "24H": 0.78,
+        "7D": -2.48,
+        "30D": -7.65
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,19 +52,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 44.0,
-        "7D": 57.7,
+        "24H": 44.9,
+        "7D": 47.9,
         "30D": 80
       },
       "levels": {
         "24H": "COOL",
-        "7D": "WATCH",
+        "7D": "COOL",
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 1.16,
-        "7D": -3.78,
-        "30D": -16.21
+        "24H": 1.32,
+        "7D": -1.91,
+        "30D": -14.45
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,8 +78,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 41.8,
-        "7D": 72.3,
+        "24H": 43.8,
+        "7D": 73.7,
         "30D": 80
       },
       "levels": {
@@ -88,9 +88,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.73,
-        "7D": -6.6,
-        "30D": -19.32
+        "24H": -1.12,
+        "7D": -6.86,
+        "30D": -20.52
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -156,14 +156,14 @@
       "evidence_type": "OBSERVED_MARKET_ACTIVITY",
       "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
       "scores": {
-        "24H": 76.8,
-        "7D": 76.8,
-        "30D": 76.8
+        "24H": 78.2,
+        "7D": 78.2,
+        "30D": 78.2
       },
       "levels": {
-        "24H": "HOT",
-        "7D": "HOT",
-        "30D": "HOT"
+        "24H": "VERY_HOT",
+        "7D": "VERY_HOT",
+        "30D": "VERY_HOT"
       },
       "changes_pct": {
         "24H": null,
@@ -174,8 +174,8 @@
       "source": "P02 deterministic topic intelligence",
       "activity": {
         "top_nonpolitical_markets": 10,
-        "volume_usd": 615639.06,
-        "liquidity_usd": 2880276.74
+        "volume_usd": 1215448.78,
+        "liquidity_usd": 3891606.39
       },
       "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
       "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
