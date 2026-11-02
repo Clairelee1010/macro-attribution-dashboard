@@ -2,7 +2,7 @@
   "schema_version": "5.0",
   "source_schema_version": "3.0",
   "quality_schema_version": "4.0",
-  "generated_at": "2026-11-01T06:59:28.879497+00:00",
+  "generated_at": "2026-11-02T06:58:37.437279+00:00",
   "engine": "P01-005",
   "rules_version": "1.0",
   "signals": [
@@ -11,37 +11,34 @@
       "signal_id": "DATA_QUALITY_GATE_FAILED",
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
-      "confidence": 0.65,
-      "value": 0.04929,
+      "confidence": 0.75,
+      "value": 0.0498,
       "unit": "DECIMAL",
       "evidence": {
         "data_quality_gate": "BLOCKED",
-        "source": "Yahoo Finance via yfinance",
-        "source_type": "FALLBACK",
-        "quality_reasons": [
-          "STALE_OBSERVATION",
-          "FALLBACK_SOURCE_USED"
-        ]
-      },
-      "reason": "DATA_QUALITY_GATE_FAILED"
-    },
-    {
-      "metric_id": "DXY",
-      "signal_id": "DATA_QUALITY_GATE_FAILED",
-      "direction": "UNKNOWN",
-      "strength": "UNKNOWN",
-      "confidence": 0.75,
-      "value": 101.88,
-      "unit": "INDEX",
-      "evidence": {
-        "data_quality_gate": "BLOCKED",
-        "source": "Yahoo Finance via yfinance",
+        "source": "FRED / Federal Reserve Board H.15",
         "source_type": "PRIMARY",
         "quality_reasons": [
           "STALE_OBSERVATION"
         ]
       },
       "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
+      "metric_id": "DXY",
+      "signal_id": "FIRM_DOLLAR",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "confidence": 1.0,
+      "value": 101.832,
+      "unit": "INDEX",
+      "evidence": {
+        "data_quality_gate": "PASS",
+        "source": "Yahoo Finance via yfinance",
+        "source_type": "PRIMARY",
+        "quality_reasons": []
+      },
+      "reason": null
     },
     {
       "metric_id": "VIX",
@@ -67,7 +64,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 77927.2206,
+      "value": 78105.1084,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -83,7 +80,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2269.2818,
+      "value": 2283.5995,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -97,9 +94,9 @@
   "summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 0,
+    "risk_off": 1,
     "neutral": 0,
-    "unknown": 5
+    "unknown": 4
   },
   "semantics": {
     "confidence": "Evidence reliability for signal classification; not probability of a market outcome.",
