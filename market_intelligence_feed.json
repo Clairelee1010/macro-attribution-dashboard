@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-11-02T06:58:49.040683Z",
+  "generated_at": "2026-11-03T07:23:23.842633Z",
   "status": "AVAILABLE",
   "sources": [
     {
       "source": "Binance",
-      "status": "OK",
-      "items": 2,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -43,7 +43,7 @@
     {
       "source": "Gate",
       "status": "OK",
-      "items": 2,
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -55,19 +55,19 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 4,
+      "items": 6,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 14,
+      "items": 10,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:WEB3_RWA",
-      "status": "UNAVAILABLE",
-      "items": 0,
+      "status": "OK",
+      "items": 1,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -84,8 +84,8 @@
     },
     {
       "source": "TSMC",
-      "status": "OK",
-      "items": 1,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -97,12 +97,42 @@
     {
       "source": "US Treasury",
       "status": "OK",
-      "items": 2,
+      "items": 4,
       "provider": "GOOGLE_NEWS_RSS"
     }
   ],
   "errors": [
     {
+      "source": "OKX",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "US Treasury",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Binance",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:TW_MARKET",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
@@ -113,37 +143,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Federal Reserve",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Binance",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "OKX",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "US Treasury",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "NEWS:TW_MARKET",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "MEXC",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -153,12 +163,12 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "TSMC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "MEXC",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -171,19 +181,140 @@
       "source": "Gate",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "TSMC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     }
   ],
   "items": [
+    {
+      "id": "NEWS-CB1F717F08B0",
+      "title": "Economy Statement for the Treasury Borrowing Advisory Committee - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9QT0E3RXlzSkUzOHNxMEFDS0lScEpmUUtzQlVRTlRfRThxV1lIMnB4azljMUhKRVJSM09WY2tKZXhnMmpWRkdtOFY3eFI3LXpvbmFRcGRkSVZTQVBTeW10MnVR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-02T20:00:00Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 90,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "FRESH",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-A1662CD2B072",
+      "title": "Treasury Announces Marketable Borrowing Estimates - U.S. Department of the Treasury (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5ZQXJvY2I1NXVjaUhyMmpaaGZ6UFhKN0FWREU0ZjFjZkFDQkJZeWZlaWVTSHoyUTdsb1VwZUhXY2gzRWFHMm44Z3YxdTVWcjMxT0l6cnhYNXpfUlBkVktDTDBn?oc=5",
+      "domain": "news.google.com",
+      "source_name": "US Treasury",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-02T20:00:00Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 90,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "AUTHORITATIVE_SOURCE",
+        "FRESH",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-37A326165BE4",
+      "title": "How Stablecoins and Blockchain Support Private Credit RWA - Gate.com",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYUxfUmFfTEwtTEQzZ2paM2IxWm4tLTNmczN3Y3Z5V19NTzhzNFVCNk50N0tuc2ZwWlBsN2MzZlc1WlJUakxQcFJWaTNFclQ4Vm9VSm40ZGg4NmRrWk1idi15VHpfX1VVVTA1eHpkNmNxbDU1N1Y0LXlrVGpBTmpiaDZRX0NneTF3WGwtRC1jaDc3cXZBd090ZQ?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Gate",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-02T11:46:34Z",
+      "freshness": "FRESH",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA",
+        "STABLECOIN",
+        "EXCHANGE"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
+        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
+        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 90,
+      "priority": "HIGH",
+      "ranking_reasons": [
+        "OFFICIAL_SOURCE",
+        "FRESH",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
     {
       "id": "NEWS-E7E9B01740D0",
       "title": "Treasury Sanctions Rwandan Ministry of Defence and Financial Institution Supporting M23 - U.S. Department of the Treasury (.gov)",
@@ -275,130 +406,47 @@
       ]
     },
     {
-      "id": "NEWS-B41C830D3617",
-      "title": "Binance Crypto Exchange: Buy, Sell Bitcoin, Ethereum, Stocks & More - Binance",
-      "url": "https://news.google.com/rss/articles/CBMiP0FVX3lxTE9kM0k0cEpqRzhhczZmdlUwWHZMYXc0allRNDlpNlh5YllITTVMdi1kMjBoRGg3ZkJtZGwzNk1Eaw?oc=5",
+      "id": "NEWS-A780A316E203",
+      "title": "Crypto’s Week Ahead: A Hacked Exchange, a Hiking Fed and a Midterm Vote - Blockhead",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYTFxSmJIb1d0eFdYVGgzeW5DZV9uNjVKQ1lKdTdoUTNNSkJ1OFh0ODExNlFmaXNjQ2xvcTJSd2Y1MEtwSi00QjExSUxaUlJMVkI1TGtQMzQ4Y0pwcHFaQVNjV2ttUVlXdXlkSVR1cU9DcGpmWTU5OVhnRzY4d3BvQjN5QWp4X3pIa0pkMkZrX0xKRWluSWdzSHdTMW9qYXZlbWZ1S0JkRTE?oc=5",
       "domain": "news.google.com",
-      "source_name": "Binance",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
+      "source_name": "Blockhead",
+      "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-30T13:50:00Z",
-      "freshness": "STALE",
+      "published_at": "2026-11-03T06:29:13Z",
+      "freshness": "FRESH",
       "language": "English",
       "source_country": null,
       "topics": [
+        "US_MACRO",
         "EXCHANGE"
       ],
-      "primary_topic": "EXCHANGE",
-      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
-        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
-        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
       },
       "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK",
         "BTC",
         "ETH",
-        "MARKET_REGIME",
         "EVIDENCE_CONFIDENCE"
       ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
+      "relevance_score": 75,
+      "priority": "HIGH",
       "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-58DC6FC2229E",
-      "title": "Singapore FinTech Festival: Crypto and Tokenization Themes - Gate.com",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1YanFDRjJZaHlWNUh4V3cwTlJxTzFoRjEtZHBUU2swUi00T2ZtRmFjejdTVzFyTHh2TWxVNnpmYm9rYnRQMzNkTk5jelBvMURLNHlXVmI1MlM3TjVmX2ZXRmhJbGlfS1hfQUhId3Ntbk5pR0tVRXpkSEhON1d2eUk?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Gate",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-30T08:16:04Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-4FF8771515FC",
-      "title": "#rwa Community Insights & Market Sentiment | Binance Square - Binance",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5Hbl8xc1NKUjlhSVlwMTg1X1lwNnlXU1pFRFdGSnpIZUZwcG1HS1Q3SzFxcTlGQVJKbEFqVHpUN0tWdnlDT1NmTXFyOC00NnA0NHRLbmhnVzE?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Binance",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-30T07:00:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE"
-      ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
+        "NEWS_SOURCE",
+        "FRESH",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_RELEVANT"
@@ -534,147 +582,19 @@
       ]
     },
     {
-      "id": "NEWS-B8996C296676",
-      "title": "Bitcoin Price Drops Below $80K as Markets Price 90% Fed Hold, Strategy Halts Buys, MARA Moves 1K BTC - The Crypto Times",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNUGNhcTIwRjZ2LWFPcDRJQmRlZUNUUjRpR1g0OTlpVWNNdzAxdy13LTh4NnVheGRvc1J2Y2R3VGl0N2dVMnYxVGV3UlVfSUpmZFhyR29TUXU3dUdreTlJdzhobVBYTDNhZXQ3R2s4LTF4azhoZkdWTzBOLUh2amV6ZjVBdjEyMUhqT1RMa1NVLV9DSExPWEo5emNNZHFPQ2h4T01uM000QkZpYUxmN3FxUnRyQWUydkNsNHJEczIxNDlrUklyUkRTNg?oc=5",
+      "id": "NEWS-C3F620393E44",
+      "title": "Hyperliquid climbs Roundtable 100 as ICE plans market - TheStreet",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOVmc4cTZEcEJnMW1PZ3ZBSk9PdjBDMVJEOVJhTFBPbHo3RjFsemk2ZFhxYTBFYW5XVU52UDNyRDNCb05CZWJ2OFpTZ2FrdlBBQ0N0eXhVU05GYjFodmEzb0Z4djNzMHI4Z1B2aEtwYS1QWDVGWl9BWmtnQkZOTXJGRVVwdzRpUXVUNUE4eTJuS3NBNkVhenVDVkJR?oc=5",
       "domain": "news.google.com",
-      "source_name": "The Crypto Times",
+      "source_name": "TheStreet",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-27T06:24:15Z",
-      "freshness": "STALE",
+      "published_at": "2026-11-02T14:38:33Z",
+      "freshness": "FRESH",
       "language": "English",
       "source_country": null,
       "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-904C8F992F63",
-      "title": "A Perfect Storm for Bitcoin? Fed, PCE, GDP and Big Tech Earnings Ahead - CryptoPotato",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNl9zRUxhYnNNei0tZkNHUzdGZVBERTdaeUJreDVCSC1DUjEwZE5aSjFnT2dFRF9rcGlxaW1vRWtQZkpkQU9vNGlkX3JGREZhb2pQakMxT0ZOMkhTZHlkT0s3VmNXTlA2bElsY0RXWFhxTUtta2NFUW8za3VDZjZRZzZ4ZUlEQnRBYy1fMnIwa3pTZG5vYmZrUg?oc=5",
-      "domain": "news.google.com",
-      "source_name": "CryptoPotato",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-26T07:09:00Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 73,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-018BE157CB50",
-      "title": "Data Engineer (8006) - TSMC",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1BQTI5M2QyeEVXQlNqQXJjSVY3QzhUdEtNQXhRT29rSEYzNkxLVWJSQUg1Q1dXdEU0NDQ4NEF6eDBYd3Y4d1VxMnIwbmJidF9laXk0Yk5pTFFmNlhaNmxhT0J1X0g2dlF1T3dFNTB2TDhFeVVPcW1URXhFNFJUZw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "TSMC",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-29T09:25:11Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 70,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "AUTHORITATIVE_SOURCE",
-        "STALE",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-8C071BDCA99E",
-      "title": "Hong Kong Web3 Festival: Dates, Speakers and Event Guide - Gate.com",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5nZ01yTkJhMXdlVDdfTFl4WFE1WG9ncVZsaG5hVVNvUXdDU1AtbzgwYzJ2N2VCazdWb0s0R0lKN3p6bWN6M0tPZkt6UEJ2MlBlYi1DcllySUd6MENKbFByRlFXZnY4emoxRXExUjZwMGJtdw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Gate",
-      "source_type": "OFFICIAL_COMPANY_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-30T12:53:41Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "WEB3_RWA",
-        "EXCHANGE"
+        "WEB3_RWA"
       ],
       "primary_topic": "WEB3_RWA",
       "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
@@ -692,13 +612,13 @@
         "MARKET_REGIME",
         "EVIDENCE_CONFIDENCE"
       ],
-      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
+      "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 68,
+      "relevance_score": 70,
       "priority": "MEDIUM",
       "ranking_reasons": [
-        "OFFICIAL_SOURCE",
-        "STALE",
+        "NEWS_SOURCE",
+        "FRESH",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC"
       ]
@@ -918,57 +838,14 @@
       ]
     },
     {
-      "id": "NEWS-22C422AA3CEC",
-      "title": "Synchronized Yield Surge: 10-Year Treasury Hits 5% as Curve Holds Steady - InteractiveCrypto",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQdWE5WVNVcGt1TzBZNkdVM2RfZFFzbDNtWll2eGg5OG5XM0FpZjhweW5OMkRDakEwbE14a19SbDluS2hHbjhyRE4tci1QaFFTVnpwZFA1X0Q5RTZTbXgzb05TbFNrS2tPRl9wcTdwaXdLUHJQcHhXV0YtWE5fYTJCRTNmMFBJZkdKWGlxMktCY2dNUzZKRDU2bkd4aHdQaUZyNm5vOGpsQQ?oc=5",
+      "id": "NEWS-292CE6FE5B43",
+      "title": "FOMC Preview: Fed Faces Tough Rate Decision as Weak Jobs and Hot Inflation Complicate Outlook - Coin Edition",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdGU5ZkRDczRlZDhJWUp4dU9BaWhCbEtUNGVUNHlFS2M2a0txbk1oczR0UngzSlZyY29PQkJIc3ZIN3J3QUM3RThBT0J5eno5ZUUzRll0QS1fUGhsWUo0U1hqcHNJYlM3LWUxYjJPQnY3UWNXeGp4YlJPN0hTazgwanZ2cUtvUEI1T1dKNXF4and4VWNDVmNoenotVnROZTQ5YjJpNDBSeVZMaTM1VDBmZDFPaWs5b19O?oc=5",
       "domain": "news.google.com",
-      "source_name": "InteractiveCrypto",
+      "source_name": "Coin Edition",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-27T06:57:18Z",
-      "freshness": "STALE",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 68,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-2854124EBCE8",
-      "title": "2-Year Treasury Yield Rises 4 Basis Points, Mirroring 10-Year, Signaling Broad Market Repricing - InteractiveCrypto",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPVTZDTmRwY3kwMVRDbWVyc1NUWFFUWG1OamtMSUxuMnpsWElxS01WcE1pN2pVVEdVZmozaENoQkNHNzNWU2pTaXNlY01xa2ViSlBuckpBQ2I4eTBYN2pua2NHekVGV043WUFCYk9QeDROSGt6WXpMR1ZPV01JV2RZeEFhcWhBclVjQkhuVy1VRDZkN3MwaHFoN3pKOE9ZaHdoSjhXRWdvd0g5MlNGLUs4X2E5Y0xvVmtjbE90U0V1ODRHejU1VkE?oc=5",
-      "domain": "news.google.com",
-      "source_name": "InteractiveCrypto",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-27T06:47:42Z",
+      "published_at": "2026-10-27T07:35:33Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
@@ -1047,46 +924,43 @@
       ]
     },
     {
-      "id": "NEWS-F7A62FAE0FFC",
-      "title": "Fed Rate Decision This Week: Will the US Dollar Strengthen and Gold Prices Fall? (26 October 2026) - Mitrade",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOd3EtUWZLbjQ3TTBmaEZyQWlCT1VaTGp1Y2lrMTM2MW9wOUsxUUVfUmM4T1ZhN1RSdnRkaGxrX25vZmxMaHJsbTdnQ2xvLVlOcnR2M0R0LVl0QUZGamRJUEVYWlpwRzUtTm5UY0JMSFFuSUlkZTFHMHVPdEVqdTlYel9ZVm41eF9vWmlKcnNB?oc=5",
+      "id": "NEWS-61AD0DCDBEDF",
+      "title": "Taiwan Stock Market's Rally Reshapes Emergency Fund Habits as Taiwanese Cash Out Shares Instead of Tapping Savings - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9KX01iZ2owTDRBTkVBU2Z4cVBnaVkydlZ6bnFzazE2UWRLZDRtVmU5LUFuWmZneS1GNXhJSDB4RF8ydnUwdnRLajFSU1NsQ0RrVW5hMUJIMzhpd3V4LTJGVDdXNG42Zy1vSTVOTDJ4RXoxcmdxZGc?oc=5",
       "domain": "news.google.com",
-      "source_name": "Mitrade",
+      "source_name": "BigGo Finance",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-26T09:47:02Z",
-      "freshness": "STALE",
+      "published_at": "2026-11-02T11:55:00Z",
+      "freshness": "FRESH",
       "language": "English",
       "source_country": null,
       "topics": [
-        "US_MACRO"
+        "TW_MARKET"
       ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
       },
       "linked_p01_context": [
-        "US10Y",
-        "DXY",
         "MARKET_REGIME",
         "MARKET_RISK"
       ],
       "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 63,
+      "relevance_score": 62,
       "priority": "MEDIUM",
       "ranking_reasons": [
         "NEWS_SOURCE",
-        "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_RELEVANT"
+        "FRESH",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC"
       ]
     },
     {
@@ -1258,14 +1132,14 @@
       ]
     },
     {
-      "id": "NEWS-B65BD56A3ADF",
-      "title": "Economic Calendar | October 26–30, 2026 for OANDA:XAUUSD by forexcitypro_leemeenal - TradingView",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZmh6eFlYNlJlazJFdzdCZ2FIclFENTR1dUFxczVMQ3o3UEhtQXA0VUkwWUFCeVlTcXZ6a1F0Rmd6Y25JX19VUzcyeTdITmRPQVFfdVJZNlk5UU1BY0FwbXQ0bHczVXV5NnMxQ3kybGlGQjZMeDEzaFl6TDc1cEtpZjVxRjdIdGotaTFPWjJyOWs?oc=5",
+      "id": "NEWS-AB71BA5CD596",
+      "title": "Best Crypto to Buy November 2026 | Top Crypto to Invest In - Coinspeaker",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5UXzBtYlc0RFg3ZHBBTkJaQWtuRTJFSWx4c3JaYWxKYmdYU1U0b01vUEpHMVMtQ2RfeW50OTUtcUpxVmZZQ29BRzJOdlZwVDlJLU1RWGFNcXduRXlRS1g5bmM0VXA?oc=5",
       "domain": "news.google.com",
-      "source_name": "TradingView",
+      "source_name": "Coinspeaker",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-10-26T14:32:50Z",
+      "published_at": "2026-10-28T07:00:00Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
