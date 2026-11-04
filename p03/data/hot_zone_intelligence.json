@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-11-04T00:49:09.593657+00:00",
+  "generated_at": "2026-11-04T07:56:18.477915+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,19 +26,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.6,
-        "7D": 65.1,
+        "24H": 45.7,
+        "7D": 57.2,
         "30D": 80
       },
       "levels": {
         "24H": "COOL",
-        "7D": "HOT",
+        "7D": "WATCH",
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.11,
-        "7D": -5.21,
-        "30D": -9.64
+        "24H": 1.48,
+        "7D": -3.7,
+        "30D": -10.02
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,19 +52,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.1,
-        "7D": 59.9,
+        "24H": 48.1,
+        "7D": 50.2,
         "30D": 80
       },
       "levels": {
-        "24H": "COOL",
+        "24H": "WATCH",
         "7D": "WATCH",
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.01,
-        "7D": -4.22,
-        "30D": -16.32
+        "24H": 1.95,
+        "7D": -2.34,
+        "30D": -15.91
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,7 +78,7 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.2,
+        "24H": 42.9,
         "7D": 80,
         "30D": 80
       },
@@ -88,9 +88,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.04,
-        "7D": -9.34,
-        "30D": -23.27
+        "24H": 0.94,
+        "7D": -8.45,
+        "30D": -23.72
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -104,9 +104,9 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "AGGREGATE_WATCHLIST_MOMENTUM",
       "scores": {
-        "24H": 47.3,
-        "7D": 59.4,
-        "30D": 71.6
+        "24H": 46.2,
+        "7D": 57.7,
+        "30D": 68.2
       },
       "levels": {
         "24H": "COOL",
@@ -114,9 +114,9 @@
         "30D": "HOT"
       },
       "changes_pct": {
-        "24H": 0.01,
-        "7D": -0.83,
-        "30D": 0.87
+        "24H": 0.4,
+        "7D": 0.26,
+        "30D": 1.11
       },
       "evidence_coverage_pct": 100.0,
       "source": "INT multi-asset watchlist",
@@ -130,19 +130,19 @@
       "evidence_type": "INFERRED_ATTENTION",
       "heat_basis": "VERIFIED_MAPPING_PLUS_UNDERLYING_ACTIVITY",
       "scores": {
-        "24H": 51.9,
-        "7D": 61.6,
-        "30D": 65.6
+        "24H": 52.3,
+        "7D": 58.4,
+        "30D": 62.8
       },
       "levels": {
         "24H": "WATCH",
         "7D": "WATCH",
-        "30D": "HOT"
+        "30D": "WATCH"
       },
       "changes_pct": {
-        "24H": -0.62,
-        "7D": -2.76,
-        "30D": -6.17
+        "24H": 0.73,
+        "7D": -1.61,
+        "30D": -5.55
       },
       "evidence_coverage_pct": 36.7,
       "source": "INT verified tokenization mapping + live underlying watchlist",
@@ -156,9 +156,9 @@
       "evidence_type": "OBSERVED_MARKET_ACTIVITY",
       "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
       "scores": {
-        "24H": 78.6,
-        "7D": 78.6,
-        "30D": 78.6
+        "24H": 79.3,
+        "7D": 79.3,
+        "30D": 79.3
       },
       "levels": {
         "24H": "VERY_HOT",
@@ -174,8 +174,8 @@
       "source": "P02 deterministic topic intelligence",
       "activity": {
         "top_nonpolitical_markets": 10,
-        "volume_usd": 800971.21,
-        "liquidity_usd": 3733804.85
+        "volume_usd": 1459727.04,
+        "liquidity_usd": 2239643.12
       },
       "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
       "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
