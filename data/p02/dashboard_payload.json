@@ -1,11 +1,11 @@
 {
   "product": "P02",
   "version": "P02-v1.0",
-  "generated_at": "2026-11-04T06:06:28.694659Z",
+  "generated_at": "2026-11-04T14:27:59.680835Z",
   "execution_allowed": false,
   "summary": {
-    "polymarket_markets": 1470,
-    "kalshi_markets": 3126,
+    "polymarket_markets": 1514,
+    "kalshi_markets": 3148,
     "matched_events": 0,
     "discrepancy_signals": 0,
     "p01_context_available": true,
@@ -20,10 +20,32 @@
     "category_counts": {
       "politics": 5,
       "macro": 5,
-      "energy": 5,
-      "crypto": 5
+      "crypto": 5,
+      "energy": 4,
+      "metals": 1
     },
     "predictions": [
+      {
+        "event_id": "POLYMARKET:561256",
+        "venue": "polymarket",
+        "question": "Will Zohran Mamdani win the 2028 US Presidential Election?",
+        "outcome": "YES",
+        "implied_probability": 0.001,
+        "volume_usd": 578505.24,
+        "liquidity_usd": 825307.14016,
+        "market_close_time": "2028-11-08",
+        "source_url": "https://polymarket.com/market/will-zohran-mamdani-win-the-2028-us-presidential-election",
+        "retrieved_at": "2026-11-04T14:27:42.501950Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 98.27,
+        "rank": 1
+      },
       {
         "event_id": "POLYMARKET:561265",
         "venue": "polymarket",
@@ -31,10 +53,10 @@
         "outcome": "YES",
         "implied_probability": 0.0005,
         "volume_usd": 480780.0,
-        "liquidity_usd": 1562212.04045,
+        "liquidity_usd": 1538007.63054,
         "market_close_time": "2028-11-08",
         "source_url": "https://polymarket.com/market/will-jalen-brunson-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-04T06:06:14.334195Z",
+        "retrieved_at": "2026-11-04T14:27:42.501950Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -43,19 +65,19 @@
           "en": "Politics"
         },
         "trending_score": 98.14,
-        "rank": 1
+        "rank": 2
       },
       {
         "event_id": "POLYMARKET:559672",
         "venue": "polymarket",
         "question": "Will Roy Cooper win the 2028 Democratic presidential nomination?",
         "outcome": "YES",
-        "implied_probability": 0.008,
-        "volume_usd": 389014.55813900003,
-        "liquidity_usd": 928995.81139,
+        "implied_probability": 0.0065,
+        "volume_usd": 331366.106143,
+        "liquidity_usd": 965006.84854,
         "market_close_time": "2028-11-08",
         "source_url": "https://polymarket.com/market/will-roy-cooper-win-the-2028-democratic-presidential-nomination-286",
-        "retrieved_at": "2026-11-04T06:06:14.334195Z",
+        "retrieved_at": "2026-11-04T14:27:42.501950Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -63,62 +85,20 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 97.47,
-        "rank": 2
-      },
-      {
-        "event_id": "POLYMARKET:561240",
-        "venue": "polymarket",
-        "question": "Will Stephen Smith win the 2028 US Presidential Election?",
-        "outcome": "YES",
-        "implied_probability": 0.0015,
-        "volume_usd": 372011.98,
-        "liquidity_usd": 860650.52762,
-        "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-stephen-smith-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-04T06:06:14.334195Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "politics",
-          "zh": "政治",
-          "en": "Politics"
-        },
-        "trending_score": 97.22,
+        "trending_score": 97.14,
         "rank": 3
-      },
-      {
-        "event_id": "POLYMARKET:561256",
-        "venue": "polymarket",
-        "question": "Will Zohran Mamdani win the 2028 US Presidential Election?",
-        "outcome": "YES",
-        "implied_probability": 0.0005,
-        "volume_usd": 327000.0,
-        "liquidity_usd": 918022.61902,
-        "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-zohran-mamdani-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-04T06:06:14.334195Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "politics",
-          "zh": "政治",
-          "en": "Politics"
-        },
-        "trending_score": 97.01,
-        "rank": 4
       },
       {
         "event_id": "POLYMARKET:3215008",
         "venue": "polymarket",
         "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.755,
-        "volume_usd": 334580.865677,
-        "liquidity_usd": 474702.9469,
+        "implied_probability": 0.785,
+        "volume_usd": 408189.66134600004,
+        "liquidity_usd": 396097.4127,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -126,8 +106,8 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 95.88,
-        "rank": 5
+        "trending_score": 96.05,
+        "rank": 4
       },
       {
         "event_id": "POLYMARKET:561251",
@@ -135,11 +115,11 @@
         "question": "Will LeBron James win the 2028 US Presidential Election?",
         "outcome": "YES",
         "implied_probability": 0.0005,
-        "volume_usd": 192310.0,
-        "liquidity_usd": 2202013.90557,
+        "volume_usd": 192411.0,
+        "liquidity_usd": 2201087.18507,
         "market_close_time": "2028-11-08",
         "source_url": "https://polymarket.com/market/will-lebron-james-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-04T06:06:14.334195Z",
+        "retrieved_at": "2026-11-04T14:27:42.501950Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -148,19 +128,19 @@
           "en": "Politics"
         },
         "trending_score": 95.82,
-        "rank": 6
+        "rank": 5
       },
       {
         "event_id": "POLYMARKET:3215007",
         "venue": "polymarket",
         "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.235,
-        "volume_usd": 266699.397542,
-        "liquidity_usd": 498261.1884,
+        "implied_probability": 0.205,
+        "volume_usd": 301632.578722,
+        "liquidity_usd": 227430.9204,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -168,7 +148,28 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 95.39,
+        "trending_score": 94.28,
+        "rank": 6
+      },
+      {
+        "event_id": "POLYMARKET:3215005",
+        "venue": "polymarket",
+        "question": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
+        "outcome": "YES",
+        "implied_probability": 0.0035,
+        "volume_usd": 232600.084999,
+        "liquidity_usd": 302153.00595,
+        "market_close_time": "2026-12-09",
+        "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808633",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "macro",
+          "zh": "總經／利率",
+          "en": "Macro & Rates"
+        },
+        "trending_score": 94.14,
         "rank": 7
       },
       {
@@ -177,11 +178,11 @@
         "question": "Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?",
         "outcome": "YES",
         "implied_probability": 0.0045,
-        "volume_usd": 167537.84333400003,
-        "liquidity_usd": 274127.17141,
+        "volume_usd": 252946.742417,
+        "liquidity_usd": 246783.46844,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -189,7 +190,7 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 93.13,
+        "trending_score": 93.99,
         "rank": 8
       },
       {
@@ -197,12 +198,12 @@
         "venue": "polymarket",
         "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.015,
-        "volume_usd": 158795.32127699998,
-        "liquidity_usd": 263938.4685,
+        "implied_probability": 0.0125,
+        "volume_usd": 216104.482474,
+        "liquidity_usd": 290020.84562,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -210,50 +211,29 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 92.93,
+        "trending_score": 93.88,
         "rank": 9
       },
       {
-        "event_id": "POLYMARKET:3215005",
+        "event_id": "POLYMARKET:559676",
         "venue": "polymarket",
-        "question": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
+        "question": "Will Barack Obama win the 2028 Democratic presidential nomination?",
         "outcome": "YES",
-        "implied_probability": 0.0035,
-        "volume_usd": 124054.043,
-        "liquidity_usd": 343935.13423,
-        "market_close_time": "2026-12-09",
-        "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808633",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "implied_probability": 0.0015,
+        "volume_usd": 24747.013167,
+        "liquidity_usd": 2326185.51337,
+        "market_close_time": "2028-11-08",
+        "source_url": "https://polymarket.com/market/will-barack-obama-win-the-2028-democratic-presidential-nomination-265",
+        "retrieved_at": "2026-11-04T14:27:42.501950Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
-          "key": "macro",
-          "zh": "總經／利率",
-          "en": "Macro & Rates"
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
         },
-        "trending_score": 92.78,
+        "trending_score": 90.63,
         "rank": 10
-      },
-      {
-        "event_id": "POLYMARKET:2126461",
-        "venue": "polymarket",
-        "question": "Will Crude Oil reach a new all-time high by December 31?",
-        "outcome": "YES",
-        "implied_probability": 0.135,
-        "volume_usd": 114580.91020400001,
-        "liquidity_usd": 106890.0777,
-        "market_close_time": "2027-01-01",
-        "source_url": "https://polymarket.com/market/will-crude-oil-reach-a-new-all-time-high-by-december-31",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 90.47,
-        "rank": 11
       },
       {
         "event_id": "POLYMARKET:6346625",
@@ -261,11 +241,11 @@
         "question": "Will the price of Bitcoin be above $88,000 on November 4?",
         "outcome": "YES",
         "implied_probability": 0.0005,
-        "volume_usd": 119374.68,
-        "liquidity_usd": 98911.37386,
+        "volume_usd": 117597.0,
+        "liquidity_usd": 102612.6305,
         "market_close_time": "2026-11-04",
         "source_url": "https://polymarket.com/market/bitcoin-above-88k-on-november-4-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -273,20 +253,62 @@
           "zh": "加密貨幣",
           "en": "Crypto"
         },
-        "trending_score": 90.43,
+        "trending_score": 90.46,
+        "rank": 11
+      },
+      {
+        "event_id": "POLYMARKET:2126461",
+        "venue": "polymarket",
+        "question": "Will Crude Oil reach a new all-time high by December 31?",
+        "outcome": "YES",
+        "implied_probability": 0.105,
+        "volume_usd": 98063.407087,
+        "liquidity_usd": 114462.3592,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/will-crude-oil-reach-a-new-all-time-high-by-december-31",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 90.19,
         "rank": 12
+      },
+      {
+        "event_id": "POLYMARKET:6346609",
+        "venue": "polymarket",
+        "question": "Will the price of Bitcoin be above $70,000 on November 4?",
+        "outcome": "YES",
+        "implied_probability": 0.9995,
+        "volume_usd": 99793.97165300002,
+        "liquidity_usd": 65895.83099,
+        "market_close_time": "2026-11-04",
+        "source_url": "https://polymarket.com/market/bitcoin-above-70k-on-november-4-2026",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 89.24,
+        "rank": 13
       },
       {
         "event_id": "POLYMARKET:6346616",
         "venue": "polymarket",
         "question": "Will the price of Bitcoin be above $78,000 on November 4?",
         "outcome": "YES",
-        "implied_probability": 0.465,
-        "volume_usd": 85792.956273,
-        "liquidity_usd": 41584.1626,
+        "implied_probability": 0.695,
+        "volume_usd": 125606.08719799998,
+        "liquidity_usd": 47077.377,
         "market_close_time": "2026-11-04",
         "source_url": "https://polymarket.com/market/bitcoin-above-78k-on-november-4-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -294,104 +316,20 @@
           "zh": "加密貨幣",
           "en": "Crypto"
         },
-        "trending_score": 88.02,
-        "rank": 13
-      },
-      {
-        "event_id": "POLYMARKET:6172746",
-        "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $160 in November?",
-        "outcome": "YES",
-        "implied_probability": 0.016,
-        "volume_usd": 43934.237227000005,
-        "liquidity_usd": 74107.10181,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-160-in-november-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 87.37,
+        "trending_score": 89.21,
         "rank": 14
-      },
-      {
-        "event_id": "POLYMARKET:6172748",
-        "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $140 in November?",
-        "outcome": "YES",
-        "implied_probability": 0.0315,
-        "volume_usd": 44376.782434,
-        "liquidity_usd": 63185.49017,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-140-in-november-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "energy",
-          "zh": "能源",
-          "en": "Energy"
-        },
-        "trending_score": 87.11,
-        "rank": 15
-      },
-      {
-        "event_id": "POLYMARKET:6346612",
-        "venue": "polymarket",
-        "question": "Will the price of Bitcoin be above $74,000 on November 4?",
-        "outcome": "YES",
-        "implied_probability": 0.9875,
-        "volume_usd": 53227.14926400001,
-        "liquidity_usd": 45768.65515,
-        "market_close_time": "2026-11-04",
-        "source_url": "https://polymarket.com/market/bitcoin-above-74k-on-november-4-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 86.99,
-        "rank": 16
-      },
-      {
-        "event_id": "POLYMARKET:6346624",
-        "venue": "polymarket",
-        "question": "Will the price of Bitcoin be above $86,000 on November 4?",
-        "outcome": "YES",
-        "implied_probability": 0.0005,
-        "volume_usd": 54098.502015,
-        "liquidity_usd": 41459.91613,
-        "market_close_time": "2026-11-04",
-        "source_url": "https://polymarket.com/market/bitcoin-above-86k-on-november-4-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 86.85,
-        "rank": 17
       },
       {
         "event_id": "POLYMARKET:6346618",
         "venue": "polymarket",
         "question": "Will the price of Bitcoin be above $80,000 on November 4?",
         "outcome": "YES",
-        "implied_probability": 0.077,
-        "volume_usd": 49018.591264,
-        "liquidity_usd": 42402.7904,
+        "implied_probability": 0.0205,
+        "volume_usd": 111289.06861800003,
+        "liquidity_usd": 46324.67506,
         "market_close_time": "2026-11-04",
         "source_url": "https://polymarket.com/market/bitcoin-above-80k-on-november-4-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -399,20 +337,83 @@
           "zh": "加密貨幣",
           "en": "Crypto"
         },
-        "trending_score": 86.64,
+        "trending_score": 88.88,
+        "rank": 15
+      },
+      {
+        "event_id": "POLYMARKET:6346614",
+        "venue": "polymarket",
+        "question": "Will the price of Bitcoin be above $76,000 on November 4?",
+        "outcome": "YES",
+        "implied_probability": 0.9905,
+        "volume_usd": 82000.076054,
+        "liquidity_usd": 54165.20368,
+        "market_close_time": "2026-11-04",
+        "source_url": "https://polymarket.com/market/bitcoin-above-76k-on-november-4-2026",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 88.39,
+        "rank": 16
+      },
+      {
+        "event_id": "POLYMARKET:1294368",
+        "venue": "polymarket",
+        "question": "Will Gold (GC) hit (HIGH) $6,000 by end of December?",
+        "outcome": "YES",
+        "implied_probability": 0.023,
+        "volume_usd": 13614.61,
+        "liquidity_usd": 338786.95408,
+        "market_close_time": "2026-12-31",
+        "source_url": "https://polymarket.com/market/will-gold-gc-hit-high-6000-by-end-of-december",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "metals",
+          "zh": "貴金屬",
+          "en": "Precious Metals"
+        },
+        "trending_score": 87.16,
+        "rank": 17
+      },
+      {
+        "event_id": "POLYMARKET:6172746",
+        "venue": "polymarket",
+        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $160 in November?",
+        "outcome": "YES",
+        "implied_probability": 0.0155,
+        "volume_usd": 37385.3723,
+        "liquidity_usd": 72663.50499,
+        "market_close_time": "2026-12-01",
+        "source_url": "https://polymarket.com/market/will-wti-reach-160-in-november-2026",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "energy",
+          "zh": "能源",
+          "en": "Energy"
+        },
+        "trending_score": 86.93,
         "rank": 18
       },
       {
-        "event_id": "POLYMARKET:6172747",
+        "event_id": "POLYMARKET:5401796",
         "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $150 in November?",
+        "question": "Military action against Saudi Oil Pipeline (East-West) by November 30?",
         "outcome": "YES",
-        "implied_probability": 0.0245,
-        "volume_usd": 32542.855054,
-        "liquidity_usd": 58636.11277,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-150-in-november-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "implied_probability": 0.295,
+        "volume_usd": 41191.4565,
+        "liquidity_usd": 31276.1942,
+        "market_close_time": "2026-11-30",
+        "source_url": "https://polymarket.com/market/military-action-against-saudi-oil-pipeline-east-west-by-november-30",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -420,20 +421,20 @@
           "zh": "能源",
           "en": "Energy"
         },
-        "trending_score": 86.19,
+        "trending_score": 85.65,
         "rank": 19
       },
       {
-        "event_id": "POLYMARKET:6172749",
+        "event_id": "POLYMARKET:5426238",
         "venue": "polymarket",
-        "question": "Will WTI Crude Oil (WTI) hit (HIGH) $130 in November?",
+        "question": "Will Crude Oil reach a new all-time high by March 31, 2027?",
         "outcome": "YES",
-        "implied_probability": 0.055,
-        "volume_usd": 28422.179403,
-        "liquidity_usd": 66752.35087,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-wti-reach-130-in-november-2026",
-        "retrieved_at": "2026-11-04T06:06:15.947093Z",
+        "implied_probability": 0.235,
+        "volume_usd": 13773.557078,
+        "liquidity_usd": 114594.4657,
+        "market_close_time": "2027-04-01",
+        "source_url": "https://polymarket.com/market/will-crude-oil-reach-a-new-all-time-high-by-march-31-2027",
+        "retrieved_at": "2026-11-04T14:27:44.373200Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -441,7 +442,7 @@
           "zh": "能源",
           "en": "Energy"
         },
-        "trending_score": 86.08,
+        "trending_score": 85.22,
         "rank": 20
       }
     ],
@@ -452,7 +453,8 @@
       "macro": 25,
       "energy": 25,
       "metals": 25,
-      "politics": 50,
+      "society": 25,
+      "politics": 25,
       "sports": 25,
       "other": 25
     },
