@@ -1,11 +1,11 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-11-05T07:32:09.757661+00:00",
+  "generated_at": "2026-11-06T07:30:18.998852+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
-  "score": -0.625,
+  "score": -1.0,
   "confidence": 0.4,
   "coverage": 0.4,
   "contradiction": false,
@@ -21,12 +21,12 @@
     },
     {
       "metric_id": "VIX",
-      "direction": "NEUTRAL",
-      "strength": "WEAK",
-      "signal_id": "NORMAL_VOLATILITY",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_id": "HIGH_VOLATILITY",
       "confidence": 1.0,
-      "weight": 0.6,
-      "weighted_score": 0.0
+      "weight": 1.2,
+      "weighted_score": -1.2
     }
   ],
   "supporting": [
@@ -38,6 +38,15 @@
       "confidence": 1.0,
       "weight": 1.0,
       "weighted_score": -1.0
+    },
+    {
+      "metric_id": "VIX",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "signal_id": "HIGH_VOLATILITY",
+      "confidence": 1.0,
+      "weight": 1.2,
+      "weighted_score": -1.2
     }
   ],
   "contradicting": [],
@@ -62,8 +71,8 @@
     "eligible_signals": 2,
     "excluded_signals": 3,
     "total_signals": 5,
-    "eligible_weight": 1.6,
-    "weighted_sum": -1.0
+    "eligible_weight": 2.2,
+    "weighted_sum": -2.2
   },
   "semantics": {
     "regime": [

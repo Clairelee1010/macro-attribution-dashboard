@@ -1,11 +1,11 @@
 {
   "schema_version": "10.0",
   "engine": "P01-010",
-  "generated_at": "2026-11-05T07:32:09.757661+00:00",
+  "generated_at": "2026-11-06T07:30:18.998852+00:00",
   "executive_summary": {
     "market_regime": {
       "value": "RISK_OFF",
-      "score": -0.625,
+      "score": -1.0,
       "confidence": 0.4,
       "coverage": 0.4
     },
@@ -39,7 +39,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 0.75,
-      "value": 0.0495,
+      "value": 0.049,
       "unit": "DECIMAL",
       "evidence": {
         "data_quality_gate": "BLOCKED",
@@ -57,7 +57,7 @@
       "direction": "RISK_OFF",
       "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 101.32,
+      "value": 101.915,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -69,11 +69,11 @@
     },
     {
       "metric_id": "VIX",
-      "signal_id": "NORMAL_VOLATILITY",
-      "direction": "NEUTRAL",
-      "strength": "WEAK",
+      "signal_id": "HIGH_VOLATILITY",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
       "confidence": 1.0,
-      "value": 16.61,
+      "value": 28.18,
       "unit": "INDEX",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -89,7 +89,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 80457.797,
+      "value": 75290.6703,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -105,7 +105,7 @@
       "direction": "UNKNOWN",
       "strength": "UNKNOWN",
       "confidence": 1.0,
-      "value": 2419.9479,
+      "value": 2215.4792,
       "unit": "USD",
       "evidence": {
         "data_quality_gate": "PASS",
@@ -119,14 +119,25 @@
   "signal_summary": {
     "total": 5,
     "risk_on": 0,
-    "risk_off": 1,
-    "neutral": 1,
+    "risk_off": 2,
+    "neutral": 0,
     "unknown": 3
   },
   "attribution": {
     "confidence": 0.16,
     "agreement": 1.0,
     "drivers": [
+      {
+        "metric_id": "VIX",
+        "signal_id": "HIGH_VOLATILITY",
+        "direction": "RISK_OFF",
+        "strength": "MODERATE",
+        "signal_confidence": 1.0,
+        "weight": 1.2,
+        "weighted_score": -1.2,
+        "contribution_share": 0.5455,
+        "relation_to_regime": "SUPPORTING"
+      },
       {
         "metric_id": "DXY",
         "signal_id": "FIRM_DOLLAR",
@@ -135,7 +146,7 @@
         "signal_confidence": 1.0,
         "weight": 1.0,
         "weighted_score": -1.0,
-        "contribution_share": 1.0,
+        "contribution_share": 0.4545,
         "relation_to_regime": "SUPPORTING"
       }
     ],
@@ -159,13 +170,22 @@
   },
   "risk_drivers": [
     {
+      "metric_id": "VIX",
+      "signal_id": "HIGH_VOLATILITY",
+      "direction": "RISK_OFF",
+      "strength": "MODERATE",
+      "contribution_share": 0.5455,
+      "signal_confidence": 1.0,
+      "risk_impact": 16.365
+    },
+    {
       "metric_id": "DXY",
       "signal_id": "FIRM_DOLLAR",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
-      "contribution_share": 1.0,
+      "contribution_share": 0.4545,
       "signal_confidence": 1.0,
-      "risk_impact": 30.0
+      "risk_impact": 13.635
     }
   ],
   "protective_factors": [],
