@@ -1,58 +1,30 @@
 {
   "schema_version": "6.0",
   "source_schema_version": "5.0",
-  "generated_at": "2026-11-07T06:42:37.866505+00:00",
+  "generated_at": "2026-11-08T06:48:31.536755+00:00",
   "engine": "P01-006",
   "rules_version": "1.0",
-  "regime": "RISK_OFF",
-  "score": -1.0,
-  "confidence": 0.4,
-  "coverage": 0.4,
+  "regime": "UNKNOWN",
+  "score": 0.0,
+  "confidence": 0.0,
+  "coverage": 0.0,
   "contradiction": false,
-  "drivers": [
-    {
-      "metric_id": "DXY",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "FIRM_DOLLAR",
-      "confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0
-    },
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "HIGH_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": -1.2
-    }
-  ],
-  "supporting": [
-    {
-      "metric_id": "DXY",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "FIRM_DOLLAR",
-      "confidence": 1.0,
-      "weight": 1.0,
-      "weighted_score": -1.0
-    },
-    {
-      "metric_id": "VIX",
-      "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "signal_id": "HIGH_VOLATILITY",
-      "confidence": 1.0,
-      "weight": 1.2,
-      "weighted_score": -1.2
-    }
-  ],
+  "drivers": [],
+  "supporting": [],
   "contradicting": [],
   "excluded": [
     {
       "metric_id": "US10Y",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
+      "metric_id": "DXY",
+      "direction": "UNKNOWN",
+      "reason": "DATA_QUALITY_GATE_FAILED"
+    },
+    {
+      "metric_id": "VIX",
       "direction": "UNKNOWN",
       "reason": "DATA_QUALITY_GATE_FAILED"
     },
@@ -68,11 +40,11 @@
     }
   ],
   "summary": {
-    "eligible_signals": 2,
-    "excluded_signals": 3,
+    "eligible_signals": 0,
+    "excluded_signals": 5,
     "total_signals": 5,
-    "eligible_weight": 2.2,
-    "weighted_sum": -2.2
+    "eligible_weight": 0,
+    "weighted_sum": 0
   },
   "semantics": {
     "regime": [
