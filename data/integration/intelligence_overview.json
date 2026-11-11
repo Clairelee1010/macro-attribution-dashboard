@@ -1,7 +1,7 @@
 {
   "product": "Intelligence Platform",
   "version": "INT-001",
-  "generated_at": "2026-11-10T19:40:16.246146+00:00",
+  "generated_at": "2026-11-11T06:01:00.705788+00:00",
   "execution_allowed": false,
   "architecture": {
     "p01": "UNDERSTAND",
@@ -41,7 +41,7 @@
     ]
   },
   "p02": {
-    "market_coverage": 4696,
+    "market_coverage": 4860,
     "ranked_predictions": 20,
     "matched_events": 0,
     "discrepancy_signals": 0,
@@ -50,22 +50,38 @@
   "integrated_intelligence": [
     {
       "rank": 1,
-      "event_id": "POLYMARKET:3215007",
-      "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+      "event_id": "POLYMARKET:3215008",
+      "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
       "venue": "polymarket",
       "category": {
         "key": "macro",
         "zh": "總經／利率",
         "en": "Macro & Rates"
       },
-      "implied_probability": 0.0425,
-      "trending_score": 98.94,
+      "implied_probability": 0.855,
+      "trending_score": 98.81,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 2,
+      "event_id": "POLYMARKET:3215009",
+      "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
+      "venue": "polymarket",
+      "category": {
+        "key": "macro",
+        "zh": "總經／利率",
+        "en": "Macro & Rates"
+      },
+      "implied_probability": 0.11,
+      "trending_score": 98.14,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 3,
       "event_id": "POLYMARKET:3215006",
       "question": "Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?",
       "venue": "polymarket",
@@ -75,39 +91,23 @@
         "en": "Macro & Rates"
       },
       "implied_probability": 0.0035,
-      "trending_score": 98.38,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 3,
-      "event_id": "POLYMARKET:3215009",
-      "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
-      "venue": "polymarket",
-      "category": {
-        "key": "macro",
-        "zh": "總經／利率",
-        "en": "Macro & Rates"
-      },
-      "implied_probability": 0.1145,
-      "trending_score": 98.18,
+      "trending_score": 98.09,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 4,
-      "event_id": "POLYMARKET:3215008",
-      "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
+      "event_id": "POLYMARKET:3215007",
+      "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
       "venue": "polymarket",
       "category": {
         "key": "macro",
         "zh": "總經／利率",
         "en": "Macro & Rates"
       },
-      "implied_probability": 0.835,
-      "trending_score": 97.56,
+      "implied_probability": 0.0365,
+      "trending_score": 97.49,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -123,45 +123,13 @@
         "en": "Macro & Rates"
       },
       "implied_probability": 0.0025,
-      "trending_score": 96.91,
+      "trending_score": 96.85,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 6,
-      "event_id": "POLYMARKET:561268",
-      "question": "Will Elissa Slotkin win the 2028 US Presidential Election?",
-      "venue": "polymarket",
-      "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
-      },
-      "implied_probability": 0.0015,
-      "trending_score": 96.32,
-      "context_link": "NO_DIRECT_P01_CONTEXT",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
-    },
-    {
-      "rank": 7,
-      "event_id": "POLYMARKET:559708",
-      "question": "Will Shawn Fain win the 2028 Democratic presidential nomination?",
-      "venue": "polymarket",
-      "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
-      },
-      "implied_probability": 0.004,
-      "trending_score": 95.64,
-      "context_link": "NO_DIRECT_P01_CONTEXT",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
-    },
-    {
-      "rank": 8,
       "event_id": "POLYMARKET:561243",
       "question": "Will Donald Trump win the 2028 US Presidential Election?",
       "venue": "polymarket",
@@ -171,29 +139,13 @@
         "en": "Politics"
       },
       "implied_probability": 0.0135,
-      "trending_score": 95.51,
+      "trending_score": 95.48,
       "context_link": "NO_DIRECT_P01_CONTEXT",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
-      "rank": 9,
-      "event_id": "POLYMARKET:559703",
-      "question": "Will Chris Van Hollen win the 2028 Democratic presidential nomination?",
-      "venue": "polymarket",
-      "category": {
-        "key": "politics",
-        "zh": "政治",
-        "en": "Politics"
-      },
-      "implied_probability": 0.0035,
-      "trending_score": 95.44,
-      "context_link": "NO_DIRECT_P01_CONTEXT",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
-    },
-    {
-      "rank": 10,
+      "rank": 7,
       "event_id": "POLYMARKET:561267",
       "question": "Will Hakeem Jeffries win the 2028 US Presidential Election?",
       "venue": "polymarket",
@@ -209,6 +161,54 @@
       "relationship_reason": "No direct P01 market-context mapping is defined for this category."
     },
     {
+      "rank": 8,
+      "event_id": "POLYMARKET:559685",
+      "question": "Will MrBeast win the 2028 Democratic presidential nomination?",
+      "venue": "polymarket",
+      "category": {
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
+      },
+      "implied_probability": 0.0005,
+      "trending_score": 94.22,
+      "context_link": "NO_DIRECT_P01_CONTEXT",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
+    },
+    {
+      "rank": 9,
+      "event_id": "POLYMARKET:559661",
+      "question": "Will Jon Ossoff win the 2028 Democratic presidential nomination?",
+      "venue": "polymarket",
+      "category": {
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
+      },
+      "implied_probability": 0.2665,
+      "trending_score": 92.7,
+      "context_link": "NO_DIRECT_P01_CONTEXT",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
+    },
+    {
+      "rank": 10,
+      "event_id": "POLYMARKET:559672",
+      "question": "Will Roy Cooper win the 2028 Democratic presidential nomination?",
+      "venue": "polymarket",
+      "category": {
+        "key": "politics",
+        "zh": "政治",
+        "en": "Politics"
+      },
+      "implied_probability": 0.005,
+      "trending_score": 91.95,
+      "context_link": "NO_DIRECT_P01_CONTEXT",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "No direct P01 market-context mapping is defined for this category."
+    },
+    {
       "rank": 11,
       "event_id": "POLYMARKET:701501",
       "question": "Will Bitcoin dip to $55,000 by December 31, 2026?",
@@ -219,23 +219,23 @@
         "en": "Crypto"
       },
       "implied_probability": 0.115,
-      "trending_score": 90.14,
+      "trending_score": 90.6,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 12,
-      "event_id": "POLYMARKET:2126461",
-      "question": "Will Crude Oil reach a new all-time high by December 31?",
+      "event_id": "POLYMARKET:1393070",
+      "question": "Will Bitcoin reach $1,000,000 by December 31, 2026?",
       "venue": "polymarket",
       "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
+        "key": "crypto",
+        "zh": "加密貨幣",
+        "en": "Crypto"
       },
-      "implied_probability": 0.055,
-      "trending_score": 89.97,
+      "implied_probability": 0.0015,
+      "trending_score": 90.49,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -250,30 +250,46 @@
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "implied_probability": 0.355,
-      "trending_score": 89.93,
+      "implied_probability": 0.365,
+      "trending_score": 90.06,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 14,
-      "event_id": "POLYMARKET:1393070",
-      "question": "Will Bitcoin reach $1,000,000 by December 31, 2026?",
-      "venue": "polymarket",
+      "event_id": "KALSHI:KXBTC2026200-27JAN01-200000",
+      "question": "Will Bitcoin be above $200000 by Jan 1, 2027 at 11:59PM ET?",
+      "venue": "kalshi",
       "category": {
         "key": "crypto",
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "implied_probability": 0.0015,
-      "trending_score": 89.89,
+      "implied_probability": 0.02,
+      "trending_score": 89.76,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 15,
+      "event_id": "POLYMARKET:2126461",
+      "question": "Will Crude Oil reach a new all-time high by December 31?",
+      "venue": "polymarket",
+      "category": {
+        "key": "energy",
+        "zh": "能源",
+        "en": "Energy"
+      },
+      "implied_probability": 0.045,
+      "trending_score": 89.35,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 16,
       "event_id": "POLYMARKET:6507390",
       "question": "Will Bitcoin dip to $57,500 in November?",
       "venue": "polymarket",
@@ -282,24 +298,8 @@
         "zh": "加密貨幣",
         "en": "Crypto"
       },
-      "implied_probability": 0.0475,
-      "trending_score": 89.28,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 16,
-      "event_id": "POLYMARKET:1339767",
-      "question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
-      "venue": "polymarket",
-      "category": {
-        "key": "crypto",
-        "zh": "加密貨幣",
-        "en": "Crypto"
-      },
-      "implied_probability": 0.0565,
-      "trending_score": 89.2,
+      "implied_probability": 0.0335,
+      "trending_score": 89.08,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -315,29 +315,13 @@
         "en": "Precious Metals"
       },
       "implied_probability": 0.015,
-      "trending_score": 87.56,
+      "trending_score": 87.96,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
     },
     {
       "rank": 18,
-      "event_id": "POLYMARKET:6172747",
-      "question": "Will WTI Crude Oil (WTI) hit (HIGH) $150 in November?",
-      "venue": "polymarket",
-      "category": {
-        "key": "energy",
-        "zh": "能源",
-        "en": "Energy"
-      },
-      "implied_probability": 0.0095,
-      "trending_score": 86.64,
-      "context_link": "P01_CONTEXT_AVAILABLE",
-      "relationship": "INSUFFICIENT_EVIDENCE",
-      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
-    },
-    {
-      "rank": 19,
       "event_id": "POLYMARKET:4664660",
       "question": "Will Anthropic have the best AI model at the end of November 2026?",
       "venue": "polymarket",
@@ -346,8 +330,24 @@
         "zh": "科技",
         "en": "Technology"
       },
-      "implied_probability": 0.19,
-      "trending_score": 86.26,
+      "implied_probability": 0.155,
+      "trending_score": 86.2,
+      "context_link": "P01_CONTEXT_AVAILABLE",
+      "relationship": "INSUFFICIENT_EVIDENCE",
+      "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
+    },
+    {
+      "rank": 19,
+      "event_id": "POLYMARKET:2431413",
+      "question": "Will Anthropic have the best AI model at the end of December 2026?",
+      "venue": "polymarket",
+      "category": {
+        "key": "technology",
+        "zh": "科技",
+        "en": "Technology"
+      },
+      "implied_probability": 0.23,
+      "trending_score": 85.45,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
@@ -362,8 +362,8 @@
         "zh": "科技",
         "en": "Technology"
       },
-      "implied_probability": 0.725,
-      "trending_score": 86.01,
+      "implied_probability": 0.72,
+      "trending_score": 85.3,
       "context_link": "P01_CONTEXT_AVAILABLE",
       "relationship": "INSUFFICIENT_EVIDENCE",
       "relationship_reason": "P01 context is relevant supporting evidence, but INT-001 does not infer causal or directional alignment without an explicit comparable rule."
