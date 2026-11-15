@@ -1,6 +1,6 @@
 {
   "version": "P03-001A",
-  "generated_at": "2026-11-15T17:42:43.202326+00:00",
+  "generated_at": "2026-11-15T22:48:56.206329+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -15,8 +15,8 @@
       "sources_checked": 6,
       "sources_available": 5,
       "evidence_coverage_pct": 83.3,
-      "median_price": 64594.1,
-      "max_deviation_pct": 0.0125,
+      "median_price": 65217.6,
+      "max_deviation_pct": 0.0488,
       "source_agreement": "HIGH",
       "data_quality": "PASS"
     },
@@ -24,8 +24,8 @@
       "sources_checked": 6,
       "sources_available": 5,
       "evidence_coverage_pct": 83.3,
-      "median_price": 1807.81,
-      "max_deviation_pct": 0.0133,
+      "median_price": 1827.8,
+      "max_deviation_pct": 0.0416,
       "source_agreement": "HIGH",
       "data_quality": "PASS"
     }
@@ -39,14 +39,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 64590.49,
-      "bid": 64590.02,
-      "ask": 64590.03,
-      "volume_24h": 2263333600.18586,
-      "source_ts": "2026-11-15T17:42:43.004000+00:00",
-      "latency_ms": 785,
-      "deviation_from_median_pct": -0.0056
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 65215.82,
+      "bid": 65215.82,
+      "ask": 65215.83,
+      "volume_24h": 1960744172.7344446,
+      "source_ts": "2026-11-15T22:48:56.001000+00:00",
+      "latency_ms": 678,
+      "deviation_from_median_pct": -0.0027
     },
     {
       "asset": "BTC",
@@ -56,14 +56,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 64602.19,
-      "bid": 64598.99,
-      "ask": 64599.0,
-      "volume_24h": 344584257.33,
-      "source_ts": "2026-11-15T17:42:44.229000+00:00",
-      "latency_ms": 408,
-      "deviation_from_median_pct": 0.0125
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 65222.65,
+      "bid": 65219.33,
+      "ask": 65219.52,
+      "volume_24h": 304426146.06,
+      "source_ts": "2026-11-15T22:48:56.682000+00:00",
+      "latency_ms": 209,
+      "deviation_from_median_pct": 0.0077
     },
     {
       "asset": "BTC",
@@ -73,14 +73,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 64594.9,
-      "bid": 64593.2,
-      "ask": 64593.3,
-      "volume_24h": 1399280370.4431312,
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 65217.6,
+      "bid": 65217.4,
+      "ask": 65217.5,
+      "volume_24h": 1157564006.4486096,
       "source_ts": null,
-      "latency_ms": 669,
-      "deviation_from_median_pct": 0.0012
+      "latency_ms": 695,
+      "deviation_from_median_pct": 0.0
     },
     {
       "asset": "BTC",
@@ -90,14 +90,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 64587.61,
-      "bid": 64587.6,
-      "ask": 64587.61,
-      "volume_24h": 760262199.409511,
-      "source_ts": "2026-11-15T17:42:43.787000+00:00",
-      "latency_ms": 248,
-      "deviation_from_median_pct": -0.01
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 65211.41,
+      "bid": 65211.0,
+      "ask": 65211.01,
+      "volume_24h": 642749708.939048,
+      "source_ts": "2026-11-15T22:48:56.455000+00:00",
+      "latency_ms": 301,
+      "deviation_from_median_pct": -0.0095
     },
     {
       "asset": "BTC",
@@ -107,9 +107,9 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "UNAVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
       "error": "HTTPError: 403 Client Error: Forbidden for url: https://api.bybit.com/v5/market/tickers?category=spot&symbol=BTCUSDT",
-      "latency_ms": 144
+      "latency_ms": 46
     },
     {
       "asset": "BTC",
@@ -119,14 +119,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 64594.1,
-      "bid": 64529.14,
-      "ask": 64610.54,
-      "volume_24h": 65.19563969,
-      "source_ts": "2026-11-15T17:42:01.997331904Z",
-      "latency_ms": 82,
-      "deviation_from_median_pct": 0.0
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 65249.43,
+      "bid": 65176.07,
+      "ask": 65239.71,
+      "volume_24h": 53.81579006,
+      "source_ts": "2026-11-15T22:47:35.230793092Z",
+      "latency_ms": 84,
+      "deviation_from_median_pct": 0.0488
     },
     {
       "asset": "ETH",
@@ -136,14 +136,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 1807.65,
-      "bid": 1807.64,
-      "ask": 1807.65,
-      "volume_24h": 969629665.98162,
-      "source_ts": "2026-11-15T17:42:45.961000+00:00",
-      "latency_ms": 641,
-      "deviation_from_median_pct": -0.0089
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 1827.68,
+      "bid": 1827.67,
+      "ask": 1827.68,
+      "volume_24h": 818283298.55808,
+      "source_ts": "2026-11-15T22:48:58.005000+00:00",
+      "latency_ms": 448,
+      "deviation_from_median_pct": -0.0066
     },
     {
       "asset": "ETH",
@@ -153,14 +153,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 1808.05,
-      "bid": 1807.66,
-      "ask": 1807.67,
-      "volume_24h": 304818247.32,
-      "source_ts": "2026-11-15T17:42:46.584000+00:00",
-      "latency_ms": 573,
-      "deviation_from_median_pct": 0.0133
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 1828.34,
+      "bid": 1827.83,
+      "ask": 1827.84,
+      "volume_24h": 250683139.87,
+      "source_ts": "2026-11-15T22:48:58.767000+00:00",
+      "latency_ms": 157,
+      "deviation_from_median_pct": 0.0295
     },
     {
       "asset": "ETH",
@@ -170,14 +170,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 1807.73,
-      "bid": 1807.45,
-      "ask": 1807.58,
-      "volume_24h": 598454400.540262,
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 1827.8,
+      "bid": 1827.79,
+      "ask": 1827.8,
+      "volume_24h": 481240695.9814919,
       "source_ts": null,
-      "latency_ms": 622,
-      "deviation_from_median_pct": -0.0044
+      "latency_ms": 535,
+      "deviation_from_median_pct": 0.0
     },
     {
       "asset": "ETH",
@@ -187,14 +187,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 1807.81,
-      "bid": 1807.8,
-      "ask": 1807.81,
-      "volume_24h": 406700948.2908,
-      "source_ts": "2026-11-15T17:42:46.495000+00:00",
-      "latency_ms": 187,
-      "deviation_from_median_pct": 0.0
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 1827.68,
+      "bid": 1827.68,
+      "ask": 1827.69,
+      "volume_24h": 352368527.959,
+      "source_ts": "2026-11-15T22:48:58.909000+00:00",
+      "latency_ms": 140,
+      "deviation_from_median_pct": -0.0066
     },
     {
       "asset": "ETH",
@@ -204,9 +204,9 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "UNAVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
       "error": "HTTPError: 403 Client Error: Forbidden for url: https://api.bybit.com/v5/market/tickers?category=spot&symbol=ETHUSDT",
-      "latency_ms": 67
+      "latency_ms": 22
     },
     {
       "asset": "ETH",
@@ -216,14 +216,14 @@
       "access": "PUBLIC_READ_ONLY",
       "execution": "DISABLED",
       "status": "AVAILABLE",
-      "collected_at": "2026-11-15T17:42:43.202326+00:00",
-      "price": 1808.03,
-      "bid": 1807.06,
-      "ask": 1807.9,
-      "volume_24h": 3417.32731543,
-      "source_ts": "2026-11-15T17:42:36.610354871Z",
-      "latency_ms": 50,
-      "deviation_from_median_pct": 0.0122
+      "collected_at": "2026-11-15T22:48:56.206329+00:00",
+      "price": 1828.56,
+      "bid": 1827.26,
+      "ask": 1829.66,
+      "volume_24h": 2875.72567176,
+      "source_ts": "2026-11-15T22:46:39.941911144Z",
+      "latency_ms": 151,
+      "deviation_from_median_pct": 0.0416
     }
   ]
 }
