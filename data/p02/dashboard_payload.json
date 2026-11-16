@@ -1,11 +1,11 @@
 {
   "product": "P02",
   "version": "P02-v1.0",
-  "generated_at": "2026-11-16T06:16:07.200676Z",
+  "generated_at": "2026-11-16T21:56:30.894582Z",
   "execution_allowed": false,
   "summary": {
-    "polymarket_markets": 1692,
-    "kalshi_markets": 3034,
+    "polymarket_markets": 1637,
+    "kalshi_markets": 3064,
     "matched_events": 0,
     "discrepancy_signals": 0,
     "p01_context_available": true,
@@ -19,8 +19,8 @@
     "category_cap": 5,
     "category_counts": {
       "equities": 5,
-      "politics": 5,
       "macro": 5,
+      "politics": 5,
       "crypto": 5
     },
     "predictions": [
@@ -29,12 +29,12 @@
         "venue": "polymarket",
         "question": "Will there be no new be CEO of NVIDIA by December 31, 2028?",
         "outcome": "YES",
-        "implied_probability": 0.162,
-        "volume_usd": 762732.7976950001,
-        "liquidity_usd": 147543.40494,
+        "implied_probability": 0.088,
+        "volume_usd": 1049595.26135,
+        "liquidity_usd": 128012.17484,
         "market_close_time": "2029-01-01",
         "source_url": "https://polymarket.com/market/will-candidate-a-be-the-next-ceo-of-nvidia",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -42,28 +42,28 @@
           "zh": "股市",
           "en": "Equities"
         },
-        "trending_score": 95.85,
+        "trending_score": 96.28,
         "rank": 1
       },
       {
-        "event_id": "POLYMARKET:561258",
+        "event_id": "POLYMARKET:6998284",
         "venue": "polymarket",
-        "question": "Will Jamie Dimon win the 2028 US Presidential Election?",
+        "question": "Will Jensen Huang rejoin NVIDIA by November 30, 2026?",
         "outcome": "YES",
-        "implied_probability": 0.0025,
-        "volume_usd": 296033.6,
-        "liquidity_usd": 345509.92856,
-        "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-jamie-dimon-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-16T06:15:53.212683Z",
+        "implied_probability": 0.0315,
+        "volume_usd": 793015.848246,
+        "liquidity_usd": 172720.67109,
+        "market_close_time": "2026-12-01",
+        "source_url": "https://polymarket.com/market/will-jensen-huang-rejoin-nvidia-by-november-30-2026",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
-          "key": "politics",
-          "zh": "政治",
-          "en": "Politics"
+          "key": "equities",
+          "zh": "股市",
+          "en": "Equities"
         },
-        "trending_score": 94.99,
+        "trending_score": 96.23,
         "rank": 2
       },
       {
@@ -71,12 +71,12 @@
         "venue": "polymarket",
         "question": "Will Jensen Huang rejoin NVIDIA by December 31, 2026?",
         "outcome": "YES",
-        "implied_probability": 0.1595,
-        "volume_usd": 361568.07511400006,
-        "liquidity_usd": 247407.80848,
+        "implied_probability": 0.1135,
+        "volume_usd": 764057.74409,
+        "liquidity_usd": 132038.06884,
         "market_close_time": "2027-01-01",
         "source_url": "https://polymarket.com/market/will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -84,8 +84,50 @@
           "zh": "股市",
           "en": "Equities"
         },
-        "trending_score": 94.9,
+        "trending_score": 95.65,
         "rank": 3
+      },
+      {
+        "event_id": "POLYMARKET:3215009",
+        "venue": "polymarket",
+        "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
+        "outcome": "YES",
+        "implied_probability": 0.0465,
+        "volume_usd": 309356.289339,
+        "liquidity_usd": 351288.33832,
+        "market_close_time": "2026-12-09",
+        "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "macro",
+          "zh": "總經／利率",
+          "en": "Macro & Rates"
+        },
+        "trending_score": 95.13,
+        "rank": 4
+      },
+      {
+        "event_id": "POLYMARKET:3215007",
+        "venue": "polymarket",
+        "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+        "outcome": "YES",
+        "implied_probability": 0.031,
+        "volume_usd": 266518.84368700004,
+        "liquidity_usd": 378459.12599,
+        "market_close_time": "2026-12-09",
+        "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "macro",
+          "zh": "總經／利率",
+          "en": "Macro & Rates"
+        },
+        "trending_score": 94.89,
+        "rank": 5
       },
       {
         "event_id": "POLYMARKET:559709",
@@ -93,11 +135,11 @@
         "question": "Will Rob Sand win the 2028 Democratic presidential nomination?",
         "outcome": "YES",
         "implied_probability": 0.001,
-        "volume_usd": 168321.16,
-        "liquidity_usd": 477270.60764,
+        "volume_usd": 167316.16,
+        "liquidity_usd": 512631.91275,
         "market_close_time": "2028-11-07",
         "source_url": "https://polymarket.com/market/will-rob-sand-win-the-2028-democratic-presidential-nomination",
-        "retrieved_at": "2026-11-16T06:15:53.212683Z",
+        "retrieved_at": "2026-11-16T21:56:15.216628Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -105,20 +147,20 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 94.15,
-        "rank": 4
+        "trending_score": 94.26,
+        "rank": 6
       },
       {
         "event_id": "POLYMARKET:3215008",
         "venue": "polymarket",
         "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.875,
-        "volume_usd": 101387.68665900001,
-        "liquidity_usd": 750096.0754,
+        "implied_probability": 0.915,
+        "volume_usd": 180038.67353,
+        "liquidity_usd": 388700.9602,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -126,62 +168,20 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 93.68,
-        "rank": 5
-      },
-      {
-        "event_id": "POLYMARKET:6998284",
-        "venue": "polymarket",
-        "question": "Will Jensen Huang rejoin NVIDIA by November 30, 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.0895,
-        "volume_usd": 372249.84047099994,
-        "liquidity_usd": 91721.68813,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "equities",
-          "zh": "股市",
-          "en": "Equities"
-        },
-        "trending_score": 93.17,
-        "rank": 6
-      },
-      {
-        "event_id": "POLYMARKET:559704",
-        "venue": "polymarket",
-        "question": "Will Mitch Landrieu win the 2028 Democratic presidential nomination?",
-        "outcome": "YES",
-        "implied_probability": 0.0015,
-        "volume_usd": 48801.862,
-        "liquidity_usd": 2033806.99334,
-        "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination",
-        "retrieved_at": "2026-11-16T06:15:53.212683Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "politics",
-          "zh": "政治",
-          "en": "Politics"
-        },
-        "trending_score": 92.35,
+        "trending_score": 93.95,
         "rank": 7
       },
       {
-        "event_id": "POLYMARKET:3215007",
+        "event_id": "POLYMARKET:3215006",
         "venue": "polymarket",
-        "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+        "question": "Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?",
         "outcome": "YES",
-        "implied_probability": 0.0355,
-        "volume_usd": 97402.602334,
-        "liquidity_usd": 373077.59728,
+        "implied_probability": 0.0035,
+        "volume_usd": 160261.66298699996,
+        "liquidity_usd": 388070.33881,
         "market_close_time": "2026-12-09",
-        "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -189,29 +189,8 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 92.32,
+        "trending_score": 93.65,
         "rank": 8
-      },
-      {
-        "event_id": "POLYMARKET:1393070",
-        "venue": "polymarket",
-        "question": "Will Bitcoin reach $1,000,000 by December 31, 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.0015,
-        "volume_usd": 56223.962,
-        "liquidity_usd": 466096.99511,
-        "market_close_time": "2027-01-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-reach-1000000-by-december-31-2026-946",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 91.33,
-        "rank": 9
       },
       {
         "event_id": "POLYMARKET:3215005",
@@ -219,11 +198,11 @@
         "question": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
         "outcome": "YES",
         "implied_probability": 0.0025,
-        "volume_usd": 76532.58433800002,
-        "liquidity_usd": 191651.17045,
+        "volume_usd": 193931.98775,
+        "liquidity_usd": 252691.00065,
         "market_close_time": "2026-12-09",
         "source_url": "https://polymarket.com/market/will-the-fed-decrease-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808633",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -231,8 +210,50 @@
           "zh": "總經／利率",
           "en": "Macro & Rates"
         },
-        "trending_score": 90.5,
+        "trending_score": 93.36,
+        "rank": 9
+      },
+      {
+        "event_id": "POLYMARKET:559654",
+        "venue": "polymarket",
+        "question": "Will Pete Buttigieg win the 2028 Democratic presidential nomination?",
+        "outcome": "YES",
+        "implied_probability": 0.0515,
+        "volume_usd": 82425.235926,
+        "liquidity_usd": 741544.57497,
+        "market_close_time": "2028-11-08",
+        "source_url": "https://polymarket.com/market/will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687",
+        "retrieved_at": "2026-11-16T21:56:15.216628Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 93.14,
         "rank": 10
+      },
+      {
+        "event_id": "POLYMARKET:559669",
+        "venue": "polymarket",
+        "question": "Will Rahm Emanuel win the 2028 Democratic presidential nomination?",
+        "outcome": "YES",
+        "implied_probability": 0.0105,
+        "volume_usd": 81428.183728,
+        "liquidity_usd": 523632.00671,
+        "market_close_time": "2028-11-08",
+        "source_url": "https://polymarket.com/market/will-rahm-emanuel-win-the-2028-democratic-presidential-nomination-299",
+        "retrieved_at": "2026-11-16T21:56:15.216628Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 92.48,
+        "rank": 11
       },
       {
         "event_id": "POLYMARKET:559657",
@@ -240,11 +261,11 @@
         "question": "Will Stephen A. Smith win the 2028 Democratic presidential nomination?",
         "outcome": "YES",
         "implied_probability": 0.0015,
-        "volume_usd": 22440.288999999997,
-        "liquidity_usd": 1577010.06598,
+        "volume_usd": 36876.025,
+        "liquidity_usd": 1594665.12297,
         "market_close_time": "2028-11-08",
         "source_url": "https://polymarket.com/market/will-stephen-a-smith-win-the-2028-democratic-presidential-nomination-914",
-        "retrieved_at": "2026-11-16T06:15:53.212683Z",
+        "retrieved_at": "2026-11-16T21:56:15.216628Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -252,20 +273,62 @@
           "zh": "政治",
           "en": "Politics"
         },
-        "trending_score": 90.38,
-        "rank": 11
+        "trending_score": 91.64,
+        "rank": 12
+      },
+      {
+        "event_id": "POLYMARKET:559704",
+        "venue": "polymarket",
+        "question": "Will Mitch Landrieu win the 2028 Democratic presidential nomination?",
+        "outcome": "YES",
+        "implied_probability": 0.0015,
+        "volume_usd": 33929.183999999994,
+        "liquidity_usd": 2025979.34957,
+        "market_close_time": "2028-11-08",
+        "source_url": "https://polymarket.com/market/will-mitch-landrieu-win-the-2028-democratic-presidential-nomination",
+        "retrieved_at": "2026-11-16T21:56:15.216628Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "politics",
+          "zh": "政治",
+          "en": "Politics"
+        },
+        "trending_score": 91.43,
+        "rank": 13
+      },
+      {
+        "event_id": "POLYMARKET:701502",
+        "venue": "polymarket",
+        "question": "Will Bitcoin dip to $45,000 by December 31, 2026?",
+        "outcome": "YES",
+        "implied_probability": 0.084,
+        "volume_usd": 76598.37999700001,
+        "liquidity_usd": 233105.76089,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-45000-by-december-31-2026-674-923-755-971-998-525-926-245-316-517-544-589-965-923-986-841-815-224-586-231-289-533-573",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 90.86,
+        "rank": 14
       },
       {
         "event_id": "POLYMARKET:6919849",
         "venue": "polymarket",
         "question": "Will Ian Buck be the next CEO of NVIDIA?",
         "outcome": "YES",
-        "implied_probability": 0.165,
-        "volume_usd": 80812.06925,
-        "liquidity_usd": 136462.7895,
+        "implied_probability": 0.155,
+        "volume_usd": 63049.909231,
+        "liquidity_usd": 135885.461,
         "market_close_time": "2029-01-01",
         "source_url": "https://polymarket.com/market/will-ian-buck-be-the-next-ceo-of-nvidia",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -273,167 +336,20 @@
           "zh": "股市",
           "en": "Equities"
         },
-        "trending_score": 90.02,
-        "rank": 12
-      },
-      {
-        "event_id": "POLYMARKET:1339767",
-        "venue": "polymarket",
-        "question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.165,
-        "volume_usd": 91437.675972,
-        "liquidity_usd": 108686.40183,
-        "market_close_time": "2027-01-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451-853-523-111",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 89.92,
-        "rank": 13
-      },
-      {
-        "event_id": "POLYMARKET:561268",
-        "venue": "polymarket",
-        "question": "Will Elissa Slotkin win the 2028 US Presidential Election?",
-        "outcome": "YES",
-        "implied_probability": 0.0015,
-        "volume_usd": 19166.53,
-        "liquidity_usd": 956841.23505,
-        "market_close_time": "2028-11-08",
-        "source_url": "https://polymarket.com/market/will-elissa-slotkin-win-the-2028-us-presidential-election",
-        "retrieved_at": "2026-11-16T06:15:53.212683Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "politics",
-          "zh": "政治",
-          "en": "Politics"
-        },
-        "trending_score": 89.9,
-        "rank": 14
-      },
-      {
-        "event_id": "POLYMARKET:3215012",
-        "venue": "polymarket",
-        "question": "Will there be no change in Fed interest rates after the January 2027 meeting?",
-        "outcome": "YES",
-        "implied_probability": 0.375,
-        "volume_usd": 68403.45614000001,
-        "liquidity_usd": 144740.1094,
-        "market_close_time": "2027-01-28",
-        "source_url": "https://polymarket.com/market/will-there-be-no-change-in-fed-interest-rates-after-the-january-2027-meeting-20260729233815505",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "macro",
-          "zh": "總經／利率",
-          "en": "Macro & Rates"
-        },
-        "trending_score": 89.71,
+        "trending_score": 89.39,
         "rank": 15
-      },
-      {
-        "event_id": "POLYMARKET:6721566",
-        "venue": "polymarket",
-        "question": "Will Bitcoin reach $80,000 in November?",
-        "outcome": "YES",
-        "implied_probability": 0.036,
-        "volume_usd": 76012.14040100001,
-        "liquidity_usd": 98717.40096,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-reach-80k-in-november-2026-from-november-5",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 89.28,
-        "rank": 16
-      },
-      {
-        "event_id": "POLYMARKET:7043500",
-        "venue": "polymarket",
-        "question": "Will Bitcoin dip to $52,500 in November?",
-        "outcome": "YES",
-        "implied_probability": 0.105,
-        "volume_usd": 88795.241133,
-        "liquidity_usd": 75198.8896,
-        "market_close_time": "2026-12-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-52pt5k-in-november-2026",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 89.18,
-        "rank": 17
-      },
-      {
-        "event_id": "POLYMARKET:3215009",
-        "venue": "polymarket",
-        "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
-        "outcome": "YES",
-        "implied_probability": 0.0865,
-        "volume_usd": 24522.497951000005,
-        "liquidity_usd": 381395.53311,
-        "market_close_time": "2026-12-09",
-        "source_url": "https://polymarket.com/market/will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "macro",
-          "zh": "總經／利率",
-          "en": "Macro & Rates"
-        },
-        "trending_score": 88.86,
-        "rank": 18
-      },
-      {
-        "event_id": "POLYMARKET:1345531",
-        "venue": "polymarket",
-        "question": "Will Bitcoin reach $90,000 by December 31, 2026?",
-        "outcome": "YES",
-        "implied_probability": 0.065,
-        "volume_usd": 45152.968199,
-        "liquidity_usd": 122718.8141,
-        "market_close_time": "2027-01-01",
-        "source_url": "https://polymarket.com/market/will-bitcoin-reach-90000-by-december-31-2026-113-862-581-343",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
-        "freshness": "FRESH",
-        "data_quality": "PASS",
-        "category": {
-          "key": "crypto",
-          "zh": "加密貨幣",
-          "en": "Crypto"
-        },
-        "trending_score": 88.36,
-        "rank": 19
       },
       {
         "event_id": "POLYMARKET:6919836",
         "venue": "polymarket",
         "question": "Will Colette Kress be the next CEO of NVIDIA?",
         "outcome": "YES",
-        "implied_probability": 0.093,
-        "volume_usd": 41010.511054999995,
-        "liquidity_usd": 133113.71131,
+        "implied_probability": 0.085,
+        "volume_usd": 44526.124314,
+        "liquidity_usd": 175420.3184,
         "market_close_time": "2029-01-01",
         "source_url": "https://polymarket.com/market/will-colette-kress-be-the-next-ceo-of-nvidia",
-        "retrieved_at": "2026-11-16T06:15:55.218095Z",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
         "freshness": "FRESH",
         "data_quality": "PASS",
         "category": {
@@ -441,7 +357,91 @@
           "zh": "股市",
           "en": "Equities"
         },
-        "trending_score": 88.26,
+        "trending_score": 88.97,
+        "rank": 16
+      },
+      {
+        "event_id": "POLYMARKET:1339767",
+        "venue": "polymarket",
+        "question": "Will Bitcoin dip to $50,000 by December 31, 2026?",
+        "outcome": "YES",
+        "implied_probability": 0.1595,
+        "volume_usd": 55156.94791399999,
+        "liquidity_usd": 116942.42285,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-50000-by-december-31-2026-454-325-222-878-949-487-451-853-523-111",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 88.78,
+        "rank": 17
+      },
+      {
+        "event_id": "POLYMARKET:6507388",
+        "venue": "polymarket",
+        "question": "Will Bitcoin dip to $60,000 in November?",
+        "outcome": "YES",
+        "implied_probability": 0.365,
+        "volume_usd": 51607.08341,
+        "liquidity_usd": 106849.7746,
+        "market_close_time": "2026-12-01",
+        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-60k-in-november-2026",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 88.44,
+        "rank": 18
+      },
+      {
+        "event_id": "POLYMARKET:7085180",
+        "venue": "polymarket",
+        "question": "Will Bitcoin dip to $61,000 on November 16?",
+        "outcome": "YES",
+        "implied_probability": 0.01,
+        "volume_usd": 82561.301719,
+        "liquidity_usd": 46438.81058,
+        "market_close_time": "2026-11-17",
+        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-61k-on-november-16-2026",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 88.13,
+        "rank": 19
+      },
+      {
+        "event_id": "POLYMARKET:701501",
+        "venue": "polymarket",
+        "question": "Will Bitcoin dip to $55,000 by December 31, 2026?",
+        "outcome": "YES",
+        "implied_probability": 0.275,
+        "volume_usd": 36947.669929,
+        "liquidity_usd": 113021.4058,
+        "market_close_time": "2027-01-01",
+        "source_url": "https://polymarket.com/market/will-bitcoin-dip-to-55000-by-december-31-2026-527-627-868-745-188-361-314-673-612-946-821-624-855-557-684-381-884-939-182-939-516",
+        "retrieved_at": "2026-11-16T21:56:17.339407Z",
+        "freshness": "FRESH",
+        "data_quality": "PASS",
+        "category": {
+          "key": "crypto",
+          "zh": "加密貨幣",
+          "en": "Crypto"
+        },
+        "trending_score": 87.7,
         "rank": 20
       }
     ],
