@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "engine": "P01-NEWS-005",
-  "generated_at": "2026-11-15T07:21:06.328601Z",
+  "generated_at": "2026-11-16T07:28:01.701394Z",
   "status": "AVAILABLE",
   "sources": [
     {
@@ -55,19 +55,19 @@
     {
       "source": "NEWS:TW_MARKET",
       "status": "OK",
-      "items": 16,
+      "items": 17,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:US_MACRO",
       "status": "OK",
-      "items": 21,
+      "items": 25,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
       "source": "NEWS:WEB3_RWA",
-      "status": "OK",
-      "items": 1,
+      "status": "UNAVAILABLE",
+      "items": 0,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -85,7 +85,7 @@
     {
       "source": "TSMC",
       "status": "OK",
-      "items": 1,
+      "items": 2,
       "provider": "GOOGLE_NEWS_RSS"
     },
     {
@@ -103,7 +103,17 @@
   ],
   "errors": [
     {
-      "source": "Binance",
+      "source": "NEWS:WEB3_RWA",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Federal Reserve",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "SEC",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -113,12 +123,7 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "NEWS:WEB3_RWA",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Federal Reserve",
+      "source": "Binance",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -133,17 +138,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "SEC",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
       "source": "NEWS:US_MACRO",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "Bitget",
+      "source": "Coinbase",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "TWSE",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -158,22 +163,17 @@
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
-      "source": "TWSE",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Coinbase",
-      "provider": "GDELT",
-      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
-    },
-    {
-      "source": "Circle",
+      "source": "Bitget",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
     {
       "source": "Gate",
+      "provider": "GDELT",
+      "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
+    },
+    {
+      "source": "Circle",
       "provider": "GDELT",
       "error": "HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=5)"
     },
@@ -193,7 +193,7 @@
       "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
       "published_at": "2026-11-13T21:08:04Z",
-      "freshness": "FRESH",
+      "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
@@ -217,57 +217,14 @@
       ],
       "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 95,
+      "relevance_score": 83,
       "priority": "HIGH",
       "ranking_reasons": [
         "AUTHORITATIVE_SOURCE",
-        "FRESH",
+        "STALE",
         "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-AE70E166D411",
-      "title": "PCE Inflation Report Due Nov. 25 May Settle Fed's December Rate Decision - BigGo Finance",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBIUjhiMXZXa2lzNVRoc2lyeDRGcUU3OG1Jell2U0NLVnlLV0NuYXE4ZDc1Uk1kT2YteHRmY2NJa3o5ZU8wZzlvYWVGRVQyNFdxYzRFMFpzb0dSSjJ4VXRaRXlvR2hSN3BEWGd1VWpTRjNmeUlSMEE?oc=5",
-      "domain": "news.google.com",
-      "source_name": "BigGo Finance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T22:35:00Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "US_MACRO"
-      ],
-      "primary_topic": "US_MACRO",
-      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
-        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
-        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
-      },
-      "linked_p01_context": [
-        "US10Y",
-        "DXY",
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 85,
-      "priority": "HIGH",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
       ]
     },
     {
@@ -314,14 +271,14 @@
       ]
     },
     {
-      "id": "NEWS-EE388396006C",
-      "title": "Fed Rate Hike December 2026: Borrowing and Savings Outlook - JournalArta",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOcy1hdDA0V3pVbnJ1bkx2OFduVDNUWFdGV1NidTd4cHJIb3FaZ2Vmc056RF9GMzIzSng4RzlHUllpel80dVJwdXlRTEQtMXNsLWFycFcyWW0yV24wOGllbjdEX1Z2LTNMdlZ2Q1AxNHRIR0FuYW4wb1BYQ0pHSFg1Tk5qb1NlQ0U?oc=5",
+      "id": "NEWS-03C4FEA75102",
+      "title": "U.S. Core CPI Beats Forecast for Third Straight Month: Could the Fed Hike Rates Again? - KuCoin",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBVMkV6T0ZYY3VKZjlmelRkTkxjdU5qUkJncFJpRTJ1bFRxTHd2QlYxdjY4YjVWZEdhbzFRVjBZbDMzMGxOTkhfempBel9pUFZjd3NKaFVCOHUwMHNJaGJ4aE15MlQ5V0ROMTBqVnV5LVY4Wkp1?oc=5",
       "domain": "news.google.com",
-      "source_name": "JournalArta",
+      "source_name": "KuCoin",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-14T18:37:22Z",
+      "published_at": "2026-11-15T14:35:00Z",
       "freshness": "FRESH",
       "language": "English",
       "source_country": null,
@@ -357,46 +314,44 @@
       ]
     },
     {
-      "id": "NEWS-CE53EA937407",
-      "title": "Nvidia CEO Vacancy Sparks Selloff; Tech Stocks Shed Market Value in a Week as Bitcoin Falls Below $70,000 - BigGo Finance",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBQbzNVM2xOMjNtUzlhNjBuZG40VTMyR0NyTjdXZUE0Vk54RXprMjR5SzBES0VnbFJ1djlUZXZjbDAxN0J5RUwzWDUzcnVEVGZneG1BWGk2RHJkNHcwenZ0azVIYTBtM2hrZmxrZWlKV1FtcmNETXc?oc=5",
+      "id": "NEWS-AF4AC6AFC0BB",
+      "title": "TSMC Board of Directors Meeting Resolutions|Taiwan Semiconductor Manufacturing Company Limited - TSMC",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9QbV9mZXNmYXYzY0ppbGZWWFdZd01ZQklKOHdJTHJjZFhBNy1ScEYwMjRiZ1lzWS01NU9mNjVjeHNGTnhMUDh1aG9ONWZadw?oc=5",
       "domain": "news.google.com",
-      "source_name": "BigGo Finance",
-      "source_type": "NEWS_SOURCE",
+      "source_name": "TSMC",
+      "source_type": "OFFICIAL_COMPANY_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T22:25:00Z",
-      "freshness": "FRESH",
+      "published_at": "2026-11-10T12:00:00Z",
+      "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
-        "WEB3_RWA"
+        "TW_MARKET"
       ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
       },
       "linked_p01_context": [
-        "BTC",
-        "ETH",
         "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
+        "MARKET_RISK"
       ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "evidence_note": "Company-origin announcement; treat as first-party evidence.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
       "relevance_score": 75,
       "priority": "HIGH",
       "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
+        "AUTHORITATIVE_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
         "CORE_TOPIC",
-        "MARKET_RELEVANT"
+        "MARKET_IMPACT"
       ]
     },
     {
@@ -438,6 +393,49 @@
         "P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-AE70E166D411",
+      "title": "PCE Inflation Report Due Nov. 25 May Settle Fed's December Rate Decision - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBIUjhiMXZXa2lzNVRoc2lyeDRGcUU3OG1Jell2U0NLVnlLV0NuYXE4ZDc1Uk1kT2YteHRmY2NJa3o5ZU8wZzlvYWVGRVQyNFdxYzRFMFpzb0dSSjJ4VXRaRXlvR2hSN3BEWGd1VWpTRjNmeUlSMEE?oc=5",
+      "domain": "news.google.com",
+      "source_name": "BigGo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T22:35:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 73,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "HIGH_MARKET_IMPACT"
       ]
     },
     {
@@ -875,88 +873,6 @@
       ]
     },
     {
-      "id": "NEWS-9FC30A471286",
-      "title": "How TSMC’s employee data leak raises questions over cloud security - AMBCrypto",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNalhJVlN5NEZiNzVCTmVYbU5kV3Q3bTJGaDZFeDhXQXdmLUkydC1IRlZsazcxRVVjSkh6SGtzNTdPaHp6djhOcmt4OW1SNVctZVo2RzV0SU5OclNGM3FLdmdVR0MzNWlJMWJHZUhGSkhZNVVRQkdJVTlDZ2cteXlhMXdXTmJrTGhKRnRKNGN0MTB1QQ?oc=5",
-      "domain": "news.google.com",
-      "source_name": "AMBCrypto",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T23:00:24Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 72,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
-      "id": "NEWS-1BD0EF9466AC",
-      "title": "TSMC Confirms Employee Data Leak as Sellers Seek 3 Bitcoin - www.tokenpost.com",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE53OENENHVhbkpWRGkyczQ5bWYtZG5zVW84Rmh5c2ZmaG5VcTlOU1BFNXhLSWFaWXU5Q3RDOVhvWUd6dUk5MGE0Z05sdGIzVzU5NUNIN0RmVmI0MTA?oc=5",
-      "domain": "news.google.com",
-      "source_name": "www.tokenpost.com",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T22:54:11Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "TW_MARKET"
-      ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
-      "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
-      },
-      "linked_p01_context": [
-        "MARKET_REGIME",
-        "MARKET_RISK"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 72,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "P01_CONTEXT_MATCH",
-        "CORE_TOPIC",
-        "MARKET_IMPACT"
-      ]
-    },
-    {
       "id": "NEWS-5CB6DCC92851",
       "title": "Bitcoin Zone: Learn BTC Basics, Halving & Lightning Network | MEXC Learn - MEXC",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5LTnhFZ0xnVDhQcGt0dEQ3Xy15d0VaSTl2cVNNeWxuSm5oY3BtUmFmQXNEUi00VHdoOHM1VmJnWnRLYWtpcVhIZXNGVFlJUzVuVmVnRElYbEYzcEEz?oc=5",
@@ -1042,14 +958,14 @@
       ]
     },
     {
-      "id": "NEWS-27FF66AC7754",
-      "title": "Bitcoin Price Trades Near $71,200 After a Fresh Session Low as the 10-Year Yield Holds Above 5% - CryptoRank",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNR05Hb1BCdi1oTk1ZWG15QXd0cTZNLUZ4RlBWTktRYVVQVDI1SjBQU1dsa0VXTFUzU0VuWkJMUFJtZXJuU0JDcTZwbDVSR2dZWTkwWVFldGhnRHZqRG1welktcjRQOGNabmZXeFFKcjhqcnlVQXZjMG9mUFc0SmZLeC13?oc=5",
+      "id": "NEWS-9B30E8E18E2E",
+      "title": "Fed Rate Hike December 2026: Borrowing and Savings Outlook - JournalArta",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQSDAxeGw1ZWNMUjZDS1BDYVhPaGR2d05NcG94TTEzRnlPN1hJWlo2MjI2WGlyZzh0c0RMLWxtekpzck9SYkQ2amxHWUdPdDJIbUhUSXRQWFREMWw1VWFRU0E2OGhnT2Q1REVYOTdwYXZJM0VTckNtRnZTUlpCSnlyN3NWY0RHamtpN0xj?oc=5",
       "domain": "news.google.com",
-      "source_name": "CryptoRank",
+      "source_name": "JournalArta",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T02:06:51Z",
+      "published_at": "2026-11-14T18:37:22Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
@@ -1071,6 +987,53 @@
         "DXY",
         "MARKET_REGIME",
         "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 68,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-932A13D37D1C",
+      "title": "Coinbase Institutional says Fed rate expectations, not the Binance hack, sank Bitcoin - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPa2tSYmtpOUoxX09tX2xHeWtoNUkzanRYTDdOTEFFVVpJQUY3amd2UTg5RUExYUg4dDRnRzMyN0NudUlOSThhQkU5LWhFMHdCaGd3Q1RpVnF2ajFrbkZsQlU1WVRpRzhTWF9adjhuMzdTdHRXVUtNVGIwRE0wYjNvWTBPRWF2M0dsY1ZJSUhzLXJfSEZxVnlHUkE5Q2N5WDNvRURDc24yRlZBLW1ocjhHcEo2cjBmcWpPSjhVTWFhRGo0ekNjWHpXRVN0aVVOT2pxM2QyXzlIamdiSDdnUC1EZTNB?oc=5",
+      "domain": "news.google.com",
+      "source_name": "TradingView",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T23:48:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "EXCHANGE",
+        "US_MACRO"
+      ],
+      "primary_topic": "EXCHANGE",
+      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
+      "intelligence_summary": {
+        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
+        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
+        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK",
+        "BTC",
+        "ETH",
+        "EVIDENCE_CONFIDENCE"
       ],
       "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
@@ -1171,86 +1134,46 @@
       ]
     },
     {
-      "id": "NEWS-55C64B035032",
-      "title": "THE $39M SHORT SQUEEZE IS NOT A BITCOIN BULL MARKET REVERSAL ₿ - Binance",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0yWmVkUzlnc1ZUd0NXSXRZX0otUUl2SFgtMFFrTUJlazQwbWJYVmhrd3BIUDExOUk3WkZwaXlJZlF1dm9pbjVmcUpIYTFKbUJjOHBvLU1KdWx0aTFUSEViTWJIWGc?oc=5",
+      "id": "NEWS-751A49265D74",
+      "title": "US inflation runs hot: Bitcoin at $73,600 with stops in focus before December 9 - CryptoTicker.io",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBvd1N2MUROYTh5Zm1rNUJPTlJoajFHZnQ2SWlocVAxMnlXb0JtY0hmMXFQRS1jcjBwRWphSGxQRUpBSDJqQzNhbXZuSFBPd1QwLVNHd1ZaUkRhZkgtTzZWMlYxV1ZjY3JwQ3Zfdi00Z0M2NGJ2dGlz?oc=5",
       "domain": "news.google.com",
-      "source_name": "Binance",
+      "source_name": "CryptoTicker.io",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-14T09:27:49Z",
-      "freshness": "FRESH",
-      "language": "English",
-      "source_country": null,
-      "topics": [
-        "EXCHANGE"
-      ],
-      "primary_topic": "EXCHANGE",
-      "why_it_matters": "Exchange developments can affect market access, liquidity, compliance, and infrastructure.",
-      "intelligence_summary": {
-        "en": "This development is relevant to crypto market access, exchange infrastructure, liquidity, and compliance.",
-        "zh-TW": "此事件與加密市場進入、交易所基礎設施、流動性及合規相關。"
-      },
-      "why_it_matters_i18n": {
-        "en": "Exchange developments can affect market access, liquidity, custody, compliance, and trading infrastructure.",
-        "zh-TW": "交易所發展可能影響市場進入、流動性、託管、合規與交易基礎設施。"
-      },
-      "linked_p01_context": [
-        "BTC",
-        "ETH",
-        "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
-      ],
-      "evidence_note": "External news metadata; verify material claims at the original source.",
-      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 65,
-      "priority": "MEDIUM",
-      "ranking_reasons": [
-        "NEWS_SOURCE",
-        "FRESH",
-        "STRONG_P01_CONTEXT_MATCH",
-        "MARKET_RELEVANT"
-      ]
-    },
-    {
-      "id": "NEWS-D2B829E8AF37",
-      "title": "TSMC Faces Major Security Scare as Hackers Demand Bitcoin - Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOUk5INXI5Y0pSMGNKdEdUUFMyc01TeWpETk9DaGtsZDF4b0puN2xyekdwRDhkeXZsTkpINkZuOTZnU0djdFltT05Xb2N0QmtDeklTOHV5MmhZVWozdGNxSjJBUnk4MF9RVVB0NGczZXVOZ2JkMGR2SzhYM2VDSDIxbURfTEZoektfWGRHMnh4dExkeHpfSW05WkIwYw?oc=5",
-      "domain": "news.google.com",
-      "source_name": "Yahoo Finance",
-      "source_type": "NEWS_SOURCE",
-      "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-13T11:59:50Z",
+      "published_at": "2026-11-10T15:16:15Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
-        "TW_MARKET"
+        "US_MACRO"
       ],
-      "primary_topic": "TW_MARKET",
-      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
-        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
-        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
       },
       "linked_p01_context": [
+        "US10Y",
+        "DXY",
         "MARKET_REGIME",
         "MARKET_RISK"
       ],
       "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 65,
+      "relevance_score": 68,
       "priority": "MEDIUM",
       "ranking_reasons": [
         "NEWS_SOURCE",
         "STALE",
-        "P01_CONTEXT_MATCH",
+        "STRONG_P01_CONTEXT_MATCH",
         "CORE_TOPIC",
-        "HIGH_MARKET_IMPACT"
+        "MARKET_IMPACT"
       ]
     },
     {
@@ -1292,6 +1215,178 @@
         "P01_CONTEXT_MATCH",
         "CORE_TOPIC",
         "HIGH_MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-7DC9C410BBF3",
+      "title": "Markets Price Three Fed Hikes From December 2026 to March 2027 - www.tokenpost.com",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE40UnVUNllucVBnX3NSUEJmQnA2ZndKSTVTTEl6WHVsMk5aakFOVkJWS0FYOU1ZRWxQZDNwTGVuMG1EdnZXUTVHSXpVekhOUnAydVhGMVVIZVM5dw?oc=5",
+      "domain": "news.google.com",
+      "source_name": "www.tokenpost.com",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-14T00:58:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 63,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-CE53EA937407",
+      "title": "Nvidia CEO Vacancy Sparks Selloff; Tech Stocks Shed Market Value in a Week as Bitcoin Falls Below $70,000 - BigGo Finance",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBQbzNVM2xOMjNtUzlhNjBuZG40VTMyR0NyTjdXZUE0Vk54RXprMjR5SzBES0VnbFJ1djlUZXZjbDAxN0J5RUwzWDUzcnVEVGZneG1BWGk2RHJkNHcwenZ0azVIYTBtM2hrZmxrZWlKV1FtcmNETXc?oc=5",
+      "domain": "news.google.com",
+      "source_name": "BigGo Finance",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T22:25:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "WEB3_RWA"
+      ],
+      "primary_topic": "WEB3_RWA",
+      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
+        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
+        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+      },
+      "linked_p01_context": [
+        "BTC",
+        "ETH",
+        "MARKET_REGIME",
+        "EVIDENCE_CONFIDENCE"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 63,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-B37C6CB8F71C",
+      "title": "Hot US CPI Wipes Out $200 Million in Crypto Bets - BeInCrypto",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5jMnpqVEloR0dWSkhXeVdRMzVma1JGM19zd3lKVk1SVUw3TnF3OUJNbW5xWW5Jb20wMXZmeWVVT3hnSlFNS29WTEVMRVJsSnNVTzZWdWhESmNjVEJIUVlmNi0wQV9TOVRjd3Vr?oc=5",
+      "domain": "news.google.com",
+      "source_name": "BeInCrypto",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T14:01:15Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 63,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
+      "id": "NEWS-89671ABB472A",
+      "title": "U.S. Inflation Rate Is 3.7%: Why It Matters - NerdWallet",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Za3phOE0tNW9aSnJBY1BuMVVxTW43ZzhnUWVqUlE0cWxLNnktQjRiZC1nR0VwVnVHaDdxRUIwRGNjMDZuVW5CVFZPV1BtUjJhSlZYV3FnTUU0V2doMzRB?oc=5",
+      "domain": "news.google.com",
+      "source_name": "NerdWallet",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T08:00:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "US_MACRO"
+      ],
+      "primary_topic": "US_MACRO",
+      "why_it_matters": "Macro policy and rates can affect liquidity, USD conditions, and cross-asset risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to U.S. macro policy, rates, liquidity, and cross-asset market conditions.",
+        "zh-TW": "此事件與美國總體政策、利率、流動性及跨資產市場環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Macro policy and rates can affect Treasury yields, USD conditions, liquidity, and broader risk sentiment.",
+        "zh-TW": "總體政策與利率變化可能影響美債殖利率、美元環境、市場流動性與整體風險情緒。"
+      },
+      "linked_p01_context": [
+        "US10Y",
+        "DXY",
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 63,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "STRONG_P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
       ]
     },
     {
@@ -1424,14 +1519,14 @@
       ]
     },
     {
-      "id": "NEWS-B37C6CB8F71C",
-      "title": "Hot US CPI Wipes Out $200 Million in Crypto Bets - BeInCrypto",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5jMnpqVEloR0dWSkhXeVdRMzVma1JGM19zd3lKVk1SVUw3TnF3OUJNbW5xWW5Jb20wMXZmeWVVT3hnSlFNS29WTEVMRVJsSnNVTzZWdWhESmNjVEJIUVlmNi0wQV9TOVRjd3Vr?oc=5",
+      "id": "NEWS-5B2E64C31185",
+      "title": "Current U.S. Inflation Rate Report: Inflation Is Up 0.4% Since September - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9IVUFzaXF1S0VPcVRsVHA5R1FDNXFGX3dud3Nta3BJTDJDazdoRjNhRkVhenRBZjZpREFrNkFaa08tSTNuQjRiZlhyVU43bXdXLXdwa2ZEMXZ5Y0NVaWh1N0wwbDV6MjRvdGN0ZFVDTlVqZw?oc=5",
       "domain": "news.google.com",
-      "source_name": "BeInCrypto",
+      "source_name": "Forbes",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-11T04:25:30Z",
+      "published_at": "2026-11-10T19:32:00Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
@@ -1514,47 +1609,85 @@
       ]
     },
     {
-      "id": "NEWS-1547ACD3308E",
-      "title": "What Makes a Real World Asset Useful in DeFi When Tokenization is Not Enough - HackerNoon",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQd3dUOFpLMEJrVGVNSHY0UWJWeUE4RnlJRWVWR1o0VXhEeXRtdEdNUHJsaG1qcjBJcDlPUkJ0amZ5WnZ6aFhlemNjRVJ3MW41Ry1YYlJkZW5EYzdGSk1aLWc2MWdoX0EyS1lpMWplYU5aVC1zeHJVeGQ4T3p1dl9vdTRQSzNlYVNNd2k1QzhmYzNuMlNUNzItUlFIRXFHYWRG?oc=5",
+      "id": "NEWS-9FC30A471286",
+      "title": "How TSMC’s employee data leak raises questions over cloud security - AMBCrypto",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNalhJVlN5NEZiNzVCTmVYbU5kV3Q3bTJGaDZFeDhXQXdmLUkydC1IRlZsazcxRVVjSkh6SGtzNTdPaHp6djhOcmt4OW1SNVctZVo2RzV0SU5OclNGM3FLdmdVR0MzNWlJMWJHZUhGSkhZNVVRQkdJVTlDZ2cteXlhMXdXTmJrTGhKRnRKNGN0MTB1QQ?oc=5",
       "domain": "news.google.com",
-      "source_name": "HackerNoon",
+      "source_name": "AMBCrypto",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-09T20:04:06Z",
+      "published_at": "2026-11-13T23:00:24Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
       "topics": [
-        "WEB3_RWA",
-        "DEFI"
+        "TW_MARKET"
       ],
-      "primary_topic": "WEB3_RWA",
-      "why_it_matters": "Web3/RWA developments can affect tokenization infrastructure and institutional on-chain adoption.",
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
       "intelligence_summary": {
-        "en": "This development is relevant to Web3 infrastructure, tokenization, and institutional on-chain adoption.",
-        "zh-TW": "此事件與 Web3 基礎設施、資產代幣化及機構級鏈上採用相關。"
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
       },
       "why_it_matters_i18n": {
-        "en": "Web3 and RWA developments can change tokenization infrastructure, market access, and institutional adoption conditions.",
-        "zh-TW": "Web3 與 RWA 發展可能改變代幣化基礎設施、市場進入方式與機構採用條件。"
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
       },
       "linked_p01_context": [
-        "BTC",
-        "ETH",
         "MARKET_REGIME",
-        "EVIDENCE_CONFIDENCE"
+        "MARKET_RISK"
       ],
       "evidence_note": "External news metadata; verify material claims at the original source.",
       "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
-      "relevance_score": 63,
+      "relevance_score": 60,
       "priority": "MEDIUM",
       "ranking_reasons": [
         "NEWS_SOURCE",
         "STALE",
-        "STRONG_P01_CONTEXT_MATCH",
+        "P01_CONTEXT_MATCH",
         "CORE_TOPIC",
-        "MARKET_RELEVANT"
+        "MARKET_IMPACT"
+      ]
+    },
+    {
+      "id": "NEWS-1BD0EF9466AC",
+      "title": "TSMC Confirms Employee Data Leak as Sellers Seek 3 Bitcoin - www.tokenpost.com",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE53OENENHVhbkpWRGkyczQ5bWYtZG5zVW84Rmh5c2ZmaG5VcTlOU1BFNXhLSWFaWXU5Q3RDOVhvWUd6dUk5MGE0Z05sdGIzVzU5NUNIN0RmVmI0MTA?oc=5",
+      "domain": "news.google.com",
+      "source_name": "www.tokenpost.com",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-13T22:54:11Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 60,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_IMPACT"
       ]
     },
     {
@@ -1804,6 +1937,47 @@
       ]
     },
     {
+      "id": "NEWS-B8A32480E8C2",
+      "title": "TSMC Confirms Employee Data Leak of 46,000 Records - CryptoRank",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOVzNhSVdBMEJ6dG5VY3NhMDlDRzRmUkcxQ0tYRGg4b0gzaGJmazFsSWR1QW1keS1vbWhfS3BzR29jelpLNmF5dXdqLXhSR2VVLVhCVi0xVmFMNlpqOVdvMW9ITndPT043dFFkMnlNVnFCZUdxcGYxSENPaXZ0cHQxRDB3?oc=5",
+      "domain": "news.google.com",
+      "source_name": "CryptoRank",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-14T10:10:24Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
       "id": "NEWS-721C176C5761",
       "title": "TSMC Stock Slides 4% As Staff Data Of 46,000 Surfaces On Dark Web Forums - Coinpedia",
       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPS3VZcHhWai1DTXNpc0xpSE4xRzhhT2NDV2RxeHRhRGNpWGdYekxSUi1ocU0xRlpJT1BvdXBSUk1QYy1kOWxkZXZrQktWYm43Y09lMVEzZlB0QXJHQjVyamJtWklzSkJ5Q0hYWi1mVThHVHF0bXVvU2stS3ZsMENqc1poZXlPWXkxV3VWT0lvM1RiNk01eEpvX3BxQ3RDb3NEWVl6ejJWaW14MW5Kbnk00gG0AUFVX3lxTE5Uc0E1cVgzVTVZQ3FjMGsycWxUMjZRZ1lHa1JfbXFzQUVaX1l3Q1lfbi1CekxMeW5FME03azUtTlpLbzVZTjYybHhCZkw2ZmYzLXZxS2k5ZDE3V2R1X3YtRXBOc0NxS3N5M290SC1uc1hoM2RoZEVET2traVVxZVdENHVUdVdsdzh0ZGwtUTFLRXdlQjMzWGlUTVhnUWhLRWlITDdhcHJUb1pHY0lNcUZSNkQ1aQ?oc=5",
@@ -1927,6 +2101,47 @@
       ]
     },
     {
+      "id": "NEWS-1E99B80B0131",
+      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "domain": "news.google.com",
+      "source_name": "Britannica",
+      "source_type": "NEWS_SOURCE",
+      "provider": "GOOGLE_NEWS_RSS",
+      "published_at": "2026-11-11T18:16:00Z",
+      "freshness": "STALE",
+      "language": "English",
+      "source_country": null,
+      "topics": [
+        "TW_MARKET"
+      ],
+      "primary_topic": "TW_MARKET",
+      "why_it_matters": "Taiwan market developments can affect semiconductor and cross-market risk context.",
+      "intelligence_summary": {
+        "en": "This development is relevant to Taiwan equities, semiconductors, and cross-market risk conditions.",
+        "zh-TW": "此事件與台灣股市、半導體產業及跨市場風險環境相關。"
+      },
+      "why_it_matters_i18n": {
+        "en": "Taiwan market and semiconductor developments can affect technology supply chains and cross-market risk context.",
+        "zh-TW": "台灣市場與半導體產業發展可能影響科技供應鏈及跨市場風險環境。"
+      },
+      "linked_p01_context": [
+        "MARKET_REGIME",
+        "MARKET_RISK"
+      ],
+      "evidence_note": "External news metadata; verify material claims at the original source.",
+      "limitations": "Association with P01 context does not establish causality or constitute an investment recommendation.",
+      "relevance_score": 55,
+      "priority": "MEDIUM",
+      "ranking_reasons": [
+        "NEWS_SOURCE",
+        "STALE",
+        "P01_CONTEXT_MATCH",
+        "CORE_TOPIC",
+        "MARKET_RELEVANT"
+      ]
+    },
+    {
       "id": "NEWS-F2A660E83697",
       "title": "TSMC's October revenue jumps 59.7%, boosting tr... - Pluang",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQNmZ5ajh5RVNOQVc4SlcwT0o0OEFjbzBvRXpQU1NjUlgxZzRTeTJqUEEwR2JpT1d5Wkd1dmJOMTY3SXdVa1JpZVI0aGhJeTllMGxJUk9YeUVSTGN1RWstR2FCQjNtZnpEVE1PQ3pQWlp4NXRHOHZHOFVyWk4xNlMwVDZWeEtlekxVanZ5SGZTVlFVX0ZWTTI2eWxJUFRBd1Et?oc=5",
@@ -1968,14 +2183,14 @@
       ]
     },
     {
-      "id": "NEWS-1E99B80B0131",
-      "title": "Taiwan Semiconductor Manufacturing Co. | History, Leadership, Technologies, & Facts - Britannica",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1qcmkzWDFJem9aNjFJODBRVml5UUxNcWk5eXQ1bU41bUFiUG9LMFVHYWpnVi00Q0ZHSUZnTlpSTUdSVTMxUXpQcFUyMHVmLVVCMG96NldrdkU0bExZMW1RWlpyVU80Y2R0N29KejlpNWIweUVVRUxGUUtR?oc=5",
+      "id": "NEWS-8943D510AE89",
+      "title": "TSMC October revenue jumps 59.7% to $18.4 billion on AI chip demand - Crypto Briefing",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JMDd5Y09rbXRQUThXUlZQbUFqTlpwRC00YzF0NEVzUWZBYWlzSU5iYU9mdHJuRUNDYm5aX0JHSlRoZHkyTklWbWpjakpUbEtaSXdUMm9hQ3g3ZngwOVVUMVpDS1NRZ0luV0s1eUN1VU5pZw?oc=5",
       "domain": "news.google.com",
-      "source_name": "Britannica",
+      "source_name": "Crypto Briefing",
       "source_type": "NEWS_SOURCE",
       "provider": "GOOGLE_NEWS_RSS",
-      "published_at": "2026-11-08T16:00:00Z",
+      "published_at": "2026-11-10T16:07:19Z",
       "freshness": "STALE",
       "language": "English",
       "source_country": null,
