@@ -1,20 +1,20 @@
 {
   "schema_version": "4.0",
   "source_schema_version": "3.0",
-  "generated_at": "2026-11-16T07:27:50.648493+00:00",
+  "generated_at": "2026-11-17T08:40:17.054410+00:00",
   "rules_version": "1.0",
-  "quality_score": 0.9,
+  "quality_score": 0.95,
   "quality_gate": "PASS",
   "components": {
     "completeness": 1.0,
-    "freshness": 0.6,
+    "freshness": 0.8,
     "validity": 1.0,
     "consistency": 1.0
   },
   "counts": {
     "expected": 5,
     "available": 5,
-    "fresh": 3,
+    "fresh": 4,
     "valid": 5,
     "consistent": 5
   },
@@ -27,7 +27,7 @@
       "available": true,
       "freshness": {
         "is_fresh": false,
-        "age_hours": 103.4641,
+        "age_hours": 104.6714,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -51,7 +51,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 2.4641,
+        "age_hours": 3.6714,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -72,8 +72,8 @@
       "metric_id": "VIX",
       "available": true,
       "freshness": {
-        "is_fresh": false,
-        "age_hours": 73.4641,
+        "is_fresh": true,
+        "age_hours": 2.6714,
         "threshold_hours": 36.0
       },
       "validity": {
@@ -88,16 +88,14 @@
         "upstream_status": "FRESH",
         "upstream_error": null
       },
-      "reasons": [
-        "STALE_OBSERVATION"
-      ]
+      "reasons": []
     },
     {
       "metric_id": "BTC",
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0252,
+        "age_hours": 0.0325,
         "threshold_hours": 2.0
       },
       "validity": {
@@ -119,7 +117,7 @@
       "available": true,
       "freshness": {
         "is_fresh": true,
-        "age_hours": 0.0196,
+        "age_hours": 0.027,
         "threshold_hours": 2.0
       },
       "validity": {
