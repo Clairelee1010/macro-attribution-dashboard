@@ -1,7 +1,7 @@
 {
   "schema_version": "8.0",
   "source_schema_version": "7.0",
-  "generated_at": "2026-11-20T07:53:25.511735+00:00",
+  "generated_at": "2026-11-21T07:50:43.922061+00:00",
   "engine": "P01-008",
   "rules_version": "1.0",
   "regime": "RISK_OFF",
@@ -12,21 +12,21 @@
   "risk_drivers": [
     {
       "metric_id": "VIX",
-      "signal_id": "HIGH_VOLATILITY",
+      "signal_id": "EXTREME_VOLATILITY",
       "direction": "RISK_OFF",
-      "strength": "MODERATE",
-      "contribution_share": 0.5455,
+      "strength": "STRONG",
+      "contribution_share": 0.6429,
       "signal_confidence": 1.0,
-      "risk_impact": 16.365
+      "risk_impact": 19.287
     },
     {
       "metric_id": "DXY",
       "signal_id": "FIRM_DOLLAR",
       "direction": "RISK_OFF",
       "strength": "MODERATE",
-      "contribution_share": 0.4545,
+      "contribution_share": 0.3571,
       "signal_confidence": 1.0,
-      "risk_impact": 13.635
+      "risk_impact": 10.713
     }
   ],
   "protective_factors": [],
