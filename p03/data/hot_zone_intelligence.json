@@ -1,6 +1,6 @@
 {
   "version": "P03-003A",
-  "generated_at": "2026-11-24T02:30:38.479427+00:00",
+  "generated_at": "2026-11-24T12:51:43.840843+00:00",
   "mode": "PUBLIC_READ_ONLY",
   "execution": "DISABLED",
   "guardrails": [
@@ -26,19 +26,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.1,
-        "7D": 67.5,
+        "24H": 50.3,
+        "7D": 79.1,
         "30D": 80
       },
       "levels": {
-        "24H": "COOL",
-        "7D": "HOT",
+        "24H": "WATCH",
+        "7D": "VERY_HOT",
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 0.02,
-        "7D": -5.67,
-        "30D": -24.54
+        "24H": -2.37,
+        "7D": -7.91,
+        "30D": -26.03
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -52,8 +52,8 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 38.8,
-        "7D": 66.8,
+        "24H": 45.8,
+        "7D": 77.9,
         "30D": 80
       },
       "levels": {
@@ -62,9 +62,9 @@
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": -0.15,
-        "7D": -5.54,
-        "30D": -27.91
+        "24H": -1.5,
+        "7D": -7.67,
+        "30D": -28.56
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -78,19 +78,19 @@
       "evidence_type": "OBSERVED_MARKET_DATA",
       "heat_basis": "MARKET_MOMENTUM",
       "scores": {
-        "24H": 49.2,
-        "7D": 42.3,
+        "24H": 48.3,
+        "7D": 69.6,
         "30D": 80
       },
       "levels": {
         "24H": "WATCH",
-        "7D": "COOL",
+        "7D": "HOT",
         "30D": "VERY_HOT"
       },
       "changes_pct": {
-        "24H": 2.15,
-        "7D": 0.82,
-        "30D": -29.86
+        "24H": -1.99,
+        "7D": -6.07,
+        "30D": -31.02
       },
       "evidence_coverage_pct": 100.0,
       "source": "Yahoo Finance via yfinance",
@@ -105,18 +105,18 @@
       "heat_basis": "AGGREGATE_WATCHLIST_MOMENTUM",
       "scores": {
         "24H": 55.4,
-        "7D": 71.0,
-        "30D": 72.5
+        "7D": 61.8,
+        "30D": 66.0
       },
       "levels": {
         "24H": "WATCH",
-        "7D": "HOT",
+        "7D": "WATCH",
         "30D": "HOT"
       },
       "changes_pct": {
-        "24H": -3.72,
-        "7D": -8.55,
-        "30D": -8.74
+        "24H": 4.88,
+        "7D": -4.61,
+        "30D": -3.92
       },
       "evidence_coverage_pct": 100.0,
       "source": "INT multi-asset watchlist",
@@ -130,19 +130,19 @@
       "evidence_type": "INFERRED_ATTENTION",
       "heat_basis": "VERIFIED_MAPPING_PLUS_UNDERLYING_ACTIVITY",
       "scores": {
-        "24H": 64.0,
-        "7D": 75.5,
-        "30D": 74.0
+        "24H": 66.4,
+        "7D": 62.5,
+        "30D": 67.1
       },
       "levels": {
         "24H": "HOT",
-        "7D": "HOT",
+        "7D": "WATCH",
         "30D": "HOT"
       },
       "changes_pct": {
-        "24H": -4.98,
-        "7D": -10.65,
-        "30D": -14.05
+        "24H": 7.52,
+        "7D": -4.06,
+        "30D": -6.25
       },
       "evidence_coverage_pct": 36.7,
       "source": "INT verified tokenization mapping + live underlying watchlist",
@@ -156,9 +156,9 @@
       "evidence_type": "OBSERVED_MARKET_ACTIVITY",
       "heat_basis": "NON_POLITICAL_TRENDING_VOLUME_LIQUIDITY",
       "scores": {
-        "24H": 83.4,
-        "7D": 83.4,
-        "30D": 83.4
+        "24H": 83.5,
+        "7D": 83.5,
+        "30D": 83.5
       },
       "levels": {
         "24H": "VERY_HOT",
@@ -174,8 +174,8 @@
       "source": "P02 deterministic topic intelligence",
       "activity": {
         "top_nonpolitical_markets": 10,
-        "volume_usd": 6435122.81,
-        "liquidity_usd": 4261822.53
+        "volume_usd": 7279096.9,
+        "liquidity_usd": 5637842.48
       },
       "note_zh": "僅衡量非政治市場的活動與注意力，不預測事件結果。",
       "note_en": "Measures non-political market activity/attention only; it does not predict outcomes."
